@@ -1,3 +1,3 @@
-window.FREE_FILES = ["figs.js","chunk-1a.js","chunk-1b.js","chunk-1c.js","q-1a.js","q-1b.js","q-1c.js","summary-m1.js","chunk-2a.js","chunk-2b.js"];
-window.PRO_FILES = ["pro-1a.js","pro-1b.js","pro-1c.js","qa-1a.js","qa-1b.js","qa-1c.js","pro-2a.js","pro-2b.js","viz-m1.js"];
-window.FILE_MODULE = {"chunk-1a.js":"m1","pro-1a.js":"m1","chunk-1b.js":"m1","pro-1b.js":"m1","chunk-1c.js":"m1","pro-1c.js":"m1","q-1a.js":"m1","qa-1a.js":"m1","q-1b.js":"m1","qa-1b.js":"m1","q-1c.js":"m1","qa-1c.js":"m1","summary-m1.js":"m1","chunk-2a.js":"m2","pro-2a.js":"m2","chunk-2b.js":"m2","pro-2b.js":"m2","viz-m1.js":"m1"};
+window.FREE_FILES = ["figs.js","chunk-1a.js","chunk-1b.js","chunk-1c.js","q-1a.js","q-1b.js","q-1c.js","summary-m1.js","chunk-2a.js","chunk-2b.js","chunk-2c.js"];
+window.PRO_FILES = ["pro-1a.js","pro-1b.js","pro-1c.js","qa-1a.js","qa-1b.js","qa-1c.js","pro-2a.js","pro-2b.js","pro-2c.js","viz-m1.js"];
+window.FILE_MODULE = {"chunk-1a.js":"m1","pro-1a.js":"m1","chunk-1b.js":"m1","pro-1b.js":"m1","chunk-1c.js":"m1","pro-1c.js":"m1","q-1a.js":"m1","qa-1a.js":"m1","q-1b.js":"m1","qa-1b.js":"m1","q-1c.js":"m1","qa-1c.js":"m1","summary-m1.js":"m1","chunk-2a.js":"m2","pro-2a.js":"m2","chunk-2b.js":"m2","pro-2b.js":"m2","chunk-2c.js":"m2","pro-2c.js":"m2","viz-m1.js":"m1"};
