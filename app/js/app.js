@@ -371,12 +371,13 @@ window.__startApp = function () {
         <a class="sb-link" href="#mine" data-key="mine">${icon('pen')}<span>Highlights & notes</span>${PRO ? '' : '<span class="pro-tag">Pro</span>'}</a>
         <a class="sb-link" href="#battle" data-key="battle">${icon('swords')}<span>1v1 Quiz battle</span></a>
         <div class="sb-label">Exams</div>
-        <div class="sb-link" aria-disabled="true" style="opacity:.6;cursor:default">${icon('list')}<span>CAT-1 syllabus</span><span class="pro-tag">Soon</span></div>
-        <div class="sb-link" aria-disabled="true" style="opacity:.6;cursor:default">${icon('list')}<span>CAT-2 syllabus</span><span class="pro-tag">Soon</span></div>
-        <div class="sb-link" aria-disabled="true" style="opacity:.6;cursor:default">${icon('list')}<span>FAT syllabus</span><span class="pro-tag">Soon</span></div>
+        <a class="sb-link" href="#syllabus.cat1" data-key="syllabus.cat1">${icon('list')}<span>CAT-1 syllabus</span></a>
+        <a class="sb-link" href="#syllabus.cat2" data-key="syllabus.cat2">${icon('list')}<span>CAT-2 syllabus</span></a>
+        <a class="sb-link" href="#syllabus.fat" data-key="syllabus.fat">${icon('list')}<span>FAT syllabus</span></a>
         <a class="sb-link" href="#syllabus.full" data-key="syllabus.full">${icon('list')}<span>Syllabus checklist</span><span class="count" data-sylcount></span></a>
         ${(D.paperIndex || D.papers || []).length ? `<a class="sb-link" href="#papers" data-key="papers">${icon('exam')}<span>Question papers</span></a>` : ''}
         <a class="sb-link" href="#mock" data-key="mock">${icon('timer')}<span>Timed mock CAT</span>${PRO ? '' : '<span class="pro-tag">Pro</span>'}</a>
+        <a class="sb-link" href="#mock.fat" data-key="mock.fat">${icon('timer')}<span>Timed mock FAT</span>${PRO ? '' : '<span class="pro-tag">Pro</span>'}</a>
         <a class="sb-link" href="#revise" data-key="revise">${icon('fire')}<span>Revision pack</span>${PRO ? '' : '<span class="pro-tag">Pro</span>'}</a>
         ${PRO && !window.FREE_SITE ? '' : `<a class="sb-link sb-pro" href="#pro" data-key="pro">${icon('trophy')}<span>${window.FREE_SITE ? 'Pro (free right now)' : 'Why go Pro'}</span></a>`}
         <div class="sb-label">Talk to us</div>
@@ -870,22 +871,23 @@ window.__startApp = function () {
   }
 
   // Timed mock CAT (Pro): a real CAT paper (questions only), a 90-minute timer, then its model answers.
-  function viewMock() {
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Mock CAT' }]); setActive('mock'); document.title = 'Mock CAT · BAEEE101 Notes';
+  function viewMock(r) {
+    const FAT = !!(r && r.arg === 'fat'), KIND = FAT ? 'FAT' : 'CAT', MINUTES = FAT ? 180 : 90;
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Mock ' + KIND }]); setActive(FAT ? 'mock.fat' : 'mock'); document.title = 'Mock ' + KIND + ' · BAEEE101 Notes';
     const el = h('div', { class: 'view mock' });
-    const papers = (D.papers || []).filter((pp) => pp.questions && pp.questions.length);
+    const papers = (D.papers || []).filter((pp) => pp.questions && pp.questions.length && (pp.exam === 'fat') === FAT);
     let timer = null;
     const fmt = (s) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
     function list() {
       el.innerHTML = `
-        <div class="eyebrow"><span class="code">Pro</span><span>Timed mock CAT</span></div>
-        <h1 class="h-display">Mock CAT</h1>
-        <p class="blurb">Pick a paper. You get the questions and a 90-minute timer, just like the exam hall. Write your answers on paper. When the time is up, or you press Finish, the model answers open.</p>
-        ${papers.length ? papers.map((pp, i) => `<button class="next-topic" data-i="${i}"><div><small>${esc(pp.sub || '')}</small><strong>${esc(pp.title)}</strong></div><span class="arrow">${icon('play')}</span></button>`).join('') : '<div class="empty">The CAT papers are added after the modules are done. Check back soon.</div>'}`;
+        <div class="eyebrow"><span class="code">Pro</span><span>Timed mock ${KIND}</span></div>
+        <h1 class="h-display">Mock ${KIND}</h1>
+        <p class="blurb">Pick a paper. You get the questions and a ${MINUTES}-minute timer, just like the exam hall. Write your answers on paper. When the time is up, or you press Finish, the model answers open.</p>
+        ${papers.length ? papers.map((pp, i) => `<button class="next-topic" data-i="${i}"><div><small>${esc(pp.sub || '')}</small><strong>${esc(pp.title)}</strong></div><span class="arrow">${icon('play')}</span></button>`).join('') : `<div class="empty">The ${KIND} papers are added after the modules are done. Check back soon.</div>`}`;
       $$('[data-i]', el).forEach((b) => b.addEventListener('click', () => run(papers[+b.dataset.i])));
     }
     function run(pp) {
-      let left = 90 * 60;
+      let left = MINUTES * 60;
       el.innerHTML = `
         <div class="mock-bar"><b>${esc(pp.title)}</b><span class="mock-time" data-t>${fmt(left)}</span><button class="btn small" data-act="finish">Finish</button></div>
         <div class="prose">${pp.questions.map((q, i) => `<div class="mock-q"><div class="mock-n">Q${i + 1}${q.marks ? ` · ${q.marks} marks` : ''}</div>${q.q}</div>`).join('')}</div>`;
@@ -2224,7 +2226,7 @@ window.__startApp = function () {
     const groups = SYL[cat];
     if (!groups) {
       el.innerHTML = `<div class="eyebrow"><span class="code">Exams</span><span>${label}</span></div><h1 class="h-display">${label} syllabus</h1>
-        <div class="empty">The ${label} syllabus is coming soon. It will show up here as a checklist, linked to the notes.</div>
+        <div class="empty">The ${label} syllabus hasn't been added yet. It will show up here as a checklist, linked to the notes, as soon as it's in.</div>
         <p style="margin-top:18px"><a class="btn" href="#syllabus.full">${icon('list')}Open the course syllabus</a></p>`;
       return { el };
     }
