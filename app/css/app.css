@@ -1099,3 +1099,40 @@ a.syl-name:hover { text-decoration: underline; }
 .paper-rev { font-size: 14px; color: var(--text-dim); margin: 12px 0 0; }
 .cat2-asked { margin: 14px 0 4px; }
 .cat2-asked a { white-space: nowrap; }
+
+/* ---- Pro (free notes, paid tools): locked cards, the Go Pro page, revision pack, mock CAT */
+.pro-tag { margin-left: auto; font: 600 11px/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 7px; border-radius: 6px; border: 1px solid var(--line-2); color: var(--text-dim); }
+.pro-lock { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center; margin: 18px 0; padding: 16px 18px; border: 1px dashed var(--line-2); border-radius: 14px; background: var(--bg-2); text-decoration: none; color: var(--text); }
+.pro-lock:hover { border-color: var(--white); background: var(--surface); }
+.pro-lock .lock-ico { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); color: var(--white); }
+.pro-lock-txt strong { display: block; color: var(--white); font-size: 15px; }
+.pro-lock-txt span { display: block; margin-top: 3px; font-size: 14px; color: var(--text-dim); }
+.pro-lock .pro-tag { margin-left: 0; }
+.sb-link .pro-tag { font-size: 10px; padding: 3px 6px; }
+.music-row .pro-tag { margin-left: 8px; }
+.gopro-price { margin: 22px 0; padding: 20px; border: 1px solid var(--line-2); border-radius: 16px; background: var(--bg-2); }
+.gopro-price p { margin: 10px 0 0; color: var(--text-dim); font-size: 15px; }
+.gp-big { font: 600 34px/1 var(--sans); color: var(--white); margin-right: 10px; }
+.gp-big s { font-size: 20px; color: var(--text-faint); }
+.gp-sub { color: var(--text-dim); font-size: 14px; }
+.gopro-price .btn { margin-top: 14px; }
+.gp-legal { font-size: 13px !important; }
+.gp-legal a { color: inherit; }
+.gopro-groups { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.gp-group { padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; }
+.gp-group p { margin: 6px 0 10px; color: var(--text-dim); font-size: 15px; }
+.gp-ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 15px; }
+.gp-ticks li { display: flex; gap: 8px; align-items: flex-start; }
+.gp-ticks svg { flex: none; width: 18px; height: 18px; color: var(--good); margin-top: 2px; }
+.gp-blur { position: relative; margin-top: 18px; }
+.gp-blur-in { filter: blur(4px); user-select: none; pointer-events: none; max-height: 220px; overflow: hidden; }
+.rv-mod { margin-top: 28px; }
+.rv-mod h3 { margin: 18px 0 8px; font-size: 16px; }
+.mock-bar { position: sticky; top: var(--top-h, 0); z-index: 5; display: flex; gap: 12px; align-items: center; padding: 10px 0; background: var(--bg); border-bottom: 1px solid var(--line); }
+.mock-time { margin-left: auto; font: 600 18px var(--mono); color: var(--white); }
+.mock-q { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.mock-n { font: 600 12px var(--mono); color: var(--text-dim); margin-bottom: 6px; }
+@media print {
+  .revise .no-print { display: none; }
+  .revise .rv-mod { break-inside: avoid-page; }
+}

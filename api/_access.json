@@ -1,44 +1,9 @@
 {
  "freeFiles": [
-  "chunk-A.js",
-  "chunk-B.js",
-  "chunk-C.js",
-  "q-M2.js",
-  "summary-m2.js",
-  "papers-free.js",
   "figs.js"
  ],
- "freeModules": [
-  "m2"
- ],
- "paidModules": [
-  {
-   "id": "m3",
-   "num": "03",
-   "title": "Functional Materials"
-  },
-  {
-   "id": "m4",
-   "num": "04",
-   "title": "Spectroscopy & Diffraction"
-  }
- ],
- "fileModule": {
-  "chunk-A.js": "m2",
-  "chunk-B.js": "m2",
-  "chunk-C.js": "m2",
-  "q-M2.js": "m2",
-  "summary-m2.js": "m2",
-  "chunk-D.js": "m3",
-  "chunk-E.js": "m3",
-  "q-M3.js": "m3",
-  "summary-m3.js": "m3",
-  "chunk-F.js": "m4",
-  "chunk-G.js": "m4",
-  "q-M4.js": "m4",
-  "summary-m4.js": "m4",
-  "viz-m3.js": "m3",
-  "viz-m4a.js": "m4",
-  "viz-m4b.js": "m4"
- }
+ "proFiles": [],
+ "freeModules": [],
+ "paidModules": [],
+ "fileModule": {}
 }

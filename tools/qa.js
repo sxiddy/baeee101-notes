@@ -15,7 +15,10 @@ vc.on('jsdomError', (e) => { const m = String(e && (e.stack || e.message)); if (
 
 const html = fs.readFileSync(path.join(APP, 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map((m) => m[1]).filter((s) => !/gate\.js|data-files/.test(s));
-const dataFiles = fs.readdirSync(path.join(ROOT, 'protected', 'data')).sort((a, b) => (a === 'figs.js') - (b === 'figs.js'));
+// node tools/qa.js        = a Pro student (every file); node tools/qa.js --free = a free student (free files only)
+const FREE_RUN = process.argv.includes('--free');
+const ACCESS = JSON.parse(fs.readFileSync(path.join(ROOT, 'api', '_access.json'), 'utf8'));
+const dataFiles = fs.readdirSync(path.join(ROOT, 'protected', 'data')).filter((f) => !FREE_RUN || ACCESS.freeFiles.includes(f)).sort((a, b) => (a === 'figs.js') - (b === 'figs.js'));
 const dom = new JSDOM('<!doctype html><html><head></head><body><div id="app"></div></body></html>', { url: 'http://localhost/#home', pretendToBeVisual: true, runScripts: 'outside-only', virtualConsole: vc });
 const w = dom.window;
 w.matchMedia = () => ({ matches: false, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {} });
@@ -30,6 +33,7 @@ for (const s of scripts) {
   catch (e) { errors.push(`${s}: ${e.stack || e.message}`); }
 }
 for (const f of dataFiles) { try { w.eval(fs.readFileSync(path.join(ROOT, 'protected', 'data', f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
+w.PRO = !FREE_RUN;
 try { w.__startApp(); } catch (e) { errors.push('start: ' + (e.stack || e.message)); }
 const N = w.__notes;
 if (!N) { console.log('app did not boot'); errors.forEach((e) => console.log('  ' + e)); process.exit(1); }
@@ -39,7 +43,8 @@ const go = async (hash) => { const e0 = errors.length; w.history.pushState(null,
 const report = { routes: 0, tabs: 0, figs: 0, figMissing: [], vizMounted: 0, vizMissing: [], vizFailed: [], emptyPanels: [] };
 
 (async () => {
-  const base = ['#home', '#m2', '#m3', '#m4', '#m2-summary', '#m3-summary', '#m4-summary', '#questions', '#questions.m2', '#questions.m3', '#questions.m4', '#questions.mixed', '#quiz', '#cards', '#formulas', '#lab', '#mine', '#guide', '#papers', '#syllabus.cat1', '#syllabus.cat2', '#battle'];
+  const mods = ACCESS.freeModules;
+  const base = ['#home', ...mods.map((m) => '#' + m), ...mods.map((m) => `#${m}-summary`), '#questions', ...mods.map((m) => '#questions.' + m), '#questions.mixed', '#pro', '#revise', '#mock', '#quiz', '#cards', '#formulas', '#lab', '#mine', '#guide', '#papers', '#syllabus.cat1', '#syllabus.cat2', '#battle'];
   for (const r of base) { const n = await go(r); report.routes++; if (n) console.log(`errors on ${r}`); }
   const doc = w.document;
   for (const t of N.TOPICS) {
@@ -52,7 +57,7 @@ const report = { routes: 0, tabs: 0, figs: 0, figMissing: [], vizMounted: 0, viz
       doc.querySelectorAll('.panel figure[data-fig]').forEach((f) => {
         report.figs++;
         const id = f.getAttribute('data-fig');
-        if (f.classList.contains('missing') || !fs.existsSync(path.join(ROOT, 'protected', 'img', id + '.webp'))) report.figMissing.push(`${t.id}.${i} ${id}`);
+        if (f.classList.contains('missing') || !fs.existsSync(path.join(ROOT, 'protected', 'img', id + '.svg'))) report.figMissing.push(`${t.id}.${i} ${id}`);
       });
       (t.tabs[i].html.match(/data-viz="([a-z0-9-]+)"/g) || []).forEach((m) => {
         const id = m.slice(10, -1);

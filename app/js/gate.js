@@ -94,12 +94,13 @@
     root.innerHTML = '<div class="gate"><div class="gate-card"><p class="gate-muted">Loading your notes…</p></div></div>';
     try {
       const FM = window.FILE_MODULE || {};
-      const paidFiles = !paid ? [] : (window.PAID_FILES || []).filter((f) => !modules || modules.includes(FM[f]));
+      const paidFiles = !paid ? [] : (window.PRO_FILES || []).filter((f) => !modules || modules.includes(FM[f]));
       const files = (window.FREE_FILES || []).concat(paidFiles);
       // all at once: every file only registers data (the app sorts chunks, questions and papers itself)
       await Promise.all(files.map((f) => loadScript('data/' + f)));
-      const allPaid = CFG.filter((m) => !m.free).every((m) => !modules || modules.includes(m.id));
-      window.APP_LOCKED = !paid || !allPaid;
+      // the notes are free; Pro (every module, or the modules of a single-module grant) unlocks the Pro features
+      window.PRO = !!paid; window.PRO_MODULES = paid && modules ? modules : null;
+      window.APP_LOCKED = false;
       window.__showPaywall = paywall;
       try {
         const a = JSON.parse(localStorage.getItem('bn_after') || 'null'); localStorage.removeItem('bn_after');
@@ -257,6 +258,9 @@
       window.PRICE_RS = Math.round(price / 100);
       window.FREE_OFFER = S.freeOffer && S.freeSite ? { was: Math.round((S.normalPrice || price) / 100), ends: offerEnds(S.freeOffer), until: S.freeOffer, text: (S.sale && S.sale.text) || '' } : null;
       window.SITE_BANNER = S.banner || null;
+      window.FREE_SITE = !!S.freeSite; // Pro open for everyone (open mode or a free offer)
+      window.PRICE_WAS = S.normalPrice && S.normalPrice > price ? Math.round(S.normalPrice / 100) : null; // an offer price is running
+      window.SALE_TEXT = (S.sale && S.sale.text) || '';
       window.SIGNED_IN_AS = S.user || null;
       // the owner can switch sign-in off on /stats.html: then everyone opens the notes as a guest
       if (!S.user && !S.owner && S.signin !== false) {

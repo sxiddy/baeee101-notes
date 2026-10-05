@@ -3,7 +3,7 @@
 //   { topic }                                +1 to that topic's open count
 //   { quiz, ok, label }                      +1 right/wrong for a question (first answer per session)
 //   { confusing, tab, on, label }            +1 / -1 on a topic tab's "Confusing?" count
-//   { funnel: 'paywall' | 'start' }          +1 to today's paywall views / checkout opens
+//   { funnel: 'paywall' | 'start' | 'gopro' } +1 to today's paywall views / checkout opens / Go Pro page views
 const { send, body, handle } = require('./_lib');
 const store = require('./_store');
 
@@ -30,7 +30,7 @@ module.exports = handle(async (req, res) => {
     cmds.push(['HINCRBY', 'confusing', f, b.on ? 1 : -1]);
     if (b.label) cmds.push(['HSET', 'confusingLabel', f, label(b.label)]);
   }
-  if (b.funnel === 'paywall' || b.funnel === 'start') cmds.push(['HINCRBY', 'funnel', store.today() + ':' + b.funnel, 1]);
+  if (b.funnel === 'paywall' || b.funnel === 'start' || b.funnel === 'gopro') cmds.push(['HINCRBY', 'funnel', store.today() + ':' + b.funnel, 1]);
   if (cmds.length) await store.pipeline(cmds);
   send(res, 200, { ok: true });
 });

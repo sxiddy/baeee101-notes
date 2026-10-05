@@ -1,9 +1,17 @@
 #!/usr/bin/env node
 // Assemble the app.
 //   node tools/build.js
-// Public (app/): shell, styles, diagram code, payment gate.
-// Protected (protected/): notes, questions, summaries (protected/data) and figures (protected/img),
-// served only to paid users by api/content.js and api/img.js.
+// Public (app/): shell, styles, payment gate. Everything with notes in it lives in protected/ and is served by api/.
+// Free/Pro split (owner, 30-09-2026): the notes are FREE for everyone who can open the site; Pro features are served
+// server-side only. For every content file the build writes a free copy and a Pro companion:
+//   chunk-X.js  free: topics, tabs, figures, the first 3 flashcards of each topic (cardCount = how many exist)
+//   pro-X.js    Pro:  every flashcard, the formulas and one-liners of each topic (formula sheet, revision pack)
+//   q-*.js      free: the questions themselves (no answers)
+//   qa-*.js     Pro:  correct option, answer, explanation and points of every question
+//   summary-*   free (full module summaries)
+//   papers-free.js free (actual papers, questions only; "asked in CAT" text without the slot detail)
+//   papers-pro.js  Pro  (model answers, model papers, the full "asked in CAT" detail)
+//   viz-*.js    Pro  (the interactive "Try it" widgets; free notes show a small locked card in their place)
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
@@ -11,85 +19,114 @@ const APP = path.join(ROOT, 'app');
 const PDATA = path.join(ROOT, 'protected', 'data');
 const PIMG = path.join(ROOT, 'protected', 'img');
 const CONTENT = path.join(ROOT, 'content');
+const FREE_CARDS = 3;
 
 const TITLE = 'BAEEE101 Notes';
 const FONTS = 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap';
 
 fs.mkdirSync(PDATA, { recursive: true });
+fs.mkdirSync(PIMG, { recursive: true });
 for (const f of fs.readdirSync(PDATA)) fs.unlinkSync(path.join(PDATA, f));
 fs.rmSync(path.join(APP, 'data'), { recursive: true, force: true }); // never ship notes publicly
 
-const order = (f) => (f.startsWith('chunk-') ? 0 : f.startsWith('q-') ? 1 : f.startsWith('summary-') ? 2 : f.startsWith('papers-') ? 3 : 4);
-const contentFiles = fs.readdirSync(CONTENT).filter((f) => /^(chunk|q|summary|papers)-[A-Za-z0-9]+\.js$/.test(f)).sort((a, b) => order(a) - order(b) || a.localeCompare(b));
-for (const f of contentFiles) fs.copyFileSync(path.join(CONTENT, f), path.join(PDATA, f));
-
-const dims = {};
-for (const f of fs.readdirSync(PIMG).filter((f) => /^manifest-.*\.json$/.test(f))) Object.assign(dims, JSON.parse(fs.readFileSync(path.join(PIMG, f), 'utf8')));
-// The site's own redrawn diagrams (figs-svg/<id>.svg) replace the cropped slide images one by one: each finished
-// drawing goes live as soon as it is in figs-svg/, and figures not redrawn yet keep their crop. They are copied next
-// to the slide crops, and api/img.js stops serving a crop once its drawing exists.
-const SVGSRC = path.join(ROOT, 'figs-svg');
-for (const f of fs.readdirSync(PIMG).filter((f) => /\.svg$/.test(f))) fs.unlinkSync(path.join(PIMG, f));
-{
-  for (const f of fs.readdirSync(SVGSRC).filter((f) => /^m\d+-[a-z0-9-]+\.svg$/.test(f))) {
-    const id = f.slice(0, -4), svg = fs.readFileSync(path.join(SVGSRC, f), 'utf8');
-    const vb = (svg.match(/viewBox="([^"]+)"/) || [])[1];
-    if (!vb || !dims[id]) continue;
-    const [, , w, h] = vb.trim().split(/[\s,]+/).map(Number);
-    dims[id] = { w: Math.round(w), h: Math.round(h), svg: 1 };
-    fs.copyFileSync(path.join(SVGSRC, f), path.join(PIMG, f));
-  }
-}
-fs.writeFileSync(path.join(PDATA, 'figs.js'), `FIGDIMS(${JSON.stringify(dims)});\n`);
-// Each module's diagrams also travel inside that module's first notes file (same sign-in and payment rules as
-// the notes), so they show even when a separate /img request fails; api/img.js stays as the fallback.
-{
-  const mods = JSON.parse(fs.readFileSync(path.join(CONTENT, 'modules.json'), 'utf8'));
-  for (const m of mods) {
-    const first = (m.chunks || [])[0], file = first && path.join(PDATA, 'chunk-' + first + '.js');
-    if (!file || !fs.existsSync(file)) continue;
-    const pack = {};
-    for (const id of Object.keys(dims).filter((id) => dims[id].svg && id.startsWith(m.id + '-'))) pack[id] = fs.readFileSync(path.join(SVGSRC, id + '.svg'), 'utf8');
-    if (Object.keys(pack).length) fs.appendFileSync(file, '\nFIGSVG(' + JSON.stringify(pack) + ');\n');
-  }
-}
-
-// paid diagram code (Modules 3 and 4) lives outside app/ and is served like the notes
-const paidViz = fs.readdirSync(path.join(ROOT, 'viz-paid')).filter((f) => /\.js$/.test(f)).sort();
-for (const f of paidViz) fs.copyFileSync(path.join(ROOT, 'viz-paid', f), path.join(PDATA, f));
-
-// Modules (names, chunks, free or paid) come from content/modules.json — the one place to add a module.
 const MODULES = JSON.parse(fs.readFileSync(path.join(CONTENT, 'modules.json'), 'utf8'));
-const filesOf = (m) => [...m.chunks.map((c) => `chunk-${c}.js`), m.questions, `summary-${m.id}.js`].filter(Boolean);
-const FREE = [...MODULES.filter((m) => m.free).flatMap(filesOf), 'papers-free.js']; // the papers file (once there is one) is free for everyone signed in
-fs.writeFileSync(path.join(APP, 'js', 'modules.js'), `window.MODULES_CONFIG = ${JSON.stringify(MODULES.map(({ id, num, title, free, chunks, syllabus }) => ({ id, num, title, free, chunks, syllabus })))};\n`);
-// which module each paid file belongs to, so the owner can unlock a single module for someone
-const fileModule = {};
-for (const m of MODULES) for (const f of filesOf(m)) fileModule[f] = m.id;
-for (const f of paidViz) { const id = (f.match(/^viz-(m[0-9]+)/) || [])[1]; if (id) fileModule[f] = id; }
-fs.writeFileSync(path.join(ROOT, 'api', '_access.json'), JSON.stringify({ freeFiles: [...FREE, 'figs.js'], freeModules: MODULES.filter((m) => m.free).map((m) => m.id), paidModules: MODULES.filter((m) => !m.free).map(({ id, num, title }) => ({ id, num, title })), fileModule }, null, 1) + '\n');
-// file lists the gate loads (names only, no content): free modules for everyone, the rest after payment.
-const freeFiles = [...contentFiles.filter((f) => FREE.includes(f)), 'figs.js'];
-const paidFiles = [...paidViz, ...contentFiles.filter((f) => !FREE.includes(f))];
-const dataFiles = [...freeFiles, ...paidFiles];
-fs.writeFileSync(path.join(APP, 'js', 'data-files.js'), `window.FREE_FILES = ${JSON.stringify(freeFiles)};\nwindow.PAID_FILES = ${JSON.stringify(paidFiles)};\nwindow.FILE_MODULE = ${JSON.stringify(fileModule)};\n`);
+const read = (file, name) => { // run a content file and return what it passed to its global (CHUNK, QUESTIONS, ...)
+  let got = null;
+  global[name] = (d) => { got = d; };
+  const p = path.join(CONTENT, file); delete require.cache[p]; require(p);
+  delete global[name];
+  return got;
+};
+const js = (fn, d) => `${fn}(${JSON.stringify(d)});\n`;
+const write = (f, s) => fs.writeFileSync(path.join(PDATA, f), s);
+const strip = (q) => { const o = Object.assign({}, q); delete o.correct; delete o.answer; delete o.explain; delete o.points; return o; };
+const answerOf = (q) => ({ correct: q.correct, answer: q.answer, explain: q.explain, points: q.points });
+const fileModule = {}, freeFiles = [], proFiles = [];
 
-// 1v1 battle questions, built from the flashcards (api/battle.js sends each one only when it starts and marks
-// answers on the server, so nobody can read the answers ahead). topics: id -> [module, title]; cards: topic -> [[front, back]]
-const battle = { topics: {}, cards: {} };
-global.CHUNK = (c) => (c.topics || []).forEach((t) => {
-  const m = MODULES.find((x) => x.chunks.includes(c.chunk)) || {};
-  if (!m.id || battle.topics[t.id]) return;
-  battle.topics[t.id] = [m.id, t.short || t.title];
-  battle.cards[t.id] = (t.flashcards || []).map((f) => [f.front, f.back]);
-});
-for (const m of MODULES) for (const ch of m.chunks) { const p = path.join(CONTENT, `chunk-${ch}.js`); delete require.cache[p]; require(p); }
-delete global.CHUNK;
+// ---- figures: every figure is the site's own drawing (figs-svg/<id>.svg), served by api/img.js and packed into the
+// module's first notes file so it shows even when a separate image request fails; the app inlines each SVG so it
+// follows dark and light mode.
+const SVGSRC = path.join(ROOT, 'figs-svg');
+const dims = {};
+for (const f of fs.readdirSync(PIMG)) fs.unlinkSync(path.join(PIMG, f));
+for (const f of fs.readdirSync(SVGSRC).filter((f) => /^m\d+-[a-z0-9-]+\.svg$/.test(f))) {
+  const id = f.slice(0, -4), svg = fs.readFileSync(path.join(SVGSRC, f), 'utf8');
+  const vb = (svg.match(/viewBox="([^"]+)"/) || [])[1];
+  if (!vb) continue;
+  const [, , w, h] = vb.trim().split(/[\s,]+/).map(Number);
+  dims[id] = { w: Math.round(w), h: Math.round(h), svg: 1 };
+  fs.copyFileSync(path.join(SVGSRC, f), path.join(PIMG, f));
+}
+write('figs.js', js('FIGDIMS', dims));
+freeFiles.push('figs.js');
+
+// ---- notes, flashcards, formulas, questions, summaries
+const battle = { topics: {}, cards: {} }; // 1v1 battle questions come from every flashcard (api/battle.js marks on the server)
+for (const m of MODULES) {
+  (m.chunks || []).forEach((c, i) => {
+    const file = `chunk-${c}.js`;
+    if (!fs.existsSync(path.join(CONTENT, file))) return;
+    const ch = read(file, 'CHUNK');
+    const pro = { chunk: ch.chunk, module: m.id, topics: {} };
+    const free = Object.assign({}, ch, {
+      module: m.id,
+      topics: (ch.topics || []).map((t) => {
+        pro.topics[t.id] = { flashcards: t.flashcards || [], formulas: t.formulas || [], oneLiners: t.oneLiners || [] };
+        battle.topics[t.id] = [m.id, t.short || t.title];
+        battle.cards[t.id] = (t.flashcards || []).map((f) => [f.front, f.back]);
+        const o = Object.assign({}, t, { flashcards: (t.flashcards || []).slice(0, FREE_CARDS), cardCount: (t.flashcards || []).length, formulaCount: (t.formulas || []).length });
+        delete o.formulas; delete o.oneLiners;
+        return o;
+      }),
+    });
+    let out = js('CHUNK', free);
+    if (i === 0) {
+      const pack = {};
+      for (const id of Object.keys(dims).filter((id) => id.startsWith(m.id + '-'))) pack[id] = fs.readFileSync(path.join(SVGSRC, id + '.svg'), 'utf8');
+      if (Object.keys(pack).length) out += js('FIGSVG', pack);
+    }
+    write(file, out); freeFiles.push(file); fileModule[file] = m.id;
+    write(`pro-${c}.js`, js('PRO_CHUNK', pro)); proFiles.push(`pro-${c}.js`); fileModule[`pro-${c}.js`] = m.id;
+  });
+  // the question is free, its answer is Pro
+  for (const qf of [].concat(m.questions || [])) {
+    if (!fs.existsSync(path.join(CONTENT, qf))) continue;
+    const d = read(qf, 'QUESTIONS'), ans = {};
+    const qs = (d.questions || []).map((q) => { ans[q.id] = answerOf(q); return strip(q); });
+    write(qf, js('QUESTIONS', Object.assign({}, d, { questions: qs }))); freeFiles.push(qf); fileModule[qf] = m.id;
+    const af = qf.replace(/^q-/, 'qa-');
+    write(af, js('QANSWERS', ans)); proFiles.push(af); fileModule[af] = m.id;
+  }
+  // module summary: free in full; questions inside it follow the same rule
+  const sf = `summary-${m.id}.js`;
+  if (fs.existsSync(path.join(CONTENT, sf))) {
+    const s = read(sf, 'SUMMARY'), ans = {};
+    if (s.questions) s.questions = s.questions.map((q) => { ans[q.id] = answerOf(q); return strip(q); });
+    write(sf, js('SUMMARY', s)); freeFiles.push(sf); fileModule[sf] = m.id;
+    if (Object.keys(ans).length) { const af = `qa-${m.id}-summary.js`; write(af, js('QANSWERS', ans)); proFiles.push(af); fileModule[af] = m.id; }
+  }
+}
 fs.writeFileSync(path.join(ROOT, 'api', '_battle.json'), JSON.stringify(battle) + '\n');
+
+// ---- question papers (hand-written in the two files; copied as they are)
+for (const [f, list] of [['papers-free.js', freeFiles], ['papers-pro.js', proFiles]]) {
+  if (!fs.existsSync(path.join(CONTENT, f))) continue;
+  fs.copyFileSync(path.join(CONTENT, f), path.join(PDATA, f)); list.push(f);
+}
+// ---- interactive widgets: all Pro, kept outside app/ and served like the notes
+for (const f of fs.readdirSync(path.join(ROOT, 'viz-paid')).filter((f) => /^viz-[a-z0-9-]+\.js$/.test(f)).sort()) {
+  fs.copyFileSync(path.join(ROOT, 'viz-paid', f), path.join(PDATA, f)); proFiles.push(f);
+  const id = (f.match(/^viz-(m[0-9]+)/) || [])[1]; if (id) fileModule[f] = id;
+}
+
+// Modules (names, chunks) come from content/modules.json, the one place to add a module. Every module's notes are free.
+fs.writeFileSync(path.join(APP, 'js', 'modules.js'), `window.MODULES_CONFIG = ${JSON.stringify(MODULES.map(({ id, num, title, chunks, syllabus }) => ({ id, num, title, free: true, chunks, syllabus })))};\n`);
+fs.writeFileSync(path.join(ROOT, 'api', '_access.json'), JSON.stringify({ freeFiles, proFiles, freeModules: MODULES.map((m) => m.id), paidModules: MODULES.map(({ id, num, title }) => ({ id, num, title })), fileModule }, null, 1) + '\n');
+// file lists the gate loads (names only, no content): free files for everyone, Pro files after payment
+fs.writeFileSync(path.join(APP, 'js', 'data-files.js'), `window.FREE_FILES = ${JSON.stringify(freeFiles)};\nwindow.PRO_FILES = ${JSON.stringify(proFiles)};\nwindow.FILE_MODULE = ${JSON.stringify(fileModule)};\n`);
 
 const vizFiles = fs.readdirSync(path.join(APP, 'js', 'viz')).filter((f) => /\.js$/.test(f)).sort();
 const scripts = ['js/boot.js', 'js/modules.js', 'js/viz-core.js', ...vizFiles.map((f) => 'js/viz/' + f), 'js/app.js', 'js/data-files.js', 'js/gate.js'];
-
 const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -109,4 +146,4 @@ ${scripts.map((s) => `<script src="${s}"></script>`).join('\n')}
 </html>
 `;
 fs.writeFileSync(path.join(APP, 'index.html'), html);
-console.log(`protected data: ${dataFiles.length} files · figures: ${Object.keys(dims).length} · viz files: ${vizFiles.length}`);
+console.log(`free files: ${freeFiles.length} · pro files: ${proFiles.length} · figures: ${Object.keys(dims).length} · public viz files: ${vizFiles.length}`);

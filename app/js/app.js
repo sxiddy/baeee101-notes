@@ -72,6 +72,7 @@ window.__startApp = function () {
     share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>',
     flag: '<path d="M5 21V4h11l-1.5 4L16 12H5"/>',
     menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+    download: '<path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/>',
     lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
     fire: '<path d="M12 3c.5 3.2 4.5 5.2 4.5 10a4.5 4.5 0 0 1-9 0c0-2 .9-3.3 1.8-4.3.2 1.5 1 2.4 1.9 2.8C10.6 9 11.2 5.6 12 3z"/>',
     swords: '<path d="M14.5 17.5 3 6V3h3l11.5 11.5"/><path d="m13 19 6-6M16 16l4 4M19 21l2-2"/><path d="M14.5 6.5 18 3h3v3l-3.5 3.5"/><path d="m5 14 4 4M7 17l-3 3M3 19l2 2"/>',
@@ -122,6 +123,15 @@ window.__startApp = function () {
     });
     (ch.figures || []).forEach((f) => { FIGS[f.id] = f; });
   });
+  // Free/Pro (owner, 30-09-2026): the notes are free; Pro users also get the Pro companions (every flashcard, the
+  // formulas and one-liners of each topic, the answers to every question, the interactive widgets).
+  const PRO = !!window.PRO;
+  TOPICS.forEach((t) => {
+    const p = (D.pro || {})[t.id];
+    if (p) { t.flashcards = p.flashcards; t.formulas = p.formulas; t.oneLiners = p.oneLiners; }
+    t.formulas = t.formulas || []; t.oneLiners = t.oneLiners || []; t.flashcards = t.flashcards || [];
+    if (t.cardCount == null) t.cardCount = t.flashcards.length;
+  });
   const SUM = D.summaries || {};
   // Modules whose files were not loaded (not paid, or not in a single-module grant) show as locked.
   MODULES.forEach((m) => { m.locked = !!window.APP_LOCKED && !m.free && !m.topics.length; });
@@ -137,6 +147,7 @@ window.__startApp = function () {
   function addQ(q) { if (!q || !q.id || seenQ.has(q.id)) return; seenQ.add(q.id); QS.push(q); }
   D.questions.forEach(addQ);
   Object.keys(SUM).forEach((mid) => (SUM[mid].questions || []).forEach((q) => { q.module = q.module || mid; q.topic = 'summary'; addQ(q); }));
+  QS.forEach((q) => { const a = (D.qa || {})[q.id]; if (a) Object.assign(q, a); }); // answers: Pro only
   const modIndex = (mid) => { const i = MODULES.findIndex((m) => m.id === mid); return i < 0 ? 9 : i; };
   function qGroupKey(q) { return q.topic === 'mixed' ? 'mixed' : q.module; }
   function qSort(q) {
@@ -199,11 +210,11 @@ window.__startApp = function () {
   let offerClosed = ''; try { offerClosed = localStorage.getItem('bn_offer_x') || ''; } catch (e) { /* ignore */ }
   if (FO && String(FO.until) !== offerClosed) {
     const bar = h('div', { class: 'site-banner offer-free', role: 'status' });
-    bar.innerHTML = `<span><b class="offer-tag">FREE</b> <s>₹${esc(FO.was)}</s> Every module is free until ${esc(FO.ends)} IST.${FO.text ? ' ' + esc(FO.text) : ''}</span><button class="icon-btn" aria-label="Close">${icon('x')}</button>`;
+    bar.innerHTML = `<span><b class="offer-tag">FREE</b> <s>₹${esc(FO.was)}</s> Every Pro feature is free until ${esc(FO.ends)} IST.${FO.text ? ' ' + esc(FO.text) : ''}</span><button class="icon-btn" aria-label="Close">${icon('x')}</button>`;
     bar.querySelector('button').addEventListener('click', () => { bar.remove(); try { localStorage.setItem('bn_offer_x', String(FO.until)); } catch (e) { /* ignore */ } });
     main.insertBefore(bar, host);
   }
-  const PRICE_RS = window.PRICE_RS || 50;
+  const PRICE_RS = window.PRICE_RS || 15;
   app.append(sidebar, scrim, main);
   const toasts = h('div', { class: 'toasts', 'aria-live': 'polite' });
   const mountPoint = document.getElementById('app') || document.body;
@@ -242,6 +253,7 @@ window.__startApp = function () {
     return m ? m[1] + '/' + m[2] : null;
   }
   function paintMusic() {
+    if (!PRO) { if (!musicDock.firstChild) musicDock.innerHTML = `<div class="music-top"><a class="music-row" href="#pro" data-from="music"><span class="m-eq" aria-hidden="true"><i></i><i></i><i></i></span><span class="music-lbl">Study music</span><span class="pro-tag">Pro</span></a></div>`; return; }
     const st = mState();
     musicDock.classList.toggle('open', !!st.open);
     musicDock.classList.toggle('playing', music.playing);
@@ -352,16 +364,19 @@ window.__startApp = function () {
             ${(QBY.mixed || []).length ? `<a class="sb-topic" href="#questions.mixed" data-key="questions.mixed"><span class="lbl">Mixed: across modules</span><span class="count">${QBY.mixed.length}</span></a>` : ''}
           </div></div>
         </div>
-        <a class="sb-link" href="#quiz" data-key="quiz">${icon('quiz')}<span>Quiz</span><span class="count">${QS.filter((q) => q.options).length}</span></a>
+        <a class="sb-link" href="#quiz" data-key="quiz">${icon('quiz')}<span>Quiz</span>${PRO ? '' : '<span class="pro-tag">Pro</span>'}</a>
         <a class="sb-link" href="#cards" data-key="cards">${icon('cards')}<span>Flashcards</span><span class="count">${CARDS.length}</span></a>
-        <a class="sb-link" href="#formulas" data-key="formulas">${icon('sigma')}<span>Formula sheet</span></a>
-        <a class="sb-link" href="#lab" data-key="lab">${icon('flask')}<span>Lab bench</span><span class="count" data-labcount></span></a>
-        <a class="sb-link" href="#mine" data-key="mine">${icon('pen')}<span>Highlights & notes</span></a>
+        <a class="sb-link" href="#formulas" data-key="formulas">${icon('sigma')}<span>Formula sheet</span>${PRO ? '' : '<span class="pro-tag">Pro</span>'}</a>
+        <a class="sb-link" href="#lab" data-key="lab">${icon('flask')}<span>Lab bench</span>${PRO ? '<span class="count" data-labcount></span>' : '<span class="pro-tag">Pro</span>'}</a>
+        <a class="sb-link" href="#mine" data-key="mine">${icon('pen')}<span>Highlights & notes</span>${PRO ? '' : '<span class="pro-tag">Pro</span>'}</a>
         <a class="sb-link" href="#battle" data-key="battle">${icon('swords')}<span>1v1 Quiz battle</span></a>
         <div class="sb-label">Exams</div>
         <a class="sb-link" href="#syllabus.cat1" data-key="syllabus.cat1">${icon('list')}<span>CAT-1 syllabus</span></a>
         <a class="sb-link" href="#syllabus.cat2" data-key="syllabus.cat2">${icon('list')}<span>CAT-2 syllabus</span><span class="count" data-sylcount></span></a>
         ${(D.paperIndex || D.papers || []).length ? `<a class="sb-link" href="#papers" data-key="papers">${icon('exam')}<span>Question papers</span></a>` : ''}
+        <a class="sb-link" href="#mock" data-key="mock">${icon('timer')}<span>Timed mock CAT</span>${PRO ? '' : '<span class="pro-tag">Pro</span>'}</a>
+        <a class="sb-link" href="#revise" data-key="revise">${icon('fire')}<span>Revision pack</span>${PRO ? '' : '<span class="pro-tag">Pro</span>'}</a>
+        ${PRO && !window.FREE_SITE ? '' : `<a class="sb-link sb-pro" href="#pro" data-key="pro">${icon('trophy')}<span>${window.FREE_SITE ? 'Pro (free right now)' : 'Why go Pro'}</span></a>`}
         <div class="sb-label">Talk to us</div>
         <button class="sb-link" data-act="ideas">${icon('bulb')}<span>Any ideas?</span></button>
         <button class="sb-link" data-act="help">${icon('help')}<span>Help?</span></button>
@@ -417,7 +432,7 @@ window.__startApp = function () {
   const themeLabel = () => (S.ui.theme === 'light' ? `${icon('moon')}Dark mode` : `${icon('sun')}Light mode`);
 
   // ---------------------------------------------------------------- top bar
-  const FOCUS_LENS = [30, 60, 120, 180];
+  const FOCUS_LENS = PRO ? [30, 60, 120, 180] : [30]; // 1-3 h sessions are Pro
   const focusMin = () => (FOCUS_LENS.includes(+S.ui.focusMin) ? +S.ui.focusMin : 30);
   const lenLabel = (m) => (m < 60 ? m + ' minutes' : m / 60 + (m === 60 ? ' hour' : ' hours'));
   let timerState = { left: focusMin() * 60, running: false, iv: 0 };
@@ -468,7 +483,7 @@ window.__startApp = function () {
       tEl.hidden = false; timerState.left = focusMin() * 60; startTimer(true);
       // phones have no Esc key: a bar with Pause and Exit stays on screen during focus mode
       const fb = h('div', { class: 'focus-bar', role: 'group', 'aria-label': 'Focus timer' });
-      fb.innerHTML = `${icon('timer')}<span class="timer" data-ftime></span><select class="focus-len" data-focuslen aria-label="Timer length" title="Timer length">${FOCUS_LENS.map((m) => `<option value="${m}"${m === focusMin() ? ' selected' : ''}>${m < 60 ? m + ' min' : m / 60 + ' h'}</option>`).join('')}</select><button class="btn small" data-act="focuspause">${icon('pause')}Pause</button><button class="btn small primary" data-act="focusexit">${icon('x')}Exit focus</button>`;
+      fb.innerHTML = `${icon('timer')}<span class="timer" data-ftime></span><select class="focus-len" data-focuslen aria-label="Timer length" title="Timer length">${FOCUS_LENS.map((m) => `<option value="${m}"${m === focusMin() ? ' selected' : ''}>${m < 60 ? m + ' min' : m / 60 + ' h'}</option>`).join('')}${PRO ? '' : '<option disabled>1–3 h · Pro</option>'}</select><button class="btn small" data-act="focuspause">${icon('pause')}Pause</button><button class="btn small primary" data-act="focusexit">${icon('x')}Exit focus</button>`;
       document.body.appendChild(fb);
       toast(`Focus: ${lenLabel(focusMin())}. ${touchUI() ? 'Tap Exit focus to leave' : 'Esc or Exit focus to leave'}`, 'timer');
       fb.querySelector('[data-focuslen]').addEventListener('change', (ev) => {
@@ -507,13 +522,13 @@ window.__startApp = function () {
   function parse(hash) {
     const raw = String(hash || '').replace(/^#/, '') || 'home';
     if (raw === 'home') return { view: 'home' };
-    if (raw === 'unlock') return { view: 'unlock' };
+    if (raw === 'unlock' || raw === 'pro') return { view: 'pro' };
     if (MOD[raw] && MOD[raw].locked) return { view: 'unlock' };
     if (MOD[raw]) return { view: 'module', mod: raw };
     let m = raw.match(/^(m[0-9]+)-summary$/);
     if (m && MOD[m[1]] && MOD[m[1]].locked) return { view: 'unlock' };
     if (m && MOD[m[1]]) return { view: 'summary', mod: m[1] };
-    m = raw.match(/^(questions|cards|quiz|formulas|lab|mine|guide|syllabus|battle|papers)(?:\.([a-z0-9-]+))?$/);
+    m = raw.match(/^(questions|cards|quiz|formulas|lab|mine|guide|syllabus|battle|papers|revise|mock)(?:\.([a-z0-9-]+))?$/);
     if (m) return { view: m[1], arg: m[2] || null };
     m = raw.match(/^([a-z0-9-]+?)(?:\.(\d+))?$/);
     if (m && TOPIC[m[1]]) return { view: 'topic', id: m[1], tab: m[2] != null ? +m[2] : null };
@@ -551,10 +566,6 @@ window.__startApp = function () {
   }
 
   function render(r) {
-    if (r.view === 'unlock') {
-      if (window.APP_LOCKED && window.__showPaywall) { window.__showPaywall(); return; }
-      r = { view: 'home' }; replaceHash('#home');
-    }
     const run = () => {
       tickStudy(); // opening the next topic adds the seconds studied since the last tick, so the clock is up to date
       clearMounted();
@@ -566,11 +577,14 @@ window.__startApp = function () {
         case 'summary': view = viewSummary(r); break;
         case 'topic': view = viewTopic(r); break;
         case 'questions': view = viewBank(r); break;
-        case 'quiz': view = viewQuiz(r); break;
+        case 'quiz': view = PRO ? viewQuiz(r) : viewProTeaser('quiz'); break;
         case 'cards': view = viewCards(r); break;
-        case 'formulas': view = viewFormulas(r); break;
-        case 'lab': view = viewLab(r); break;
-        case 'mine': view = viewMine(r); break;
+        case 'formulas': view = PRO ? viewFormulas(r) : viewProTeaser('formulas'); break;
+        case 'lab': view = PRO ? viewLab(r) : viewProTeaser('lab'); break;
+        case 'mine': view = PRO ? viewMine(r) : viewProTeaser('mine'); break;
+        case 'revise': view = PRO ? viewRevise(r) : viewProTeaser('revise'); break;
+        case 'mock': view = PRO ? viewMock(r) : viewProTeaser('mock'); break;
+        case 'pro': view = viewGoPro(r); break;
         case 'guide': view = viewGuide(r); break;
         case 'syllabus': view = viewSyllabus(r); break;
         case 'papers': view = viewPapers(r); break;
@@ -663,7 +677,7 @@ window.__startApp = function () {
         const el = en.target; vizIO.unobserve(el);
         if (window.VIZ) vizHandles.push(window.VIZ.mount(el, el.getAttribute('data-viz')));
       }), { root: main, rootMargin: '500px 0px' });
-      vz.forEach((el) => { if (hasViz(el.getAttribute('data-viz'))) vizIO.observe(el); else el.remove(); });
+      vz.forEach((el) => { if (hasViz(el.getAttribute('data-viz'))) vizIO.observe(el); else if (!PRO) el.outerHTML = proCard('Try it: interactive model', 'Play with this idea step by step and see the result. Part of Pro.', 'viz'); else el.remove(); });
     }
   }
 
@@ -761,6 +775,127 @@ window.__startApp = function () {
   document.addEventListener('keyup', (e) => { if (e.shiftKey) onSelectionEnd(e); });
 
   // ================================================================ views
+  // ================================================================ Pro
+  // A small locked card in place of a Pro feature; tapping it opens the Go Pro page.
+  function proCard(title, text, from) {
+    return `<a class="pro-lock" href="#pro" data-from="${esc(from || '')}"><span class="lock-ico">${icon('lock')}</span><span class="pro-lock-txt"><strong>${esc(title)}</strong><span>${esc(text)}</span></span><span class="pro-tag">Pro</span></a>`;
+  }
+  const PRO_FEATURES = {
+    quiz: ['Quiz', 'A quiz from every module, a weak-spot quiz that goes after what you got wrong, and mastery per topic.'],
+    formulas: ['Formula sheet', 'Every formula, the numbers worth remembering and the classic traps, on one page per module.'],
+    lab: ['Interactive models', 'Every "Try it" model from the notes in one place: circuits, waveforms, machines and more.'],
+    mine: ['Bookmarks and My notes', 'Your highlights and notes in one place, synced between your phone and laptop.'],
+    revise: ['Night-before revision pack', 'The formulas, one-liners and traps of every module, ready to read in 20 minutes or save as a PDF.'],
+    mock: ['Timed mock CAT', 'A real CAT paper with a 90-minute timer. When time is up you get the model answers.'],
+  };
+  function viewProTeaser(key) {
+    const [title, text] = PRO_FEATURES[key] || ['Pro feature', ''];
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: title }]); setActive(key); document.title = `${title} · BAEEE101 Notes`;
+    const el = h('div', { class: 'view' });
+    el.innerHTML = `
+      <div class="eyebrow"><span class="code">Pro</span><span>${esc(title)}</span></div>
+      <h1 class="h-display">${esc(title)}</h1>
+      <p class="blurb">${esc(text)}</p>
+      ${proCard('Get Pro for ₹' + (window.PRICE_RS || 15), 'One payment for the whole semester. The notes stay free.', key)}
+      <p class="muted" style="margin-top:14px"><a href="#pro" style="color:inherit">See everything in Pro →</a></p>`;
+    return { el };
+  }
+  // The "Why go Pro" page (owner's brief, 30-09-2026): outcome first, benefits grouped by what they do for you, real
+  // previews, honest price, Terms and Refund next to Pay. No countdowns, no invented numbers.
+  function viewGoPro() {
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Go Pro' }]); setActive('pro'); document.title = 'Go Pro · BAEEE101 Notes';
+    try { if (!sessionStorage.getItem('bn_gopro')) { sessionStorage.setItem('bn_gopro', '1'); beacon({ funnel: 'gopro' }); } } catch (e) { /* ignore */ }
+    const rs = window.PRICE_RS || 15, days = 120, perDay = (rs / days).toFixed(2).replace(/\.?0+$/, '');
+    const was = window.PRICE_WAS;
+    const free = !!window.FREE_SITE;
+    const sampleQ = QS.find((q) => q.answer || q.q);
+    const groups = [
+      ['exam', 'Practise like the exam', 'Sit a real CAT paper against a 90-minute timer, then check yourself against model answers written from these notes.', ['Timed mock CAT', 'Model papers', 'Model answers for every paper']],
+      ['brain', 'Remember it', 'Short daily recall beats rereading. The quiz keeps coming back to what you got wrong until it sticks.', ['All flashcards', 'Quiz and weak-spot quiz', 'Mastery per topic']],
+      ['bolt', 'Revise fast', 'The night before, read one page per module instead of the whole module.', ['Night-before revision pack', 'Formula sheet', 'PDF summaries to keep']],
+      ['sync', 'Never lose progress', 'Start on your laptop, finish on your phone in the bus. Your ticks, highlights and notes follow you.', ['Sync across phone and laptop', 'Bookmarks and My notes']],
+      ['target', 'Study smarter', 'Know what was actually asked and where you stand.', ['Focus timer up to 3 h with stats', 'Study music', '"N% read" progress', 'Full "asked in CAT" detail', 'Answers to every practice question', 'Every interactive model', 'Unlimited quiz battles']],
+    ];
+    const el = h('div', { class: 'view gopro' });
+    el.innerHTML = `
+      <div class="eyebrow"><span class="code">BAEEE101</span><span>Pro</span></div>
+      <h1 class="h-display">Score more in your CAT with less time</h1>
+      <p class="blurb">The notes, diagrams and summaries are free and stay free. Pro adds the tools that turn reading into marks: practice under exam conditions, answers you can check yourself against, and a fast way to revise.</p>
+      ${free ? '<div class="note example"><p>Pro is <b>free for everyone right now</b>. Everything below is already open for you.</p></div>' : ''}
+      <div class="gopro-price">
+        <div><span class="gp-big">${was ? `<s>₹${was}</s> ` : ''}₹${rs}</span><span class="gp-sub">one payment · whole semester · no subscription</span></div>
+        <p>That is about ₹${perDay} a day over a semester of prep, less than a canteen snack.${was && window.SALE_TEXT ? ' ' + esc(window.SALE_TEXT) : ''}</p>
+        ${free || PRO ? '' : `<button class="btn" data-act="pay">${icon('lock')}Get Pro for ₹${rs} (UPI)</button>`}
+        ${PRO && !free ? '<p><b>You have Pro.</b> Thank you for supporting the site.</p>' : ''}
+        <p class="gp-legal">UPI only. Read the <a href="terms.html" target="_blank">Terms</a> and the <a href="refund.html" target="_blank">Refund policy</a> before you pay. Questions? <a href="contact.html" target="_blank">Contact</a>.</p>
+      </div>
+      <div class="gopro-groups">${groups.map(([ic, t, why, items]) => `
+        <section class="gp-group"><h2 class="h-sec">${esc(t)}</h2><p>${esc(why)}</p><ul class="gp-ticks">${items.map((x) => `<li>${icon('check')}${esc(x)}</li>`).join('')}</ul></section>`).join('')}</div>
+      <h2 class="h-sec" style="margin-top:26px">Try before you pay</h2>
+      <ul class="prose gp-taste">
+        <li>Every topic shows <b>3 sample flashcards</b> for free. Open <a href="#cards">Flashcards</a>.</li>
+        <li>You get <b>one preview quiz battle</b> on a topic. Open <a href="#battle">1v1 battle</a>.</li>
+        <li>Topics asked in a CAT carry an <b>"asked in CAT"</b> badge. Pro shows which slot and what was asked.</li>
+      </ul>
+      ${sampleQ && !PRO ? `<div class="gp-blur"><div class="gp-blur-in prose">${sampleQ.q}<p><b>Answer.</b> The verdict comes first, then the reasoning tied to the notes, then the points an examiner looks for…</p></div>${proCard('Model answers for every question', 'This is what a Pro answer looks like, blurred.', 'preview')}</div>` : ''}
+      <h2 class="h-sec" style="margin-top:26px">Who makes this</h2>
+      <p class="blurb">Made by a student for students. The notes are checked against the course material and every number in a worked example is recomputed. If something is wrong, tap Help? and it gets fixed.</p>`;
+    const pay = $('[data-act="pay"]', el);
+    if (pay) pay.addEventListener('click', () => { if (window.__showPaywall) window.__showPaywall(); else toast('Payments are paused right now', 'info'); });
+    return { el };
+  }
+
+  // Night-before revision pack (Pro): the formulas, one-liners, numbers and traps of every module on one page; Print saves a PDF.
+  function viewRevise() {
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Revision pack' }]); setActive('revise'); document.title = 'Revision pack · BAEEE101 Notes';
+    const el = h('div', { class: 'view revise' });
+    el.innerHTML = `
+      <div class="eyebrow"><span class="code">Pro</span><span>Night-before revision pack</span></div>
+      <h1 class="h-display">Revision pack</h1>
+      <p class="blurb">Everything to read the night before, one module after another. <button class="btn small ghost no-print" data-act="print">${icon('download')}Save as PDF</button></p>
+      ${MODULES.filter((m) => m.topics.length).map((m) => {
+        const s = SUM[m.id] || {};
+        const forms = [].concat(...m.topics.map((t) => t.formulas));
+        const lines = [].concat(...m.topics.map((t) => t.oneLiners));
+        return `<section class="rv-mod"><h2 class="h-sec">Module ${+m.num} · ${esc(m.title)}</h2>
+          ${forms.length ? `<h3>Formulas</h3><div class="forms">${forms.map((f) => `<div class="form"><div class="fname">${rt(f.name)}</div><div class="eq">${f.html}</div>${f.note ? `<div class="fnote">${f.note}</div>` : ''}</div>`).join('')}</div>` : ''}
+          ${lines.length ? `<h3>One-liners</h3><ul class="prose">${lines.map((x) => `<li>${x}</li>`).join('')}</ul>` : ''}
+          ${s.traps && s.traps.length ? `<h3>Traps</h3><ul class="prose">${s.traps.map((x) => `<li>${typeof x === 'string' ? x : (x.html || x.text || '')}</li>`).join('')}</ul>` : ''}
+        </section>`;
+      }).join('')}`;
+    $('[data-act="print"]', el).addEventListener('click', () => window.print());
+    return { el };
+  }
+
+  // Timed mock CAT (Pro): a real CAT paper (questions only), a 90-minute timer, then its model answers.
+  function viewMock() {
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Mock CAT' }]); setActive('mock'); document.title = 'Mock CAT · BAEEE101 Notes';
+    const el = h('div', { class: 'view mock' });
+    const papers = (D.papers || []).filter((pp) => pp.questions && pp.questions.length);
+    let timer = null;
+    const fmt = (s) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+    function list() {
+      el.innerHTML = `
+        <div class="eyebrow"><span class="code">Pro</span><span>Timed mock CAT</span></div>
+        <h1 class="h-display">Mock CAT</h1>
+        <p class="blurb">Pick a paper. You get the questions and a 90-minute timer, just like the exam hall. Write your answers on paper. When the time is up, or you press Finish, the model answers open.</p>
+        ${papers.length ? papers.map((pp, i) => `<button class="next-topic" data-i="${i}"><div><small>${esc(pp.sub || '')}</small><strong>${esc(pp.title)}</strong></div><span class="arrow">${icon('play')}</span></button>`).join('') : '<div class="empty">The CAT papers are added after the modules are done. Check back soon.</div>'}`;
+      $$('[data-i]', el).forEach((b) => b.addEventListener('click', () => run(papers[+b.dataset.i])));
+    }
+    function run(pp) {
+      let left = 90 * 60;
+      el.innerHTML = `
+        <div class="mock-bar"><b>${esc(pp.title)}</b><span class="mock-time" data-t>${fmt(left)}</span><button class="btn small" data-act="finish">Finish</button></div>
+        <div class="prose">${pp.questions.map((q, i) => `<div class="mock-q"><div class="mock-n">Q${i + 1}${q.marks ? ` · ${q.marks} marks` : ''}</div>${q.q}</div>`).join('')}</div>`;
+      hydrate(el);
+      const finish = () => { clearInterval(timer); timer = null; navigate('#papers.' + pp.id); };
+      $('[data-act="finish"]', el).addEventListener('click', finish);
+      timer = setInterval(() => { left--; const t = $('[data-t]', el); if (t) t.textContent = fmt(Math.max(0, left)); if (left <= 0) { toast('Time is up. Here are the model answers.', 'check'); finish(); } }, 1000);
+    }
+    list();
+    return { el, cleanup: () => { if (timer) clearInterval(timer); } };
+  }
+
   function lockedNames() {
     const l = MODULES.filter((m) => m.locked).map((m) => 'Module ' + (+m.num));
     return l.length > 1 ? l.slice(0, -1).join(', ') + ' and ' + l[l.length - 1] : l[0] || 'everything';
@@ -1106,11 +1241,11 @@ window.__startApp = function () {
       <div class="qtext prose">${q.q}</div>
       ${q.options ? `<ol class="qopts">${q.options.map((o, k) => `<li><button class="qopt" data-k="${k}"><span class="k">${letters[k]}</span><span>${o}</span></button></li>`).join('')}</ol>` : ''}
       <div class="qactions">
-        <button class="btn small" data-act="reveal">${q.options ? 'Show answer' : 'Show answer'}</button>
+        <button class="btn small" data-act="reveal">Show answer</button>
         <button class="btn small ghost" data-act="got">${icon('check')}Got it</button>
         <button class="btn small ghost" data-act="revisit">${icon('rotate')}Revisit</button>
       </div>
-      <div class="qans${opts.open ? ' open' : ''}"><div>${answerHTML(q)}</div></div>`;
+      <div class="qans${opts.open ? ' open' : ''}"><div>${q.answer != null || q.correct != null ? answerHTML(q) : proCard('Answer and explanation', 'The verdict, the reasoning and what the examiner wants to see, for every question. Part of Pro.', 'answer')}</div></div>`;
     hydrate(card);
     const ans = $('.qans', card), rev = $('[data-act="reveal"]', card);
     const paintRev = () => { rev.textContent = ans.classList.contains('open') ? 'Hide answer' : 'Show answer'; };
@@ -1122,6 +1257,7 @@ window.__startApp = function () {
     $('[data-act="revisit"]', card).addEventListener('click', () => setStatus('revisit'));
     if (q.options) $('.qopts', card).addEventListener('click', (e) => {
       const b = e.target.closest('.qopt'); if (!b || b.disabled) return;
+      if (q.correct == null) { ans.classList.add('open'); paintRev(); return; } // free: no marking, the answer card says why
       const k = +b.dataset.k, right = k === q.correct;
       $$('.qopt', card).forEach((x) => { x.disabled = true; const kk = +x.dataset.k; if (kk === q.correct) x.classList.add('right'); else if (kk === k) x.classList.add('wrong'); else x.classList.add('dim'); });
       const st = qState(q.id); st.seen++; if (right) st.right++; else { st.wrong++; st.status = 'revisit'; } save();
@@ -1383,6 +1519,7 @@ window.__startApp = function () {
     el.innerHTML = `
       <div class="eyebrow"><span class="code">Practice</span><span>${CARDS.length} cards</span></div>
       <h1 class="h-display">Flashcards</h1>
+      ${PRO ? '' : proCard(`3 sample cards per topic · ${TOPICS.reduce((n, t) => n + (t.cardCount || 0), 0)} cards in all`, 'Pro opens every card, with the still-learning pile kept between visits.', 'cards')}
       <p class="blurb">Say the answer out loud, then flip. Sort each card with the arrow keys: <kbd>←</kbd> still learning, <kbd>→</kbd> know it, <kbd>Space</kbd> to flip.</p>
       <div class="deck-bar">
         ${[['all', 'All'], ...MODULES.filter((m) => m.topics.length).map((m) => [m.id, `Module ${+m.num}`])].map(([v, l]) => `<button class="fchip" data-cm="${v}">${l}</button>`).join('')}
@@ -1929,6 +2066,7 @@ window.__startApp = function () {
   let syncPulled = 0;
   async function syncPull() {
     syncPulled = Date.now();
+    if (!PRO) return false; // progress sync is a Pro feature; free progress stays in this browser
     try {
       const r = await fetch('/api/sync', { cache: 'no-store' });
       if (!r.ok) return false;
@@ -2090,7 +2228,7 @@ window.__startApp = function () {
           return `<section class="syl-mod"><div class="mod-head"><span class="mod-num">Module ${+M.num}</span><h2 class="h-sec">${esc(g.title)}</h2><span class="count">${gi.filter((x) => S.syl[cat + ':' + x.id]).length}/${gi.length}${locked ? ` · ${icon('lock')} locked` : ''}</span></div>
             ${g.lines.map(([line, tl]) => `<div class="syl-line"><div class="syl-lt">${esc(line)}</div>${tl.map(([id, name]) => { const on = !!S.syl[cat + ':' + id], t = TOPIC[id];
               return locked || !t ? `<a class="syl-item locked" href="#unlock"><span class="syl-box">${icon('lock')}</span><span class="syl-name">${esc(name)}</span><span class="syl-tag">Unlock</span></a>`
-                : `<div class="syl-item${on ? ' on' : ''}"><button class="syl-box" role="checkbox" aria-checked="${on}" aria-label="Tick ${esc(name)}" data-tick="${id}">${on ? icon('check') : ''}</button><a class="syl-name" href="#${id}">${rt(t.title)}</a>${on ? '' : `<span class="syl-tag">${Math.round(frac(t) * 100)}% read</span>`}</div>`; }).join('')}</div>`).join('')}
+                : `<div class="syl-item${on ? ' on' : ''}"><button class="syl-box" role="checkbox" aria-checked="${on}" aria-label="Tick ${esc(name)}" data-tick="${id}">${on ? icon('check') : ''}</button><a class="syl-name" href="#${id}">${rt(t.title)}</a>${on || !PRO ? '' : `<span class="syl-tag">${Math.round(frac(t) * 100)}% read</span>`}</div>`; }).join('')}</div>`).join('')}
           </section>`; }).join('')}`;
     }
     el.addEventListener('click', (e) => {
@@ -2115,6 +2253,7 @@ window.__startApp = function () {
     // one entry, or a list when the topic came up in more than one slot's paper
     const list = [].concat(ASKED[id] || []);
     if (!list.length || Date.now() > CAT2_UNTIL) return '';
+    if (!PRO) return `<div class="note exam cat2-asked"><p><b>This topic was asked in CAT-2.</b> <a href="#pro" data-from="asked">Which slot and what was asked: Pro ${icon('right')}</a></p></div>`;
     const slot = (x) => { const p = PAPER[x.paper] || PINDEX.find((y) => y.id === x.paper); return p ? (p.short || p.title).replace(/ paper$/, '') : ''; };
     const lines = list.map((x) => `${list.length > 1 ? `<b>${esc(slot(x))}</b> ` : ''}(${esc(x.where)}): ${esc(x.what)}. <a href="#papers.${esc(x.paper)}">See the question paper ${icon('right')}</a>`);
     return `<div class="note exam cat2-asked"><p><b>This topic was asked in CAT-2</b>${list.length > 1 ? ` in ${list.length} slots` : ''}${list.length > 1 ? ':</p><p>' + lines.join('</p><p>') : ' ' + lines[0]}</p></div>`;
@@ -2221,7 +2360,7 @@ window.__startApp = function () {
       try { acc = await call(); } catch (e) { pick.innerHTML = `<div class="empty">${esc(e.message)}</div>`; return; }
       if (!alive) return;
       if (acc.access === 'used') {
-        pick.innerHTML = `<a class="lock-card" href="#unlock"><span class="lock-ico">${icon('lock')}</span><div><strong>You've used your free preview battle</strong><p>Unlock full access for ₹${PRICE_RS} to battle on any topics, as often as you like.</p></div><span class="arrow">${icon('right')}</span></a>`;
+        pick.innerHTML = `<a class="lock-card" href="#unlock"><span class="lock-ico">${icon('lock')}</span><div><strong>You've used your free preview battle</strong><p>Pro (₹${PRICE_RS}) lets you battle on any topics, as often as you like.</p></div><span class="arrow">${icon('right')}</span></a>`;
         return;
       }
       const preview = acc.access !== 'full';
