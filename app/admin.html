@@ -271,7 +271,7 @@
             <button class="btn primary">${s.sale ? 'Restart offer' : 'Start offer'}</button></form>
           <label class="muted" for="st" style="font-size:13.5px;display:block;margin-top:10px">Message on the payment page (optional)</label><input id="st" class="ann-line" maxlength="140" placeholder="e.g. It's my bday so enjoyyy 🎉" value="${esc(s.sale ? s.sale.text : '')}"><p class="msg" id="sm"></p></div>
         <form id="bf" style="margin-top:18px"><label class="muted" for="bt" style="font-size:13.5px">Announcement at the top of the site</label>
-          <textarea id="bt" maxlength="240" placeholder="e.g. CAT-2 revision notes for Module 4 are up!" class="ann">${esc(B.text || '')}</textarea>
+          <textarea id="bt" maxlength="240" placeholder="e.g. Module 4 notes are up!" class="ann">${esc(B.text || '')}</textarea>
           <p class="row" style="margin-top:8px"><button class="btn primary" data-ban="1">${B.on ? 'Update announcement' : 'Show announcement'}</button>${B.on ? '<button class="btn ghost" data-ban="0">Hide it</button>' : ''} <span class="muted" style="font-size:13.5px;align-self:center">${B.on ? 'Showing now' : 'Not showing'}</span></p>
           <p class="msg" id="bm"></p></form>
         <div class="sale"><div class="note-label">Payments</div>
