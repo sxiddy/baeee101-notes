@@ -17,7 +17,8 @@
   "q-2c.js",
   "q-2d.js",
   "summary-m2.js",
-  "chunk-4a.js"
+  "chunk-4a.js",
+  "chunk-4b.js"
  ],
  "proFiles": [
   "pro-1a.js",
@@ -35,6 +36,7 @@
   "qa-2c.js",
   "qa-2d.js",
   "pro-4a.js",
+  "pro-4b.js",
   "viz-m1.js",
   "viz-m2.js"
  ],
@@ -93,6 +95,8 @@
   "summary-m2.js": "m2",
   "chunk-4a.js": "m4",
   "pro-4a.js": "m4",
+  "chunk-4b.js": "m4",
+  "pro-4b.js": "m4",
   "viz-m1.js": "m1",
   "viz-m2.js": "m2"
  }
