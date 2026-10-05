@@ -217,7 +217,7 @@
     const B = s.banner || {};
     const modChecks = (s.paidModules || []).map((m) => `<label class="lim"><input type="checkbox" class="gmod" value="${esc(m.id)}" checked> Module ${+m.num}</label>`).join('');
     $('#out').innerHTML = `
-      <div class="note"><div class="note-label">Your own access</div><p>Unlock every module on this device, free, with no device limit. Do it once on each phone or PC you use.</p><p style="margin-top:10px"><button class="btn primary" id="me">Unlock the full site on this device</button> <span class="msg" id="mm" style="display:inline-block;margin-left:10px"></span></p></div>
+      <div class="note"><div class="note-label">Your own access</div><p>Turn on Pro on this device, free, with no device limit. Do it once on each phone or PC you use.</p><p style="margin-top:10px"><button class="btn primary" id="me">Turn on Pro on this device</button> <span class="msg" id="mm" style="display:inline-block;margin-left:10px"></span></p></div>
       ${s.razorpayError ? `<div class="note heads-up"><div class="note-label">Razorpay said: ${esc(s.razorpayError)}</div><p>Payment numbers below are empty because Razorpay refused the keys. In Vercel → Settings → Environment Variables, check that <code>RAZORPAY_KEY_ID</code> and <code>RAZORPAY_KEY_SECRET</code> are a matching pair from the same mode (both live or both test), then redeploy. Students can't pay until this is fixed.</p></div>` : ''}
       ${s.storage ? '' : `<div class="note heads-up"><div class="note-label">Storage not set up yet</div><p>Payments below come straight from Razorpay. Everything else starts working once you add Upstash Redis in Vercel → Storage (free).</p></div>`}
 
