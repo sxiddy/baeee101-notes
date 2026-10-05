@@ -20,7 +20,8 @@
     "num": "02",
     "title": "Foundations of Electronics and Communication Systems",
     "chunks": [
-      "2a"
+      "2a",
+      "2b"
     ],
     "questions": [],
     "syllabus": "Semiconductor devices: PN junction diode, Zener diode, BJT, MOSFET and operational amplifier; the electromagnetic spectrum, elements of a communication system, modulation, cellular, satellite and radar systems."
