@@ -1,6 +1,6 @@
 // POST /api/feedback { kind, topic?, tab?, text, contact?, website? } -> stores a "Help?" request or an "Any ideas?" idea
 //   kind: 'mistake' (wrong in the notes) | 'suggestion' | 'bug' (something isn't working) | 'other' | 'idea'
-// Both show up on the owner's page (/stats.html) with the student's email, so the owner can reply.
+// Both show up on the owner's page (/admin) with the student's email, so the owner can reply.
 // GET  /api/feedback                  -> { messages, unread } the signed-in student's inbox: the owner's replies
 //                                        (list inbox:<email>, written by /api/stats "reply"), newest first
 // POST /api/feedback { action: 'read' } -> marks them all read (inboxRead:<email> = the time)

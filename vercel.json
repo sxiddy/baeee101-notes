@@ -31,17 +31,22 @@
   "redirects": [
     {
       "source": "/admin",
-      "destination": "/stats.html",
+      "destination": "/admin.html",
       "permanent": false
     },
     {
       "source": "/stats",
-      "destination": "/stats.html",
+      "destination": "/admin.html",
       "permanent": false
     },
     {
       "source": "/stats/html",
-      "destination": "/stats.html",
+      "destination": "/admin.html",
+      "permanent": false
+    },
+    {
+      "source": "/stats.html",
+      "destination": "/admin.html",
       "permanent": false
     }
   ]

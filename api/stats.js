@@ -257,8 +257,8 @@ module.exports = handle(async (req, res) => {
     confusing = Object.keys(cc).map((k) => ({ key: k, count: +cc[k] || 0, label: clab[k] || k })).filter((c) => c.count > 0).sort((a, b) => b.count - a.count).slice(0, 20);
 
     const fnl = store.pairs(fn), days = lastDays(30);
-    funnel = { visitors: 0, paywall: 0, start: 0, paid: 0 };
-    days.forEach((d) => { funnel.visitors += +(visits[d] || 0); ['paywall', 'start', 'paid'].forEach((s) => { funnel[s] += +(fnl[d + ':' + s] || 0); }); });
+    funnel = { visitors: 0, gopro: 0, paywall: 0, start: 0, paid: 0 };
+    days.forEach((d) => { funnel.visitors += +(visits[d] || 0); ['gopro', 'paywall', 'start', 'paid'].forEach((s) => { funnel[s] += +(fnl[d + ':' + s] || 0); }); });
     banner = parseJSON(bn, null);
 
     // every student who has signed in (plus anyone paid or on the free list), newest activity first

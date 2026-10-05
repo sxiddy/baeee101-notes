@@ -1,4 +1,4 @@
-/* Legal pages (terms, refund, contact): fill in the business name the owner saved on /stats.html (Settings). */
+/* Legal pages (terms, refund, contact): fill in the business name the owner saved on /admin (Settings). */
 (function () {
   'use strict';
   fetch('/api/session', { credentials: 'same-origin' }).then((r) => r.json()).then((s) => {

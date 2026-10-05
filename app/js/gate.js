@@ -121,8 +121,8 @@
       <div class="gate">
         <div class="gate-card">
           <div class="gate-eyebrow">BAEEE101 · Basic Engineering</div>
-          <h1 class="gate-title">Basic Engineering</h1>
-          <p class="gate-lead">${freeNames()} ${freeCount() === 1 ? 'is' : 'are'} free. Unlock ${paidNames()}: their notes, diagrams, interactive models, questions, quiz, flashcards and summaries.</p>
+          <h1 class="gate-title">BAEEE101 Pro</h1>
+          <p class="gate-lead">The notes stay free. Pro adds every flashcard, the formula sheet, model answers, model papers, the quiz, the timed mock CAT, the revision pack, interactive models and progress sync. One payment, no subscription.</p>
           ${S.sale && S.sale.text && S.normalPrice > price ? `<div class="gate-offer-note" role="note">${esc(S.sale.text)}</div>` : ''}
           <div class="gate-price"><span class="gate-rs">₹${rs}</span>${S.sale && S.normalPrice > price ? `<s class="gate-was">₹${(S.normalPrice / 100).toFixed(0)}</s><span class="gate-offer">Offer ends ${offerEnds(S.sale.until)}</span>` : ''}<span class="gate-muted">one-time · pay with any UPI app</span></div>
           <div class="gate-devices" role="note">
@@ -130,8 +130,8 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.6"/><path d="M1.5 20h21"/></svg>
             <p><b>Works on 1 phone + 1 laptop/PC only.</b> Your payment is tied to <b>${esc(S.user || '')}</b>. Sign in with it on one phone and one computer. A second phone or a second PC won't open.</p>
           </div>
-          ${S.reviewer ? '<div class="gate-offer-note" role="note"><b>Reviewer account.</b> You can see the payment page and open the UPI checkout. The paid modules stay locked for this account, even after a test payment.</div>' : ''}
-          ${S.paused ? `<div class="gate-offer-note" role="note"><b>Payments are paused for now.</b> ${esc(S.paused.text || 'Please check back soon. The free modules still work.')}</div>` : `<button class="btn primary gate-pay" id="gate-pay">Pay ₹${rs} with UPI</button>`}
+          ${S.reviewer ? '<div class="gate-offer-note" role="note"><b>Reviewer account.</b> You can see the payment page and open the UPI checkout. Pro stays locked for this account, even after a test payment.</div>' : ''}
+          ${S.paused ? `<div class="gate-offer-note" role="note"><b>Payments are paused for now.</b> ${esc(S.paused.text || 'Please check back soon. The free notes still work.')}</div>` : `<button class="btn primary gate-pay" id="gate-pay">Pay ₹${rs} with UPI</button>`}
           <p class="gate-msg" id="gate-msg" role="alert">${msg ? esc(msg) : ''}</p>
           <p class="gate-muted gate-small">Google Pay, PhonePe, Paytm, BHIM or any UPI ID. After paying, just sign in with the same student account on your other device.</p>
           <details class="gate-restore">
@@ -151,8 +151,8 @@
             </form>
           </details>
           <p class="gate-signed">Signed in as ${esc(S.user || '')} · <button type="button" class="linkish" id="gate-out">Sign out</button></p>
-          <p style="margin-top:14px"><a class="btn ghost" href="./" id="gate-back">← Back to the free ${freeNames()}</a></p>
-          <p class="gate-muted gate-small gate-legal">One-time payment for access to these notes. ${legal}</p>
+          <p style="margin-top:14px"><a class="btn ghost" href="./" id="gate-back">← Back to the notes</a></p>
+          <p class="gate-muted gate-small gate-legal">One-time UPI payment for Pro features for study notes. ${legal}</p>
         </div>
       </div>`;
     const payBtn = document.getElementById('gate-pay'), out = document.getElementById('gate-msg');
@@ -243,9 +243,9 @@
       <div class="gate">
         <div class="gate-card">
           <div class="gate-eyebrow">BAEEE101 · Basic Engineering</div>
-          <h1 class="gate-title">This module is locked</h1>
-          <p class="gate-lead">${freeNames()} ${freeCount() === 1 ? 'is' : 'are'} free to use. ${paidNames()} need full access. Sign-in is switched off right now, so full access can't be bought at the moment. Please check back soon.</p>
-          <p style="margin-top:14px"><a class="btn ghost" href="./">← Back to the free ${freeNames()}</a></p>
+          <h1 class="gate-title">Pro is not on sale right now</h1>
+          <p class="gate-lead">The notes are free to use. Paying for Pro needs a signed-in account, and sign-in is switched off right now, so Pro can't be bought at the moment. Please check back soon.</p>
+          <p style="margin-top:14px"><a class="btn ghost" href="./">← Back to the notes</a></p>
           <p class="gate-muted gate-small gate-legal">${legal}</p>
         </div>
       </div>`;
@@ -262,7 +262,7 @@
       window.PRICE_WAS = S.normalPrice && S.normalPrice > price ? Math.round(S.normalPrice / 100) : null; // an offer price is running
       window.SALE_TEXT = (S.sale && S.sale.text) || '';
       window.SIGNED_IN_AS = S.user || null;
-      // the owner can switch sign-in off on /stats.html: then everyone opens the notes as a guest
+      // the owner can switch sign-in off on /admin: then everyone opens the notes as a guest
       if (!S.user && !S.owner && S.signin !== false) {
         const err = new URLSearchParams(location.search).get('login_error');
         if (err) history.replaceState(null, '', location.pathname + location.hash);

@@ -20,7 +20,7 @@ async function findByEmail(email) {
 }
 
 // { action: 'reset-devices', reason? }: the student asks the owner to clear their devices. The request waits in hash
-// "devreq" (email -> {at, reason, kind}) until the owner approves or declines it on /stats.html. One request a week
+// "devreq" (email -> {at, reason, kind}) until the owner approves or declines it on /admin. One request a week
 // (key "devreset:<email>").
 const WEEK = 7 * 24 * 3600;
 async function requestReset(req, res, u, b) {

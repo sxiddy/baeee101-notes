@@ -1,10 +1,10 @@
 // Shared helpers for the sign-in, payment and content functions (files starting with _ are not deployed as endpoints).
 const crypto = require('crypto');
 
-const PRICE = parseInt(process.env.PRICE_PAISE || '1500', 10); // ₹15 default; the owner can change it on /stats.html
+const PRICE = parseInt(process.env.PRICE_PAISE || '1500', 10); // ₹15 default; the owner can change it on /admin
 const DOMAIN = (process.env.STUDENT_DOMAIN || 'vitstudent.ac.in').toLowerCase(); // only these Google accounts get in
 const USER_COOKIE = 'bn_user';   // signed-in student: { e: email, d: device id }
-const OWNER_COOKIE = 'bn_access'; // owner unlock from /stats.html: { p: 'owner' }
+const OWNER_COOKIE = 'bn_access'; // owner unlock from /admin: { p: 'owner' }
 const MAX_AGE = 400 * 24 * 3600; // browsers cap cookies at 400 days
 // Razorpay's website reviewer signs in on /review.html with this username and the REVIEW_CODE the owner sets in
 // Vercel (unset = reviewer sign-in is off). The reviewer sees the free modules, the paywall and the Pay button, never paid content.
@@ -83,7 +83,7 @@ function isOwner(req) {
   return !!(t && t.p === 'owner');
 }
 
-// Two site-wide switches the owner flips on /stats.html (hash "config"):
+// Two site-wide switches the owner flips on /admin (hash "config"):
 //   signin = "off": nobody new can sign in, and anyone can open the site without signing in (a guest). Students who
 //                   are already signed in stay signed in and keep what they paid for.
 //   mode = "free":  every module is open to everyone who can open the site (no paywall); "paid" (default) = as usual.
@@ -227,7 +227,7 @@ async function settings() {
 
 // ---------------------------------------------------------------- devices
 // Each student account signs in on one phone (or tablet) and one laptop/PC, unless the owner set a custom limit for
-// that email on /stats.html (hash "limits": email -> {"phone":n,"pc":n}). The kind comes from the browser's user agent;
+// that email on /admin (hash "limits": email -> {"phone":n,"pc":n}). The kind comes from the browser's user agent;
 // the browser keeps a random device id in localStorage, so signing in again on the same device reuses its slot.
 const DEVICE_KINDS = ['phone', 'pc'];
 const MAX_DEVICES = DEVICE_KINDS.length;

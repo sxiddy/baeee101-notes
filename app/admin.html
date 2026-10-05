@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>Owner stats · BAEEE101 Notes</title>
+<title>Admin · BAEEE101 Notes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&display=swap">
 <link rel="stylesheet" href="css/app.css">
 <style>
@@ -64,12 +64,33 @@
   details.bulk summary { cursor: pointer; color: var(--text-2); font-size: 14.5px; }
   details.bulk input[type="file"] { min-width: 0; max-width: 100%; height: auto; border: 0; background: none; padding: 0; font-family: var(--sans); font-size: 13.5px; }
   .msg { font-size: 14px; color: var(--warn); min-height: 1.4em; margin-top: 8px; }
+  /* admin shell: sections one at a time; sidebar on wide screens, a scrolling chip bar on phones */
+  .adm-top { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin: 6px 0 14px; }
+  .adm-subj { display: flex; gap: 8px; align-items: center; font-size: 14px; }
+  .adm-subj select { max-width: 70vw; }
+  .adm-nav { position: sticky; top: 0; z-index: 5; display: flex; gap: 6px; overflow-x: auto; padding: 8px 0; margin: 0 0 14px; background: var(--bg); border-bottom: 1px solid var(--line); scrollbar-width: none; }
+  .adm-nav button { flex: none; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--bg-2); color: var(--text); font: 500 14px var(--sans); cursor: pointer; }
+  .adm-nav button.on { background: var(--white); color: var(--bg); border-color: var(--white); }
+  .adm-nav .n { margin-left: 6px; font: 500 12px var(--mono); opacity: 0.7; }
+  #out [data-grp][hidden] { display: none !important; }
+  @media (min-width: 900px) {
+    .wrap.adm { display: grid; grid-template-columns: 210px minmax(0, 1fr); column-gap: 28px; max-width: 1240px; }
+    .wrap.adm > .eyebrow, .wrap.adm > .adm-top, .wrap.adm > #login { grid-column: 1 / -1; }
+    .adm-nav { flex-direction: column; overflow: visible; align-self: start; top: 12px; border: 0; padding: 0; }
+    .adm-nav button { text-align: left; border-radius: 10px; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap adm">
   <div class="eyebrow"><span class="code">Owner</span><span>BAEEE101 Notes</span><span class="dot">·</span><a href="./" style="color:inherit">Back to the site</a></div>
-  <h1 class="h-display" style="font-size:40px">Stats</h1>
+  <div class="adm-top"><h1 class="h-display" style="font-size:34px;margin:0">Admin</h1>
+    <label class="adm-subj"><span class="muted">Subject</span><select id="subj" class="sel" aria-label="Subject">
+      <option value="">BAEEE101 · Basic Engineering</option>
+      <option value="https://bachy105.vercel.app/admin">BACHY105 · Applied Chemistry ↗</option>
+      <option value="https://baeng101.vercel.app/admin">BAENG101 · English ↗</option>
+    </select></label></div>
+  <nav class="adm-nav" id="anav" hidden></nav>
   <div id="login">
     <p class="muted">Enter your admin key (the <code>ADMIN_KEY</code> you set in Vercel). It stays in this tab only.</p>
     <form class="row" id="f"><input id="k" type="password" placeholder="Admin key" autocomplete="current-password" required><button class="btn primary">Show stats</button></form>
@@ -225,6 +246,7 @@
       ${s.storage ? `<section class="sum-sec" style="margin-top:36px"><h2 class="h-sec">Conversion <small>last 30 days</small></h2>
         <div class="funnel">
           <div><b>${F.visitors}</b><span>visited the site</span></div>
+          <div><b>${F.gopro || 0}</b><span>saw the Go Pro page</span><em>${pct(F.gopro || 0, F.visitors)} of visitors</em></div>
           <div><b>${F.paywall}</b><span>saw the payment page</span><em>${pct(F.paywall, F.visitors)} of visitors</em></div>
           <div><b>${F.start}</b><span>tapped Pay</span><em>${pct(F.start, F.paywall)} of those</em></div>
           <div><b>${F.paid}</b><span>paid</span><em>${pct(F.paid, F.start)} of those</em></div>
@@ -516,5 +538,70 @@
   if (key) load();
 })();
 </script>
+
+<script>
+(() => {
+  document.getElementById('subj').addEventListener('change', (e) => { if (e.target.value) location.href = e.target.value; });
+  // which section goes where: matched on each section's heading
+  const GROUPS = [
+    ['overview', 'Overview', /^(Conversion|Payments per day|Visitors per day|Quiz insights|Marked|Most opened)/],
+    ['students', 'Students', /^Students/],
+    ['payments', 'Payments', /^Recent payments/],
+    ['free', 'Free access', /^Free access/],
+    ['devices', 'Devices & resets', /^(Device reset requests|Device limits|Reset a student)/],
+    ['messages', 'Messages', /^(Help\? requests|Ideas from students)/],
+    ['battles', 'Battles', /^Battles/],
+    ['subjects', 'Subjects', /^Subject:/],
+    ['papers', 'Question papers', /^Question papers/],
+    ['settings', 'Settings', /^Settings/],
+  ];
+  let cur = (location.hash || '#overview').slice(1);
+  const out = document.getElementById('out'), nav = document.getElementById('anav');
+  const sec = (title, html) => { const x = document.createElement('section'); x.className = 'sum-sec'; x.innerHTML = '<h2 class="h-sec">' + title + '</h2>' + html; return x; };
+  function regroup() {
+    if (out.hidden || out.dataset.grouped === '1') return;
+    out.dataset.grouped = '1';
+    // Battles: the count line from the conversion box becomes its own section
+    const conv = [...out.querySelectorAll('section.sum-sec')].find((x) => /^Conversion/.test(x.querySelector('h2')?.textContent || ''));
+    const bl = conv && [...conv.querySelectorAll('p')].find((p) => /quiz battles/.test(p.textContent));
+    if (bl) out.appendChild(sec('Battles', '<p class="muted" style="font-size:14px">Free students get one preview battle; Pro students battle on any topic.</p>' + bl.outerHTML)), bl.remove();
+    // Subjects: Pro price and offer move out of Settings into this subject's card
+    const set = [...out.querySelectorAll('section.sum-sec')].find((x) => /^Settings/.test(x.querySelector('h2')?.textContent || ''));
+    if (set) {
+      const sub = sec('Subject: BAEEE101 Basic Engineering', '<p class="muted" style="font-size:14px">Pro price and offers for this subject. The notes stay free; the price is for the Pro features.</p>');
+      const pf = set.querySelector('#pf');
+      if (pf) { let n = pf.nextElementSibling; sub.appendChild(pf); while (n && n.matches('p')) { const nx = n.nextElementSibling; sub.appendChild(n); n = nx; } }
+      const offer = [...set.querySelectorAll('.sale')].find((x) => /Temporary offer/.test(x.textContent));
+      if (offer) sub.appendChild(offer);
+      const syl = (window.MODULES_CONFIG || []).map((m) => '<li><b>Module ' + (+m.num) + ' · ' + m.title + '</b><br><span class="muted" style="font-size:13.5px">' + (m.syllabus || '') + '</span></li>').join('');
+      sub.insertAdjacentHTML('beforeend', '<div class="sale"><div class="note-label">Syllabus on the site</div>' + (syl ? '<ul style="margin:6px 0 0;padding-left:18px">' + syl + '</ul>' : '<p class="muted">No modules yet.</p>') + '<p class="muted" style="font-size:13.5px">Modules and syllabus lines come from content/modules.json (ask Claude to change them).</p></div>');
+      out.appendChild(sub);
+    }
+    // Question papers: what is live
+    const files = [].concat(window.FREE_FILES || [], window.PRO_FILES || []);
+    out.appendChild(sec('Question papers', '<p>' + (files.includes('papers-free.js') ? 'Actual CAT papers are live (questions free, model answers Pro).' : 'No actual CAT papers on the site yet.') + '</p><p>' + (files.includes('papers-pro.js') ? 'Model papers and model answers are live (Pro).' : 'No model papers yet.') + '</p><p class="muted" style="font-size:13.5px">Send the papers to Claude; they are typed into content/papers-free.js and papers-pro.js.</p>'));
+    // tag every top-level block with its group; the KPI cards and notes at the top belong to the overview
+    [...out.children].forEach((el) => {
+      const h = el.matches('section') ? (el.querySelector('h2')?.textContent || '').trim() : '';
+      const g = h && GROUPS.find((x) => x[2].test(h));
+      el.dataset.grp = g ? g[0] : 'overview';
+    });
+    nav.innerHTML = GROUPS.filter((g) => out.querySelector('[data-grp="' + g[0] + '"]')).map((g) => '<button data-g="' + g[0] + '">' + g[1] + '</button>').join('');
+    nav.hidden = false;
+    show(cur);
+  }
+  function show(g) {
+    if (!out.querySelector('[data-grp="' + g + '"]')) g = 'overview';
+    cur = g; history.replaceState(null, '', '#' + g);
+    [...out.children].forEach((el) => { el.hidden = el.dataset.grp !== g; });
+    nav.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.g === g));
+  }
+  nav.addEventListener('click', (e) => { const b = e.target.closest('[data-g]'); if (b) { show(b.dataset.g); window.scrollTo(0, 0); } });
+  // the page re-renders #out after every action: group again each time
+  new MutationObserver(() => { if (out.dataset.grouped !== '1' || !out.querySelector('[data-grp]')) { out.dataset.grouped = ''; regroup(); } }).observe(out, { childList: true, attributes: true, attributeFilter: ['hidden'] });
+})();
+</script>
+<script src="js/modules.js"></script>
+<script src="js/data-files.js"></script>
 </body>
 </html>

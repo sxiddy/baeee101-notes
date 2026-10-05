@@ -2,7 +2,7 @@
 //   user: the signed-in student's email (null = show the sign-in screen)
 //   signin: false = the owner switched sign-in off: open the site as a guest; freeSite: every module is free for now
 //   modules: null = every paid module; otherwise the module ids a single-module grant unlocks
-// Also records when a signed-in student last used the site and counts their visits (one per page load), for the owner's student list on /stats.html.
+// Also records when a signed-in student last used the site and counts their visits (one per page load), for the owner's student list on /admin.
 const { send, getUser, isOwner, hasAccess, siteMode, isReviewer, settings, claimDevice, deviceActive, userCookie, clearUserCookie, DOMAIN, handle } = require('./_lib');
 const store = require('./_store');
 

@@ -6,7 +6,7 @@
 //   JSON flow: POST { credential | devEmail, deviceId } -> { ok, email } (devEmail only with DEV_LOGIN=1, never on Vercel).
 //   Reviewer: POST { reviewUser, reviewCode } from /review.html -> the Razorpay website reviewer's account (see _lib.js);
 //   only when REVIEW_CODE is set in Vercel, and at most 10 tries an hour per address (30 an hour in total).
-//   While the owner has switched sign-in off (/stats.html), new Google and dev sign-ins are refused (the reviewer's still works).
+//   While the owner has switched sign-in off (/admin), new Google and dev sign-ins are refused (the reviewer's still works).
 //   Sign out: POST { logout: true } (also /api/logout) -> clears this browser's sign-in (their device slot stays theirs).
 const { send, handle, verifyGoogle, safeEqual: same, REVIEW_EMAIL, reviewerCookie, siteMode, isStudentEmail, normEmail, deviceIdFrom, claimDevice, userCookie, clearUserCookie, safeEqual, DOMAIN } = require('./_lib');
 
@@ -34,7 +34,7 @@ async function signIn(req, b, deviceId) {
   // Google's redirect), the slot is claimed on the first page load instead (api/session.js), so one browser = one device.
   const dev = /^[a-f0-9]{32}$/.test(String(deviceId || '')) ? deviceId : null;
   if (dev) { const claim = await claimDevice(email, dev, req); if (!claim.ok) throw Object.assign(new Error(claim.why), { status: 403 }); }
-  // the owner's student list on /stats.html: first and latest sign-in, and how many sign-ins
+  // the owner's student list on /admin: first and latest sign-in, and how many sign-ins
   const store = require('./_store'), now = new Date().toISOString();
   if (store.configured()) await store.pipeline([['HSETNX', 'userFirst', email, now], ['HSET', 'userLogin', email, now], ['HSET', 'userSeen', email, now], ['HINCRBY', 'userLogins', email, 1]]).catch(() => {});
   return { email, cookie: userCookie(email, dev) };

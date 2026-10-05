@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id": "m1",
+    "num": "01",
+    "title": "Principles of Electrical Engineering",
+    "chunks": [
+      "1a",
+      "1b",
+      "1c"
+    ],
+    "questions": [
+      "q-1a.js",
+      "q-1b.js",
+      "q-1c.js"
+    ],
+    "syllabus": "Electric circuit components, mesh current analysis, node voltage analysis, Thevenin's and superposition theorems, single-phase AC circuits (RL, RC, RLC), power and energy calculations, power factor, basics of electrical safety and earthing. Electromechanical energy conversion and the principle of operation of DC motors, induction motors, BLDC motors and the single-phase transformer; concepts of power electronics and industrial applications of electrical drives."
+  }
+]
