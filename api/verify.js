@@ -9,7 +9,7 @@
 const crypto = require('crypto');
 const { send, body, hmac, safeEqual, env, razorpay, checkPayment, recordPaid, getUser, handle } = require('./_lib');
 const store = require('./_store');
-const PRODUCT = 'bachy105-notes';
+const PRODUCT = 'baeee101-notes';
 
 async function rawBody(req) {
   if (typeof req.body === 'string') return req.body;

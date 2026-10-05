@@ -1,6 +1,6 @@
-# BACHY105 Notes
+# BAEEE101 Notes
 
-Applied Chemistry (BACHY105) modules 2–4 as a dark, tabbed study app: notes with the slide diagrams, recall mode, highlights, personal notes, search, a scenario-based question bank, quiz, flashcards and formula sheet.
+Basic Engineering (BAEEE101) modules 2–4 as a dark, tabbed study app: notes with the slide diagrams, recall mode, highlights, personal notes, search, a scenario-based question bank, quiz, flashcards and formula sheet.
 
 Run locally:
 

@@ -97,11 +97,11 @@ module.exports = handle(async (req, res) => {
       return send(res, 200, { ok: true });
     }
     if (a === 'set-signin') {
-      await store.pipeline([b.on ? ['HDEL', 'config', 'signin'] : ['HSET', 'config', 'signin', 'off']]);
+      await store.pipeline([['HSET', 'config', 'signin', b.on ? 'on' : 'off']]);
       return send(res, 200, { ok: true });
     }
     if (a === 'set-mode') {
-      await store.pipeline([b.free ? ['HSET', 'config', 'mode', 'free'] : ['HDEL', 'config', 'mode']]);
+      await store.pipeline([['HSET', 'config', 'mode', b.free ? 'free' : 'paid']]);
       return send(res, 200, { ok: true });
     }
     if (a === 'set-business') {

@@ -1,4 +1,4 @@
-/* BACHY105 Notes — app shell. Vanilla JS, no build step. Started by gate.js once the notes are unlocked. */
+/* BAEEE101 Notes — app shell. Vanilla JS, no build step. Started by gate.js once the notes are unlocked. */
 window.__startApp = function () {
   'use strict';
   const D = window.DATA || { chunks: [], questions: [], summaries: {}, figs: {} };
@@ -85,7 +85,7 @@ window.__startApp = function () {
   const icon = (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" viewBox="0 0 24 24" aria-hidden="true">${P[n] || ''}</svg>`;
 
   // ================================================================ store
-  const KEY = 'bachy105-notes:v1';
+  const KEY = 'baeee101-notes:v1';
   function blank() { return { visited: {}, done: {}, tags: {}, notes: {}, hl: {}, q: {}, cards: {}, confusing: {}, study: {}, syl: {}, last: null, ui: { closed: {}, lastTab: {} } }; }
   function normalize(s) {
     const b = blank();
@@ -314,7 +314,7 @@ window.__startApp = function () {
     const inner = h('div', { class: 'sb-inner' });
     inner.innerHTML = `
       <div class="sb-head">
-        <a class="brand" href="#home"><span class="brand-code">BACHY105</span><span class="brand-title">Applied Chemistry</span></a>
+        <a class="brand" href="#home"><span class="brand-code">BAEEE101</span><span class="brand-title">Basic Engineering</span></a>
         <button class="icon-btn" data-act="sidebar" title="Collapse sidebar ( [ )" aria-label="Collapse sidebar">${icon('side')}</button>
       </div>
       <button class="sb-search" data-act="search">${icon('search')}<span>Search notes</span><kbd>${isMac ? '⌘' : 'Ctrl'} K</kbd></button>
@@ -602,7 +602,7 @@ window.__startApp = function () {
   function srcLabel(src) {
     const m = String(src || '').match(/\/(?:slides|images|hi)\/s(\d+)/) || String(src || '').match(/\/(?:pages|images)\/p(\d+)/);
     if (!m) return '';
-    return 'BACHY105 course ' + (/\/p\d+/.test(src) || /m4\//.test(src) ? 'material, VIT · Page ' : 'material, VIT · No. ') + parseInt(m[1], 10);
+    return 'Adapted from VIT course slides';
   }
   const svgCache = {};
   function loadSvg(id) {
@@ -783,18 +783,18 @@ window.__startApp = function () {
 
   // ---------------------------------------------------------------- home
   function viewHome() {
-    setCrumbs([{ t: 'Home' }]); setActive('home'); document.title = 'BACHY105 Notes';
+    setCrumbs([{ t: 'Home' }]); setActive('home'); document.title = 'BAEEE101 Notes';
     const d = doneIn(TOPICS), n = TOPICS.length;
     const nViz = allViz().length;
     const el = h('div', { class: 'view' });
     const last = S.last && S.last.hash ? S.last : null;
-    const words = ['Applied', 'Chemistry'];
+    const words = ['Basic', 'Engineering'];
     el.innerHTML = `
       <section class="hero">
-        <div class="eyebrow"><span class="code">BACHY105</span><span>Applied Chemistry</span><span class="dot">·</span><span>Fall semester 2026–27</span></div>
+        <div class="eyebrow"><span class="code">BAEEE101</span><span>Basic Engineering</span><span class="dot">·</span><span>Fall semester 2026–27</span></div>
         <h1 class="h-display">${words.map((w, i) => `<span class="w" style="--i:${i}">${w}</span>`).join(' ')}</h1>
         <p class="blurb">Modules 2, 3 and 4, rebuilt as short tabbed notes with every diagram from the course material${nViz ? `, ${nViz} interactive models` : ''} and ${QS.length} questions that make you use what you read. White text is what you must remember. Everything else is there so it makes sense.</p>
-        <p class="credit">Based on the BACHY105 Applied Chemistry course material taught at VIT. Diagrams are reproduced from the course material and credited to their authors; the notes, questions and interactive models are written for this site. <a href="privacy.html">Privacy</a></p>
+        <p class="credit">Based on the BAEEE101 Basic Engineering course material taught at VIT. Diagrams are redrawn for this site from the course material (adapted from VIT course slides); the notes, questions and interactive models are written for this site. <a href="privacy.html">Privacy</a></p>
         <div class="stat-line"><span class="stat-big">${d}/${n}</span><span class="muted">topics done</span><div class="bar"><i style="width:${n ? (d / n) * 100 : 0}%"></i></div><button class="btn small" data-act="share">${icon('share')}Share progress</button></div>
         <div class="study-line">${icon('fire')}<span><b>${streakDays()}</b> day${streakDays() === 1 ? '' : 's'} in a row</span><span class="dot">·</span><span><b data-today>${fmtDur(todaySecs())}</b> today</span><span class="dot">·</span><span><b data-total>${fmtDur(totalSecs())}</b> in total</span></div>
         ${last ? `<div class="continue"><a class="btn primary" href="${last.hash}">Continue: ${rt(last.title)} ${icon('right')}</a></div>` : (TOPICS[0] ? `<div class="continue"><a class="btn primary" href="#${TOPICS[0].id}">Start with ${rt(TOPICS[0].title)} ${icon('right')}</a></div>` : '')}
@@ -842,7 +842,7 @@ window.__startApp = function () {
   // ---------------------------------------------------------------- module
   function viewModule(r) {
     const m = MOD[r.mod];
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: `Module ${+m.num}` }]); setActive(null); document.title = `${m.title} · BACHY105 Notes`;
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: `Module ${+m.num}` }]); setActive(null); document.title = `${m.title} · BAEEE101 Notes`;
     const d = doneIn(m.topics), n = m.topics.length;
     const nq = QS.filter((q) => q.module === m.id && q.topic !== 'mixed').length;
     const nc = CARDS.filter((c) => c.module === m.id).length;
@@ -875,7 +875,7 @@ window.__startApp = function () {
     let i = r.tab != null && r.tab < n ? r.tab : (S.ui.lastTab[t.id] != null && S.ui.lastTab[t.id] < n ? S.ui.lastTab[t.id] : 0);
     setActive(t.id);
     trackTopic(t.id);
-    document.title = `${plain(t.title)} · BACHY105 Notes`;
+    document.title = `${plain(t.title)} · BAEEE101 Notes`;
     const oi = orderIdx(t.id);
     const nx = ORDER[oi + 1];
     const nq = (QBY[t.id] || []).length, nc = (t.flashcards || []).length;
@@ -1049,7 +1049,7 @@ window.__startApp = function () {
   function viewSummary(r) {
     const m = MOD[r.mod], s = SUM[m.id];
     setCrumbs([{ t: 'Home', href: '#home' }, { t: `Module ${+m.num}`, href: '#' + m.id }, { t: 'Summary' }]);
-    setActive(m.id + '-summary'); document.title = `Module ${+m.num} summary · BACHY105 Notes`;
+    setActive(m.id + '-summary'); document.title = `Module ${+m.num} summary · BAEEE101 Notes`;
     S.last = { hash: `#${m.id}-summary`, title: `Module ${+m.num} summary` }; save();
     const el = h('div', { class: 'view sumpage' });
     const mqs = QS.filter((q) => q.module === m.id && q.topic === 'summary');
@@ -1143,7 +1143,7 @@ window.__startApp = function () {
       else { const mm = r.arg.match(/^(m[0-9]+)-summary$/); if (mm) { bankUI.mod = mm[1]; bankUI.topic = 'summary'; } }
     } else { bankUI.mod = 'all'; bankUI.topic = 'all'; }
     setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Question bank' }]);
-    setActive(r.arg ? 'questions.' + r.arg : 'questions'); document.title = 'Question bank · BACHY105 Notes';
+    setActive(r.arg ? 'questions.' + r.arg : 'questions'); document.title = 'Question bank · BAEEE101 Notes';
     const el = h('div', { class: 'view' });
     const types = Array.from(new Set(QS.map((q) => q.type))).filter(Boolean);
     const got = QS.filter((q) => S.q[q.id] && S.q[q.id].status === 'got').length;
@@ -1228,7 +1228,7 @@ window.__startApp = function () {
   // ---------------------------------------------------------------- quiz
   const quizUI = { mods: null, format: 'mcq', count: 10, smart: true, run: null, preset: null };
   function viewQuiz(r) {
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Quiz' }]); setActive('quiz'); document.title = 'Quiz · BACHY105 Notes';
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Quiz' }]); setActive('quiz'); document.title = 'Quiz · BAEEE101 Notes';
     const el = h('div', { class: 'view' });
     if (r.arg && MOD[r.arg]) quizUI.mods = [r.arg];
     if (!quizUI.mods) quizUI.mods = MODULES.filter((m) => m.topics.length).map((m) => m.id);
@@ -1376,7 +1376,7 @@ window.__startApp = function () {
 
   // ---------------------------------------------------------------- flashcards
   function viewCards(r) {
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Flashcards' }]); setActive('cards'); document.title = 'Flashcards · BACHY105 Notes';
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Flashcards' }]); setActive('cards'); document.title = 'Flashcards · BAEEE101 Notes';
     const el = h('div', { class: 'view' });
     const state = { mod: 'all', topic: 'all', learning: false, deck: [], i: 0, flipped: false };
     if (r.arg) { if (MOD[r.arg]) state.mod = r.arg; else if (TOPIC[r.arg]) { state.mod = TOPIC[r.arg].module; state.topic = r.arg; } }
@@ -1450,7 +1450,7 @@ window.__startApp = function () {
 
   // ---------------------------------------------------------------- formula sheet
   function viewFormulas() {
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Formula sheet' }]); setActive('formulas'); document.title = 'Formula sheet · BACHY105 Notes';
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Formula sheet' }]); setActive('formulas'); document.title = 'Formula sheet · BAEEE101 Notes';
     const el = h('div', { class: 'view' });
     let tab = 'f';
     el.innerHTML = `
@@ -1486,7 +1486,7 @@ window.__startApp = function () {
 
   // ---------------------------------------------------------------- lab bench
   function viewLab() {
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Lab bench' }]); setActive('lab'); document.title = 'Lab bench · BACHY105 Notes';
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Lab bench' }]); setActive('lab'); document.title = 'Lab bench · BAEEE101 Notes';
     const el = h('div', { class: 'view' });
     const ids = allViz();
     el.innerHTML = `
@@ -1521,7 +1521,7 @@ window.__startApp = function () {
 
   // ---------------------------------------------------------------- mine
   function viewMine() {
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Highlights & notes' }]); setActive('mine'); document.title = 'Highlights & notes · BACHY105 Notes';
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Highlights & notes' }]); setActive('mine'); document.title = 'Highlights & notes · BAEEE101 Notes';
     const el = h('div', { class: 'view' });
     const hl = [];
     TOPICS.forEach((t) => (S.hl[t.id] || []).forEach((x) => hl.push({ t, x })));
@@ -1884,7 +1884,7 @@ window.__startApp = function () {
     const w = String(window.SIGNED_IN_AS || '').split('@')[0].split('.')[0].replace(/[^a-z]/gi, '');
     return w ? w[0].toUpperCase() + w.slice(1).toLowerCase() : '';
   }
-  const SITE_URL = /bachy105\.vercel\.app/.test(location.host) ? 'https://bachy105.vercel.app' : location.origin;
+  const SITE_URL = /baeee101\.vercel\.app/.test(location.host) ? 'https://baeee101.vercel.app' : location.origin;
   const modsDone = () => MODULES.filter((m) => m.topics.length && doneIn(m.topics) === m.topics.length).length;
 
   // ================================================================ progress sync (follows the account)
@@ -1964,7 +1964,7 @@ window.__startApp = function () {
     g.fillStyle = bg; g.fillRect(0, 0, W, H);
     const glow = g.createRadialGradient(W - 120, 90, 10, W - 120, 90, 620); glow.addColorStop(0, 'rgba(255,181,107,0.30)'); glow.addColorStop(1, 'rgba(255,181,107,0)');
     g.fillStyle = glow; g.fillRect(0, 0, W, H);
-    g.fillStyle = '#8a8a94'; g.font = F(500, 28, true); g.fillText('BACHY105 · APPLIED CHEMISTRY', 80, 118);
+    g.fillStyle = '#8a8a94'; g.font = F(500, 28, true); g.fillText('BAEEE101 · BASIC ENGINEERING', 80, 118);
     g.textAlign = 'right'; g.fillText(o.date, W - 80, 118); g.textAlign = 'left';
     g.fillStyle = '#f4f4f6'; fit(o.name, 700, 132, W - 160); g.fillText(o.name, 80, 290);
     g.fillStyle = '#ffb56b'; fit(o.subtitle, 600, 44, W - 160); g.fillText(o.subtitle, 80, 368);
@@ -1985,7 +1985,7 @@ window.__startApp = function () {
     } else if (o.line) { g.fillStyle = '#cfcfd6'; fit(o.line, 500, 40, W - 160); g.fillText(o.line, 80, 1010); }
     g.fillStyle = '#ffb56b'; g.fillRect(80, H - 178, 64, 6);
     g.fillStyle = '#f4f4f6'; g.font = F(700, 46); g.fillText(SITE_URL.replace(/^https?:\/\//, ''), 80, H - 104);
-    g.fillStyle = '#8a8a94'; g.font = F(500, 30); g.fillText('Applied Chemistry study notes for VIT students', 80, H - 58);
+    g.fillStyle = '#8a8a94'; g.font = F(500, 30); g.fillText('Basic Engineering study notes for VIT students', 80, H - 58);
     return c;
   }
   async function openShareCard(o) {
@@ -1997,16 +1997,16 @@ window.__startApp = function () {
     if (o.kind === 'mastery') {
       spec = { name: name || 'Mastered', date, subtitle: 'Mastered ' + o.label, line: o.rounds === 1 ? 'Every question right on the first try.' : `Every question right after ${o.rounds} rounds of weak-spot practice.`,
         stats: [['Time to master', fmtDur(o.secs, true)], ['Rounds', String(o.rounds)], ['Questions', String(o.total)], ['Streak', `${streak} day${streak === 1 ? '' : 's'}`]] };
-      text = `I mastered ${o.label} on BACHY105 Notes in ${fmtDur(o.secs, true)}. ${SITE_URL}`;
+      text = `I mastered ${o.label} on BAEEE101 Notes in ${fmtDur(o.secs, true)}. ${SITE_URL}`;
     } else {
       const week = Array.from({ length: 7 }, (_, i) => { const t = Date.now() - (6 - i) * DAYMS; return { v: Math.round((+S.study[dayKey(t)] || 0) / 60), l: 'SMTWTFS'[new Date(t + ISTMS).getUTCDay()] }; });
       spec = { name: name || 'My study day', date, subtitle: `${doneIn(TOPICS)} of ${TOPICS.length} topics done`, week,
         stats: [['Today', fmtDur(todaySecs())], ['Total study', fmtDur(totalSecs())], ['Streak', `${streak} day${streak === 1 ? '' : 's'}`], ['Modules done', `${modsDone()}/${MODULES.length}`]] };
-      text = `${fmtDur(todaySecs())} of Applied Chemistry today on BACHY105 Notes. ${streak} day${streak === 1 ? '' : 's'} in a row, ${fmtDur(totalSecs())} in total, ${modsDone()}/${MODULES.length} modules done. ${SITE_URL}`;
+      text = `${fmtDur(todaySecs())} of Basic Engineering today on BAEEE101 Notes. ${streak} day${streak === 1 ? '' : 's'} in a row, ${fmtDur(totalSecs())} in total, ${modsDone()}/${MODULES.length} modules done. ${SITE_URL}`;
     }
     const canvas = await drawCard(spec);
     const blob = await new Promise((ok) => canvas.toBlob(ok, 'image/png'));
-    const file = new File([blob], `bachy105-${o.kind}.png`, { type: 'image/png' });
+    const file = new File([blob], `baeee101-${o.kind}.png`, { type: 'image/png' });
     const src = URL.createObjectURL(blob);
     overlay((close) => {
       const m = h('div', { class: 'modal share-modal' });
@@ -2021,8 +2021,8 @@ window.__startApp = function () {
       $('[data-cp]', m).addEventListener('click', copy);
       $('[data-sh]', m).addEventListener('click', async () => {
         try {
-          if (navigator.canShare && navigator.canShare({ files: [file] })) await navigator.share({ files: [file], text, title: 'BACHY105 Notes' });
-          else if (navigator.share) await navigator.share({ text, url: SITE_URL, title: 'BACHY105 Notes' });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) await navigator.share({ files: [file], text, title: 'BAEEE101 Notes' });
+          else if (navigator.share) await navigator.share({ text, url: SITE_URL, title: 'BAEEE101 Notes' });
           else { copy(); msg.textContent = 'Text copied. Save the picture to post it too.'; }
         } catch (e) { /* closed the share sheet */ }
       });
@@ -2039,7 +2039,7 @@ window.__startApp = function () {
         ['Electrochemical and electrolytic cells', [['m2-electrochemical-cells', 'Electrochemical cells']]],
         ['Electrode materials, including semiconductors', [['m2-semiconductors', 'Semiconductors as electrode materials'], ['m2-semiconductor-purification', 'Making ultra-pure Si & Ge']]],
         ['Classification of batteries', [['m2-batteries', 'Batteries: parts & classification']]],
-        ['Lithium-ion battery chemistry', [['m2-li-ion', 'Lithium-ion batteries']]],
+        
         ['H₂–O₂ fuel cell and solid oxide fuel cell', [['m2-fuel-cells', 'Fuel cells: principle & types'], ['m2-pemfc', 'PEM fuel cell'], ['m2-sofc', 'Solid oxide fuel cell']]],
         ['Silicon photovoltaic cells', [['m2-solar-energy', 'Solar energy & conversion routes'], ['m2-photovoltaics', 'Photovoltaic cells']]],
         ['Photoelectrochemical cells', [['m2-pec-cells', 'Photoelectrochemical cells']]],
@@ -2069,7 +2069,7 @@ window.__startApp = function () {
   }
   function viewSyllabus(r) {
     const cat = r.arg === 'cat1' ? 'cat1' : 'cat2', label = cat === 'cat1' ? 'CAT-1' : 'CAT-2';
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: label + ' syllabus' }]); setActive('syllabus.' + cat); document.title = `${label} syllabus · BACHY105 Notes`;
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: label + ' syllabus' }]); setActive('syllabus.' + cat); document.title = `${label} syllabus · BAEEE101 Notes`;
     const el = h('div', { class: 'view syl' });
     const groups = SYL[cat];
     if (!groups) {
@@ -2123,7 +2123,7 @@ window.__startApp = function () {
     const p = r.arg && PAPER[r.arg];
     const el = h('div', { class: 'view papers' });
     if (!p) {
-      setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Question papers' }]); setActive('papers'); document.title = 'Question papers · BACHY105 Notes';
+      setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Question papers' }]); setActive('papers'); document.title = 'Question papers · BAEEE101 Notes';
       const row = (x) => { const open = !!PAPER[x.id];
         return open ? `<a class="next-topic" href="#papers.${esc(x.id)}"><div><small>${esc(x.sub || '')}</small><strong>${esc(x.title)}</strong></div><span class="arrow">${icon('right')}</span></a>`
           : `<a class="lock-card" href="#unlock"><span class="lock-ico">${icon('lock')}</span><div><strong>${esc(x.title)}</strong><p>${esc(x.sub || '')} · unlock with full access for ₹${PRICE_RS}</p></div><span class="arrow">${icon('right')}</span></a>`; };
@@ -2138,7 +2138,7 @@ window.__startApp = function () {
       return { el };
     }
     setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Question papers', href: '#papers', hideSm: true }, { t: p.short || p.title }]); setActive('papers');
-    document.title = `${p.title} · BACHY105 Notes`;
+    document.title = `${p.title} · BAEEE101 Notes`;
     const topicLinks = (ids) => (ids || []).filter((id) => TOPIC[id]).map((id) => `<a href="#${id}">${rt(TOPIC[id].short || TOPIC[id].title)}</a>`).join(' · ');
     el.innerHTML = `<div class="eyebrow"><span class="code">${p.kind === 'actual' ? 'Actual paper' : 'Model paper'}</span><span>${esc(p.sub || '')}</span></div>
       <h1 class="h-display">${esc(p.title)}</h1>
@@ -2166,7 +2166,7 @@ window.__startApp = function () {
 
   // ================================================================ how to use
   function viewGuide() {
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'How to use' }]); setActive('guide'); document.title = 'How to use · BACHY105 Notes';
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: 'How to use' }]); setActive('guide'); document.title = 'How to use · BAEEE101 Notes';
     const el = h('div', { class: 'view guide' });
     const ex = (id, tab, text) => (TOPIC[id] ? `<a href="#${id}${tab != null ? '.' + tab : ''}">${text}</a>` : `<b>${text}</b>`);
     const sec = (ic, title, body) => `<section class="g-sec"><h2>${icon(ic)}${title}</h2>${body}</section>`;
@@ -2196,7 +2196,7 @@ window.__startApp = function () {
 
   // ================================================================ 1v1 quiz battle
   function viewBattle(r) {
-    setCrumbs([{ t: 'Home', href: '#home' }, { t: '1v1 Quiz battle' }]); setActive('battle'); document.title = '1v1 Quiz battle · BACHY105 Notes';
+    setCrumbs([{ t: 'Home', href: '#home' }, { t: '1v1 Quiz battle' }]); setActive('battle'); document.title = '1v1 Quiz battle · BAEEE101 Notes';
     const el = h('div', { class: 'view battle' });
     const id = r.arg && /^[a-f0-9]{10}$/.test(r.arg) ? r.arg : null;
     let alive = true, tmr = 0, raf = 0, off = 0, st = null, shown = '', picked = {}, switchedAt = -1, wall = null;
@@ -2310,7 +2310,7 @@ window.__startApp = function () {
         el.innerHTML = `${head(topics)}<h1 class="h-display">Send this link to one friend</h1><p class="blurb">When they join, you both see the rules, and the battle starts once you both tap Understood. Topics: <b style="color:var(--white)">${topics}</b>.</p>
           <div class="bt-link"><code>${esc(link)}</code><div class="btn-row"><button class="btn primary" data-share>${icon('share')}Share link</button><button class="btn" data-copy>${icon('copy')}Copy</button></div></div>
           <p class="bt-wait"><span class="bt-dot"></span>Waiting for your opponent…</p>${rules}`;
-        const text = `${firstName() || 'I'} challenged you to a 1v1 Applied Chemistry quiz battle on BACHY105 Notes (${plain(s.topics.join(', '))}). Join here: ${link}`;
+        const text = `${firstName() || 'I'} challenged you to a 1v1 Basic Engineering quiz battle on BAEEE101 Notes (${plain(s.topics.join(', '))}). Join here: ${link}`;
         const copy = () => { try { navigator.clipboard.writeText(link).then(() => toast('Link copied', 'copy'), () => toast(link)); } catch (e) { toast(link); } };
         $('[data-copy]', el).addEventListener('click', copy);
         $('[data-share]', el).addEventListener('click', () => { if (navigator.share) navigator.share({ title: 'Quiz battle', text, url: link }).catch(() => {}); else copy(); });
@@ -2368,7 +2368,7 @@ window.__startApp = function () {
         ${s.preview ? `<a class="lock-card" href="#unlock"><span class="lock-ico">${icon('lock')}</span><div><strong>That was your free preview battle</strong><p>Unlock full access for unlimited battles on every topic, plus Modules 3 and 4.</p></div><span class="arrow">${icon('right')}</span></a>` : ''}
         <section class="sum-sec" style="margin-top:36px"><h2 class="h-sec">Answers</h2>${s.results.map((x) => `<div class="bt-rev"><div class="prose">${x.front}</div><p class="bt-ans">${x.answer}</p><p class="bt-who"><span class="${x[me].ok ? 'ok' : 'bad'}">You ${x[me].ok ? '✓ +' + x[me].pts : x[me].switched ? '✗ tab switch' : '✗'}</span><span class="${x[o].ok ? 'ok' : 'bad'}">${esc(on)} ${x[o].ok ? '✓ +' + x[o].pts : x[o].switched ? '✗ tab switch' : '✗'}</span></p></div>`).join('')}</section>`;
       $('[data-sharer]', el).addEventListener('click', () => {
-        const text = `${a > b ? 'I beat ' + on : a < b ? on + ' beat me' : 'I drew with ' + on} ${Math.max(a, b)}–${Math.min(a, b)} in a 1v1 Applied Chemistry quiz battle on BACHY105 Notes. ${SITE_URL}`;
+        const text = `${a > b ? 'I beat ' + on : a < b ? on + ' beat me' : 'I drew with ' + on} ${Math.max(a, b)}–${Math.min(a, b)} in a 1v1 Basic Engineering quiz battle on BAEEE101 Notes. ${SITE_URL}`;
         if (navigator.share) navigator.share({ text, title: 'Quiz battle' }).catch(() => {}); else { try { navigator.clipboard.writeText(text).then(() => toast('Copied', 'copy')); } catch (e) { toast(text); } }
       });
       stagger(el);

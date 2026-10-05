@@ -12,7 +12,7 @@ const PDATA = path.join(ROOT, 'protected', 'data');
 const PIMG = path.join(ROOT, 'protected', 'img');
 const CONTENT = path.join(ROOT, 'content');
 
-const TITLE = 'BACHY105 Notes';
+const TITLE = 'BAEEE101 Notes';
 const FONTS = 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap';
 
 fs.mkdirSync(PDATA, { recursive: true });
@@ -96,7 +96,7 @@ const html = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${TITLE}</title>
-<meta name="description" content="Applied Chemistry (BACHY105) modules 2–4 as tabbed study notes with diagrams, interactive models and scenario questions.">
+<meta name="description" content="Basic Engineering (BAEEE101) as tabbed study notes with diagrams, worked numericals, interactive models and scenario questions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${FONTS}">

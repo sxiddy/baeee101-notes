@@ -1,14 +1,14 @@
 // Shared helpers for the sign-in, payment and content functions (files starting with _ are not deployed as endpoints).
 const crypto = require('crypto');
 
-const PRICE = parseInt(process.env.PRICE_PAISE || '5000', 10); // ₹50 default; the owner can change it on /stats.html
+const PRICE = parseInt(process.env.PRICE_PAISE || '1500', 10); // ₹15 default; the owner can change it on /stats.html
 const DOMAIN = (process.env.STUDENT_DOMAIN || 'vitstudent.ac.in').toLowerCase(); // only these Google accounts get in
 const USER_COOKIE = 'bn_user';   // signed-in student: { e: email, d: device id }
 const OWNER_COOKIE = 'bn_access'; // owner unlock from /stats.html: { p: 'owner' }
 const MAX_AGE = 400 * 24 * 3600; // browsers cap cookies at 400 days
 // Razorpay's website reviewer signs in on /review.html with this username and the REVIEW_CODE the owner sets in
 // Vercel (unset = reviewer sign-in is off). The reviewer sees the free modules, the paywall and the Pay button, never paid content.
-const REVIEW_EMAIL = 'review@bachy105';
+const REVIEW_EMAIL = 'review@baeee101';
 const reviewOn = () => !!process.env.REVIEW_CODE;
 
 function env(name) {
@@ -90,17 +90,21 @@ function isOwner(req) {
 //   A temporary offer at ₹0 (config "sale", price 0) does the same as "free" until the offer ends, then the site is paid again.
 //   .free = free right now for either reason; .freeMode = the switch; .freeOffer = the ₹0 offer's end time (ms) or null.
 // Cached for a few seconds per server instance, so a switch reaches every page within about 5 s.
+// Until the owner flips a switch, api/_mode.json decides: "open": true = sign-in off and everything free.
+const MODE_FILE = (() => { try { return require('./_mode.json'); } catch (e) { return {}; } })();
 let MODE = null, MODE_AT = 0;
 async function siteMode(fresh) {
   if (!fresh && MODE && Date.now() - MODE_AT < 5000) return MODE;
   const store = require('./_store');
-  const out = { signin: true, free: false, freeMode: false, freeOffer: null };
+  const open = MODE_FILE.open === true || process.env.OPEN_ACCESS === '1';
+  const out = { signin: !open, free: false, freeMode: open, freeOffer: null };
   if (store.configured()) {
     const [[s, m, sl]] = await store.pipeline([['HMGET', 'config', 'signin', 'mode', 'sale']]);
-    out.signin = s !== 'off'; out.freeMode = m === 'free';
+    if (s === 'off' || s === 'on') out.signin = s === 'on';
+    if (m === 'free' || m === 'paid') out.freeMode = m === 'free';
     try { const x = JSON.parse(sl || 'null'); if (x && x.price === 0 && x.until > Date.now()) out.freeOffer = x.until; } catch (e) {}
-    out.free = out.freeMode || !!out.freeOffer;
   }
+  out.free = out.freeMode || !!out.freeOffer;
   MODE = out; MODE_AT = Date.now();
   return out;
 }
@@ -182,7 +186,7 @@ async function checkPayment(paymentId, orderId) {
   // (older payments at an earlier price keep working after the owner changes it)
   if (p.currency !== 'INR' || !(p.amount >= 100)) return { ok: false, why: 'Payment amount does not match.' };
   const order = p.order_id ? await razorpay('GET', '/orders/' + p.order_id) : null;
-  if (!order || (order.notes || {}).product !== 'bachy105-notes') return { ok: false, why: 'Payment was not for these notes.' };
+  if (!order || (order.notes || {}).product !== 'baeee101-notes') return { ok: false, why: 'Payment was not for these notes.' };
   if (p.status === 'authorized') p = await razorpay('POST', `/payments/${paymentId}/capture`, { amount: p.amount, currency: 'INR' });
   if (p.status !== 'captured') return { ok: false, why: `Payment is ${p.status}, not completed.` };
   return { ok: true, payment: p, order, email: normEmail((order.notes || {}).email) };
@@ -192,7 +196,7 @@ async function checkPayment(paymentId, orderId) {
 const isOurs = (p) => p.status === 'captured' && p.method === 'upi' && p.currency === 'INR'
   // untagged payments (from before orders carried a product) still match on price; a payment tagged for another
   // product (e.g. the BAENG101 site on the same Razorpay account) never counts here
-  && ((p.notes || {}).product === 'bachy105-notes' || (!(p.notes || {}).product && p.amount === PRICE));
+  && (p.notes || {}).product === 'baeee101-notes';
 
 // Records a verified payment against the student's email, so every device they sign in on has access.
 async function recordPaid(email, p) {
