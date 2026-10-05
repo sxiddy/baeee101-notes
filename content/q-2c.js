@@ -255,6 +255,62 @@ QUESTIONS({
       answer: `<p>50 Hz is <b>ELF</b>; 250 kHz is <b>LF</b>.</p>`,
       explain: `<p>ELF covers 30 to 300 Hz and includes AC power line frequencies (50 and 60 Hz). LF covers 30 to 300 kHz and is used for aeronautical and marine navigation, and 250 kHz is inside it.</p>`,
       points: [ '50 Hz in ELF (30 to 300 Hz)', '250 kHz in LF (30 to 300 kHz)' ]
+    },
+    {
+      id: 'm2-2c-31', module: 'm2', topic: 'm2-freq-bands', type: 'numerical', level: 3,
+      q: `<p>A receiver is used at 950 kHz, then at 98 MHz, then at 4.5 MHz. Name the band and the service typical of each.</p>`,
+      options: null, correct: null,
+      answer: `<p>950 kHz: <b>MF</b>, AM radio. 98 MHz: <b>VHF</b>, FM radio. 4.5 MHz: <b>HF</b>, short waves.</p>`,
+      explain: `<p>950 kHz is inside 300 to 3000 kHz (MF) and inside the AM broadcast range of 535 to 1605 kHz. 98 MHz is inside 30 to 300 MHz (VHF) and inside the FM range of 88 to 108 MHz. 4.5 MHz is inside 3 to 30 MHz (HF), the short waves.</p>`,
+      points: [ '950 kHz: MF, AM (535 to 1605 kHz)', '98 MHz: VHF, FM (88 to 108 MHz)', '4.5 MHz: HF, short waves' ]
+    },
+    {
+      id: 'm2-2c-32', module: 'm2', topic: 'm2-em-spectrum', type: 'numerical', level: 3,
+      q: `<p>Extra: the wavelength is λ = c / f with c = 3 × 10<sup>8</sup> m/s. Find λ for 30 MHz, 300 MHz and 100 MHz, and check them against the spectrum chart.</p>`,
+      options: null, correct: null,
+      answer: `<p><b>10 m</b>, <b>1 m</b> and <b>3 m</b>. The first two match the chart’s start of VHF (10 m) and UHF (1 m).</p>`,
+      explain: `<div class="worked"><div class="given"><p>λ = c / f, c = 3 × 10<sup>8</sup> m/s.</p></div><div class="solve"><div class="eq">30 MHz: 3 × 10<sup>8</sup> / 3 × 10<sup>7</sup> = 10 m</div><div class="eq">300 MHz: 3 × 10<sup>8</sup> / 3 × 10<sup>8</sup> = 1 m</div><div class="eq">100 MHz: 3 × 10<sup>8</sup> / 10<sup>8</sup> = 3 m</div></div><div class="result"><p>100 MHz gives 3 m, between 10 m and 1 m, as it must for a signal inside VHF</p></div></div>`,
+      points: [ 'λ = c / f', '30 MHz is 10 m, 300 MHz is 1 m', '100 MHz is 3 m, inside VHF' ]
+    },
+    {
+      id: 'm2-2c-33', module: 'm2', topic: 'm2-modulation', type: 'numerical', level: 3,
+      q: `<p>Extra: an efficient antenna is about a quarter of a wavelength long. Compare the antenna needed for a 3 kHz voice signal sent directly with that for a 100 MHz FM carrier (c = 3 × 10<sup>8</sup> m/s). How does this show the need for modulation?</p>`,
+      options: null, correct: null,
+      answer: `<p>Voice: <b>25 km</b>. FM carrier: <b>0.75 m</b>. Modulation onto a high-frequency carrier <b>reduces the antenna height</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>λ = c / f; antenna ≈ λ / 4.</p></div><div class="solve"><div class="eq">3 kHz: λ = 3 × 10<sup>8</sup> / 3 × 10<sup>3</sup> = 100 km, λ/4 = 25 km</div><div class="eq">100 MHz: λ = 3 m, λ/4 = 0.75 m</div></div><div class="result"><p>A 25 km antenna is impossible; 0.75 m is easy. This is one of the needs for modulation</p></div></div>`,
+      points: [ 'λ/4 for 3 kHz is 25 km', 'λ/4 for 100 MHz is 0.75 m', 'Modulation reduces antenna height' ]
+    },
+    {
+      id: 'm2-2c-34', module: 'm2', topic: 'm2-modulation', type: 'decide', level: 3,
+      q: `<p>A company needs two links: one broadcast reaching listeners hundreds of kilometres away, and one office intercom across a building. Choose AM, FM or PM for each, and explain.</p>`,
+      options: null, correct: null,
+      answer: `<p>The long-distance broadcast: <b>AM</b>. The short-distance intercom: <b>FM or PM</b>.</p>`,
+      explain: `<p>AM varies the amplitude of the carrier and is preferred for long-distance communication. FM varies the carrier frequency and PM varies its phase, and both are preferred for short distances. Whichever is chosen, the message is superimposed on a high-frequency carrier at the transmitter and recovered by a demodulator at the receiver.</p>`,
+      points: [ 'AM for long distance', 'FM or PM for short distance', 'Modulator at the transmitter, demodulator at the receiver' ]
+    },
+    {
+      id: 'm2-2c-35', module: 'm2', topic: 'm2-optical', type: 'numerical', level: 3,
+      q: `<p>Three sources emit at 10 µm, 750 nm and 350 nm. Convert to the same unit and place each in the optical spectrum.</p>`,
+      options: null, correct: null,
+      answer: `<p>10 µm = 10 000 nm: <b>infrared</b>. 750 nm: <b>visible</b>. 350 nm: <b>ultraviolet</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>Infrared: about 0.1 mm (100 µm) down to 700 nm. Visible: 400 to 800 nm. Ultraviolet: about 4 to 400 nm.</p></div><div class="solve"><div class="eq">10 µm = 10 × 1000 nm = 10 000 nm, between 700 nm and 100 000 nm</div><div class="eq">750 nm: above the infrared limit of 700 nm and inside 400 to 800 nm</div><div class="eq">350 nm: inside 4 to 400 nm</div></div><div class="result"><p><b>Infrared</b>, <b>visible</b>, <b>ultraviolet</b> (the course quotes infrared to 700 nm and visible 400 to 800 nm, so they overlap between 700 and 800 nm)</p></div></div>`,
+      points: [ '10 µm = 10 000 nm: infrared', '750 nm: visible', '350 nm: ultraviolet' ]
+    },
+    {
+      id: 'm2-2c-36', module: 'm2', topic: 'm2-freq-bands', type: 'numerical', level: 3,
+      q: `<p>Put these in order of increasing frequency and name each band: 98 MHz FM station, 50 Hz mains, 5 GHz wireless LAN, 20 kHz navy link, 1000 kHz AM station.</p>`,
+      options: null, correct: null,
+      answer: `<p>50 Hz (<b>ELF</b>), 20 kHz (<b>VLF</b>), 1000 kHz (<b>MF</b>), 98 MHz (<b>VHF</b>), 5 GHz (<b>SHF</b>).</p>`,
+      explain: `<p>Convert to one unit and compare: 50 Hz &lt; 20 000 Hz &lt; 1 000 000 Hz &lt; 98 000 000 Hz &lt; 5 000 000 000 Hz. The bands in order are ELF (30 to 300 Hz), VLF (3 to 30 kHz), MF (300 to 3000 kHz), VHF (30 to 300 MHz) and SHF (3 to 30 GHz, which includes wireless LANs).</p>`,
+      points: [ 'Convert all to Hz first', 'ELF, VLF, MF, VHF, SHF in that order', 'Wireless LANs are in SHF' ]
+    },
+    {
+      id: 'm2-2c-37', module: 'm2', topic: 'm2-comm-system', type: 'explain', level: 3,
+      q: `<p>A voice call goes from a microphone to a distant loudspeaker by radio. List the blocks in order from the speaker’s mouth to the listener’s ear, and say what form the signal takes at each of three points: after the first block, on the channel, and after the demodulator.</p>`,
+      options: null, correct: null,
+      answer: `<p>Source, input transducer, transmitter, channel, receiver, output transducer. After the transducer: <b>electrical voice signal</b>. On the channel: <b>modulated high-frequency carrier</b>. After the demodulator: <b>the original electrical voice signal</b>.</p>`,
+      explain: `<p>The information source (the speaker) produces sound. The <b>input transducer</b> (microphone) converts it to an electrical signal. The <b>transmitter</b> modulates it onto a carrier, the <b>channel</b> (free space) carries the modulated wave and adds noise, and the <b>receiver</b> amplifies, tunes and demodulates it to recover the original signal. The <b>output transducer</b> (speaker) turns it back into sound.</p>`,
+      points: [ 'Correct block order', 'Channel carries the modulated carrier, with noise added', 'Demodulator recovers the original electrical signal' ]
     }
   ]
 });

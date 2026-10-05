@@ -390,6 +390,70 @@ QUESTIONS({
       answer: `<p><b>Find the arrowhead.</b> It is always on the emitter, so the other outer leg is the collector.</p>`,
       explain: `<p>The arrowhead is drawn on the <b>emitter</b> only, never on the collector, and shows conventional current. In a PNP it points from the emitter <b>toward the base</b>. So the outer leg without an arrow is the collector.</p>`,
       points: [ 'Arrowhead is always on the emitter', 'Collector has no arrowhead', 'PNP: arrow points from emitter to base' ]
+    },
+    {
+      id: 'm2-2a-31', module: 'm2', topic: 'm2-zener', type: 'numerical', level: 3,
+      q: `<p>A regulator has a 15 V input, a series resistor of 300 Ω, and a 9 V Zener in parallel with a 900 Ω load. (a) Find the Zener current. (b) The load is unplugged: what is the Zener current now? (c) The input sags to 8 V with the load connected: roughly what does the load get?</p>`,
+      options: null, correct: null,
+      answer: `<p>(a) <b>10 mA</b>. (b) <b>20 mA</b>. (c) about <b>6 V</b>, because the Zener is no longer in breakdown.</p>`,
+      explain: `<div class="worked"><div class="given"><p>V<sub>in</sub> = 15 V, R = 300 Ω, V<sub>Z</sub> = 9 V, R<sub>L</sub> = 900 Ω.</p></div><div class="solve"><p>(a) The Zener holds the load at 9 V:</p><div class="eq">I<sub>R</sub> = (15 − 9) / 300 = 20 mA, I<sub>L</sub> = 9 / 900 = 10 mA</div><div class="eq">I<sub>Z</sub> = 20 − 10 = 10 mA</div><p>(b) With no load, all of the 20 mA goes through the Zener: I<sub>Z</sub> = 20 mA.</p><p>(c) At 8 V the input is below V<sub>Z</sub>, so the Zener does not break down and the circuit is just a divider:</p><div class="eq">V<sub>L</sub> ≈ 8 × 900 / (300 + 900) = 6 V</div></div><div class="result"><p>I<sub>Z</sub> = <b>10 mA</b>, then <b>20 mA</b>; V<sub>L</sub> ≈ <b>6 V</b> (regulation is lost)</p></div></div>`,
+      points: [ 'I_R = 20 mA, I_L = 10 mA, so I_Z = 10 mA', 'No load: I_Z = 20 mA', 'Input below V_Z: no regulation, divider gives about 6 V' ]
+    },
+    {
+      id: 'm2-2a-32', module: 'm2', topic: 'm2-bjt-gains', type: 'numerical', level: 3,
+      q: `<p>A transistor has β = 59 and I<sub>E</sub> = 12 mA. Find α, I<sub>B</sub> and I<sub>C</sub>, and check that they add up.</p>`,
+      options: null, correct: null,
+      answer: `<p>α = <b>0.983</b>, I<sub>B</sub> = <b>0.2 mA</b>, I<sub>C</sub> = <b>11.8 mA</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>β = 59, I<sub>E</sub> = 12 mA.</p></div><div class="solve"><div class="eq">α = β / (1 + β) = 59 / 60 = 0.983</div><div class="eq">I<sub>B</sub> = I<sub>E</sub> / (1 + β) = 12 / 60 = 0.2 mA</div><div class="eq">I<sub>C</sub> = α I<sub>E</sub> = 11.8 mA</div></div><div class="result"><p>I<sub>B</sub> + I<sub>C</sub> = 0.2 + 11.8 = 12 mA = I<sub>E</sub>. Also β = 11.8 / 0.2 = 59</p></div></div>`,
+      points: [ 'α = β / (1 + β) = 59/60', 'I_B = I_E / (1 + β) = 0.2 mA', 'I_C = 11.8 mA and I_B + I_C = I_E' ]
+    },
+    {
+      id: 'm2-2a-33', module: 'm2', topic: 'm2-bjt-gains', type: 'numerical', level: 3,
+      q: `<p>In a common-emitter amplifier with β = 150, the signal makes I<sub>B</sub> swing from 20 µA to 40 µA. By how much does I<sub>C</sub> change, and what is I<sub>E</sub> at the top of the swing?</p>`,
+      options: null, correct: null,
+      answer: `<p>I<sub>C</sub> changes by <b>3 mA</b> (3 mA to 6 mA), and I<sub>E</sub> at 40 µA is <b>6.04 mA</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>β = 150, I<sub>B</sub> from 20 µA to 40 µA.</p></div><div class="solve"><div class="eq">I<sub>C</sub> = β I<sub>B</sub>: 150 × 20 µA = 3 mA, 150 × 40 µA = 6 mA</div><div class="eq">ΔI<sub>C</sub> = 6 − 3 = 3 mA</div><div class="eq">I<sub>E</sub> = (1 + β) I<sub>B</sub> = 151 × 40 µA = 6.04 mA</div></div><div class="result"><p>A 20 µA change in the input gives a <b>3 mA</b> change at the output: the amplifying action</p></div></div>`,
+      points: [ 'I_C = β I_B at both ends', 'ΔI_C = 3 mA from a 20 µA change', 'I_E = (1 + β) I_B = 6.04 mA' ]
+    },
+    {
+      id: 'm2-2a-34', module: 'm2', topic: 'm2-diode-vi', type: 'numerical', level: 2,
+      q: `<p>A 5 V source drives a diode in series with a 1 kΩ resistor. Find the current with a silicon diode and with a germanium diode connected forward. Then connect the diode backwards: what current flows and what voltage appears across the diode?</p>`,
+      options: null, correct: null,
+      answer: `<p>Silicon <b>4.3 mA</b>, germanium <b>4.7 mA</b>. Reversed: almost <b>0 A</b>, and nearly all <b>5 V</b> sits across the diode.</p>`,
+      explain: `<div class="worked"><div class="given"><p>V = 5 V, R = 1 kΩ. Forward drop: 0.7 V (Si), 0.3 V (Ge).</p></div><div class="solve"><div class="eq">I<sub>Si</sub> = (5 − 0.7) / 1000 = 4.3 mA</div><div class="eq">I<sub>Ge</sub> = (5 − 0.3) / 1000 = 4.7 mA</div><p>Reversed, only the tiny reverse saturation current (microamps) flows, so the drop across R is almost zero and the diode takes almost the whole 5 V.</p></div><div class="result"><p><b>4.3 mA</b> (Si), <b>4.7 mA</b> (Ge); reversed ≈ 0 A with ≈ 5 V across the diode</p></div></div>`,
+      points: [ 'Forward: I = (V − V_barrier) / R', 'Si 4.3 mA, Ge 4.7 mA', 'Reverse: only microamp leakage, the diode takes the supply voltage' ]
+    },
+    {
+      id: 'm2-2a-35', module: 'm2', topic: 'm2-diode-vi', type: 'numerical', level: 3,
+      q: `<p>An AC source has a peak of 10 V. A silicon half-wave rectifier and a silicon bridge rectifier are each built on it. What peak output does each give, and why do they differ?</p>`,
+      options: null, correct: null,
+      answer: `<p>Half-wave <b>9.3 V</b>, bridge <b>8.6 V</b>. In a bridge the current passes through <b>two</b> diodes at a time, so two 0.7 V drops are lost.</p>`,
+      explain: `<div class="worked"><div class="given"><p>V<sub>peak</sub> = 10 V, silicon barrier 0.7 V.</p></div><div class="solve"><div class="eq">Half-wave: 10 − 0.7 = 9.3 V (one diode conducts)</div><div class="eq">Bridge: 10 − 2 × 0.7 = 8.6 V (two diodes in the path)</div></div><div class="result"><p><b>9.3 V</b> and <b>8.6 V</b>. The bridge loses a little more voltage but uses both half-cycles, so it is the more efficient rectifier overall</p></div></div>`,
+      points: [ 'Half-wave: one diode drop, 9.3 V', 'Bridge: two diodes in series, 8.6 V', 'Bridge still uses both half-cycles' ]
+    },
+    {
+      id: 'm2-2a-36', module: 'm2', topic: 'm2-bjt-gains', type: 'interpret', level: 3,
+      q: `<p>Transistor A has α = 0.99 and transistor B has α = 0.98. Both have I<sub>E</sub> = 10 mA. Compare their base currents and β values. What does this show about the size of the gain?</p>`,
+      options: null, correct: null,
+      answer: `<p>A: β = <b>99</b>, I<sub>B</sub> = <b>0.1 mA</b>. B: β = <b>49</b>, I<sub>B</sub> = <b>0.2 mA</b>. A one-percent change in α roughly <b>halves</b> β.</p>`,
+      explain: `<div class="worked"><div class="given"><p>α<sub>A</sub> = 0.99, α<sub>B</sub> = 0.98, I<sub>E</sub> = 10 mA.</p></div><div class="solve"><div class="eq">β = α / (1 − α): β<sub>A</sub> = 0.99 / 0.01 = 99, β<sub>B</sub> = 0.98 / 0.02 = 49</div><div class="eq">I<sub>B</sub> = (1 − α) I<sub>E</sub>: 0.1 mA and 0.2 mA</div></div><div class="result"><p>β depends on the small difference 1 − α, so it is very sensitive to α</p></div></div>`,
+      points: [ 'β = α / (1 − α): 99 and 49', 'I_B = 0.1 mA and 0.2 mA', 'β is very sensitive to α' ]
+    },
+    {
+      id: 'm2-2a-37', module: 'm2', topic: 'm2-bjt-config', type: 'interpret', level: 3,
+      q: `<p>On an NPN transistor you measure V<sub>BE</sub> = 0.7 V in all cases. Case 1: V<sub>CB</sub> = +4 V. Case 2: V<sub>CB</sub> = −0.4 V (collector slightly below the base). Case 3: V<sub>BE</sub> = 0 V. Name the region in each case.</p>`,
+      options: null, correct: null,
+      answer: `<p>Case 1 <b>active</b>, case 2 <b>saturation</b>, case 3 <b>cut-off</b>.</p>`,
+      explain: `<p>Case 1: emitter junction forward (0.7 V), collector junction <b>reverse</b> (V<sub>CB</sub> positive on an NPN), so it is in the <b>active</b> region and I<sub>C</sub> follows I<sub>B</sub>. Case 2: V<sub>CB</sub> is negative, so the collector junction is now forward as well. Both junctions on means <b>saturation</b> (switch ON). Case 3: with V<sub>BE</sub> = 0 the emitter junction is off, so I<sub>B</sub> = 0, I<sub>C</sub> = 0: <b>cut-off</b>.</p>`,
+      points: [ 'Active: emitter forward, collector reverse', 'Saturation: both junctions forward', 'Cut-off: both off, I_B = I_C = 0' ]
+    },
+    {
+      id: 'm2-2a-38', module: 'm2', topic: 'm2-zener', type: 'numerical', level: 3,
+      q: `<p>A 10 V Zener is rated at 1/4 W and fed from a 15 V supply through a series resistor. Find the largest Zener current it can take, and the smallest series resistor that keeps it safe if the load is disconnected.</p>`,
+      options: null, correct: null,
+      answer: `<p>I<sub>Z(max)</sub> = <b>25 mA</b>; R must be at least <b>200 Ω</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>V<sub>Z</sub> = 10 V, P<sub>max</sub> = 0.25 W, V<sub>in</sub> = 15 V.</p></div><div class="solve"><div class="eq">I<sub>Z(max)</sub> = P / V<sub>Z</sub> = 0.25 / 10 = 25 mA</div><p>With no load, the whole resistor current passes through the Zener:</p><div class="eq">R<sub>min</sub> = (15 − 10) / 25 mA = 200 Ω</div></div><div class="result"><p>I<sub>Z(max)</sub> = <b>25 mA</b>, R<sub>min</sub> = <b>200 Ω</b> (a larger R is safer)</p></div></div>`,
+      points: [ 'I_Z(max) = P / V_Z = 25 mA', 'No load: all of I_R flows through the Zener', 'R ≥ 5 V / 25 mA = 200 Ω' ]
     }
   ]
 });

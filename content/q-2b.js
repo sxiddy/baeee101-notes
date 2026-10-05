@@ -255,6 +255,62 @@ QUESTIONS({
       answer: `<p><b>Summation.</b> Adding signals is one of the linear operations an op-amp performs.</p>`,
       explain: `<p>The name “operational amplifier” comes from circuit operations such as <b>summation</b>, scaling, differentiation and integration. Combining several voltages into one is a summation, which is why op-amps were used in analog computers.</p>`,
       points: [ 'Operation needed is summation', 'Other op-amp operations: scaling, differentiation, integration', 'Origin of the name “operational”' ]
+    },
+    {
+      id: 'm2-2b-31', module: 'm2', topic: 'm2-emosfet', type: 'numerical', level: 3,
+      q: `<p>An enhancement MOSFET has V<sub>th</sub> = 1.5 V and V<sub>GS</sub> = 4 V. State its region when V<sub>DS</sub> = 1 V, and again when V<sub>DS</sub> = 3 V. Then say what happens if V<sub>GS</sub> is cut to 1 V.</p>`,
+      options: null, correct: null,
+      answer: `<p>V<sub>DS</sub> = 1 V: <b>linear</b>. V<sub>DS</sub> = 3 V: <b>saturation</b>. V<sub>GS</sub> = 1 V: <b>cut-off</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>V<sub>th</sub> = 1.5 V, V<sub>GS</sub> = 4 V.</p></div><div class="solve"><div class="eq">V<sub>GS</sub> − V<sub>th</sub> = 4 − 1.5 = 2.5 V</div><p>V<sub>DS</sub> = 1 V is below 2.5 V: <b>linear</b> (resistor-like). V<sub>DS</sub> = 3 V is above 2.5 V: <b>saturation</b> (constant current). With V<sub>GS</sub> = 1 V, which is below V<sub>th</sub> = 1.5 V, no channel is induced.</p></div><div class="result"><p>Linear, saturation, then <b>cut-off</b></p></div></div>`,
+      points: [ 'Boundary V_DS = V_GS − V_th = 2.5 V', '1 V is below it (linear), 3 V is above it (saturation)', 'V_GS below V_th means cut-off' ]
+    },
+    {
+      id: 'm2-2b-32', module: 'm2', topic: 'm2-opamp-apps', type: 'numerical', level: 3,
+      q: `<p>An inverting amplifier uses R<sub>i</sub> = 4 kΩ and R<sub>f</sub> = 24 kΩ with V<sub>in</sub> = 0.8 V. Find the gain and V<sub>out</sub>. Then find the new V<sub>out</sub> if R<sub>f</sub> is doubled.</p>`,
+      options: null, correct: null,
+      answer: `<p>Gain <b>−6</b>, V<sub>out</sub> = <b>−4.8 V</b>. With R<sub>f</sub> = 48 kΩ: gain −12, V<sub>out</sub> = <b>−9.6 V</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>R<sub>i</sub> = 4 kΩ, R<sub>f</sub> = 24 kΩ, V<sub>in</sub> = 0.8 V.</p></div><div class="solve"><div class="eq">A<sub>v</sub> = −24 / 4 = −6, V<sub>out</sub> = −6 × 0.8 = −4.8 V</div><div class="eq">R<sub>f</sub> = 48 kΩ: A<sub>v</sub> = −12, V<sub>out</sub> = −12 × 0.8 = −9.6 V</div></div><div class="result"><p><b>−4.8 V</b>, then <b>−9.6 V</b>: doubling R<sub>f</sub> doubles the output</p></div></div>`,
+      points: [ 'A_v = −R_f / R_i = −6', 'V_out = −4.8 V', 'Doubling R_f doubles the gain: −9.6 V' ]
+    },
+    {
+      id: 'm2-2b-33', module: 'm2', topic: 'm2-opamp-apps', type: 'design', level: 3,
+      q: `<p>Design a non-inverting amplifier that turns 0.3 V into 3.3 V using a 2 kΩ resistor from the minus input to ground. Give R<sub>1</sub> and check the output.</p>`,
+      options: null, correct: null,
+      answer: `<p>Gain 11, so <b>R<sub>1</sub> = 20 kΩ</b>. Check: 11 × 0.3 = 3.3 V.</p>`,
+      explain: `<div class="worked"><div class="given"><p>V<sub>in</sub> = 0.3 V, V<sub>out</sub> = 3.3 V, R<sub>2</sub> = 2 kΩ.</p></div><div class="solve"><div class="eq">A<sub>v</sub> = 3.3 / 0.3 = 11</div><div class="eq">11 = 1 + R<sub>1</sub> / 2 kΩ, so R<sub>1</sub> = 10 × 2 kΩ = 20 kΩ</div></div><div class="result"><p>R<sub>1</sub> = <b>20 kΩ</b>; check 1 + 20/2 = 11, 11 × 0.3 = 3.3 V</p></div></div>`,
+      points: [ 'Required gain 11', '1 + R_1 / R_2 = 11, R_1 / R_2 = 10', 'R_1 = 20 kΩ' ]
+    },
+    {
+      id: 'm2-2b-34', module: 'm2', topic: 'm2-opamp-apps', type: 'interpret', level: 3,
+      q: `<p>Two amplifiers use the same resistors. One is inverting with R<sub>i</sub> = 10 kΩ and R<sub>f</sub> = 50 kΩ. The other is non-inverting with R<sub>2</sub> = 10 kΩ and R<sub>1</sub> = 50 kΩ. Both get 1 V. Compare their outputs. Why are the gains not equal in size?</p>`,
+      options: null, correct: null,
+      answer: `<p>Inverting: <b>−5 V</b>. Non-inverting: <b>+6 V</b>. The non-inverting gain has an extra <b>+1</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>Resistors 10 kΩ and 50 kΩ in both circuits, V<sub>in</sub> = 1 V.</p></div><div class="solve"><div class="eq">Inverting: A<sub>v</sub> = −50 / 10 = −5, V<sub>out</sub> = −5 V</div><div class="eq">Non-inverting: A<sub>v</sub> = 1 + 50 / 10 = 6, V<sub>out</sub> = +6 V</div></div><div class="result"><p>The “1 +” in A<sub>v</sub> = 1 + R<sub>1</sub>/R<sub>2</sub> comes from the input going straight to the plus input. The inverting output also has the <b>opposite polarity</b></p></div></div>`,
+      points: [ '−5 V and +6 V', 'Inverting output is opposite in polarity', 'Non-inverting gain is 1 + R_1/R_2, never below 1' ]
+    },
+    {
+      id: 'm2-2b-35', module: 'm2', topic: 'm2-opamp-ideal', type: 'interpret', level: 3,
+      q: `<p>The two inputs of an ideal op-amp are at 3.0 V and 3.1 V. A student says the “input” is about 3 V so the output should be about 3 V times the gain. Find the flaw and say what the amplifier really amplifies.</p>`,
+      options: null, correct: null,
+      answer: `<p>An op-amp amplifies the <b>difference</b>, here only <b>0.1 V</b>. The 3 V common part is rejected.</p>`,
+      explain: `<p>Operation is differential: the output is the gain times V<sub>i1</sub> − V<sub>i2</sub> = 0.1 V in magnitude. The 3.0 V that both inputs share is a common-mode signal. An ideal op-amp (zero common-mode gain, infinite CMRR) gives 0 V from it; a real 741 lets a small output remain.</p>`,
+      points: [ 'Output ∝ V_i1 − V_i2 = 0.1 V', 'The shared 3 V is common-mode and rejected', 'Real op-amps leave a small common-mode output' ]
+    },
+    {
+      id: 'm2-2b-36', module: 'm2', topic: 'm2-dmosfet', type: 'interpret', level: 3,
+      q: `<p>A MOSFET carries 5 mA at V<sub>GS</sub> = 0, 2 mA at V<sub>GS</sub> = −1 V and no current at V<sub>GS</sub> = −3 V. Which type is it? What would you expect at V<sub>GS</sub> = +1 V, and how does this compare with an enhancement MOSFET?</p>`,
+      options: null, correct: null,
+      answer: `<p>A <b>depletion</b> MOSFET. At +1 V the current should be <b>more than 5 mA</b>. An enhancement device would carry nothing at V<sub>GS</sub> = 0.</p>`,
+      explain: `<p>It conducts at V<sub>GS</sub> = 0 (normally ON) and the current falls to zero as V<sub>GS</sub> goes more negative, so it has a built-in channel: a <b>depletion</b> MOSFET. A positive V<sub>GS</sub> works in the enhancement mode and raises I<sub>D</sub>. An enhancement MOSFET is normally off, with no current at V<sub>GS</sub> = 0.</p>`,
+      points: [ 'Current at V_GS = 0 means a built-in channel: depletion', 'Negative V_GS lowers I_D to zero', 'Positive V_GS raises I_D above 5 mA' ]
+    },
+    {
+      id: 'm2-2b-37', module: 'm2', topic: 'm2-opamp-apps', type: 'numerical', level: 3,
+      q: `<p>Extra: two inverting stages are cascaded. Stage 1 has R<sub>i</sub> = 10 kΩ, R<sub>f</sub> = 100 kΩ. Stage 2 has R<sub>i</sub> = 10 kΩ, R<sub>f</sub> = 30 kΩ. The input is 0.1 V. Find the output of each stage and the overall gain.</p>`,
+      options: null, correct: null,
+      answer: `<p>Stage 1: <b>−1 V</b>. Stage 2: <b>+3 V</b>. Overall gain <b>+30</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>A<sub>1</sub> = −100/10 = −10, A<sub>2</sub> = −30/10 = −3, V<sub>in</sub> = 0.1 V.</p></div><div class="solve"><div class="eq">V<sub>1</sub> = −10 × 0.1 = −1 V</div><div class="eq">V<sub>out</sub> = −3 × (−1) = +3 V</div><div class="eq">A<sub>total</sub> = (−10)(−3) = +30</div></div><div class="result"><p>V<sub>out</sub> = <b>+3 V</b>, overall gain <b>+30</b> (two inversions give the original polarity)</p></div></div>`,
+      points: [ 'Stage 1: −10, output −1 V', 'Stage 2: −3, output +3 V', 'Gains multiply: +30' ]
     }
   ]
 });

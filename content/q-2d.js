@@ -255,6 +255,70 @@ QUESTIONS({
       answer: `<p><b>75 m.</b></p>`,
       explain: `<div class="worked"><div class="given"><p>t = 0.5 × 10<sup>−6</sup> s.</p></div><div class="solve"><div class="eq">R = ct / 2 = (3 × 10<sup>8</sup> × 0.5 × 10<sup>−6</sup>) / 2 = 150 / 2 = 75 m</div></div><div class="result"><p>R = <b>75 m</b></p></div></div>`,
       points: [ 'R = ct / 2', '3 × 10⁸ × 0.5 × 10⁻⁶ = 150 m', 'Halve it: 75 m' ]
+    },
+    {
+      id: 'm2-2d-31', module: 'm2', topic: 'm2-cell-basics', type: 'numerical', level: 3,
+      q: `<p>A city is covered by 28 cells arranged in 7-cell clusters, each cluster reusing the same 832 channels. How many clusters are there, how many channels per cell, and how many calls can the city carry at once? Compare with a single big transmitter using the same 832 channels.</p>`,
+      options: null, correct: null,
+      answer: `<p><b>4 clusters</b>, <b>118</b> channels per cell, <b>3304</b> simultaneous calls, about <b>4 times</b> the 832 of a single transmitter.</p>`,
+      explain: `<div class="worked"><div class="given"><p>28 cells, 7 per cluster, 832 channels per cluster.</p></div><div class="solve"><div class="eq">clusters = 28 / 7 = 4</div><div class="eq">channels per cell = 832 / 7 ≈ 118</div><div class="eq">calls = 28 × 118 = 3304</div><div class="eq">3304 / 832 ≈ 4.0</div></div><div class="result"><p>Reusing the same frequencies in every cluster gives about <b>4 times</b> the capacity (equal to the number of clusters)</p></div></div>`,
+      points: [ '28 / 7 = 4 clusters', '832 / 7 ≈ 118 channels per cell', '28 × 118 = 3304, about 4 times 832' ]
+    },
+    {
+      id: 'm2-2d-32', module: 'm2', topic: 'm2-cell-freq', type: 'numerical', level: 3,
+      q: `<p>In the PCS pair (1850 to 1910 MHz up, 1930 to 1990 MHz down), find the block width, the spacing between the up and down blocks, and the downlink frequency for a phone sending at 1880 MHz.</p>`,
+      options: null, correct: null,
+      answer: `<p>Block width <b>60 MHz</b>, spacing <b>80 MHz</b>, downlink <b>1960 MHz</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>Uplink 1850 to 1910 MHz, downlink 1930 to 1990 MHz.</p></div><div class="solve"><div class="eq">width = 1910 − 1850 = 60 MHz = 1990 − 1930</div><div class="eq">spacing = 1930 − 1850 = 80 MHz (and 1990 − 1910 = 80 MHz)</div><div class="eq">downlink = 1880 + 80 = 1960 MHz</div></div><div class="result"><p><b>60 MHz</b>, <b>80 MHz</b>, <b>1960 MHz</b></p></div></div>`,
+      points: [ 'Block width 60 MHz', 'Up-down spacing 80 MHz', '1880 + 80 = 1960 MHz' ]
+    },
+    {
+      id: 'm2-2d-33', module: 'm2', topic: 'm2-radar', type: 'numerical', level: 3,
+      q: `<p>A radar gets two echoes, one after 60 µs and another after 90 µs. Find each target’s range and the gap between the targets. (c = 3 × 10<sup>8</sup> m/s)</p>`,
+      options: null, correct: null,
+      answer: `<p><b>9 km</b> and <b>13.5 km</b>, a gap of <b>4.5 km</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>t<sub>1</sub> = 60 µs, t<sub>2</sub> = 90 µs.</p></div><div class="solve"><div class="eq">R<sub>1</sub> = ct / 2 = 3 × 10<sup>8</sup> × 60 × 10<sup>−6</sup> / 2 = 9000 m</div><div class="eq">R<sub>2</sub> = 3 × 10<sup>8</sup> × 90 × 10<sup>−6</sup> / 2 = 13 500 m</div><div class="eq">gap = 13.5 − 9 = 4.5 km</div></div><div class="result"><p>R<sub>1</sub> = <b>9 km</b>, R<sub>2</sub> = <b>13.5 km</b>, gap <b>4.5 km</b>. A 30 µs difference in echo time is 4.5 km of separation</p></div></div>`,
+      points: [ 'R = ct / 2 for each echo', '9 km and 13.5 km', 'Gap 4.5 km' ]
+    },
+    {
+      id: 'm2-2d-34', module: 'm2', topic: 'm2-radar', type: 'numerical', level: 3,
+      q: `<p>Extra: a radar must see a target 150 km away. How long does the echo take, and why must the radar wait at least this long before it can safely send the next pulse if it wants to match each echo to its own pulse? (c = 3 × 10<sup>8</sup> m/s)</p>`,
+      options: null, correct: null,
+      answer: `<p><b>1 ms</b> (1000 µs). A new pulse sent sooner could be confused with a late echo from the old one.</p>`,
+      explain: `<div class="worked"><div class="given"><p>R = 150 km = 150 000 m.</p></div><div class="solve"><div class="eq">t = 2R / c = 2 × 150 000 / (3 × 10<sup>8</sup>) = 10<sup>−3</sup> s</div></div><div class="result"><p>t = <b>1 ms</b>. If a second pulse left earlier than that, an echo arriving then could belong to either pulse</p></div></div>`,
+      points: [ 't = 2R / c', 't = 1 ms', 'Wait for the echo before sending the next pulse' ]
+    },
+    {
+      id: 'm2-2d-35', module: 'm2', topic: 'm2-sat-transponder', type: 'numerical', level: 3,
+      q: `<p>A satellite signal sits at the middle of the C-band uplink (5.925 to 6.425 GHz) and is retransmitted at the middle of the C-band downlink (3.7 to 4.2 GHz). Find both centre frequencies and the shift the transponder applies. Repeat for the Ku band (14 to 14.5 GHz up, 11.7 to 12.2 GHz down).</p>`,
+      options: null, correct: null,
+      answer: `<p>C band: <b>6.175 GHz</b> to <b>3.95 GHz</b>, shift <b>2.225 GHz</b>. Ku band: <b>14.25 GHz</b> to <b>11.95 GHz</b>, shift <b>2.3 GHz</b>.</p>`,
+      explain: `<div class="worked"><div class="given"><p>C: 5.925 to 6.425 up, 3.7 to 4.2 down. Ku: 14 to 14.5 up, 11.7 to 12.2 down.</p></div><div class="solve"><div class="eq">C up: (5.925 + 6.425) / 2 = 6.175 GHz, C down: (3.7 + 4.2) / 2 = 3.95 GHz</div><div class="eq">shift = 6.175 − 3.95 = 2.225 GHz</div><div class="eq">Ku up: 14.25 GHz, Ku down: 11.95 GHz, shift = 2.3 GHz</div></div><div class="result"><p>The downlink is always lower than the uplink, and the large shift keeps the transmitter from desensitizing the receiver</p></div></div>`,
+      points: [ 'C band: 6.175 GHz up, 3.95 GHz down, shift 2.225 GHz', 'Ku band: 14.25 up, 11.95 down, shift 2.3 GHz', 'Downlink is lower than the uplink' ]
+    },
+    {
+      id: 'm2-2d-36', module: 'm2', topic: 'm2-cell-network', type: 'explain', level: 3,
+      q: `<p>A subscriber from their home area switches on a phone in a new area. Describe, in order, which network elements and databases are involved before a call can be made.</p>`,
+      options: null, correct: null,
+      answer: `<p>The BTS picks up the phone, the BSC routes to the new <b>MSC</b>, which asks the <b>HLR</b> for the data and keeps it in its <b>VLR</b>. The <b>AuC</b> checks identity and the <b>EIR</b> checks the handset.</p>`,
+      explain: `<p>The <b>BTS</b> of the cell connects the phone, and the <b>BSC</b> routes the traffic to the <b>MSC</b>. The MSC of the new area asks the subscriber’s <b>HLR</b> for the permanent data and stores a temporary copy in its <b>VLR</b>. The <b>AuC</b> checks the identity of the user and provides encryption parameters, and the <b>EIR</b> identifies the handset by its IMEI number.</p>`,
+      points: [ 'BTS, BSC, MSC chain', 'New MSC asks the HLR and stores data in its VLR', 'AuC authenticates, EIR checks the IMEI' ]
+    },
+    {
+      id: 'm2-2d-37', module: 'm2', topic: 'm2-cell-freq', type: 'design', level: 3,
+      q: `<p>A provider has to cover a dense city centre and a long rural highway. For each, choose the cell type and say whether the 800 MHz band or the higher PCS band is the better fit, with reasons.</p>`,
+      options: null, correct: null,
+      answer: `<p>City: <b>microcells</b> with <b>PCS</b>. Highway: <b>macrocells</b> with <b>800 MHz</b>.</p>`,
+      explain: `<p>In a dense city, many users need <b>capacity</b>, so small low-power microcells and the higher PCS frequencies (greater capacity, smaller antennas) suit it, and the shorter range is not a problem. On a rural highway, few users but large distances call for big <b>macrocells</b> (about 6 miles across) and the lower 800 MHz band, which has the longer range.</p>`,
+      points: [ 'City: microcells, PCS for capacity', 'Highway: macrocells, 800 MHz for range', 'Higher frequency means more capacity but less range' ]
+    },
+    {
+      id: 'm2-2d-38', module: 'm2', topic: 'm2-sat-basics', type: 'decide', level: 3,
+      q: `<p>A broadcaster wants to send one TV programme to millions of homes across a country with few ground links. Why is a satellite a good fit, and which parts of the system are the ground segment and the space segment?</p>`,
+      options: null, correct: null,
+      answer: `<p>A satellite is a powerful <b>point-to-multipoint</b> system: <b>one uplink</b>, many downlinks. The earth stations are the <b>ground segment</b> and the satellite is the <b>space segment</b>.</p>`,
+      explain: `<p>The programme goes up once from the broadcaster’s ground station. The transponder amplifies it and changes its frequency, and the downlink reaches every receiving earth station in the coverage area. Usually there is one uplink and multiple downlinks, and the satellite covers areas that ground links struggle to reach.</p>`,
+      points: [ 'Point-to-multipoint: one uplink, many downlinks', 'Earth stations and terrestrial systems: ground segment', 'Satellite: space segment' ]
     }
   ]
 });
