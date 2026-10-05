@@ -25,7 +25,7 @@
       "2c",
       "2d"
     ],
-    "questions": [],
+    "questions": ["q-2a.js"],
     "syllabus": "Semiconductor devices: PN junction diode, Zener diode, BJT, MOSFET and operational amplifier; the electromagnetic spectrum, elements of a communication system, modulation, cellular, satellite and radar systems."
   }
 ]
