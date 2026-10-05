@@ -25,3 +25,5 @@ the first unchecked item under "Next". Don't re-explain; just say in one line wh
   and Vercel without asking. Payments stay OFF (api/_mode.json open). No Razorpay submission.
 - Times in IST, dd-mm-yyyy hh:mm AM/PM. Don't touch the chemistry or English repos. Don't start the merged site.
 - Never put on the site: registration numbers, faculty names, class numbers, the slide author's name, or the word "slides".
+- **One fresh session per module** (owner, 06-10-2026): when a module is done, update WORKPLAN.md, commit, then clear the
+  session yourself (mcp__ccd_session_mgmt__clear_session "self") and tell the owner to type "continue the basic engineering site".
