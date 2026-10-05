@@ -12,7 +12,8 @@
   "chunk-2b.js",
   "chunk-2c.js",
   "chunk-2d.js",
-  "q-2a.js"
+  "q-2a.js",
+  "q-2b.js"
  ],
  "proFiles": [
   "pro-1a.js",
@@ -26,6 +27,7 @@
   "pro-2c.js",
   "pro-2d.js",
   "qa-2a.js",
+  "qa-2b.js",
   "viz-m1.js"
  ],
  "freeModules": [
@@ -68,6 +70,8 @@
   "pro-2d.js": "m2",
   "q-2a.js": "m2",
   "qa-2a.js": "m2",
+  "q-2b.js": "m2",
+  "qa-2b.js": "m2",
   "viz-m1.js": "m1"
  }
 }
