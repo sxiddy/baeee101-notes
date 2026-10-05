@@ -85,7 +85,8 @@ CHUNK({
         {
           title: 'Slider crank example',
           html: `<div class="worked"><div class="given"><p>Slider crank: frame, crank, connecting rod, slider, so N = 4. Pairs: 3 revolute and 1 prismatic, all 1 DoF, so P<sub>1</sub> = 4.</p></div><div class="solve"><div class="eq">F = 3(N − 1) − 2P<sub>1</sub></div><div class="eq">F = 3(4 − 1) − 2(4) = 9 − 8 = 1</div></div><div class="result"><p>F = 1</p></div></div>
-<p>One input (turning the crank) fixes the position of every other part.</p>`
+<p>One input (turning the crank) fixes the position of every other part.</p>
+<div data-viz="mech-dof"></div>`
         }
       ],
       flashcards: [

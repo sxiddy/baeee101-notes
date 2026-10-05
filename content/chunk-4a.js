@@ -314,7 +314,8 @@ CHUNK({
 <div class="kv"><div><span>Roll gap</span><b>Gap between the rolls</b></div><div><span>Draft</span><b>Initial thickness − final thickness</b></div></div>
 <div class="eq" data-label="Draft">d = t<sub>0</sub> − t<sub>1</sub></div>
 <div class="worked"><div class="given"><p>A plate 20 mm thick is rolled down to 17 mm.</p></div><div class="solve"><p>Draft = initial − final</p><div class="eq">d = 20 − 17 = 3 mm</div></div><div class="result"><p>Draft = 3 mm</p></div></div>
-<p><b>Back-up rolls</b> are large rolls used to support smaller work rolls in high-load applications.</p>`
+<p><b>Back-up rolls</b> are large rolls used to support smaller work rolls in high-load applications.</p>
+<div data-viz="rolling-draft"></div>`
         },
         {
           title: 'Flat and shape rolling',

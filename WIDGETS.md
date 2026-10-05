@@ -41,3 +41,8 @@ course examples as presets, and show the working, not only the answer. Labels: p
   with I<sub>C</sub> = βI<sub>B</sub>, I<sub>E</sub> = (1 + β)I<sub>B</sub>. Preset β = 100, I<sub>B</sub> = 50 µA. Placed in `m2-bjt-gains`.
 - `radar-range` — Echo time slider (µs); draws the pulse out and back and the target; R = ct/2 with working. Preset 100 µs = 15 km.
   Placed in `m2-radar`.
+
+## Module 4 — `viz-paid/viz-m4.js`
+
+- `rolling-draft` — Sliders t0, t1, L0 (width unchanged). Draws the strip before and after the rolls; readouts draft = t0 − t1, new length from t0·L0 = t1·L1, and reduction %. Preset 20 mm to 17 mm gives 3 mm. Placed in `m4-rolling`.
+- `mech-dof` — Sliders N, P1, P2. Big F readout from F = 3(N − 1) − 2P1 − P2 with the working and a mechanism / structure / over-constrained label. Preset slider crank N = 4, P1 = 4 gives F = 1. Placed in `m4-links-dof`.
