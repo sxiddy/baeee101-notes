@@ -37,5 +37,16 @@ eq('2b-23 gain', -50 / 25, -2); eq('2b-23 out', -2 * -3, 6);
 eq('2b-25 gain', 8 / 2, 4); eq('2b-25 R2', 60 / (4 - 1), 20);
 eq('ex inv', -100 / 10 * 0.5, -5); eq('ex non', 1 + 90 / 10, 10);
 
+// q-2c: band membership
+const inb = (f, lo, hi) => f >= lo && f <= hi;
+const ok = (name, c) => { if (!c) { bad++; console.log('FAIL', name); } };
+ok('2c-02 100 MHz FM+VHF', inb(100e6, 88e6, 108e6) && inb(100e6, 30e6, 300e6));
+ok('2c-09 600 nm visible', inb(600, 400, 800));
+ok('2c-13 20 kHz VLF', inb(20e3, 3e3, 30e3));
+ok('2c-17 60 GHz EHF', inb(60e9, 30e9, 300e9));
+ok('2c-08 2.45 GHz microwave', 2.45e9 >= 1e9);
+ok('2c-30 50 Hz ELF', inb(50, 30, 300)); ok('2c-30 250 kHz LF', inb(250e3, 30e3, 300e3));
+ok('2c-24 500 GHz above EHF', 500e9 > 300e9);
+
 console.log(bad ? bad + ' failure(s)' : 'check-m2: all numbers ok');
 process.exit(bad ? 1 : 0);
