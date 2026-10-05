@@ -21,7 +21,8 @@
   "chunk-4b.js",
   "chunk-4c.js",
   "chunk-4d.js",
-  "chunk-4e.js"
+  "chunk-4e.js",
+  "chunk-4f.js"
  ],
  "proFiles": [
   "pro-1a.js",
@@ -43,6 +44,7 @@
   "pro-4c.js",
   "pro-4d.js",
   "pro-4e.js",
+  "pro-4f.js",
   "viz-m1.js",
   "viz-m2.js"
  ],
@@ -109,6 +111,8 @@
   "pro-4d.js": "m4",
   "chunk-4e.js": "m4",
   "pro-4e.js": "m4",
+  "chunk-4f.js": "m4",
+  "pro-4f.js": "m4",
   "viz-m1.js": "m1",
   "viz-m2.js": "m2"
  }
