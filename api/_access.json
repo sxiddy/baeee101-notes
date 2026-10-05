@@ -1,8 +1,16 @@
 {
  "freeFiles": [
-  "figs.js"
+  "figs.js",
+  "chunk-1a.js",
+  "chunk-1b.js",
+  "chunk-1c.js"
  ],
- "proFiles": [],
+ "proFiles": [
+  "pro-1a.js",
+  "pro-1b.js",
+  "pro-1c.js",
+  "viz-m1.js"
+ ],
  "freeModules": [
   "m1"
  ],
@@ -13,5 +21,13 @@
    "title": "Principles of Electrical Engineering"
   }
  ],
- "fileModule": {}
+ "fileModule": {
+  "chunk-1a.js": "m1",
+  "pro-1a.js": "m1",
+  "chunk-1b.js": "m1",
+  "pro-1b.js": "m1",
+  "chunk-1c.js": "m1",
+  "pro-1c.js": "m1",
+  "viz-m1.js": "m1"
+ }
 }

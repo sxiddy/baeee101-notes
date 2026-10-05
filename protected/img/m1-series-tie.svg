@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330">
+  <path d="M30 90L64 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M136 90L170 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M64 90L70 102L82 78L94 102L106 78L118 102L130 78L136 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="30" cy="90" r="7" class="df ds" stroke-width="3"/>
+  <circle cx="170" cy="90" r="7" class="df ds" stroke-width="3"/>
+  <text x="100" y="62" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">1</tspan></text>
+  <text x="34" y="68" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="166" y="68" font-size="26" text-anchor="middle" class="dt2">−</text>
+  <path d="M110 200L144 200" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M216 200L250 200" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M144 200L150 212L162 188L174 212L186 188L198 212L210 188L216 200" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="110" cy="200" r="7" class="df ds" stroke-width="3"/>
+  <circle cx="250" cy="200" r="7" class="df ds" stroke-width="3"/>
+  <text x="180" y="172" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">2</tspan></text>
+  <text x="114" y="178" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="246" y="178" font-size="26" text-anchor="middle" class="dt2">−</text>
+  <path d="M170 90C220 160 40 200 103 200" class="dsr" stroke-width="3" fill="none"/>
+  <path d="M340 90L374 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M446 90L480 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M374 90L380 102L392 78L404 102L416 78L428 102L440 78L446 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="340" cy="90" r="7" class="df ds" stroke-width="3"/>
+  <circle cx="480" cy="90" r="7" class="df ds" stroke-width="3"/>
+  <text x="410" y="62" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">1</tspan></text>
+  <text x="344" y="68" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="476" y="68" font-size="26" text-anchor="middle" class="dt2">−</text>
+  <path d="M420 200L454 200" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M526 200L560 200" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M454 200L460 212L472 188L484 212L496 188L508 212L520 188L526 200" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="420" cy="200" r="7" class="df ds" stroke-width="3"/>
+  <circle cx="560" cy="200" r="7" class="df ds" stroke-width="3"/>
+  <text x="490" y="172" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">2</tspan></text>
+  <text x="424" y="178" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="556" y="178" font-size="26" text-anchor="middle" class="dt2">−</text>
+  <path d="M340 90C330 300 560 310 560 200" class="dsr" stroke-width="3" fill="none"/>
+  <text x="140" y="300" font-size="26" text-anchor="middle" class="dt2">(a)</text>
+  <text x="450" y="300" font-size="26" text-anchor="middle" class="dt2">(b)</text>
+</svg>

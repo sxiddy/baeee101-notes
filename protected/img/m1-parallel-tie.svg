@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330">
+  <path d="M170 90L204 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M276 90L310 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M204 90L210 102L222 78L234 102L246 78L258 102L270 78L276 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="170" cy="90" r="7" class="df ds" stroke-width="3"/>
+  <circle cx="310" cy="90" r="7" class="df ds" stroke-width="3"/>
+  <text x="240" y="62" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">1</tspan></text>
+  <text x="174" y="68" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="306" y="68" font-size="26" text-anchor="middle" class="dt2">−</text>
+  <path d="M230 240L264 240" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M336 240L370 240" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M264 240L270 252L282 228L294 252L306 228L318 252L330 228L336 240" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="230" cy="240" r="7" class="df ds" stroke-width="3"/>
+  <circle cx="370" cy="240" r="7" class="df ds" stroke-width="3"/>
+  <text x="300" y="212" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">2</tspan></text>
+  <text x="234" y="218" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="366" y="218" font-size="26" text-anchor="middle" class="dt2">−</text>
+  <path d="M40 170H130M130 170C130 120 140 90 170 90M130 170C130 220 170 240 230 240" class="dsr" stroke-width="3" fill="none"/>
+  <path d="M310 90C420 90 470 120 480 170M370 240C440 240 470 220 480 170M480 170H555" class="dsb" stroke-width="3" fill="none"/>
+  <circle cx="40" cy="170" r="8" class="dfr"/>
+  <circle cx="560" cy="170" r="8" class="dfb"/>
+  <text x="40" y="215" font-size="30" text-anchor="middle" class="dtr">+</text>
+  <text x="560" y="215" font-size="30" text-anchor="middle" class="dtb">−</text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470">
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dfr"/></marker></defs>
+  <path d="M70 190L70 255" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M70 255L70 288" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M70 302L70 335" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M94 288L46 288" class="ds" stroke-width="3" fill="none"/>
+  <path d="M83 302L57 302" class="ds" stroke-width="7" fill="none"/>
+  <path d="M70 335L70 400" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="36" y="268" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="36" y="312" font-size="26" text-anchor="middle" class="dt">V</text>
+  <path d="M70 190L126 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M194 190L250 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M126 190L131.7 202L143 178L154.3 202L165.7 178L177 202L188.3 178L194 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="160" y="164" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">1</tspan></text>
+  <path d="M250 190L250 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250 80L368.5 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M436.5 80L555 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M368.5 80L374.2 92L385.5 68L396.8 92L408.2 68L419.5 92L430.8 68L436.5 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M555 80L555 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="402" y="58" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">5</tspan></text>
+  <path d="M250 190L300 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M360 190L410 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300 190L305 202L315 178L325 202L335 178L345 202L355 178L360 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="342" y="164" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">4</tspan></text>
+  <path d="M410 190L452.5 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M512.5 190L555 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M452.5 190L457.5 202L467.5 178L477.5 202L487.5 178L497.5 202L507.5 178L512.5 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="486" y="164" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">6</tspan></text>
+  <path d="M250 190L250 261" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250 329L250 400" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250 261L238 266.7L262 278L238 289.3L262 300.7L238 312L262 323.3L250 329" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="272" y="318" font-size="26" class="dt">R<tspan dy="7" font-size="22">2</tspan></text>
+  <path d="M410 190L410 261" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410 329L410 400" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410 261L398 266.7L422 278L398 289.3L422 300.7L398 312L422 323.3L410 329" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="388" y="318" font-size="26" text-anchor="end" class="dt">R<tspan dy="7" font-size="22">3</tspan></text>
+  <path d="M555 190L555 261" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M555 329L555 400" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M555 261L543 266.7L567 278L543 289.3L567 300.7L543 312L567 323.3L555 329" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="533" y="318" font-size="26" text-anchor="end" class="dt">R<tspan dy="7" font-size="22">7</tspan></text>
+  <path d="M70 400L555 400" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="250" cy="190" r="6" class="dfw"/>
+  <circle cx="410" cy="190" r="6" class="dfw"/>
+  <circle cx="555" cy="190" r="6" class="dfw"/>
+  <circle cx="250" cy="400" r="6" class="dfw"/>
+  <circle cx="410" cy="400" r="6" class="dfw"/>
+  <path d="M111 190L89 198.8L89 181.2z" class="dfb"/>
+  <text x="100" y="168" font-size="26" text-anchor="middle" class="dtb">I<tspan dy="7" font-size="22">1</tspan></text>
+  <path d="M250 129L258.8 151L241.2 151z" class="dfb"/>
+  <text x="234" y="140" font-size="26" text-anchor="end" class="dtb">I<tspan dy="7" font-size="22">2</tspan></text>
+  <path d="M250 239L241.2 217L258.8 217z" class="dfb"/>
+  <text x="268" y="248" font-size="26" class="dtb">I<tspan dy="7" font-size="22">3</tspan></text>
+  <path d="M295 190L273 198.8L273 181.2z" class="dfb"/>
+  <text x="290" y="168" font-size="26" text-anchor="middle" class="dtb">I<tspan dy="7" font-size="22">4</tspan></text>
+  <path d="M410 239L401.2 217L418.8 217z" class="dfb"/>
+  <path d="M555 239L546.2 217L563.8 217z" class="dfb"/>
+  <path d="M541 190L519 198.8L519 181.2z" class="dfb"/>
+  <text x="238" y="224" font-size="28" text-anchor="end" class="dto" font-style="italic">a</text>
+  <text x="56" y="178" font-size="28" text-anchor="end" class="dto" font-style="italic">d</text>
+  <text x="70" y="438" font-size="28" text-anchor="middle" class="dto" font-style="italic">c</text>
+  <text x="250" y="438" font-size="28" text-anchor="middle" class="dto" font-style="italic">b</text>
+  <path d="M141 357.2L137.5 354.1L134.1 350.6L131.1 346.7L128.2 342.4L125.7 337.9L123.4 333L121.5 327.9L119.9 322.6L118.6 317.1L117.7 311.5L117.2 305.8L117 300L117.2 294.2L117.7 288.5L118.6 282.9L119.9 277.4L121.5 272.1L123.4 267L125.7 262.1L128.2 257.6L131.1 253.3L134.1 249.4L137.5 245.9L141 242.8L144.7 240.2L148.6 238L152.6 236.2L156.7 235L160.8 234.3L165 234L169.2 234.3L173.3 235L177.4 236.2L181.4 238L185.3 240.2L189 242.8L192.5 245.9L195.9 249.4L198.9 253.3L201.8 257.6L204.3 262.1L206.6 267L208.5 272.1L210.1 277.4L211.4 282.9L212.3 288.5L212.8 294.2L213 300L212.8 305.8L212.3 311.5L211.4 317.1L210.1 322.6L208.5 327.9L206.6 333L204.3 337.9L201.8 342.4L198.9 346.7L195.9 350.6L192.5 354.1L189 357.2" class="dsr" stroke-width="3" fill="none" marker-end="url(#ar)"/>
+  <text x="165" y="309" font-size="26" text-anchor="middle" class="dtr">I<tspan dy="7" font-size="22">1</tspan></text>
+</svg>

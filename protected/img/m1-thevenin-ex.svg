@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <path d="M100 80L100 200" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M100 200L100 223" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M100 237L100 260" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M124 223L76 223" class="ds" stroke-width="3" fill="none"/>
+  <path d="M113 237L87 237" class="ds" stroke-width="7" fill="none"/>
+  <path d="M100 260L100 380" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="66" y="222" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="70" y="252" font-size="26" text-anchor="end" class="dt">10 V</text>
+  <path d="M100 80L150 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M210 80L260 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M150 80L155 92L165 68L175 92L185 68L195 92L205 68L210 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="180" y="58" font-size="26" text-anchor="middle" class="dt">2 Ω</text>
+  <path d="M260 80L310 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370 80L420 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M310 80L315 92L325 68L335 92L345 68L355 92L365 68L370 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="340" y="58" font-size="26" text-anchor="middle" class="dt">2 Ω</text>
+  <path d="M420 80L545 80" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M260 80L260 196" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M260 264L260 380" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M260 196L248 201.7L272 213L248 224.3L272 235.7L248 247L272 258.3L260 264" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="238" y="240" font-size="26" text-anchor="end" class="dt">4 Ω</text>
+  <path d="M420 80L420 130" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M420 190L420 240" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M420 130L408 135L432 145L408 155L432 165L408 175L432 185L420 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="398" y="170" font-size="26" text-anchor="end" class="dt">4 Ω</text>
+  <path d="M420 240L420 303" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M420 317L420 380" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M444 303L396 303" class="ds" stroke-width="3" fill="none"/>
+  <path d="M433 317L407 317" class="ds" stroke-width="7" fill="none"/>
+  <text x="386" y="302" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="390" y="336" font-size="26" text-anchor="end" class="dt">4 V</text>
+  <path d="M545 80L545 196" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545 264L545 380" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545 196L533 201.7L557 213L533 224.3L557 235.7L533 247L557 258.3L545 264" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="523" y="240" font-size="26" text-anchor="end" class="dt">R<tspan dy="7" font-size="22">L</tspan></text>
+  <path d="M100 380L545 380" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="260" cy="80" r="6" class="dfw"/>
+  <circle cx="420" cy="80" r="6" class="dfw"/>
+  <circle cx="545" cy="80" r="6" class="dfw"/>
+  <circle cx="260" cy="380" r="6" class="dfw"/>
+  <circle cx="420" cy="380" r="6" class="dfw"/>
+  <circle cx="545" cy="380" r="6" class="dfw"/>
+  <text x="545" y="58" font-size="28" text-anchor="middle" class="dto" font-style="italic">a</text>
+  <text x="545" y="422" font-size="28" text-anchor="middle" class="dto" font-style="italic">b</text>
+</svg>

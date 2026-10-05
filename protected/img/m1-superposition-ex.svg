@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470">
+  <path d="M110 300L110 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110 70L186 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M254 70L330 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M186 70L191.7 82L203 58L214.3 82L225.7 58L237 82L248.3 58L254 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M330 70L403 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M417 70L490 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M417 46L417 94" class="ds" stroke-width="3" fill="none"/>
+  <path d="M403 57L403 83" class="ds" stroke-width="7" fill="none"/>
+  <path d="M490 70L490 300" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="220" y="48" font-size="26" text-anchor="middle" class="dt">0.005 Ω</text>
+  <text x="410" y="130" font-size="26" text-anchor="middle" class="dt">2.05 V</text>
+  <text x="432" y="48" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <path d="M110 300L186 300" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M254 300L330 300" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M186 300L191.7 312L203 288L214.3 312L225.7 288L237 312L248.3 288L254 300" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M330 300L403 300" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M417 300L490 300" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M417 276L417 324" class="ds" stroke-width="3" fill="none"/>
+  <path d="M403 287L403 313" class="ds" stroke-width="7" fill="none"/>
+  <text x="220" y="278" font-size="26" text-anchor="middle" class="dt">0.04 Ω</text>
+  <text x="410" y="360" font-size="26" text-anchor="middle" class="dt">2.15 V</text>
+  <text x="432" y="278" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <path d="M110 190L40 190L40 420" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M40 420L266 420" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M334 420L560 420" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M266 420L271.7 432L283 408L294.3 432L305.7 408L317 432L328.3 408L334 420" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M560 420L560 190L490 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="300" y="398" font-size="26" text-anchor="middle" class="dt">R = 1 Ω</text>
+  <circle cx="110" cy="190" r="6" class="dfw"/>
+  <circle cx="490" cy="190" r="6" class="dfw"/>
+  <text x="134" y="176" font-size="26" text-anchor="middle" class="dto">A</text>
+  <text x="466" y="176" font-size="26" text-anchor="middle" class="dto">B</text>
+</svg>

@@ -11,8 +11,8 @@ const ROOT = path.resolve(__dirname, '..');
 const MODULE_IDS = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'modules.json'), 'utf8')).map((m) => m.id));
 
 // widget ids: whatever the widget files register (VIZ.register('id', ...)) in app/js/viz and viz-paid
-const VIZ_IDS = new Set([].concat(...['app/js/viz', 'viz-paid'].map((d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.js'))
-  .map((f) => [...fs.readFileSync(path.join(ROOT, d, f), 'utf8').matchAll(/VIZ\.register\('([a-z0-9-]+)'/g)].map((m) => m[1])))));
+const VIZ_IDS = new Set((['app/js/viz', 'viz-paid'].map((d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.js'))
+  .map((f) => [...fs.readFileSync(path.join(ROOT, d, f), 'utf8').matchAll(/\bregister\('([a-z0-9-]+)'/g)].map((m) => m[1])))).flat(2));
 const TAGS = new Set('p h3 h4 b em sub sup br ul ol li table thead tbody tr th td div span figure details summary small code'.split(' '));
 const VOID = new Set(['br']);
 const CLASSES = new Set('lead eq frac tbl kv vs side steps chips chip note why exam trap heads-up example worked given solve result mnemonic more'.split(' '));

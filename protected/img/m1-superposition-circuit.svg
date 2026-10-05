@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 430">
+  <path d="M110 90L110 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110 190L110 213" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110 227L110 250" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M134 213L86 213" class="ds" stroke-width="3" fill="none"/>
+  <path d="M123 227L97 227" class="ds" stroke-width="7" fill="none"/>
+  <path d="M110 250L110 350" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="80" y="212" font-size="26" text-anchor="end" class="dt">6 V</text>
+  <text x="80" y="248" font-size="26" text-anchor="end" class="dt2">0.5 Ω</text>
+  <text x="144" y="212" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <path d="M490 90L490 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M490 190L490 213" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M490 227L490 250" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M514 213L466 213" class="ds" stroke-width="3" fill="none"/>
+  <path d="M503 227L477 227" class="ds" stroke-width="7" fill="none"/>
+  <path d="M490 250L490 350" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="520" y="212" font-size="26" class="dt">12 V</text>
+  <text x="520" y="248" font-size="26" class="dt2">1 Ω</text>
+  <text x="456" y="212" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <path d="M110 90L173 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M237 90L300 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M173 90L178.3 102L189 78L199.7 102L210.3 78L221 102L231.7 78L237 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="205" y="136" font-size="26" text-anchor="middle" class="dt">2.5 Ω</text>
+  <path d="M300 90L363 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M427 90L490 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M363 90L368.3 102L379 78L389.7 102L400.3 78L411 102L421.7 78L427 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="395" y="136" font-size="26" text-anchor="middle" class="dt">2 Ω</text>
+  <path d="M300 90L300 188" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300 252L300 350" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300 188L288 193.3L312 204L288 214.7L312 225.3L288 236L312 246.7L300 252" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="322" y="230" font-size="26" class="dt">6 Ω</text>
+  <path d="M110 350L490 350" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="300" cy="90" r="6" class="dfw"/>
+  <circle cx="300" cy="350" r="6" class="dfw"/>
+  <text x="300" y="70" font-size="26" text-anchor="middle" class="dto">A</text>
+  <text x="300" y="390" font-size="26" text-anchor="middle" class="dto">B</text>
+  <path d="M151 90L129 98.8L129 81.2z" class="dfb"/>
+  <text x="140" y="70" font-size="26" text-anchor="middle" class="dtb">I<tspan dy="7" font-size="22">1</tspan></text>
+  <path d="M194 350L216 341.2L216 358.8z" class="dfb"/>
+  <text x="205" y="330" font-size="26" text-anchor="middle" class="dtb">I<tspan dy="7" font-size="22">1</tspan></text>
+  <path d="M449 90L471 81.2L471 98.8z" class="dfb"/>
+  <text x="460" y="70" font-size="26" text-anchor="middle" class="dtb">I<tspan dy="7" font-size="22">2</tspan></text>
+  <path d="M406 350L384 358.8L384 341.2z" class="dfb"/>
+  <text x="395" y="330" font-size="26" text-anchor="middle" class="dtb">I<tspan dy="7" font-size="22">2</tspan></text>
+  <path d="M300 146L291.2 124L308.8 124z" class="dfb"/>
+  <text x="320" y="145" font-size="26" class="dtb">I</text>
+</svg>

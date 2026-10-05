@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dfr"/></marker></defs>
+  <path d="M100 90L100 180" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M100 180L100 203" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M100 217L100 240" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M124 203L76 203" class="ds" stroke-width="3" fill="none"/>
+  <path d="M113 217L87 217" class="ds" stroke-width="7" fill="none"/>
+  <path d="M100 240L100 330" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="66" y="202" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="70" y="246" font-size="26" text-anchor="end" class="dt">10 V</text>
+  <path d="M545 90L545 180" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545 180L545 203" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545 217L545 240" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M569 203L521 203" class="ds" stroke-width="3" fill="none"/>
+  <path d="M558 217L532 217" class="ds" stroke-width="7" fill="none"/>
+  <path d="M545 240L545 330" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="579" y="202" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="525" y="296" font-size="26" text-anchor="end" class="dt">6 V</text>
+  <path d="M100 90L145.5 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M209.5 90L255 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M145.5 90L150.8 102L161.5 78L172.2 102L182.8 78L193.5 102L204.2 78L209.5 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="178" y="68" font-size="26" text-anchor="middle" class="dt">5 Ω</text>
+  <path d="M255 90L300.5 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M364.5 90L410 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.5 90L305.8 102L316.5 78L327.2 102L337.8 78L348.5 102L359.2 78L364.5 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="332" y="68" font-size="26" text-anchor="middle" class="dt">10 Ω</text>
+  <path d="M410 90L447.5 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M507.5 90L545 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M447.5 90L452.5 102L462.5 78L472.5 102L482.5 78L492.5 102L502.5 78L507.5 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="478" y="68" font-size="26" text-anchor="middle" class="dt">12 Ω</text>
+  <path d="M255 90L255 180" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M255 240L255 330" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M255 180L243 185L267 195L243 205L267 215L243 225L267 235L255 240" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="235" y="220" font-size="26" text-anchor="end" class="dt">15 Ω</text>
+  <path d="M410 90L410 180" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410 240L410 330" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410 180L398 185L422 195L398 205L422 215L398 225L422 235L410 240" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="390" y="220" font-size="26" text-anchor="end" class="dt">8 Ω</text>
+  <path d="M100 330L545 330" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="255" cy="90" r="6" class="dfw"/>
+  <circle cx="410" cy="90" r="6" class="dfw"/>
+  <circle cx="255" cy="330" r="6" class="dfw"/>
+  <circle cx="410" cy="330" r="6" class="dfw"/>
+  <circle cx="332" cy="330" r="6" class="dfw"/>
+  <path d="M332 330L332 346" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M312 346H352M319 354H345M326 362H338" class="ds" stroke-width="3" fill="none"/>
+  <text x="255" y="72" font-size="28" text-anchor="middle" class="dto" font-style="italic">a</text>
+  <text x="410" y="72" font-size="28" text-anchor="middle" class="dto" font-style="italic">b</text>
+  <text x="362" y="370" font-size="28" class="dto" font-style="italic">c</text>
+  <path d="M150 122L205 122" class="dsr" stroke-width="3" fill="none" marker-end="url(#ar)"/>
+  <text x="178" y="156" font-size="26" text-anchor="middle" class="dtr">I<tspan dy="7" font-size="22">1</tspan></text>
+  <path d="M305 122L360 122" class="dsr" stroke-width="3" fill="none" marker-end="url(#ar)"/>
+  <text x="332" y="156" font-size="26" text-anchor="middle" class="dtr">I<tspan dy="7" font-size="22">2</tspan></text>
+  <path d="M505 122L450 122" class="dsr" stroke-width="3" fill="none" marker-end="url(#ar)"/>
+  <text x="478" y="156" font-size="26" text-anchor="middle" class="dtr">I<tspan dy="7" font-size="22">4</tspan></text>
+  <path d="M279 190L279 250" class="dsr" stroke-width="3" fill="none" marker-end="url(#ar)"/>
+  <text x="289" y="236" font-size="26" class="dtr">I<tspan dy="7" font-size="22">3</tspan></text>
+  <path d="M434 190L434 250" class="dsr" stroke-width="3" fill="none" marker-end="url(#ar)"/>
+  <text x="444" y="236" font-size="26" class="dtr">I<tspan dy="7" font-size="22">5</tspan></text>
+</svg>
