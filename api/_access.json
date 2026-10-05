@@ -24,6 +24,10 @@
   "chunk-4e.js",
   "chunk-4f.js",
   "chunk-4g.js",
+  "q-4a.js",
+  "q-4b.js",
+  "q-4c.js",
+  "q-4d.js",
   "summary-m4.js"
  ],
  "proFiles": [
@@ -48,6 +52,10 @@
   "pro-4e.js",
   "pro-4f.js",
   "pro-4g.js",
+  "qa-4a.js",
+  "qa-4b.js",
+  "qa-4c.js",
+  "qa-4d.js",
   "viz-m1.js",
   "viz-m2.js"
  ],
@@ -118,6 +126,14 @@
   "pro-4f.js": "m4",
   "chunk-4g.js": "m4",
   "pro-4g.js": "m4",
+  "q-4a.js": "m4",
+  "qa-4a.js": "m4",
+  "q-4b.js": "m4",
+  "qa-4b.js": "m4",
+  "q-4c.js": "m4",
+  "qa-4c.js": "m4",
+  "q-4d.js": "m4",
+  "qa-4d.js": "m4",
   "summary-m4.js": "m4",
   "viz-m1.js": "m1",
   "viz-m2.js": "m2"

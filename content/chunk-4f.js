@@ -190,7 +190,7 @@ CHUNK({
 <tr><td>Nuclear</td><td>Non-renewable (uranium, thorium), long-lasting reserves</td><td>Very low CO<sub>2</sub> in operation; radioactive waste and safety concerns</td></tr>
 <tr><td>Hydropower</td><td>Renewable (flowing water)</td><td>No direct CO<sub>2</sub>; large dams can disrupt ecosystems and displace communities</td></tr>
 <tr><td>Solar (PV and CSP)</td><td>Renewable (sunlight)</td><td>No emissions in operation; land use and rare metal sourcing</td></tr>
-<tr><td>Wind</td><td>Renewable (wind)</td><td>No CO<sub>2</sub>; some impact on birds, noise, landscape</td></tr>
+<tr><td>Wind</td><td>Renewable (wind)</td><td>No CO<sub>2</sub>; some impact on birds, noise, view</td></tr>
 <tr><td>Biomass</td><td>Renewable (organic matter, waste)</td><td>CO<sub>2</sub> neutral if sustainable; combustion releases particulates and NO<sub>x</sub></td></tr>
 </tbody></table>
 <p>Fossil fuel plants are unsustainable in the long run. Nuclear remains low-carbon but controversial. <b>Renewables (solar, wind, hydro) are the most sustainable.</b></p>`

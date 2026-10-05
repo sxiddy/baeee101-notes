@@ -46,7 +46,12 @@
       "4f",
       "4g"
     ],
-    "questions": [],
+    "questions": [
+      "q-4a.js",
+      "q-4b.js",
+      "q-4c.js",
+      "q-4d.js"
+    ],
     "syllabus": "Metal casting, forming, welding, machining, CNC and additive manufacturing; IC engines and power plants; kinematics of mechanisms."
   }
 ]
