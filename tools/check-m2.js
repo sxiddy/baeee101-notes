@@ -48,5 +48,12 @@ ok('2c-08 2.45 GHz microwave', 2.45e9 >= 1e9);
 ok('2c-30 50 Hz ELF', inb(50, 30, 300)); ok('2c-30 250 kHz LF', inb(250e3, 30e3, 300e3));
 ok('2c-24 500 GHz above EHF', 500e9 > 300e9);
 
+// q-2d
+eq('2d-03 spacing a', 869 - 824, 45); eq('2d-03 spacing b', 894 - 849, 45); eq('2d-03 dl', 836 + 45, 881);
+eq('2d-07 per cell', Math.floor(832 / 7), 118); ok('2d-07 fits', 7 * 118 <= 832);
+const R = t => 3e8 * t / 2;
+eq('2d-21 R', R(200e-6), 30000); eq('2d-24 t', 2 * 45000 / 3e8, 300e-6, 1e-9);
+eq('2d-25 R', R(2e-6), 300); eq('2d-30 R', R(0.5e-6), 75); eq('radar ex', R(100e-6), 15000);
+
 console.log(bad ? bad + ' failure(s)' : 'check-m2: all numbers ok');
 process.exit(bad ? 1 : 0);
