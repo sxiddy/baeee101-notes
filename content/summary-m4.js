@@ -1,0 +1,64 @@
+SUMMARY({
+  module: 'm4',
+  tldr: `<p>Module 4 is about <b>making things and powering things</b>. A part is made by <b>casting</b> (pour metal into a mould), <b>forming</b> (extrusion, forging, rolling), <b>welding</b>, <b>machining</b> (including CNC) or <b>additive manufacturing</b> (layer by layer). Energy comes from an <b>IC engine</b> (burning fuel inside the cylinder) or a <b>power plant</b> (steam, nuclear, hydro, wind, solar, biomass) that converts one form of energy into another. Finally, <b>kinematics</b> studies how links and pairs move, and the degrees of freedom of a mechanism follow from <b>F = 3(N − 1) − 2P<sub>1</sub> − P<sub>2</sub></b>.</p>`,
+  storyline: [
+    { title: 'Shaping metal', html: `<p><b>Casting</b> (sand mould, riser, pattern) → <b>forming</b> (extrusion, forging, rolling; hot against cold) → <b>welding</b> (arc, TIG and MIG, joints) → <b>machining</b> (turning, milling, drilling, grinding, CNC) → <b>additive manufacturing</b> (seven ASTM categories, FDM).</p>` },
+    { title: 'Engines', html: `<p>Four strokes: <b>suction, compression, power, exhaust</b>. Petrol is SI with the Otto cycle (constant volume); diesel is CI with the Diesel cycle (constant pressure).</p>` },
+    { title: 'Power plants', html: `<p>Energy is converted, never created. <b>Steam</b>: fuel → steam → turbine → generator. <b>Nuclear</b>: U235 fission. <b>Renewables</b>: hydro, wind, solar and biomass are the most sustainable.</p>` },
+    { title: 'Mechanisms', html: `<p><b>Link</b> → <b>kinematic pair</b> → <b>chain</b> → <b>mechanism</b> → <b>machine</b>. Count the degrees of freedom with Grubler's equation.</p>` }
+  ],
+  bigIdeas: [
+    { title: 'Sand casting', topic: 'm4-sand-casting', html: `<p>An <b>expendable mould</b>: the mould is broken for each cast. No limit on size, coarse finish, wide tolerance. Metal runs pouring basin → sprue → runner → gate; the <b>riser</b> feeds shrinkage.</p>` },
+    { title: 'Riser, pattern, chaplets', topic: 'm4-casting-design', html: `<p>Put the riser on the <b>heaviest section</b>; thin sections freeze first. The pattern allows for the parting line, machining, <b>shrinkage and draft</b>. Chaplets stop core sag and float.</p>` },
+    { title: 'Casting defects', topic: 'm4-casting-defects', html: `<p>Mismatch (cope-drag misalignment), blowholes (poor venting), metal penetration (weak mould, high pour temperature), shrinkage cavity (feeding), cold shut (low pour temperature), hot tears (composition).</p>` },
+    { title: 'Extrusion', topic: 'm4-extrusion', html: `<p>A billet is forced through a die for long uniform sections. Mostly <b>hot</b>. Aluminium CCD 6.3 mm–1.02 m; steel at most 150 mm.</p>` },
+    { title: 'Forging and rolling', topic: 'm4-forging', html: `<p>Forging removes voids and gives <b>grain flow</b> along the part. In rolling the <b>volume is constant</b> and <b>draft = t<sub>0</sub> − t<sub>1</sub></b>.</p>` },
+    { title: 'Hot and cold working', topic: 'm4-hot-cold', html: `<p>Hot (above recrystallisation): less force, rough finish, no residual stress. Cold: more force, good finish, residual stress, less tool life.</p>` },
+    { title: 'Welding', topic: 'm4-welding-basics', html: `<p>Three zones: base metal, <b>fusion zone</b> and the weaker <b>heat affected zone</b>. Arc welding: DCEN deep and narrow, DCEP shallow with oxide cleaning. More current, more penetration; more speed, less.</p>` },
+    { title: 'TIG against MIG', topic: 'm4-gtaw-gmaw', html: `<p>TIG: non-consumable tungsten, pure argon, strongest and neatest, slow and costly. MIG: consumable electrode, Ar + CO<sub>2</sub> 75/25, fast and easy. Root pass TIG, fill pass MIG.</p>` },
+    { title: 'Machining and CNC', topic: 'm4-cnc', html: `<p>Machining is <b>subtractive</b>. <b>Feed</b> is mm/rev; <b>depth of cut</b> is the penetration per pass. CNC controls motion by coded data: <b>point-to-point</b> for drilling, <b>contouring</b> for milling and profiling.</p>` },
+    { title: 'Additive manufacturing', topic: 'm4-am-categories', html: `<p>STL describes a surface with triangles. ASTM has <b>seven categories</b>: extrusion (FDM), vat photopolymerisation (SLA), powder bed fusion (SLS/SLM), binder jetting, material jetting, directed energy deposition, sheet lamination.</p>` },
+    { title: 'IC engines', topic: 'm4-four-stroke', html: `<p>Four stroke: one power stroke per <b>two revolutions</b>. Two stroke: one per revolution, ports instead of valves. SI compression ratio 7–8; CI 16–17.</p>` },
+    { title: 'Steam and nuclear plants', topic: 'm4-nuclear', html: `<p>Nuclear fuel is <b>U235</b>; the moderator slows neutrons, control rods (boron, cadmium) absorb them. 1 kg of uranium equals 4500 tonnes of coal.</p>` },
+    { title: 'Renewables', topic: 'm4-hydro-wind', html: `<p>Hydro: <b>Pelton</b> (high head), <b>Francis</b> (medium), <b>Kaplan</b> (low). Hydro life 100–125 years at 300–400 rpm. Solar PV gives DC, so it needs an inverter.</p>` },
+    { title: 'Mechanisms and DoF', topic: 'm4-links-dof', html: `<p>A free body has 6 DoF (3 in a plane). <b>F = 3(N − 1) − 2P<sub>1</sub> − P<sub>2</sub></b>. Slider crank: N = 4, P<sub>1</sub> = 4, F = 1.</p>` },
+    { title: 'Kinematic pairs', topic: 'm4-kinematic-pairs', html: `<p>Lower pairs touch over a surface, higher pairs at a point or line. DoF: revolute 1, prismatic 1, screw 1, cylindrical 2, spherical 3, planar 3.</p>` }
+  ],
+  compare: [
+    { title: 'Hot vs cold working', html: `<table class="tbl"><thead><tr><th></th><th>Hot</th><th>Cold</th></tr></thead><tbody><tr><td>Force</td><td>Less</td><td>More</td></tr><tr><td>Finish</td><td>Rough, scale</td><td>Better, accurate</td></tr><tr><td>Residual stress</td><td>None</td><td>Induced</td></tr><tr><td>Tool life</td><td>More</td><td>Less</td></tr></tbody></table>` },
+    { title: 'TIG vs MIG', html: `<table class="tbl"><thead><tr><th></th><th>TIG</th><th>MIG</th></tr></thead><tbody><tr><td>Electrode</td><td>Non-consumable tungsten</td><td>Consumable</td></tr><tr><td>Gas</td><td>Pure argon</td><td>Argon + CO<sub>2</sub> 75/25</td></tr><tr><td>Speed</td><td>Slow</td><td>Fast</td></tr><tr><td>Skill and cost</td><td>Harder, costlier</td><td>Easier, cheaper</td></tr></tbody></table>` },
+    { title: 'Four stroke vs two stroke', html: `<table class="tbl"><thead><tr><th></th><th>Four stroke</th><th>Two stroke</th></tr></thead><tbody><tr><td>Power stroke</td><td>Every 2 revolutions</td><td>Every revolution</td></tr><tr><td>Openings</td><td>Valves</td><td>Ports</td></tr><tr><td>Efficiency</td><td>Higher</td><td>Lower</td></tr></tbody></table>` },
+    { title: 'SI vs CI', html: `<table class="tbl"><thead><tr><th></th><th>SI (petrol)</th><th>CI (diesel)</th></tr></thead><tbody><tr><td>Cycle</td><td>Otto</td><td>Diesel</td></tr><tr><td>Ignition</td><td>Spark plug</td><td>Compressed hot air</td></tr><tr><td>Compression ratio</td><td>7 to 8</td><td>16 to 17</td></tr></tbody></table>` },
+    { title: 'Shaping vs planing', html: `<table class="tbl"><thead><tr><th></th><th>Shaping</th><th>Planing</th></tr></thead><tbody><tr><td>Tool</td><td>Reciprocates</td><td>Stationary</td></tr><tr><td>Workpiece</td><td>Stationary</td><td>Reciprocates</td></tr><tr><td>Job size</td><td>Small</td><td>Large</td></tr></tbody></table>` }
+  ],
+  formulas: [
+    { name: 'Rolling draft', html: `<div class="eq">d = t<sub>0</sub> − t<sub>1</sub></div>` },
+    { name: 'Rolling volume', html: `<div class="eq">t<sub>0</sub> w<sub>0</sub> L<sub>0</sub> = t<sub>1</sub> w<sub>1</sub> L<sub>1</sub></div>` },
+    { name: 'Degrees of freedom (Grubler)', html: `<div class="eq">F = 3(N − 1) − 2P<sub>1</sub> − P<sub>2</sub></div>` },
+    { name: 'One-DoF pairs only', html: `<div class="eq">F = 3(N − 1) − 2P<sub>1</sub></div>` },
+    { name: 'Free rigid body', html: `<div class="eq">DoF = 6 − restraints (3 − restraints in a plane)</div>` }
+  ],
+  numbers: [
+    { value: '5 mm, 12.5 mm', what: 'Butt weld groove limits: square below 5, single V/U up to 12.5, double above' },
+    { value: '10, 50, 10000 W/cm²', what: 'Power density of gas, arc and beam welding' },
+    { value: '3300, 6000, 20000–30000 °C', what: 'Temperature of gas, arc and beam heat sources' },
+    { value: '75 / 25', what: 'Argon / CO₂ shielding gas in MIG welding' },
+    { value: '10–20 %, 3–5 %', what: 'Cutting heat into the tool and into the workpiece' },
+    { value: '7 to 8, 16 to 17', what: 'Compression ratio of SI and CI engines' },
+    { value: '4500 t coal', what: 'Equivalent of fully fissioning 1 kg of uranium' },
+    { value: '65–70 %', what: 'Share of the world\'s nuclear reactors that are PWRs' },
+    { value: '100–125 years, 300–400 rpm', what: 'Hydro plant life and turbine speed' },
+    { value: '6, 3', what: 'DoF of a rigid body in space and in a plane' }
+  ],
+  traps: [
+    `<p>In sand casting the mould is <b>expendable</b>, but the pattern is reused.</p>`,
+    `<p>Cold shut is a <b>low</b> pouring temperature fault; metal penetration is a <b>high</b> one.</p>`,
+    `<p>Hot working leaves <b>no</b> residual stress; cold working <b>induces</b> it.</p>`,
+    `<p>The <b>HAZ</b> is weaker than the base metal and the fusion zone.</p>`,
+    `<p>DCEN gives a <b>deep</b> weld; DCEP gives a <b>shallow</b> one.</p>`,
+    `<p>Otto adds heat at constant <b>volume</b>; Diesel at constant <b>pressure</b>.</p>`,
+    `<p>A four stroke engine makes one power stroke per <b>two</b> revolutions, not one.</p>`,
+    `<p>PV panels give <b>DC</b>; an inverter is needed for AC.</p>`,
+    `<p>The source calls the full equation Grubler's and the P<sub>2</sub> = 0 form Kutzbach's.</p>`
+  ]
+});
