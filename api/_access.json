@@ -16,7 +16,8 @@
   "q-2b.js",
   "q-2c.js",
   "q-2d.js",
-  "summary-m2.js"
+  "summary-m2.js",
+  "chunk-4a.js"
  ],
  "proFiles": [
   "pro-1a.js",
@@ -33,12 +34,14 @@
   "qa-2b.js",
   "qa-2c.js",
   "qa-2d.js",
+  "pro-4a.js",
   "viz-m1.js",
   "viz-m2.js"
  ],
  "freeModules": [
   "m1",
-  "m2"
+  "m2",
+  "m4"
  ],
  "paidModules": [
   {
@@ -50,6 +53,11 @@
    "id": "m2",
    "num": "02",
    "title": "Foundations of Electronics and Communication Systems"
+  },
+  {
+   "id": "m4",
+   "num": "04",
+   "title": "Manufacturing, Energy and Mechanical Automation"
   }
  ],
  "fileModule": {
@@ -83,6 +91,8 @@
   "q-2d.js": "m2",
   "qa-2d.js": "m2",
   "summary-m2.js": "m2",
+  "chunk-4a.js": "m4",
+  "pro-4a.js": "m4",
   "viz-m1.js": "m1",
   "viz-m2.js": "m2"
  }

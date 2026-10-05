@@ -25,7 +25,22 @@
       "2c",
       "2d"
     ],
-    "questions": ["q-2a.js", "q-2b.js", "q-2c.js", "q-2d.js"],
+    "questions": [
+      "q-2a.js",
+      "q-2b.js",
+      "q-2c.js",
+      "q-2d.js"
+    ],
     "syllabus": "Semiconductor devices: PN junction diode, Zener diode, BJT, MOSFET and operational amplifier; the electromagnetic spectrum, elements of a communication system, modulation, cellular, satellite and radar systems."
+  },
+  {
+    "id": "m4",
+    "num": "04",
+    "title": "Manufacturing, Energy and Mechanical Automation",
+    "chunks": [
+      "4a"
+    ],
+    "questions": [],
+    "syllabus": "Metal casting, forming, welding, machining, CNC and additive manufacturing; IC engines and power plants; kinematics of mechanisms."
   }
 ]
