@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350">
+  <defs><marker id="ad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dfd"/></marker></defs>
+  <circle cx="60" cy="90" r="7" class="df ds" stroke-width="3"/>
+  <circle cx="540" cy="90" r="7" class="df ds" stroke-width="3"/>
+  <path d="M60 90L104 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M176 90L220 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M104 90L110 102L122 78L134 102L146 78L158 102L170 78L176 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M220 90L264 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M336 90L380 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M264 90L270 102L282 78L294 102L306 78L318 102L330 78L336 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M380 90L424 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M496 90L540 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M424 90L430 102L442 78L454 102L466 78L478 102L490 78L496 90" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="220" cy="90" r="6" class="dfw"/>
+  <circle cx="380" cy="90" r="6" class="dfw"/>
+  <text x="140" y="64" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">1</tspan></text>
+  <text x="300" y="64" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">2</tspan></text>
+  <text x="460" y="64" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">3</tspan></text>
+  <text x="60" y="64" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="540" y="64" font-size="26" text-anchor="middle" class="dt2">−</text>
+  <path d="M65 132L65 168" class="ds3" fill="none" stroke-width="2.5" />
+  <path d="M220 132L220 168" class="ds3" fill="none" stroke-width="2.5" />
+  <path d="M142.5 150L70 150" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <path d="M142.5 150L215 150" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <text x="142.5" y="196" font-size="26" text-anchor="middle" class="dt2">V<tspan dy="7" font-size="22">1</tspan></text>
+  <path d="M220 132L220 168" class="ds3" fill="none" stroke-width="2.5" />
+  <path d="M380 132L380 168" class="ds3" fill="none" stroke-width="2.5" />
+  <path d="M300 150L225 150" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <path d="M300 150L375 150" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <text x="300" y="196" font-size="26" text-anchor="middle" class="dt2">V<tspan dy="7" font-size="22">2</tspan></text>
+  <path d="M380 132L380 168" class="ds3" fill="none" stroke-width="2.5" />
+  <path d="M535 132L535 168" class="ds3" fill="none" stroke-width="2.5" />
+  <path d="M457.5 150L385 150" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <path d="M457.5 150L530 150" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <text x="457.5" y="196" font-size="26" text-anchor="middle" class="dt2">V<tspan dy="7" font-size="22">3</tspan></text>
+  <path d="M60 97L60 290L270 290" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270 290L293 290" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M307 290L330 290" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M293 266L293 314" class="ds" stroke-width="3" fill="none"/>
+  <path d="M307 277L307 303" class="ds" stroke-width="7" fill="none"/>
+  <path d="M330 290L540 290L540 97" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="252" y="272" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="300" y="342" font-size="26" text-anchor="middle" class="dt">V</text>
+  <path d="M60 219L68.8 241L51.2 241z" class="dfb"/>
+  <text x="78" y="238" font-size="26" class="dtb">I</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 490">
+  <path d="M110 60L110 222" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110 278L110 440" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="110" cy="250" r="28" class="ds" fill="none" stroke-width="3"/>
+  <text x="110" y="244.6" font-size="24" text-anchor="middle" class="dt">+</text>
+  <text x="110" y="270.4" font-size="24" text-anchor="middle" class="dt">−</text>
+  <path d="M500 60L500 222" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500 278L500 440" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="500" cy="250" r="28" class="ds" fill="none" stroke-width="3"/>
+  <text x="500" y="271.4" font-size="24" text-anchor="middle" class="dt">+</text>
+  <text x="500" y="243.6" font-size="24" text-anchor="middle" class="dt">−</text>
+  <text x="70" y="258" font-size="26" text-anchor="end" class="dt">15 V</text>
+  <text x="540" y="258" font-size="26" class="dt">5 V</text>
+  <path d="M110 60L271 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M339 60L500 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M271 60L276.7 72L288 48L299.3 72L310.7 48L322 72L333.3 48L339 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="305" y="38" font-size="26" text-anchor="middle" class="dt">3.3 kΩ</text>
+  <path d="M110 160L180 160" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M240 160L310 160" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180 160L185 172L195 148L205 172L215 148L225 172L235 148L240 160" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="210" y="138" font-size="26" text-anchor="middle" class="dt">1.2 kΩ</text>
+  <path d="M310 160L375 160" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M435 160L500 160" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M375 160L380 172L390 148L400 172L410 148L420 172L430 148L435 160" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="405" y="138" font-size="26" text-anchor="middle" class="dt">2.2 kΩ</text>
+  <path d="M310 160L310 200" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M310 260L310 300" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M310 200L298 205L322 215L298 225L322 235L298 245L322 255L310 260" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="330" y="240" font-size="26" class="dt">470 Ω</text>
+  <path d="M310 300L310 340" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M310 400L310 440" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M310 340L298 345L322 355L298 365L322 375L298 385L322 395L310 400" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="330" y="378" font-size="26" class="dt">330 Ω</text>
+  <path d="M110 440L310 440" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M310 440L375 440" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M435 440L500 440" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M375 440L380 452L390 428L400 452L410 428L420 452L430 428L435 440" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="405" y="482" font-size="26" text-anchor="middle" class="dt">100 kΩ</text>
+  <circle cx="110" cy="160" r="6" class="dfw"/>
+  <circle cx="310" cy="160" r="6" class="dfw"/>
+  <circle cx="500" cy="160" r="6" class="dfw"/>
+  <circle cx="310" cy="440" r="6" class="dfw"/>
+</svg>

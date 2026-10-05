@@ -1,0 +1,631 @@
+CHUNK({
+  chunk: '1c',
+  module: 'm1',
+  topics: [
+    // ------------------------------------------------------------------
+    {
+      id: 'm1-dc-machine',
+      title: 'DC machines: energy conversion, construction and types',
+      short: 'DC machine basics',
+      blurb: 'How any rotating machine sits between a mechanical port and an electrical port, what a DC machine is built from, lap and wave windings, and the ways its field can be connected.',
+      source: 'Pages 52–55',
+      tabs: [
+        {
+          title: 'Energy conversion',
+          html: `<p class="lead">Every electrical machine is a converter with two doors: a <b>mechanical port</b> (the shaft) and an <b>electrical port</b> (the terminals). Power goes in at one door and comes out of the other.</p>
+<figure data-fig="m1-energy-conversion"></figure>
+<h3>Reading the diagram</h3>
+<ul>
+<li><b>Mechanical side:</b> input power P<sub>mi</sub> at shaft speed ω<sub>r</sub>, with shaft torque T<sub>sh</sub> and the torque on the rotor T<sub>m</sub>.</li>
+<li><b>Region of energy conversion</b> (dashed box): the rotor and the coil. Here the <b>electromagnetic torque T<sub>e</sub></b> acts and the coil gets an emf e<sub>0</sub>.</li>
+<li><b>Electrical side:</b> coil resistance r, terminal voltage e<sub>t</sub>, electrical power P<sub>ei</sub>.</li>
+<li>Energy is <b>stored in the magnetic field</b> and in the <b>rotating mass</b>.</li>
+<li><b>Power is lost</b> on both sides: friction on the shaft side, heat in r on the electrical side.</li>
+</ul>
+<div class="note why"><p>The same machine can run either way. Push the shaft and you get electrical power out (generator). Feed the terminals and you get torque out (motor). That's why the DC generator and the DC motor share one construction.</p></div>
+<div class="note exam"><p>If asked to "explain the basic energy conversion", draw this two-port picture and name the two stores (magnetic field, rotating mass) and the two loss points.</p></div>`
+        },
+        {
+          title: 'Construction',
+          html: `<p class="lead">A DC machine has a still outer part that makes the magnetic field and a rotating inner part, the <b>armature</b>, where the emf is induced or the torque is made.</p>
+<figure data-fig="m1-dc-cross-section"></figure>
+<div class="kv">
+<div><span>Yoke</span><b>outer frame</b></div>
+<div><span>Pole core</span><b>carries the field coil</b></div>
+<div><span>Pole shoe</span><b>spreads flux over the armature</b></div>
+<div><span>Field coil</span><b>DC through it makes the poles</b></div>
+<div><span>Armature</span><b>rotating slotted core</b></div>
+<div><span>Armature conductors</span><b>sit in the slots</b></div>
+<div><span>Shaft</span><b>carries the armature</b></div>
+<div><span>Base</span><b>holds the machine down</b></div>
+</div>
+<p>The drawn machine has <b>4 poles</b>, alternating N, S, N, S around the yoke. The yoke also completes the magnetic path from one pole to the next.</p>
+<h3>The armature up close</h3>
+<figure data-fig="m1-dc-armature"></figure>
+<ul>
+<li><b>Armature stack</b> of laminations with <b>stack teeth</b> and <b>stack slots</b>; the <b>winding coils</b> lie in the slots.</li>
+<li><b>Commutator bars</b> at one end, touched by fixed <b>carbon brushes</b>.</li>
+<li><b>Shaft</b> running in a <b>bearing</b>.</li>
+</ul>
+<div class="note why"><p>The armature core is laminated because it spins inside the field: a solid core would carry large eddy currents and heat up. The commutator flips each coil's connection every half turn, so the current outside always flows the same way.</p></div>`
+        },
+        {
+          title: 'Lap and wave windings',
+          html: `<p class="lead">The armature coils are joined to the commutator in one of two patterns: <b>lap winding</b> or <b>wave winding</b>.</p>
+<figure data-fig="m1-lap-wave"></figure>
+<div class="kv">
+<div><span>Y<sub>B</sub></span><b>back pitch</b></div>
+<div><span>Y<sub>F</sub></span><b>front pitch</b></div>
+<div><span>Y<sub>R</sub></span><b>resultant pitch</b></div>
+<div><span>Y<sub>C</sub></span><b>commutator pitch</b></div>
+</div>
+<table class="tbl">
+<thead><tr><th></th><th>Lap winding</th><th>Wave winding</th></tr></thead>
+<tbody>
+<tr><td>Coil ends go to</td><td>neighbouring commutator bars</td><td>bars far apart</td></tr>
+<tr><td>Next coil starts</td><td>just beside the first (laps back)</td><td>under the next pair of poles</td></tr>
+<tr><td>Pitches in the figure</td><td>Y<sub>R</sub> = Y<sub>B</sub> − Y<sub>F</sub></td><td>Y<sub>R</sub> = Y<sub>B</sub> + Y<sub>F</sub></td></tr>
+<tr><td>Parallel paths A (as used in the examples)</td><td><b>A = P</b></td><td><b>A = 2</b></td></tr>
+</tbody>
+</table>
+<div class="note exam"><p>In every numerical, read "lap" as A = P and "wave" as A = 2 before you touch the EMF or torque formula. Getting A wrong is the usual way to lose the whole answer.</p></div>`
+        },
+        {
+          title: 'Types of DC machine',
+          html: `<p class="lead">DC machines are named by how the <b>field winding gets its current</b>.</p>
+<figure data-fig="m1-dc-classification"></figure>
+<ul>
+<li><b>Separately excited:</b> the field is fed from its own separate DC supply.</li>
+<li><b>Self excited:</b> the machine feeds its own field.
+<ul>
+<li><b>Series wound:</b> field in series with the armature, so it carries the full armature current.</li>
+<li><b>Shunt wound:</b> field connected across (in parallel with) the armature.</li>
+<li><b>Compound wound:</b> has both a series and a shunt field.
+<ul>
+<li><b>Long shunt:</b> shunt field across the armature and series field together.</li>
+<li><b>Short shunt:</b> shunt field across the armature only.</li>
+</ul></li>
+</ul></li>
+</ul>
+<figure data-fig="m1-dc-connections"></figure>
+<div class="note trap"><p>Long vs short shunt is only about where the shunt field's ends land. Short shunt: straight across the armature. Long shunt: across armature plus series field. This changes the shunt field voltage, which changes the answer in numericals.</p></div>`
+        }
+      ],
+      flashcards: [
+        { front: 'Name the two ports of an electrical machine and what flows at each.', back: 'Mechanical port (shaft: torque and speed, power P<sub>mi</sub>) and electrical port (terminals: voltage e<sub>t</sub>, power P<sub>ei</sub>).' },
+        { front: 'Long shunt vs short shunt compound machine?', back: 'Short shunt: shunt field across the armature only. Long shunt: shunt field across the armature and series field together.' },
+        { front: 'Number of parallel paths A for lap and wave windings?', back: 'Lap: A = P (number of poles). Wave: A = 2.' },
+        { front: 'Where is energy stored inside a rotating machine?', back: 'In the magnetic field and in the rotating mass.' },
+        { front: 'What does the pole shoe do?', back: 'Spreads the flux over the armature surface and holds the field coil in place on the pole core.' },
+        { front: 'List the parts in the DC machine cross-section.', back: 'Yoke, pole core, pole shoe, field coil, armature, armature conductors, shaft, base.' },
+        { front: 'What are Y<sub>B</sub>, Y<sub>F</sub>, Y<sub>R</sub>, Y<sub>C</sub>?', back: 'Back pitch, front pitch, resultant pitch and commutator pitch of an armature winding.' },
+        { front: 'Separately excited vs self excited?', back: 'Separately excited: field fed from a separate DC supply. Self excited: the machine supplies its own field (series, shunt or compound).' },
+        { front: 'Why is the armature core laminated?', back: 'It rotates in the magnetic field; laminations cut down eddy currents and the heat they make.' }
+      ],
+      oneLiners: [
+        'A machine converts power between a <b>mechanical port</b> and an <b>electrical port</b>; the same build works as motor or generator.',
+        'Energy is stored in the <b>magnetic field</b> and the <b>rotating mass</b>; losses occur on both sides.',
+        'DC machine parts: <b>yoke, pole core, pole shoe, field coil, armature, conductors, commutator, brushes, shaft</b>.',
+        'Lap winding: <b>A = P</b>. Wave winding: <b>A = 2</b>.',
+        'Self-excited DC machines: <b>series, shunt, compound</b> (long shunt or short shunt).',
+        'The commutator keeps the <b>external current one-way</b>.'
+      ],
+      formulas: [
+        { name: 'Parallel paths', html: `Lap: A = P &nbsp;&nbsp; Wave: A = 2`, note: 'P = number of poles.' }
+      ]
+    },
+    // ------------------------------------------------------------------
+    {
+      id: 'm1-dc-generator',
+      title: 'DC generator: working, EMF equation and examples',
+      short: 'DC generator',
+      blurb: 'The simple loop generator, the EMF equation E = PφZN/(60A), the voltage and current relations for shunt and compound generators, and the three worked examples.',
+      source: 'Pages 56–58',
+      tabs: [
+        {
+          title: 'Simple loop generator',
+          html: `<p class="lead">Spin a coil between two magnet poles and its sides <b>cut the magnetic flux</b>, so an emf is induced in it (Faraday). That is the whole idea of a generator.</p>
+<figure data-fig="m1-loop-generator"></figure>
+<ol class="steps">
+<li><b>Field</b> runs from the N pole to the S pole of the permanent magnet.</li>
+<li><b>Rotation</b> The rectangular coil ABCD turns anticlockwise on the shaft. Side AB moves down past N while side CD moves up past S.</li>
+<li><b>Emf</b> Each side cuts flux, so an emf appears in it. The two side emfs add round the loop.</li>
+<li><b>Collection</b> The coil ends go to slip rings R<sub>1</sub>, R<sub>2</sub>, which rotate with the coil. Fixed carbon brushes B<sub>1</sub>, B<sub>2</sub> rub on them.</li>
+<li><b>Detection</b> Current flows through the external circuit and the galvanometer G deflects.</li>
+</ol>
+<div class="note why"><p>Half a turn later AB is moving up past S and CD down past N, so the emf reverses. With slip rings the output is alternating. A practical DC generator swaps the slip rings for a <b>commutator</b>, which reverses the connections at the same moment, so the output stays one-way.</p></div>
+<details class="more"><summary>Extra: which way does the current go?</summary><p>Use Fleming's right-hand rule: first finger along the field, thumb along the motion, middle finger gives the current. Try it on side AB: field to the right, motion down, current from B towards A, as drawn.</p></details>`
+        },
+        {
+          title: 'EMF equation',
+          html: `<p class="lead">The EMF equation says how much voltage the armature makes: <b>E<sub>g</sub> = PφZN / (60A)</b>.</p>
+<div class="kv">
+<div><span>φ</span><b>flux per pole (Wb)</b></div>
+<div><span>Z</span><b>total armature conductors</b></div>
+<div><span>P</span><b>number of poles</b></div>
+<div><span>A</span><b>number of parallel paths</b></div>
+<div><span>N</span><b>speed (rpm)</b></div>
+<div><span>E<sub>g</sub></span><b>generated emf (V)</b></div>
+</div>
+<ol class="steps">
+<li><b>Flux cut</b> In one revolution a conductor passes all P poles, so it cuts dφ = φP webers.</li>
+<li><b>Time</b> One revolution takes dt = 60/N seconds.</li>
+<li><b>Emf per conductor</b> dφ/dt = φP / (60/N) = φPN/60 volts.</li>
+<li><b>Per path</b> The conductors split into A parallel paths, so Z/A conductors are in series in each path. The machine's emf is the emf of one path.</li>
+</ol>
+<div class="eq">E<sub>g</sub> = <span class="frac"><span>PφN</span><span>60</span></span> × <span class="frac"><span>Z</span><span>A</span></span> = <span class="frac"><span>φZN</span><span>60</span></span> × <span class="frac"><span>P</span><span>A</span></span> volts</div>
+<div class="note why"><p>For a built machine P, Z and A are fixed, so E<sub>g</sub> ∝ φN. Faster spin or stronger field means more voltage. The same formula gives the back emf of a motor.</p></div>
+<div class="note exam"><p>The derivation is a common 6–8 mark question. Write the list of symbols, the three steps (flux cut, time, divide into paths), then the final line.</p></div>`
+        },
+        {
+          title: 'Voltage and current relations',
+          html: `<p class="lead">The armature makes E<sub>g</sub>; the terminals see a bit less, because the armature current drops voltage across the armature (and any series field) and across the brushes.</p>
+<table class="tbl">
+<thead><tr><th>Generator</th><th>Currents</th><th>Generated emf</th></tr></thead>
+<tbody>
+<tr><td>Series</td><td>I<sub>a</sub> = I<sub>se</sub> = I<sub>L</sub></td><td>E<sub>g</sub> = V + I<sub>a</sub>(R<sub>a</sub> + R<sub>se</sub>)</td></tr>
+<tr><td>Shunt</td><td>I<sub>sh</sub> = V/R<sub>sh</sub>, I<sub>a</sub> = I<sub>L</sub> + I<sub>sh</sub></td><td>E<sub>g</sub> = V + I<sub>a</sub>R<sub>a</sub></td></tr>
+<tr><td>Short shunt</td><td>I<sub>sh</sub> = (V + I<sub>L</sub>R<sub>se</sub>)/R<sub>sh</sub>, I<sub>a</sub> = I<sub>L</sub> + I<sub>sh</sub></td><td>E<sub>g</sub> = V + I<sub>L</sub>R<sub>se</sub> + I<sub>a</sub>R<sub>a</sub></td></tr>
+<tr><td>Long shunt</td><td>I<sub>sh</sub> = V/R<sub>sh</sub>, I<sub>a</sub> = I<sub>se</sub> = I<sub>L</sub> + I<sub>sh</sub></td><td>E<sub>g</sub> = V + I<sub>a</sub>(R<sub>a</sub> + R<sub>se</sub>)</td></tr>
+</tbody>
+</table>
+<p>Add the <b>brush contact drop</b> when the question gives one: "1 V per brush" with two brushes adds <b>2 V</b>.</p>
+<div class="note why"><p>In a generator the armature is the source, so its current splits: some feeds the shunt field, the rest goes to the load. That's why I<sub>a</sub> is the biggest current in a shunt generator.</p></div>`
+        },
+        {
+          title: 'Worked examples',
+          html: `<p class="lead">Three examples from the course, all checked. Draw the connection first, then the currents, then the emf.</p>
+<div class="worked"><div class="given"><p><b>Example 4.1</b> A shunt generator delivers 400 A at 220 V. Shunt field 250 Ω, armature 0.15 Ω. Find the generated emf.</p></div>
+<div class="solve"><div class="eq">I<sub>sh</sub> = 220/250 = 0.88 A</div><div class="eq">I<sub>a</sub> = 400 + 0.88 = 400.88 A</div><div class="eq">E<sub>g</sub> = 220 + 400.88 × 0.15 = 220 + 60.13</div></div>
+<div class="result"><p>E<sub>g</sub> = <b>280.13 V ≈ 280 V</b></p></div></div>
+<div class="worked"><div class="given"><p><b>Example 4.2</b> A short-shunt compound generator delivers 25 A at 230 V. Armature 0.04 Ω, series field 0.26 Ω, shunt field 200 Ω. Brush drop 1.0 V per brush. Find the induced emf and armature current.</p></div>
+<div class="solve"><div class="eq">Series field drop = 25 × 0.26 = 6.5 V</div><div class="eq">Shunt field voltage = 230 + 6.5 = 236.5 V</div><div class="eq">I<sub>sh</sub> = 236.5/200 = 1.18 A, I<sub>a</sub> = 25 + 1.18 = 26.18 A</div><div class="eq">E = 230 + 6.5 + 26.18 × 0.04 + 2 × 1</div></div>
+<div class="result"><p>I<sub>a</sub> = <b>26.18 A</b>, E = <b>239.55 V</b></p></div></div>
+<div class="note heads-up"><p>The course answer is 239.845 V. That number is what you get for a <b>long-shunt</b> connection: I<sub>sh</sub> = 230/200 = 1.15 A, I<sub>a</sub> = 26.15 A, E = 230 + 26.15 × (0.04 + 0.26) + 2 = 239.845 V. The question says short shunt, so 239.55 V is the right answer. Show the short-shunt working; if you want, mention the long-shunt figure too.</p></div>
+<div class="worked"><div class="given"><p><b>Example 4.3</b> Flux per pole on full load for a 50 kW, 400 V, 8-pole, 600 rpm shunt generator, 256 lap-connected conductors. Armature 0.1 Ω, shunt field 200 Ω, brush drop 1 V per brush.</p></div>
+<div class="solve"><div class="eq">I<sub>L</sub> = 50 000/400 = 125 A, I<sub>sh</sub> = 400/200 = 2 A</div><div class="eq">I<sub>a</sub> = 127 A</div><div class="eq">E<sub>g</sub> = 400 + 127 × 0.1 + 2 = 414.7 V</div><div class="eq">Lap: A = P = 8, so φ = E<sub>g</sub> × 60A/(ZNP) = 414.7 × 60/(256 × 600)</div></div>
+<div class="result"><p>φ = <b>0.162 Wb</b></p></div></div>
+<div data-viz="dc-machine"></div>`
+        }
+      ],
+      flashcards: [
+        { front: 'Write the EMF equation of a DC machine and name the symbols.', back: 'E<sub>g</sub> = PφZN/(60A). P poles, φ flux per pole (Wb), Z total conductors, N speed (rpm), A parallel paths.' },
+        { front: 'Short-shunt generator: what voltage does the shunt field see?', back: 'Terminal voltage plus the series field drop: V + I<sub>L</sub>R<sub>se</sub>.' },
+        { front: 'Shunt generator: how are I<sub>a</sub>, I<sub>L</sub>, I<sub>sh</sub> related?', back: 'I<sub>a</sub> = I<sub>L</sub> + I<sub>sh</sub>, with I<sub>sh</sub> = V/R<sub>sh</sub>.' },
+        { front: 'In the EMF derivation, how much flux does one conductor cut per revolution, and how long does it take?', back: 'dφ = φP webers in dt = 60/N seconds, so emf per conductor = φPN/60 V.' },
+        { front: 'Example 4.1 answer (shunt, 400 A at 220 V, R<sub>sh</sub> 250 Ω, R<sub>a</sub> 0.15 Ω)?', back: 'I<sub>a</sub> = 400.88 A, E<sub>g</sub> = 280.13 V ≈ 280 V.' },
+        { front: 'Example 4.2 (short shunt, 25 A at 230 V): correct emf and why the course answer differs?', back: '239.55 V with I<sub>a</sub> = 26.18 A. The printed 239.845 V is the long-shunt result.' },
+        { front: 'Example 4.3: flux per pole?', back: 'I<sub>a</sub> = 127 A, E<sub>g</sub> = 414.7 V, lap so A = 8: φ = 0.162 Wb.' },
+        { front: 'What do slip rings give, and what does a commutator change?', back: 'Slip rings pass on the coil\'s alternating emf. A commutator reverses the coil connection each half turn so the output is DC.' },
+        { front: 'How do you handle "1 V per brush"?', back: 'Two brushes, so add 2 V to the emf (generator).' }
+      ],
+      oneLiners: [
+        'A generator works on <b>Faraday\'s law</b>: a conductor cutting flux gets an emf.',
+        'E<sub>g</sub> = <b>PφZN/(60A)</b>; for a given machine E<sub>g</sub> ∝ φN.',
+        'In the simple loop generator, <b>slip rings rotate with the coil</b> and <b>brushes are fixed</b>.',
+        'Shunt generator: <b>I<sub>a</sub> = I<sub>L</sub> + I<sub>sh</sub></b>, E<sub>g</sub> = V + I<sub>a</sub>R<sub>a</sub> (+ brush drop).',
+        'Example answers: 4.1 → <b>280 V</b>, 4.2 → <b>239.55 V</b> (short shunt), 4.3 → <b>0.162 Wb</b>.'
+      ],
+      formulas: [
+        { name: 'DC machine EMF', html: `E<sub>g</sub> = <span class="frac"><span>PφZN</span><span>60A</span></span>`, note: 'N in rpm; lap A = P, wave A = 2.' },
+        { name: 'Shunt generator', html: `I<sub>a</sub> = I<sub>L</sub> + I<sub>sh</sub>, &nbsp; E<sub>g</sub> = V + I<sub>a</sub>R<sub>a</sub> + brush drop`, note: 'I<sub>sh</sub> = V/R<sub>sh</sub>.' },
+        { name: 'Short-shunt compound generator', html: `E<sub>g</sub> = V + I<sub>L</sub>R<sub>se</sub> + I<sub>a</sub>R<sub>a</sub> + brush drop`, note: 'I<sub>sh</sub> = (V + I<sub>L</sub>R<sub>se</sub>)/R<sub>sh</sub>.' },
+        { name: 'Long-shunt compound generator', html: `E<sub>g</sub> = V + I<sub>a</sub>(R<sub>a</sub> + R<sub>se</sub>) + brush drop`, note: 'I<sub>sh</sub> = V/R<sub>sh</sub>.' }
+      ]
+    },
+    // ------------------------------------------------------------------
+    {
+      id: 'm1-dc-motor',
+      title: 'DC motor: working, back EMF, torque and examples',
+      short: 'DC motor',
+      blurb: 'Why a current-carrying coil in a field turns, what back EMF is, the torque equation T<sub>a</sub> = 0.159 φZI<sub>a</sub>(P/A), and the series and shunt motor examples.',
+      source: 'Pages 59–63',
+      tabs: [
+        {
+          title: 'How it turns',
+          html: `<p class="lead">Put a <b>current-carrying conductor in a magnetic field</b> and it feels a force. In a DC motor the two sides of the coil feel opposite forces, which makes a turning effect.</p>
+<figure data-fig="m1-dc-motor-principle"></figure>
+<ol class="steps">
+<li><b>Supply</b> V<sub>dc</sub> drives current into coil ABCD through the brushes and the split-ring commutator.</li>
+<li><b>Force</b> Side CD (near S) is pushed up, side AB (near N) is pushed down.</li>
+<li><b>Rotation</b> The two forces make a couple, so the coil turns anticlockwise.</li>
+<li><b>Keep going</b> After half a turn the commutator reverses the coil current, so the force on the side under each pole stays the same way and rotation continues.</li>
+</ol>
+<div class="note heads-up"><p>The course drawing copies the current arrows of the generator picture (B to A, D to C) and keeps the same motion. With that current the force would push the coil the other way. For anticlockwise motor rotation the current must run A to B and C to D, as redrawn here. That reversal is the point: a motor's current flows against the emf the turning coil makes.</p></div>
+<figure data-fig="m1-motor-conductors"></figure>
+<p>In a real armature, every conductor under the N pole carries current one way (into the page) and every conductor under the S pole the other way (out of the page), so all the forces add up in the same turning direction.</p>
+<details class="more"><summary>Extra: Fleming's left-hand rule</summary><p>First finger along the field, middle finger along the current, thumb gives the force. Motors use the left hand, generators the right.</p></details>`
+        },
+        {
+          title: 'Back EMF',
+          html: `<p class="lead">A spinning motor armature is also a generator. The emf it makes opposes the supply, so it's called the <b>back emf E<sub>b</sub></b>.</p>
+<div class="eq">E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub></div>
+<div class="eq">E<sub>b</sub> = <span class="frac"><span>φZN</span><span>60</span></span> × <span class="frac"><span>P</span><span>A</span></span> &nbsp;⇒&nbsp; N = <span class="frac"><span>E<sub>b</sub> × 60 × A</span><span>φZP</span></span></div>
+<ul>
+<li>Only the difference V − E<sub>b</sub> pushes current through the small armature resistance.</li>
+<li>Shunt motor: the supply current splits, so <b>I<sub>a</sub> = I<sub>L</sub> − I<sub>sh</sub></b>.</li>
+<li>Series motor: <b>I<sub>a</sub> = I<sub>L</sub></b>.</li>
+</ul>
+<div class="note why"><p>Back emf is what makes a motor self-regulating. Load it more, it slows, E<sub>b</sub> falls, more current flows, more torque. At standstill E<sub>b</sub> = 0, so only R<sub>a</sub> limits the starting current, which is why big motors need a starter.</p></div>
+<div class="note trap"><p>Generator: E<sub>g</sub> = V + I<sub>a</sub>R<sub>a</sub>. Motor: E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub>. The sign flips because the current direction flips.</p></div>`
+        },
+        {
+          title: 'Torque equation',
+          html: `<p class="lead">Torque is force times radius. Put the electrical power into the armature equal to the mechanical power out, and the torque formula drops out.</p>
+<figure data-fig="m1-torque-pulley"></figure>
+<ol class="steps">
+<li><b>Torque</b> A tangential force F at radius r: T = F × r N·m (4.12).</li>
+<li><b>Work per revolution</b> W = force × distance = F × 2πr N·m (4.13).</li>
+<li><b>Power</b> At N rps: P = F × 2πr × N = (F × r) 2πN watts (4.14). Since 2πN = ω rad/s, P = T × ω (4.15).</li>
+<li><b>In rpm</b> ω = 2πN/60, so P = 2πNT/60.</li>
+<li><b>Equate</b> E<sub>b</sub>I<sub>a</sub> = 2πN T<sub>a</sub> (4.17), N in rps.</li>
+<li><b>Substitute</b> E<sub>b</sub> = φZN(P/A) with N in rps: φZN(P/A) × I<sub>a</sub> = 2πN T<sub>a</sub> (4.18).</li>
+</ol>
+<div class="eq" data-label="Armature torque (4.19)">T<sub>a</sub> = <span class="frac"><span>1</span><span>2π</span></span> φZI<sub>a</sub> <span class="frac"><span>P</span><span>A</span></span> = 0.159 φZI<sub>a</sub> <span class="frac"><span>P</span><span>A</span></span> N·m</div>
+<div class="note heads-up"><p>A few printing slips in the course derivation: (4.16) is printed P = 2πN × T, which is right only with N in rps (with rpm it's 2πNT/60). The step after (4.17) refers to "equation (4.21)". E<sub>b</sub> = φZN(P/A) holds with N in rps; in rpm it's φZNP/(60A). And (4.19) is printed with an extra N and no equals sign. The final, correct form is T<sub>a</sub> = 0.159 φZI<sub>a</sub>(P/A); N cancels.</p></div>
+<div class="note why"><p>Notice speed has dropped out: torque depends only on flux and armature current. More load needs more torque, so the motor draws more I<sub>a</sub>.</p></div>
+<p><b>Shaft torque</b> T<sub>sh</sub> is what's left at the shaft after the motor's own losses: T<sub>sh</sub> = output power / (2πN), N in rps. It's always a little less than T<sub>a</sub>.</p>`
+        },
+        {
+          title: 'Example 1: series motor',
+          html: `<p class="lead">A <b>8.2 kW, 220 V, 4-pole, 800-conductor wave-connected DC series motor</b> draws 45 A. R<sub>a</sub> = 0.6 Ω, φ = 25 mWb. Find the developed and shaft torques.</p>
+<div class="worked"><div class="given"><p>P = 4, wave so A = 2, Z = 800, I<sub>a</sub> = I<sub>L</sub> = 45 A (series), V = 220 V, output 8200 W.</p></div>
+<div class="solve">
+<div class="eq">T<sub>a</sub> = 0.159 × 25 × 10<sup>−3</sup> × 800 × 45 × (4/2) = 286.2 N·m</div>
+<div class="eq">E<sub>b</sub> = 220 − 45 × 0.6 = 193 V</div>
+<div class="eq">N = <span class="frac"><span>193 × 60 × 2</span><span>25 × 10<sup>−3</sup> × 800 × 4</span></span> = 289.5 rpm = 4.83 rps</div>
+<div class="eq">T<sub>sh</sub> = <span class="frac"><span>8200</span><span>2π × 4.83</span></span> = <span class="frac"><span>8200</span><span>30.3</span></span></div>
+</div>
+<div class="result"><p>T<sub>a</sub> = <b>286.2 N·m</b>, N = <b>289.5 rpm</b>, T<sub>sh</sub> = <b>270.5 N·m</b></p></div></div>
+<div class="note heads-up"><p>The course writes "289.5 rpm or 30 rps" and gets T<sub>sh</sub> = 8200/(2 × 3.14 × 30) = 43.52 N·m. But 289.5 rpm is <b>4.83 rps</b>. The 30 looks like the angular speed (2π × 4.83 = 30.3 rad/s) multiplied by 2π a second time. With 4.83 rps, T<sub>sh</sub> = 270.5 N·m, which sensibly sits just under T<sub>a</sub> = 286.2 N·m. A shaft torque of 43.52 N·m from a 286 N·m armature would be impossible.</p></div>
+<div class="note exam"><p>The question gives R<sub>a</sub> = 0.6 Ω only. In a series motor take it as the total armature-plus-field resistance, as the solution does.</p></div>`
+        },
+        {
+          title: 'Example 2: shunt motor',
+          html: `<p class="lead">A <b>4-pole, 220 V shunt motor</b> has 540 lap-connected conductors. It takes 32 A from the mains and gives 5.595 kW output. The field takes 1 A, R<sub>a</sub> = 0.09 Ω, φ = 30 mWb. Find (a) the speed and (b) the torque developed.</p>
+<div class="worked"><div class="given"><p>P = 4, lap so A = P = 4, Z = 540, I<sub>L</sub> = 32 A, I<sub>sh</sub> = 1 A.</p></div>
+<div class="solve">
+<div class="eq">I<sub>a</sub> = I<sub>L</sub> − I<sub>sh</sub> = 32 − 1 = 31 A</div>
+<div class="eq">E<sub>b</sub> = 220 − 31 × 0.09 = 220 − 2.79 = 217.21 V</div>
+<div class="eq">N = <span class="frac"><span>217.21 × 60 × 4</span><span>30 × 10<sup>−3</sup> × 540 × 4</span></span> = <span class="frac"><span>52 130.4</span><span>64.8</span></span></div>
+<div class="eq">T<sub>a</sub> = 0.159 × 30 × 10<sup>−3</sup> × 540 × 31 × (4/4)</div>
+</div>
+<div class="result"><p>(a) N = <b>804.5 rpm</b> &nbsp; (b) T<sub>a</sub> = <b>79.9 N·m</b></p></div></div>
+<div class="note heads-up"><p>The course solution stops halfway and has dropped Z = 540 from the denominator: it writes 217.21 × 60 × 4 / (30 × 10<sup>−3</sup> × 4) = 13032.6/(30 × 10<sup>−3</sup>), which would give an absurd 434 000 rpm. Put Z back in and you get 804.5 rpm. Part (b) is not worked there at all; T<sub>a</sub> = 79.9 N·m.</p></div>
+<details class="more"><summary>Extra: shaft torque and a cross-check</summary><p>T<sub>sh</sub> = 5595/(2π × 804.5/60) = <b>66.4 N·m</b>. Check: power developed E<sub>b</sub>I<sub>a</sub> = 217.21 × 31 = 6733.5 W, and 6733.5/(2π × 804.5/60) = 79.9 N·m, the same T<sub>a</sub>.</p></details>`
+        }
+      ],
+      flashcards: [
+        { front: 'What is back emf and its equation?', back: 'The emf induced in a running motor\'s armature, opposing the supply: E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub> = φZNP/(60A).' },
+        { front: 'Armature torque of a DC motor?', back: 'T<sub>a</sub> = (1/2π) φZI<sub>a</sub>(P/A) = 0.159 φZI<sub>a</sub>(P/A) N·m.' },
+        { front: 'Example 1 (8.2 kW series motor): speed and torques?', back: 'T<sub>a</sub> = 286.2 N·m, E<sub>b</sub> = 193 V, N = 289.5 rpm = 4.83 rps, T<sub>sh</sub> = 270.5 N·m (not the printed 43.52).' },
+        { front: 'Speed formula from back emf?', back: 'N = E<sub>b</sub> × 60 × A / (φZP) rpm.' },
+        { front: 'Shunt motor: armature current?', back: 'I<sub>a</sub> = I<sub>L</sub> − I<sub>sh</sub>.' },
+        { front: 'Example 2 (220 V shunt motor, 540 lap conductors): speed and torque?', back: 'I<sub>a</sub> = 31 A, E<sub>b</sub> = 217.21 V, N = 804.5 rpm, T<sub>a</sub> = 79.9 N·m.' },
+        { front: 'Starting point of the torque derivation?', back: 'Electrical power into the armature = mechanical power developed: E<sub>b</sub>I<sub>a</sub> = 2πN T<sub>a</sub> (N in rps).' },
+        { front: 'Power in terms of torque, N in rps and in rpm?', back: 'P = T × 2πN (rps) = 2πNT/60 (rpm); P = Tω.' },
+        { front: 'Why must a motor\'s coil current be opposite to a generator\'s for the same rotation?', back: 'The generator current makes a force that opposes the motion (Lenz). For the force to drive the motion, the current must be reversed.' },
+        { front: 'Why is T<sub>sh</sub> less than T<sub>a</sub>?', back: 'Part of the developed torque is used up by the motor\'s own losses (friction, iron loss); T<sub>sh</sub> is what reaches the load.' }
+      ],
+      oneLiners: [
+        'Motor principle: a <b>current-carrying conductor in a magnetic field</b> feels a force.',
+        'Back emf: <b>E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub></b>; it opposes the supply.',
+        'Torque: <b>T<sub>a</sub> = 0.159 φZI<sub>a</sub>(P/A)</b> N·m; speed does not appear.',
+        'Speed: <b>N = 60AE<sub>b</sub>/(φZP)</b> rpm.',
+        'Power: <b>P = Tω</b>, ω = 2πN/60 with N in rpm.',
+        'Example answers: series motor <b>286.2 N·m, 289.5 rpm, 270.5 N·m</b>; shunt motor <b>804.5 rpm, 79.9 N·m</b>.'
+      ],
+      formulas: [
+        { name: 'Back EMF', html: `E<sub>b</sub> = V − I<sub>a</sub>R<sub>a</sub> = <span class="frac"><span>φZN</span><span>60</span></span> × <span class="frac"><span>P</span><span>A</span></span>`, note: 'N in rpm.' },
+        { name: 'Motor speed', html: `N = <span class="frac"><span>60 A E<sub>b</sub></span><span>φZP</span></span>`, note: 'rpm.' },
+        { name: 'Armature torque', html: `T<sub>a</sub> = 0.159 φZI<sub>a</sub> <span class="frac"><span>P</span><span>A</span></span>`, note: 'N·m; 0.159 = 1/2π.' },
+        { name: 'Torque and power', html: `T = F × r, &nbsp; P = Tω = 2πNT`, note: 'N in rps; with rpm use 2πNT/60.' },
+        { name: 'Shaft torque', html: `T<sub>sh</sub> = <span class="frac"><span>P<sub>out</sub></span><span>2πN</span></span>`, note: 'N in rps.' }
+      ]
+    },
+    // ------------------------------------------------------------------
+    {
+      id: 'm1-bldc',
+      title: 'BLDC motor',
+      short: 'BLDC motor',
+      blurb: 'The brushless DC motor: permanent-magnet rotor, wound stator, Hall sensors, the transistor drive that replaces the commutator, its torque–speed characteristic and its uses.',
+      source: 'Pages 64–66',
+      tabs: [
+        {
+          title: 'Parts',
+          html: `<p class="lead">A <b>BLDC (brushless DC) motor</b> turns the DC machine inside out: the <b>magnets rotate</b> and the <b>windings stay still</b>, so there are no brushes and no commutator.</p>
+<figure data-fig="m1-bldc-parts"></figure>
+<div class="kv">
+<div><span>Rotor</span><b>permanent magnets</b></div>
+<div><span>Stator</span><b>armature coils (electromagnets)</b></div>
+<div><span>Hall effect sensor</span><b>senses rotor position</b></div>
+<div><span>Rotor shaft</span><b>in a ball bearing</b></div>
+</div>
+<p>The course pictures show both builds: an inner stator with its <b>winding</b> and <b>Hall effect sensors</b>, and an outer-rotor motor where the <b>rotor</b> is a can lined with <b>permanent magnets</b> spinning round the <b>stator</b>.</p>
+<div class="note why"><p>Since the coils don't move, no sliding contact is needed to reach them. Switching the current from coil to coil is done electronically, which is why the motor needs a rotor position sensor.</p></div>`
+        },
+        {
+          title: 'Drive circuit',
+          html: `<p class="lead">The BLDC motor needs an electronic drive: it makes DC from the mains and then <b>switches the stator phases one after another</b> in step with the rotor.</p>
+<figure data-fig="m1-bldc-drive"></figure>
+<ol class="steps">
+<li><b>Rectify</b> The AC source feeds a bridge rectifier D<sub>1</sub>–D<sub>4</sub>; capacitor C smooths it into a DC supply (+ and −).</li>
+<li><b>Phase windings</b> The three stator windings A, B, C meet at a star point tied to +. Their other ends go to transistors TR<sub>1</sub>, TR<sub>2</sub>, TR<sub>3</sub>.</li>
+<li><b>Sense</b> The rotor position sensor tells the electronic timing and drive circuitry where the N and S poles are.</li>
+<li><b>Switch</b> The circuitry turns on the right transistor, so the right winding pulls the rotor on.</li>
+<li><b>Repeat</b> As the rotor turns, the next winding is switched in, and so on.</li>
+</ol>
+<div class="note why"><p>This transistor switching does the job the commutator and brushes do in a normal DC motor, without sparking or wear.</p></div>`
+        },
+        {
+          title: 'Characteristics and uses',
+          html: `<p class="lead">The torque–speed graph shows how much torque the motor can give at each speed, both <b>continuously</b> and for short <b>intermittent</b> bursts.</p>
+<figure data-fig="m1-bldc-characteristics"></figure>
+<ul>
+<li><b>T<sub>0</sub></b> is the torque at standstill (ω = 0); the dotted line from T<sub>0</sub> falls to the speed ω<sub>0</sub>.</li>
+<li><b>Continuous region:</b> torque up to the <b>continuous stall torque</b> at low speed, falling past the <b>continuous rated torque</b> point.</li>
+<li><b>Intermittent region:</b> higher torque, allowed only for short times.</li>
+<li><b>Chopping control</b> (hatched) covers the low-speed area; <b>angle control</b> extends the curve at high speed.</li>
+</ul>
+<h3>Applications</h3>
+<div class="chips"><span class="chip">Transport</span><span class="chip">Cordless tools</span><span class="chip">Heating and ventilation</span><span class="chip">Motion control systems</span><span class="chip">Positioning and actuation systems</span><span class="chip">Aeromodelling</span><span class="chip">Power converter</span><span class="chip">Radio-controlled cars</span></div>
+<p>Motion control and positioning/actuation systems are listed under <b>industrial engineering</b>.</p>
+<details class="more"><summary>Extra: why "chopping" and "angle" control</summary><p>At low speed the back emf is small, so the drive chops (switches on and off quickly) to limit current. At high speed the back emf is large, so the drive instead advances the angle at which each phase is switched on.</p></details>`
+        }
+      ],
+      flashcards: [
+        { front: 'What rotates and what stays still in a BLDC motor?', back: 'The permanent-magnet rotor rotates; the armature coils (electromagnets) on the stator stay still.' },
+        { front: 'What replaces the commutator in a BLDC motor?', back: 'Electronic switching: transistors switched by timing and drive circuitry that reads a rotor position (Hall effect) sensor.' },
+        { front: 'Blocks of the BLDC drive circuit?', back: 'AC source → bridge rectifier D<sub>1</sub>–D<sub>4</sub> → capacitor C (DC) → transistors TR<sub>1</sub>–TR<sub>3</sub> → windings A, B, C (star point to +); rotor position sensor → timing and drive circuitry.' },
+        { front: 'Two operating regions on the BLDC torque–speed curve?', back: 'Continuous (can run indefinitely) and intermittent (higher torque for short times).' },
+        { front: 'What is the Hall effect sensor for?', back: 'It senses the rotor magnet position so the right winding is switched on at the right time.' },
+        { front: 'Name four BLDC applications.', back: 'Any four of: transport, cordless tools, heating and ventilation, motion control, positioning and actuation, aeromodelling, power converter, radio-controlled cars.' },
+        { front: 'Chopping control vs angle control?', back: 'Chopping control is used at low speed (hatched region); angle control extends operation at high speed.' }
+      ],
+      oneLiners: [
+        'BLDC: <b>permanent-magnet rotor</b>, <b>wound stator</b>, no brushes.',
+        'Rotor position is read by a <b>Hall effect sensor</b>.',
+        '<b>Transistor switching</b> does the commutator\'s job.',
+        'Torque–speed curve: <b>continuous</b> and <b>intermittent</b> regions; <b>chopping</b> and <b>angle</b> control.',
+        'Uses: <b>cordless tools, transport, ventilation, RC cars, aeromodelling</b>, motion control.'
+      ],
+      formulas: []
+    },
+    // ------------------------------------------------------------------
+    {
+      id: 'm1-transformer',
+      title: 'Transformer',
+      short: 'Transformer',
+      blurb: 'A static device that moves AC power between circuits by mutual induction: windings, core and shell types, and the EMF equation E = 4.44 f N Φ<sub>m</sub>.',
+      source: 'Pages 67–69',
+      tabs: [
+        {
+          title: 'What it is',
+          html: `<p class="lead">A transformer is a <b>static device</b> that transfers energy from one electrical network to another <b>without changing the frequency</b>.</p>
+<figure data-fig="m1-transformer-basic"></figure>
+<ul>
+<li>It has two windings: <b>high voltage (HV)</b> and <b>low voltage (LV)</b>.</li>
+<li>The winding connected to the source is the <b>primary</b>; the other is the <b>secondary</b>.</li>
+<li>The <b>VA rating</b> of the HV and LV sides is the same at all instants. So where the voltage is higher the current is lower, and the other way round.</li>
+<li>It works on the <b>mutual induction</b> principle.</li>
+</ul>
+<ol class="steps">
+<li><b>Primary current</b> The AC supply drives current I through the primary winding.</li>
+<li><b>Flux</b> That current sets up an alternating flux φ in the iron core.</li>
+<li><b>Linking</b> The core carries the flux round to the secondary winding.</li>
+<li><b>Induced emf</b> The changing flux induces an emf in the secondary; close switch S and current flows in the load.</li>
+</ol>
+<div class="note why"><p>Only a <b>changing</b> flux induces emf, so a transformer does nothing on steady DC. "Static" means nothing moves: no rotating part, which is why transformers are so efficient.</p></div>`
+        },
+        {
+          title: 'Core and shell types',
+          html: `<p class="lead">The core is built from thin laminations. How they're shaped decides whether you get a <b>core type</b> or a <b>shell type</b> transformer.</p>
+<figure data-fig="m1-core-laminations"></figure>
+<figure data-fig="m1-shell-core-type"></figure>
+<table class="tbl">
+<thead><tr><th></th><th>Core type</th><th>Shell type</th></tr></thead>
+<tbody>
+<tr><td>Laminations</td><td>L-shaped pieces</td><td>E + I pieces</td></tr>
+<tr><td>Windings</td><td>on the two side limbs</td><td>both on the central limb</td></tr>
+<tr><td>Flux path</td><td>one loop round the core</td><td>splits through the two outer limbs</td></tr>
+</tbody>
+</table>
+<p>The core-type figure in the course marks P and S terminals on both limbs; here the primary (P) is drawn on one limb and the secondary (S) on the other.</p>
+<div class="note why"><p>In the shell type the windings are surrounded by iron on both sides, so the flux has two return paths and each outer limb carries half the flux.</p></div>`
+        },
+        {
+          title: 'EMF equation',
+          html: `<p class="lead">The core flux is a sine wave, <b>φ = Φ<sub>m</sub> sin ωt</b>. Differentiate it and you get the emf in each winding: <b>E<sub>rms</sub> = 4.44 f N Φ<sub>m</sub></b>.</p>
+<figure data-fig="m1-transformer-flux"></figure>
+<p>The flux reaches Φ<sub>m</sub> at t = 1/(4f), crosses zero at 1/(2f) (ωt = π) and completes a cycle at T = 1/f (ωt = 2π).</p>
+<div class="eq">E = N <span class="frac"><span>dΦ</span><span>dt</span></span></div>
+<div class="eq">E = N × ω × Φ<sub>max</sub> × cos(ωt)</div>
+<div class="eq">E<sub>max</sub> = NωΦ<sub>max</sub></div>
+<div class="eq">E<sub>rms</sub> = <span class="frac"><span>Nω</span><span>√2</span></span> Φ<sub>max</sub> = <span class="frac"><span>2π</span><span>√2</span></span> f N Φ<sub>max</sub></div>
+<div class="eq" data-label="Result">E<sub>rms</sub> = 4.44 f N Φ<sub>max</sub></div>
+<div class="note why"><p>2π/√2 = 4.44. The emf is biggest when the flux is changing fastest, at the zero crossings, which is why a cosine appears.</p></div>
+<details class="more"><summary>Extra: turns ratio</summary><p>Both windings link the same flux, so E<sub>1</sub> = 4.44 f N<sub>1</sub>Φ<sub>m</sub> and E<sub>2</sub> = 4.44 f N<sub>2</sub>Φ<sub>m</sub>, giving E<sub>2</sub>/E<sub>1</sub> = N<sub>2</sub>/N<sub>1</sub> = K. With equal VA on both sides, V<sub>1</sub>I<sub>1</sub> = V<sub>2</sub>I<sub>2</sub>, so I<sub>2</sub>/I<sub>1</sub> = N<sub>1</sub>/N<sub>2</sub>. K &gt; 1 is step-up, K &lt; 1 step-down.</p></details>
+<div data-viz="transformer"></div>`
+        }
+      ],
+      flashcards: [
+        { front: 'Define a transformer.', back: 'A static device that transfers energy from one electrical network to another without changing the operating frequency, working on mutual induction.' },
+        { front: 'EMF equation of a transformer?', back: 'E<sub>rms</sub> = 4.44 f N Φ<sub>max</sub>, from E = N dΦ/dt with Φ = Φ<sub>m</sub> sin ωt.' },
+        { front: 'Core type vs shell type?', back: 'Core: L-shaped laminations, windings on the two side limbs. Shell: E + I laminations, both windings on the central limb, flux splits through the outer limbs.' },
+        { front: 'Which winding is the primary?', back: 'Whichever winding the source is connected to; the other is the secondary.' },
+        { front: 'What stays the same on the HV and LV sides?', back: 'The VA rating, at all instants; so voltage and current change in opposite directions.' },
+        { front: 'Where does 4.44 come from?', back: 'E<sub>rms</sub> = E<sub>max</sub>/√2 = 2πfNΦ<sub>m</sub>/√2, and 2π/√2 = 4.44.' },
+        { front: 'Why won\'t a transformer work on DC?', back: 'Steady DC gives a constant flux; with no change in flux, no emf is induced in the secondary.' },
+        { front: 'Times on the flux wave for Φ<sub>m</sub>, zero and one cycle?', back: 'Peak at 1/(4f), zero at 1/(2f), full cycle T = 1/f.' }
+      ],
+      oneLiners: [
+        'Transformer: <b>static</b>, <b>same frequency</b> on both sides, works by <b>mutual induction</b>.',
+        'Source side is the <b>primary</b>; the other is the <b>secondary</b>.',
+        '<b>VA rating</b> of HV and LV sides is equal.',
+        'Core type: <b>L laminations</b>; shell type: <b>E + I laminations</b>.',
+        'E<sub>rms</sub> = <b>4.44 f N Φ<sub>m</sub></b>.'
+      ],
+      formulas: [
+        { name: 'Transformer EMF', html: `E<sub>rms</sub> = 4.44 f N Φ<sub>max</sub>`, note: 'From E = N dΦ/dt with Φ = Φ<sub>m</sub> sin ωt.' },
+        { name: 'Extra: turns ratio', html: `<span class="frac"><span>E<sub>2</sub></span><span>E<sub>1</sub></span></span> = <span class="frac"><span>N<sub>2</sub></span><span>N<sub>1</sub></span></span> = <span class="frac"><span>I<sub>1</sub></span><span>I<sub>2</sub></span></span> = K`, note: 'Beyond the course material; follows from the EMF equation and equal VA.' }
+      ]
+    },
+    // ------------------------------------------------------------------
+    {
+      id: 'm1-induction-motor',
+      title: 'Three-phase induction motor',
+      short: 'Induction motor',
+      blurb: 'The stator, how induction machines are classified, how three phase currents make a rotating magnetic field, and why the squirrel-cage rotor follows it.',
+      source: 'Pages 70–73',
+      tabs: [
+        {
+          title: 'Construction',
+          html: `<p class="lead">The three-phase induction motor has a still <b>stator</b> carrying three-phase windings and a rotor inside it with no electrical connection to the supply.</p>
+<figure data-fig="m1-im-stator"></figure>
+<ul>
+<li><b>Frame</b> with cooling fins on the outside.</li>
+<li><b>Stator core</b> of laminations with <b>slots</b> on its inner face.</li>
+<li><b>Stator winding</b>: copper coils laid in the slots, connected to the three-phase supply.</li>
+<li>The <b>rotor</b> sits in the bore, with a small air gap.</li>
+</ul>
+<div class="note why"><p>Fins give the frame more surface to shed heat. The core is laminated because it carries alternating flux, which would otherwise drive eddy currents through it.</p></div>`
+        },
+        {
+          title: 'Classification',
+          html: `<p class="lead">Induction machines are first sorted <b>by speed</b>, then by supply and rotor type.</p>
+<figure data-fig="m1-im-classification"></figure>
+<ul>
+<li>By speed: <b>synchronous speed</b> and <b>asynchronous speed</b> machines.</li>
+<li>Asynchronous machines: <b>three phase</b> and <b>single phase</b>.</li>
+<li>Three phase asynchronous: <b>squirrel cage rotor</b> type and <b>wound rotor / slip ring</b> induction motor.</li>
+<li>Single phase: <b>split phase</b>, <b>capacitor start</b>, <b>shaded pole</b>, <b>hysteresis</b>, <b>reluctance</b> and <b>universal</b> motors.</li>
+</ul>
+<div class="note why"><p>An induction motor is "asynchronous" because its rotor always runs a little slower than the rotating field. If it caught up, no flux would be cut and no torque made.</p></div>`
+        },
+        {
+          title: 'Rotating magnetic field',
+          html: `<p class="lead">Three windings 120° apart, fed with three currents 120° apart in time, make a field of <b>constant size that rotates</b>. This rotating magnetic field (RMF) is what drives the rotor.</p>
+<figure data-fig="m1-rmf-waves"></figure>
+<p>The fluxes φ<sub>R</sub>, φ<sub>Y</sub>, φ<sub>B</sub> each have peak φ<sub>m</sub> and are <b>120° apart</b>, both in time (graph a) and as phasors (b). Points 1, 2, 3, 4 mark instants along θ = ωt where the total is worked out.</p>
+<figure data-fig="m1-rmf-resultant"></figure>
+<p>At θ = 0°, 45°, 90°, 135° and 180° the course adds the flux components. Every time the resultant comes out as <b>φ<sub>r</sub> = φ<sub>m</sub></b> (at 45° and 135° it is built from two parts of φ<sub>m</sub>/√2 each), but it points a different way. Its length stays fixed while its direction turns: a rotating field.</p>
+<div class="note heads-up"><p>Two things in the course figure. The third wave is labelled "Phase R" again; it should be <b>Phase B</b>. And the five-position construction uses two components at right angles, which gives φ<sub>r</sub> = φ<sub>m</sub>. Adding all three phases 120° apart gives a resultant of <b>1.5 φ<sub>m</sub></b>, still constant and still rotating. For the exam, the point that matters is the same: constant magnitude, rotating at synchronous speed.</p></div>`
+        },
+        {
+          title: 'Principle of operation',
+          html: `<p class="lead">The stator's rotating field sweeps across the rotor bars, <b>induces currents</b> in them, and the field then pushes on those currents, so the rotor turns <b>in the direction of the field</b>.</p>
+<figure data-fig="m1-im-principle"></figure>
+<ol class="steps">
+<li><b>Supply</b> A 3φ, 440 V, 50 Hz supply (lines R, Y, B) feeds the star-connected stator windings; each phase voltage V<sub>R</sub>, V<sub>Y</sub>, V<sub>B</sub> is measured to the earthed neutral.</li>
+<li><b>Field</b> The phase currents I<sub>R</sub>, I<sub>Y</sub>, I<sub>B</sub> with emfs e<sub>R</sub>, e<sub>Y</sub>, e<sub>B</sub> set up the rotating flux φ.</li>
+<li><b>Induction</b> φ cuts the shorted bars of the squirrel cage rotor, inducing emf and current in them.</li>
+<li><b>Torque</b> Current-carrying bars in a magnetic field feel a force, so the rotor turns the same way as φ.</li>
+</ol>
+<div class="note why"><p>The rotor is never wired to the supply. All its current is induced, exactly like a transformer secondary, which is why it's called an <b>induction</b> motor.</p></div>
+<details class="more"><summary>Extra: synchronous speed and slip</summary><p>The field turns at the synchronous speed <b>N<sub>s</sub> = 120f/P</b> rpm (1500 rpm for 50 Hz, 4 poles). The rotor runs at N, a little less. Slip s = (N<sub>s</sub> − N)/N<sub>s</sub>, so N = N<sub>s</sub>(1 − s), and the rotor current alternates at s × f.</p></details>
+<div data-viz="induction-motor"></div>`
+        }
+      ],
+      flashcards: [
+        { front: 'How is a rotating magnetic field produced?', back: 'Three stator windings 120° apart in space carry three-phase currents 120° apart in time; the resultant flux has constant size and rotates.' },
+        { front: 'Why does the rotor of an induction motor turn?', back: 'The rotating flux cuts the rotor bars and induces currents; the field acts on those currents, giving torque in the direction of the field.' },
+        { front: 'Two types of three-phase induction motor rotor?', back: 'Squirrel cage rotor and wound rotor (slip ring).' },
+        { front: 'Single-phase induction motor types listed in the course?', back: 'Split phase, capacitor start, shaded pole, hysteresis, reluctance and universal motors.' },
+        { front: 'Resultant flux at θ = 0°, 45°, 90°, 135°, 180° (course construction)?', back: 'Always φ<sub>r</sub> = φ<sub>m</sub>, pointing a different way each time: constant magnitude, rotating.' },
+        { front: 'Supply used in the principle diagram?', back: '3φ, 440 V, 50 Hz, star-connected stator.' },
+        { front: 'Main stator parts?', back: 'Finned frame, laminated slotted stator core, three-phase copper winding in the slots.' },
+        { front: 'Why "asynchronous"?', back: 'The rotor always runs slower than the rotating field; at the same speed no flux would be cut and no torque produced.' }
+      ],
+      oneLiners: [
+        'Three windings 120° apart + three-phase currents → <b>rotating magnetic field</b> of constant size.',
+        'Rotor currents are <b>induced</b>; the rotor has no connection to the supply.',
+        'Three-phase rotors: <b>squirrel cage</b> and <b>wound rotor / slip ring</b>.',
+        'Classified by speed: <b>synchronous</b> and <b>asynchronous</b>.',
+        'Rotor turns in the <b>same direction as the field</b> but slightly slower.',
+        'Extra: <b>N<sub>s</sub> = 120f/P</b>, slip s = (N<sub>s</sub> − N)/N<sub>s</sub>.'
+      ],
+      formulas: [
+        { name: 'Extra: synchronous speed', html: `N<sub>s</sub> = <span class="frac"><span>120 f</span><span>P</span></span>`, note: 'rpm. Beyond the course material.' },
+        { name: 'Extra: slip', html: `s = <span class="frac"><span>N<sub>s</sub> − N</span><span>N<sub>s</sub></span></span>, &nbsp; N = N<sub>s</sub>(1 − s)`, note: 'Rotor frequency = s f.' }
+      ]
+    },
+    // ------------------------------------------------------------------
+    {
+      id: 'm1-drives',
+      title: 'Power-electronics-based electric drives',
+      short: 'Electric drives',
+      blurb: 'The block diagram of a modern electric drive: power module, motor, load, sensors and controller in a closed loop with PWM pulses.',
+      source: 'Page 74',
+      tabs: [
+        {
+          title: 'Block diagram',
+          html: `<p class="lead">An electric drive is a motor plus the electronics that <b>control its speed and torque</b>. A power module feeds the motor, and a controller adjusts that power using feedback from sensors.</p>
+<figure data-fig="m1-drive-block"></figure>
+<div class="kv">
+<div><span>Input supply</span><b>mains or battery</b></div>
+<div><span>Power module</span><b>converts and controls power to the motor</b></div>
+<div><span>Motor</span><b>drives the load</b></div>
+<div><span>Sensors</span><b>measure voltage, current, torque, speed</b></div>
+<div><span>Controller</span><b>compares with the reference</b></div>
+<div><span>PWM pulses</span><b>controller's command to the power module</b></div>
+</div>
+<div class="note heads-up"><p>The course block reads "POWER MODULE / OR POWER DRAIN". "Power drain" looks like a typo; the block is the power module (the power electronic converter).</p></div>`
+        },
+        {
+          title: 'How the loop works',
+          html: `<p class="lead">The drive is a <b>closed loop</b>: it keeps checking what the motor is doing and corrects it.</p>
+<ol class="steps">
+<li><b>Power in</b> The input supply goes to the power module.</li>
+<li><b>Motor runs</b> The power module feeds the motor, which drives the load.</li>
+<li><b>Measure</b> Sensors pick up the voltage and current going to the motor and the torque and speed coming out.</li>
+<li><b>Feed back</b> The sensors send a feedback signal to the controller.</li>
+<li><b>Compare</b> The controller compares the feedback with the reference (the wanted speed or torque).</li>
+<li><b>Correct</b> It sends PWM pulses to the power module, changing the power so the motor matches the reference.</li>
+</ol>
+<div class="note why"><p>PWM (pulse width modulation) switches the power devices fully on or off very fast. Changing how long they stay on changes the average voltage to the motor while wasting very little power in the switches.</p></div>
+<div class="note exam"><p>Draw the six blocks with the dashed sensing lines and the feedback arrow, then explain it as a closed loop. The BLDC drive is one example of such a drive.</p></div>`
+        }
+      ],
+      flashcards: [
+        { front: 'Blocks of a power-electronics-based electric drive?', back: 'Input supply, power module, motor, load, sensors, controller (with reference); PWM pulses from controller to power module.' },
+        { front: 'What do the sensors measure?', back: 'Voltage and current to the motor, and its torque and speed.' },
+        { front: 'What does the controller compare?', back: 'The feedback signal from the sensors with the reference.' },
+        { front: 'What signal goes from the controller to the power module?', back: 'PWM pulses.' },
+        { front: 'Why is the drive called closed loop?', back: 'The output (torque, speed) is measured and fed back to the controller, which corrects the power module.' },
+        { front: 'Why use PWM switching?', back: 'Switches are fully on or off, so little power is lost in them, and the on-time sets the average voltage.' }
+      ],
+      oneLiners: [
+        'Drive chain: <b>input supply → power module → motor → load</b>.',
+        '<b>Sensors</b> feed back voltage, current, torque and speed.',
+        'The <b>controller</b> compares feedback with the <b>reference</b> and sends <b>PWM pulses</b>.',
+        'It is a <b>closed-loop</b> system.'
+      ],
+      formulas: []
+    }
+  ],
+  figures: [
+    { id: 'm1-energy-conversion', src: 'm1/pages/p52.png', crop: null, caption: 'Mechanical port on the left, electrical port on the right, and the region of energy conversion in between. Energy is stored in the field and the rotating mass; power is lost on both sides.', alt: 'Shaft with input power, speed and torques entering a dashed region holding a rotor and coil; coil emf e0, resistance r and terminal voltage et on the right; arrows show power losses and energy storage.' },
+    { id: 'm1-dc-cross-section', src: 'm1/pages/p53.png', crop: null, caption: 'A 4-pole DC machine: N, S, N, S poles on the yoke, each with a field coil and pole shoe, around the slotted armature.', alt: 'Cross-section of a DC machine with yoke, four poles with field coils and pole shoes, armature with conductors, shaft and base, all labelled.' },
+    { id: 'm1-dc-armature', src: 'm1/pages/p55.png', crop: null, caption: 'The rotating part: laminated stack with teeth and slots, winding coils, commutator bars touched by carbon brushes, all on one shaft.', alt: 'Side view of a DC armature on a shaft with bearing, laminated stack, slots, teeth, coil overhangs, commutator bars and two carbon brushes.' },
+    { id: 'm1-lap-wave', src: 'm1/pages/p55.png', crop: null, caption: 'Lap winding laps back to the neighbouring commutator bar; wave winding moves on under the next poles. Y<sub>B</sub>, Y<sub>F</sub>, Y<sub>R</sub>, Y<sub>C</sub> are the back, front, resultant and commutator pitches.', alt: 'Two winding diagrams: lap winding with two overlapping coils ending on adjacent commutator segments, and wave winding with coils spreading apart; pitches marked.' },
+    { id: 'm1-dc-classification', src: 'm1/pages/p54.png', crop: null, caption: 'DC machines split by how the field is fed: separately excited or self excited (series, shunt, compound; compound is long or short shunt).', alt: 'Tree: DC machines branch into separately excited and self excited; self excited into series, shunt and compound wound; compound into long shunt and short shunt.' },
+    { id: 'm1-dc-connections', src: 'm1/pages/p54.png', crop: null, caption: 'Where the field winding goes in each type. In short shunt the shunt field is across the armature only; in long shunt it is across armature and series field.', alt: 'Five small circuits: separately excited with its own DC supply, series wound, shunt wound with currents IL, Ish, Ia, long shunt and short shunt compound.' },
+    { id: 'm1-loop-generator', src: 'm1/pages/p56.png', crop: null, caption: 'Coil ABCD turning anticlockwise between N and S: AB moves down, CD moves up, and the induced current flows round the loop, out through slip rings and brushes to the galvanometer.', alt: 'Rectangular coil between N and S magnets with field, motion and current arrows, slip rings R1 R2, brushes B1 B2 and a galvanometer.' },
+    { id: 'm1-dc-motor-principle', src: 'm1/pages/p59.png', crop: null, caption: 'The same coil fed from V<sub>dc</sub> through a split-ring commutator. Current runs A to B and C to D, so CD is pushed up and AB down: anticlockwise rotation. (Current arrows corrected from the course drawing.)', alt: 'Rectangular coil between N and S magnets with field, force and current arrows, split-ring commutator, brushes and a DC battery Vdc.' },
+    { id: 'm1-motor-conductors', src: 'm1/pages/p59.png', crop: null, caption: 'Conductors under N carry current into the page, those under S out of it, so every force turns the armature the same way.', alt: 'Arc of armature between N and S poles with crossed conductors under N, dotted conductors under S, dashed field lines and a force arrow.' },
+    { id: 'm1-torque-pulley', src: 'm1/pages/p60.png', crop: null, caption: 'A tangential force F at radius r gives torque T = F × r; turning at N rps.', alt: 'Pulley with radius r, tangential force F at the rim and a curved arrow marked N r.p.s.' },
+    { id: 'm1-bldc-parts', src: 'm1/pages/p64.png', crop: null, caption: 'BLDC motor drawn as an outer-rotor machine: permanent magnets on the rotor ring, armature coils on the stator teeth, a Hall effect sensor, and the shaft in a ball bearing.', alt: 'Cross-section of a BLDC motor with alternating magnets on the outer rotor, nine stator teeth with coils, a Hall sensor, ball bearing and shaft, all labelled.' },
+    { id: 'm1-bldc-drive', src: 'm1/pages/p65.png', crop: null, caption: 'Bridge rectifier and capacitor make DC; transistors TR<sub>1</sub>–TR<sub>3</sub> switch windings A, B, C (star point to +) as the rotor position sensor and timing circuitry direct.', alt: 'Motor with NS rotor and windings A B C; AC source, bridge rectifier D1 to D4, capacitor C, three transistors each switching a winding, rotor position sensor to the electronic timing and drive circuitry.' },
+    { id: 'm1-bldc-characteristics', src: 'm1/pages/p66.png', crop: null, caption: 'Torque against speed: intermittent region above, continuous region below, chopping control at low speed and angle control at high speed.', alt: 'Torque–speed graph with T0, intermittent and continuous regions, continuous stall torque, continuous rated torque point, hatched chopping control area, dashed angle control curve and speed omega0.' },
+    { id: 'm1-transformer-basic', src: 'm1/pages/p67.png', crop: null, caption: 'Primary on one limb fed from the AC supply, secondary on the other feeding the load through switch S; the flux made by the primary current links both through the iron core.', alt: 'Transformer with iron core, primary winding connected to an AC supply with current I, secondary winding connected through switch S to a load, dashed flux path in the core.' },
+    { id: 'm1-core-laminations', src: 'm1/pages/p68.png', crop: null, caption: 'L-shaped laminations build a core type; E and I laminations build a shell type.', alt: 'Two L-shaped lamination pieces fitting into a rectangle, and an E piece with an I bar across its top.' },
+    { id: 'm1-shell-core-type', src: 'm1/pages/p68.png', crop: null, caption: 'Shell type: both windings on the central limb, flux splitting into the outer limbs. Core type: primary and secondary on the two side limbs, one flux loop.', alt: 'Shell type transformer with primary and secondary on the central limb and two flux loops; core type transformer with P winding on the left limb, S winding on the right and one flux loop.' },
+    { id: 'm1-transformer-flux', src: 'm1/pages/p69.png', crop: null, caption: 'Core flux φ = Φ<sub>m</sub> sin ωt: peak at 1/(4f), zero at 1/(2f), one cycle in T = 1/f.', alt: 'Sine wave of flux against omega t with peak phi m, negative peak, pi and 2 pi marked and time markers 1/4f, 1/2f and T = 1/f.' },
+    { id: 'm1-im-stator', src: 'm1/pages/p70.png', crop: null, caption: 'Induction motor stator: finned frame, laminated core with slots, copper winding in the slots, and the bore where the rotor sits.', alt: 'Front view of a stator with cooling fins on the frame, slotted laminated core with copper in the slots, end windings and an empty bore.' },
+    { id: 'm1-im-classification', src: 'm1/pages/p71.png', crop: null, caption: 'Induction machines by speed, then by phases, then by rotor or motor type.', alt: 'Tree: synchronous and asynchronous speed; asynchronous into three phase (squirrel cage, wound rotor slip ring) and single phase (split phase, capacitor start, shaded pole, hysteresis, reluctance, universal).' },
+    { id: 'm1-rmf-waves', src: 'm1/pages/p72.png', crop: null, caption: 'Three fluxes of the same peak φ<sub>m</sub>, 120° apart, as waves and as phasors. The third wave is phase B (labelled R again in the course figure).', alt: 'Three sine waves phi R, phi Y, phi B shifted by 120 degrees with points 1 to 4 on the axis; below, three phasors 120 degrees apart.' },
+    { id: 'm1-rmf-resultant', src: 'm1/pages/p72.png', crop: null, caption: 'Resultant flux at θ = 0°, 45°, 90°, 135°, 180°: always φ<sub>m</sub> long, pointing a new way each time.', alt: 'Five panels showing the resultant flux arrow of length phi m pointing down, down-left, left, up-left and up, with phi m over root 2 components at 45 and 135 degrees.' },
+    { id: 'm1-im-principle', src: 'm1/pages/p73.png', crop: null, caption: 'Three phase voltages to an earthed neutral feed the star-connected stator; the rotating flux φ sweeps round the squirrel cage rotor.', alt: 'Voltmeters VR, VY, VB from motor terminals to an earthed neutral; below, R Y B lines to star-connected windings with currents and emfs, beside a squirrel cage rotor inside a dashed rotating flux circle.' },
+    { id: 'm1-drive-block', src: 'm1/pages/p74.png', crop: null, caption: 'Closed-loop drive: sensors feed motor voltage, current, torque and speed back to the controller, which sends PWM pulses to the power module.', alt: 'Block diagram: input supply to power module to motor to load; dashed lines to sensors; feedback signal to controller with reference; PWM pulses back to the power module.' }
+  ]
+});

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480">
+  <defs><marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dfw"/></marker><marker id="ad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dfd"/></marker></defs>
+  <path d="M70 420L70 30" class="ds" stroke-width="3" fill="none" marker-end="url(#aw)"/>
+  <path d="M70 420L585 420" class="ds" stroke-width="3" fill="none" marker-end="url(#aw)"/>
+  <text x="54" y="46" font-size="26" text-anchor="end" class="dt">V</text>
+  <text x="580" y="458" font-size="26" text-anchor="middle" class="dt">R</text>
+  <path d="M70 80L200 180L260 180L360 270L420 270L540 420" class="dsb" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+  <text x="56" y="88" font-size="26" text-anchor="end" class="dt">A</text>
+  <text x="232" y="214" font-size="26" text-anchor="middle" class="dt">B</text>
+  <text x="392" y="304" font-size="26" text-anchor="middle" class="dt">C</text>
+  <text x="540" y="458" font-size="26" text-anchor="middle" class="dt">D</text>
+  <path d="M70 80L240 80" class="ds3" fill="none" stroke-width="2.5" stroke-dasharray="8 7"/>
+  <path d="M260 180L400 180" class="ds3" fill="none" stroke-width="2.5" stroke-dasharray="8 7"/>
+  <path d="M420 270L575 270" class="ds3" fill="none" stroke-width="2.5" stroke-dasharray="8 7"/>
+  <path d="M225 130L225 82" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <path d="M225 130L225 178" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <text x="240" y="140" font-size="26" class="dt2">V<tspan dy="7" font-size="22">1</tspan></text>
+  <path d="M385 225L385 182" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <path d="M385 225L385 268" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <text x="400" y="234" font-size="26" class="dt2">V<tspan dy="7" font-size="22">2</tspan></text>
+  <path d="M560 345L560 272" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <path d="M560 345L560 412" class="ds2" stroke-width="2.5" fill="none" marker-end="url(#ad)"/>
+  <text x="548" y="360" font-size="26" text-anchor="end" class="dt2">V<tspan dy="7" font-size="22">3</tspan></text>
+</svg>

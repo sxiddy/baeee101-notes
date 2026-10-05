@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470">
+  <path d="M120 190L120 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120 60L291 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M359 60L530 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M291 60L296.7 72L308 48L319.3 72L330.7 48L342 72L353.3 48L359 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M530 60L530 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="325" y="38" font-size="26" text-anchor="middle" class="dt">4 Ω</text>
+  <path d="M120 190L120 217" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120 273L120 300" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120 217L108 221.7L132 231L108 240.3L132 249.7L108 259L132 268.3L120 273" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="100" y="254" font-size="26" text-anchor="end" class="dt">4 Ω</text>
+  <path d="M120 300L120 353" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120 367L120 420" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M144 353L96 353" class="ds" stroke-width="3" fill="none"/>
+  <path d="M133 367L107 367" class="ds" stroke-width="7" fill="none"/>
+  <text x="86" y="352" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="90" y="396" font-size="26" text-anchor="end" class="dt">10 V</text>
+  <path d="M120 190L186 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M254 190L320 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M186 190L191.7 202L203 178L214.3 202L225.7 178L237 202L248.3 178L254 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="220" y="168" font-size="26" text-anchor="middle" class="dt">2 Ω</text>
+  <path d="M320 190L418 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M432 190L530 190" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M418 166L418 214" class="ds" stroke-width="3" fill="none"/>
+  <path d="M432 177L432 203" class="ds" stroke-width="7" fill="none"/>
+  <text x="405" y="240" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="425" y="156" font-size="26" text-anchor="middle" class="dt">2 V</text>
+  <path d="M320 190L320 271" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M320 339L320 420" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M320 271L308 276.7L332 288L308 299.3L332 310.7L308 322L332 333.3L320 339" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="300" y="316" font-size="26" text-anchor="end" class="dt">6 Ω</text>
+  <path d="M530 190L530 271" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M530 339L530 420" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M530 271L518 276.7L542 288L518 299.3L542 310.7L518 322L542 333.3L530 339" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="550" y="316" font-size="26" class="dt">1 Ω</text>
+  <path d="M120 420L530 420" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="120" cy="190" r="6" class="dfw"/>
+  <circle cx="320" cy="190" r="6" class="dfw"/>
+  <circle cx="530" cy="190" r="6" class="dfw"/>
+  <circle cx="320" cy="420" r="6" class="dfw"/>
+</svg>

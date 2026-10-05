@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470">
+  <path d="M150,80 Q 20 330 300,400" class="ds2" stroke-width="3" fill="none"/>
+  <path d="M150,80L300,400" class="ds2" stroke-width="3" fill="none"/>
+  <path d="M150,80L450,80" class="ds2" stroke-width="3" fill="none"/>
+  <path d="M450,80L300,400" class="ds2" stroke-width="3" fill="none"/>
+  <path d="M450,80 Q 580 330 300,400" class="ds2" stroke-width="3" fill="none"/>
+  <circle cx="150" cy="80" r="9" class="dfo"/>
+  <circle cx="450" cy="80" r="9" class="dfo"/>
+  <circle cx="300" cy="400" r="9" class="dfo"/>
+  <text x="150" y="60" font-size="28" text-anchor="middle" class="dto" font-style="italic">a</text>
+  <text x="450" y="60" font-size="28" text-anchor="middle" class="dto" font-style="italic">b</text>
+  <text x="300" y="446" font-size="28" text-anchor="middle" class="dto" font-style="italic">c</text>
+  <text x="85" y="262" font-size="26" text-anchor="end" class="dt">5 Ω</text>
+  <text x="210" y="250" font-size="26" text-anchor="end" class="dt">15 Ω</text>
+  <text x="300" y="66" font-size="26" text-anchor="middle" class="dt">10 Ω</text>
+  <text x="390" y="250" font-size="26" class="dt">8 Ω</text>
+  <text x="515" y="262" font-size="26" class="dt">12 Ω</text>
+</svg>

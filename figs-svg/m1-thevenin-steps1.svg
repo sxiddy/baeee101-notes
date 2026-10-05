@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 730">
+  <path d="M100 70L100 150" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M100 150L100 173" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M100 187L100 210" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M124 173L76 173" class="ds" stroke-width="3" fill="none"/>
+  <path d="M113 187L87 187" class="ds" stroke-width="7" fill="none"/>
+  <path d="M100 210L100 290" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="66" y="170" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="70" y="198" font-size="26" text-anchor="end" class="dt">V<tspan dy="7" font-size="22">1</tspan></text>
+  <text x="70" y="230" font-size="24" text-anchor="end" class="dt2">(r)</text>
+  <path d="M100 70L166 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M234 70L300 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M166 70L171.7 82L183 58L194.3 82L205.7 58L217 82L228.3 58L234 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="200" y="48" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">1</tspan></text>
+  <path d="M300 70L300 146" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300 214L300 290" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300 146L288 151.7L312 163L288 174.3L312 185.7L288 197L312 208.3L300 214" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="322" y="190" font-size="26" class="dt">R<tspan dy="7" font-size="22">2</tspan></text>
+  <path d="M100 290L300 290" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="300" cy="70" r="6" class="dfw"/>
+  <circle cx="300" cy="290" r="6" class="dfw"/>
+  <text x="300" y="50" font-size="26" text-anchor="middle" class="dto">C</text>
+  <text x="300" y="330" font-size="26" text-anchor="middle" class="dto">D</text>
+  <path d="M300 70L470 70" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300 290L470 290" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M470 70L470 146" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M470 214L470 290" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M470 146L458 151.7L482 163L458 174.3L482 185.7L458 197L482 208.3L470 214" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="492" y="190" font-size="26" class="dt">R<tspan dy="7" font-size="22">L</tspan></text>
+  <path d="M470 117L461.2 95L478.8 95z" class="dfb"/>
+  <text x="490" y="116" font-size="26" class="dtb">I</text>
+  <text x="470" y="50" font-size="26" text-anchor="middle" class="dto">A</text>
+  <text x="470" y="330" font-size="26" text-anchor="middle" class="dto">B</text>
+  <text x="300" y="384" font-size="24" text-anchor="middle" class="dt2">Step 2: remove R<tspan dy="7" font-size="22">L</tspan></text>
+  <path d="M100 460L100 540" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M100 540L100 563" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M100 577L100 600" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M124 563L76 563" class="ds" stroke-width="3" fill="none"/>
+  <path d="M113 577L87 577" class="ds" stroke-width="7" fill="none"/>
+  <path d="M100 600L100 680" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="66" y="560" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="70" y="588" font-size="26" text-anchor="end" class="dt">V<tspan dy="7" font-size="22">1</tspan></text>
+  <text x="70" y="620" font-size="24" text-anchor="end" class="dt2">(r)</text>
+  <path d="M100 460L166 460" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M234 460L300 460" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M166 460L171.7 472L183 448L194.3 472L205.7 448L217 472L228.3 448L234 460" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="200" y="438" font-size="26" text-anchor="middle" class="dt">R<tspan dy="7" font-size="22">1</tspan></text>
+  <path d="M300 460L300 536" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300 604L300 680" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300 536L288 541.7L312 553L288 564.3L312 575.7L288 587L312 598.3L300 604" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="322" y="580" font-size="26" class="dt">R<tspan dy="7" font-size="22">2</tspan></text>
+  <path d="M100 680L300 680" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="300" cy="460" r="6" class="dfw"/>
+  <circle cx="300" cy="680" r="6" class="dfw"/>
+  <text x="300" y="440" font-size="26" text-anchor="middle" class="dto">C</text>
+  <text x="300" y="720" font-size="26" text-anchor="middle" class="dto">D</text>
+  <path d="M300 460L463 460" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300 680L463 680" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="470" cy="460" r="7" class="df ds" stroke-width="3"/>
+  <circle cx="470" cy="680" r="7" class="df ds" stroke-width="3"/>
+  <text x="470" y="440" font-size="26" text-anchor="middle" class="dto">A</text>
+  <text x="470" y="720" font-size="26" text-anchor="middle" class="dto">B</text>
+</svg>

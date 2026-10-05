@@ -108,5 +108,40 @@ for (const r2 of [0.004, 0.04]) {
   const phi = 30e-3, Z = 540, Ia = 31, Eb = 220 - 31 * 0.09, N = Eb * 60 * 4 / (phi * Z * 4);
   out.mot2 = { Eb: d(Eb), N: d(N), Ta: d(phi * Z * Ia / (2 * Math.PI)), Tsh: d(5595 / (2 * Math.PI * N / 60)), Pdev: d(Eb * Ia) };
 }
+// chunk 1a extras: tiny MNA for the unsolved exercises (R: [a,b,ohm], V: [plus,minus,volt], I: [from,to,amp]); node '0' = reference
+const mna = ({ R = [], V = [], I = [] }) => {
+  const names = [...new Set([...R, ...V, ...I].flatMap((e) => [e[0], e[1]]))].filter((x) => x !== '0');
+  const ix = Object.fromEntries(names.map((n, i) => [n, i])), N = names.length, S = N + V.length;
+  const A = Array.from({ length: S }, () => Array(S).fill(0)), b = Array(S).fill(0);
+  const g = (p, q, v) => { if (p !== '0' && q !== '0') A[ix[p]][ix[q]] += v; };
+  for (const [p, q, r] of R) { g(p, p, 1 / r); g(q, q, 1 / r); g(p, q, -1 / r); g(q, p, -1 / r); }
+  for (const [fr, to, i] of I) { if (to !== '0') b[ix[to]] += i; if (fr !== '0') b[ix[fr]] -= i; }
+  V.forEach(([p, n, v], k) => { const r = N + k; if (p !== '0') { A[ix[p]][r] += 1; A[r][ix[p]] += 1; } if (n !== '0') { A[ix[n]][r] -= 1; A[r][ix[n]] -= 1; } b[r] = v; });
+  const x = solve(A, b), v = (n) => (n === '0' ? 0 : x[ix[n]]);
+  return { V: Object.fromEntries(names.map((n) => [n, d(v(n))])), I: Object.fromEntries(R.map(([p, q, r]) => [`${p}>${q}`, d((v(p) - v(q)) / r)])), Isrc: V.map((e, k) => d(-x[N + k])) };
+};
+// Thevenin exercise (p24): loop currents with RL removed, Vth, Rth, IL for 1 and 2 ohm
+{
+  const [I1, I2] = solve([[6, -4], [-4, 10]], [10, -4]), Vth = 4 * I2 + 4, Rth = 1 / (1 / (2 + (2 * 4) / (2 + 4)) + 1 / 4);
+  out.thev24 = { I1: d(I1), I2: d(I2), Vth: d(Vth), Rth: d(Rth), IL_1ohm: d(Vth / (Rth + 1)), IL_2ohm: d(Vth / (Rth + 2)) };
+}
+// Superposition figure (p25), both + terminals on top as drawn: 6 V (0.5 + 2.5 ohm), 12 V (1 + 2 ohm), 6 ohm A-B
+{
+  const one = (E) => { const It = E / (3 + (3 * 6) / 9); return { It: d(It), I6: d(It * 3 / 9) }; };
+  out.super25 = { from6V: one(6), from12V: one(12), full: mna({ R: [['P', 'A', 3], ['Q', 'A', 3], ['A', '0', 6]], V: [['P', '0', 6], ['Q', '0', 12]] }) };
+}
+// Class assignments (p14 mesh, p19 nodal): answers for self-checking
+out.p14 = {
+  ex1: mna({ R: [['X', 'L', 4], ['L', 'R', 4], ['L', 'M', 2], ['M', '0', 6], ['R', '0', 1]], V: [['X', '0', 10], ['M', 'R', 2]] }),
+  ex2: mna({ R: [['T', 'L', 3], ['T', 'R', 14], ['L', '0', 11], ['R', '0', 3], ['L', 'R', 4]], V: [['T', '0', 54]] }),
+  ex3: mna({ R: [['T', 'L', 10], ['L', '0', 12], ['T', 'R', 24], ['R', '0', 4], ['L', 'R', 4]], V: [['T', '0', 24]] }),
+};
+out.p19 = {
+  ex1_kohm_mA: mna({ R: [['TL', 'TR', 3.3], ['TL', 'M', 1.2], ['M', 'TR', 2.2], ['M', 'X', 0.47], ['X', '0', 0.33], ['0', 'BR', 100]], V: [['TL', '0', 15], ['BR', 'TR', 5]] }),
+  ex2: mna({ R: [['a', '0', 5], ['a', 'b', 4], ['b', '0', 20], ['b', 'c', 2], ['c', '0', 10]], I: [['0', 'a', 1.5], ['0', 'c', 1]] }),
+  ex3: mna({ R: [['L', '0', 7], ['M', '0', 4], ['M', 'R', 8], ['L', 'R', 3]], I: [['L', 'M', 3], ['R', '0', 2]] }),
+  ex4: mna({ R: [['V1', '0', 2], ['V1', 'V2', 5], ['V2', '0', 2], ['V2', 'X', 2]], V: [['X', '0', 28]], I: [['0', 'V1', 4]] }),
+  ex5: mna({ R: [['P', 'TL', 1], ['TR', 'TL', 0.5], ['Q', 'TR', 1], ['TL', '0', 1], ['TR', '0', 2]], V: [['P', '0', 15], ['Q', '0', 20]] }),
+};
 out.factors = { avg: d(2 / Math.PI), rms: d(1 / Math.SQRT2), formFactor: d((1 / Math.SQRT2) / (2 / Math.PI)), crest: d(Math.SQRT2), k444: d(2 * Math.PI / Math.SQRT2) };
 console.log(JSON.stringify(out, null, 1));

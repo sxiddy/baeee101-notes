@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 640">
+  <defs><marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dfw"/></marker></defs>
+  <path d="M110 60L110 112" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110 168L110 220" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="110" cy="140" r="28" class="ds" fill="none" stroke-width="3"/>
+  <text x="110" y="134.6" font-size="24" text-anchor="middle" class="dt">+</text>
+  <text x="110" y="160.4" font-size="24" text-anchor="middle" class="dt">−</text>
+  <path d="M110 60L231 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M299 60L420 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M231 60L236.7 72L248 48L259.3 72L270.7 48L282 72L293.3 48L299 60" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="265" y="38" font-size="26" text-anchor="middle" class="dtp">R<tspan dy="7" font-size="22">s</tspan></text>
+  <path d="M420 60L420 106" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M420 174L420 220" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M420 106L408 111.7L432 123L408 134.3L432 145.7L408 157L432 168.3L420 174" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110 220L420 220" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="68" y="150" font-size="26" text-anchor="end" class="dt">E<tspan dy="7" font-size="22">s</tspan></text>
+  <text x="396" y="150" font-size="26" text-anchor="end" class="dtr">R<tspan dy="7" font-size="22">L</tspan></text>
+  <text x="460" y="104" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="454" y="152" font-size="26" class="dt">V<tspan dy="7" font-size="22">L</tspan></text>
+  <text x="460" y="200" font-size="26" text-anchor="middle" class="dt2">−</text>
+  <text x="265" y="270" font-size="24" text-anchor="middle" class="dt2">voltage source form</text>
+  <path d="M300 330L300 296" class="ds" stroke-width="3" fill="none" marker-end="url(#aw)"/>
+  <path d="M300 330L300 364" class="ds" stroke-width="3" fill="none" marker-end="url(#aw)"/>
+  <path d="M110 560L110 508" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110 452L110 400" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="110" cy="480" r="28" class="ds" fill="none" stroke-width="3"/>
+  <path d="M110 496L110 471" class="ds" stroke-width="3" fill="none"/>
+  <path d="M110 462L118 474L102 474z" class="dfw"/>
+  <path d="M110 400L450 400" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110 560L450 560" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M290 400L290 446" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M290 514L290 560" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M290 446L278 451.7L302 463L278 474.3L302 485.7L278 497L302 508.3L290 514" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450 400L450 446" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450 514L450 560" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450 446L438 451.7L462 463L438 474.3L462 485.7L438 497L462 508.3L450 514" class="ds" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="290" cy="400" r="6" class="dfw"/>
+  <circle cx="290" cy="560" r="6" class="dfw"/>
+  <text x="68" y="490" font-size="26" text-anchor="end" class="dt">I<tspan dy="7" font-size="22">s</tspan></text>
+  <text x="266" y="490" font-size="26" text-anchor="end" class="dtp">R<tspan dy="7" font-size="22">s</tspan></text>
+  <text x="426" y="490" font-size="26" text-anchor="end" class="dtr">R<tspan dy="7" font-size="22">L</tspan></text>
+  <text x="490" y="444" font-size="26" text-anchor="middle" class="dt2">+</text>
+  <text x="484" y="492" font-size="26" class="dt">V<tspan dy="7" font-size="22">L</tspan></text>
+  <text x="490" y="540" font-size="26" text-anchor="middle" class="dt2">−</text>
+  <text x="300" y="612" font-size="24" text-anchor="middle" class="dt2">current source form, I<tspan dy="7" font-size="22">s</tspan><tspan dy="-7"> = E</tspan><tspan dy="7" font-size="22">s</tspan><tspan dy="-7"> / R</tspan><tspan dy="7" font-size="22">s</tspan></text>
+</svg>
