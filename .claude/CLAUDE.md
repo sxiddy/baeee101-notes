@@ -7,7 +7,8 @@ the first unchecked item under "Next". Don't re-explain; just say in one line wh
 ## Always-on rules (owner's)
 - Before EVERY step post "The limit is now at X%" (mcp__ccd_session_mgmt__get_usage, 5-hour window). STOP at 90%.
   Background agents count too: don't let them run past 90% (that spills into paid extra usage).
-- Opus only. Never Sonnet or any cheaper model, including for subagents.
+- Opus Plan (owner, 06-10-2026): Opus plans, Sonnet does the routine steps. Never anything cheaper than Sonnet
+  (no Haiku), including for subagents.
 - **Gemini drafts, Claude checks** (prompt §3): Gemini (Claude in Chrome, owner's Pro account, gemini.google.com)
   drafts notes, questions, flashcards and diagram SVGs, several topics per prompt; Claude verifies against the source,
   fixes, and script-checks every number. Don't hand whole chunks to Claude subagents (cost test 06-10-2026: a Claude

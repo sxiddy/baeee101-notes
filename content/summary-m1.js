@@ -1,0 +1,67 @@
+SUMMARY({
+  module: 'm1',
+  tldr: `<p>Three rules run every DC circuit: <b>Ohm’s law</b>, <b>KCL</b> (currents at a node balance) and <b>KVL</b> (voltages round a loop balance). Mesh and nodal analysis are just those rules written out in an order, and Thevenin and superposition are shortcuts for linear networks. AC adds <b>reactance</b>, so current leads or lags and only part of VI is real power. Machines turn that into motion: a <b>DC machine</b> works both ways through E = φZNP/(60A), a <b>transformer</b> changes voltage at fixed frequency by mutual induction, and an <b>induction motor</b> is dragged round by a rotating field. Fuses and earthing keep it all safe.</p>`,
+  storyline: [
+    { title: 'DC circuits', html: `<p>Ohm + KCL + KVL → <b>series/parallel</b> rules → <b>mesh</b> (loop currents) and <b>nodal</b> (node voltages) → <b>Thevenin</b> and <b>superposition</b> for quick answers.</p>` },
+    { title: 'AC circuits', html: `<p>Sine waves described by period, frequency and phase → <b>RMS = 0.707 V<sub>m</sub></b> → R-L, R-C, R-L-C with <b>Z</b>, power factor and P, Q, S.</p>` },
+    { title: 'Safety', html: `<p><b>Fuses</b> in series melt on overcurrent; <b>earthing</b> gives fault current a low-resistance path so the fuse blows and metal bodies stay safe.</p>` },
+    { title: 'Machines', html: `<p>Energy conversion through a magnetic field → <b>DC generator and motor</b> → <b>BLDC</b> (electronic commutation) → <b>transformer</b> → <b>induction motor</b> → power-electronic <b>drives</b> that control them.</p>` }
+  ],
+  bigIdeas: [
+    { title: 'Ohm and Kirchhoff', topic: 'm1-laws', html: `<p>V = IR at <b>constant temperature</b>. KCL: sum in = sum out at a node. KVL: sum of rises = sum of drops round a loop. Sign conventions are where marks are lost.</p>` },
+    { title: 'Series and parallel', topic: 'm1-series-parallel', html: `<p>Series: <b>same current</b>, R adds. Parallel: <b>same voltage</b>, 1/R adds. Source conversion: E with R<sub>s</sub> in series ⇔ I<sub>s</sub> = E/R<sub>s</sub> with R<sub>s</sub> in parallel. Current division uses only the two parallel branches.</p>` },
+    { title: 'Mesh analysis', topic: 'm1-mesh', html: `<p>All loop currents <b>clockwise</b>; KVL per loop; [R][I] = [V] with diagonal = loop total, off-diagonal = <b>−shared R</b>. Class example: Δ = 147, I<sub>1</sub> = 1.395, I<sub>2</sub> = 0.782, I<sub>3</sub> = 0.510 A.</p>` },
+    { title: 'Nodal analysis', topic: 'm1-nodal', html: `<p>Pick a <b>reference node</b> (0 V), write KCL at every other node with branch currents (V<sub>start</sub> − V<sub>end</sub>)/R. Class example: V<sub>a</sub> = 6.469 V, V<sub>b</sub> = 3.720 V.</p>` },
+    { title: 'Thevenin', topic: 'm1-thevenin', html: `<p>Any linear network seen from a load = <b>V<sub>th</sub></b> (open-circuit voltage) in series with <b>R<sub>th</sub></b> (sources killed: voltage → short, current → open). I<sub>L</sub> = V<sub>th</sub>/(R<sub>th</sub> + R<sub>L</sub>).</p>` },
+    { title: 'Superposition', topic: 'm1-superposition', html: `<p>One source at a time, others replaced by their <b>internal resistance</b>; add the currents. Works for currents and voltages, <b>not power</b>.</p>` },
+    { title: 'AC terms', topic: 'm1-ac-basics', html: `<p>Cycle = 360° = 2π rad; <b>f = 1/T</b>; ω = 2πf (314 rad/s at 50 Hz). Phase difference stays fixed between waves of one frequency; the one that peaks first <b>leads</b>.</p>` },
+    { title: 'RMS and average', topic: 'm1-ac-values', html: `<p>RMS = DC with the <b>same heating</b> = 0.707 V<sub>m</sub>. Half-cycle average = 0.637 V<sub>m</sub>. Form factor <b>1.11</b>, peak factor <b>1.414</b>. Meters read RMS.</p>` },
+    { title: 'R-L circuit', topic: 'm1-rl-series', html: `<p>X<sub>L</sub> = 2πfL; Z = √(R² + X<sub>L</sub>²); current <b>lags</b>; pf = R/Z. P = VI cos φ (W), Q = VI sin φ (VAR), S = VI (VA).</p>` },
+    { title: 'R-C and R-L-C', topic: 'm1-rc-rlc', html: `<p>X<sub>C</sub> = 1/(2πfC); R-C current <b>leads</b>. R-L-C: Z = √(R² + (X<sub>L</sub> − X<sub>C</sub>)²); the <b>larger reactance</b> decides lead or lag.</p>` },
+    { title: 'Fuses', topic: 'm1-fuse', html: `<p>A wire meant to melt, always in <b>series</b>. Heat ∝ I². DC vs AC (LV, HV) families; <b>HRC</b> powder quenches the arc; drop-out falls by gravity; DC is harder to break (no current zero).</p>` },
+    { title: 'Earthing', topic: 'm1-earthing', html: `<p>Metal bodies tied to earth so a fault draws a <b>large current</b> and the fuse blows. Plate: 60 × 60 cm at ≥ 150 cm in charcoal. Pipe: 38 mm × 2.5 m with salt and charcoal. Water keeps resistance low.</p>` },
+    { title: 'DC machine', topic: 'm1-dc-machine', html: `<p>Yoke, poles, field coils, armature, <b>commutator</b>, brushes. <b>Lap</b>: A = P (high current). <b>Wave</b>: A = 2 (high voltage). Separately or self excited: series, shunt, compound.</p>` },
+    { title: 'DC generator', topic: 'm1-dc-generator', html: `<p><b>E<sub>g</sub> = φZNP/(60A)</b>. Shunt: I<sub>a</sub> = I<sub>L</sub> + I<sub>sh</sub>, E<sub>g</sub> = V + I<sub>a</sub>R<sub>a</sub> + brush drop. Commutator turns the coil’s AC into DC.</p>` },
+    { title: 'DC motor', topic: 'm1-dc-motor', html: `<p><b>V = E<sub>b</sub> + I<sub>a</sub>R<sub>a</sub></b>; E<sub>b</sub> = 0 at start, so starting current is huge. T<sub>a</sub> = 0.159 φZI<sub>a</sub>(P/A); N ∝ E<sub>b</sub>/φ.</p>` },
+    { title: 'BLDC motor', topic: 'm1-bldc', html: `<p>Magnets on the rotor, coils on the stator, <b>Hall sensors</b> and transistors replace brushes and commutator. Less wear and sparking; fans, drones, EVs.</p>` },
+    { title: 'Transformer', topic: 'm1-transformer', html: `<p>Static, <b>mutual induction</b>, same frequency, AC only. <b>E = 4.44 f N φ<sub>m</sub></b>; V<sub>2</sub>/V<sub>1</sub> = N<sub>2</sub>/N<sub>1</sub> = I<sub>1</sub>/I<sub>2</sub>. Core type vs shell type.</p>` },
+    { title: 'Induction motor', topic: 'm1-induction-motor', html: `<p>Three-phase stator currents make a <b>rotating field</b> of constant size; it induces rotor currents and drags the rotor round, always a little <b>below synchronous speed</b>. Squirrel cage or slip ring.</p>` },
+    { title: 'Electric drives', topic: 'm1-drives', html: `<p>Supply → <b>power module</b> → motor → load, with sensors → feedback → <b>controller</b> → PWM pulses back to the power module. A closed loop that holds speed or torque.</p>` }
+  ],
+  compare: [
+    { title: 'Series vs parallel', html: `<table class="tbl"><thead><tr><th></th><th>Series</th><th>Parallel</th></tr></thead><tbody><tr><td>Same for all</td><td>Current</td><td>Voltage</td></tr><tr><td>Total resistance</td><td>R<sub>1</sub> + R<sub>2</sub> + …</td><td>1/R = 1/R<sub>1</sub> + 1/R<sub>2</sub> + …</td></tr><tr><td>Splits</td><td>Voltage (∝ R)</td><td>Current (∝ 1/R)</td></tr><tr><td>One element opens</td><td>Everything stops</td><td>Others carry on</td></tr></tbody></table>` },
+    { title: 'R-L vs R-C vs R-L-C', html: `<table class="tbl"><thead><tr><th></th><th>R-L</th><th>R-C</th><th>R-L-C</th></tr></thead><tbody><tr><td>Reactance</td><td>X<sub>L</sub> = 2πfL</td><td>X<sub>C</sub> = 1/(2πfC)</td><td>X<sub>L</sub> − X<sub>C</sub></td></tr><tr><td>Z</td><td>√(R² + X<sub>L</sub>²)</td><td>√(R² + X<sub>C</sub>²)</td><td>√(R² + (X<sub>L</sub> − X<sub>C</sub>)²)</td></tr><tr><td>Current</td><td>Lags</td><td>Leads</td><td>Lags if X<sub>L</sub> &gt; X<sub>C</sub>, else leads</td></tr><tr><td>Power factor</td><td>R/Z lagging</td><td>R/Z leading</td><td>R/Z</td></tr></tbody></table>` },
+    { title: 'Lap vs wave winding', html: `<table class="tbl"><thead><tr><th></th><th>Lap</th><th>Wave</th></tr></thead><tbody><tr><td>Parallel paths A</td><td>= P</td><td>= 2</td></tr><tr><td>Suits</td><td>High current, low voltage</td><td>High voltage, low current</td></tr></tbody></table>` },
+    { title: 'Core vs shell transformer', html: `<table class="tbl"><thead><tr><th></th><th>Core type</th><th>Shell type</th></tr></thead><tbody><tr><td>Laminations</td><td>L-shaped</td><td>E and I</td></tr><tr><td>Windings</td><td>On the two limbs</td><td>Both on the central limb</td></tr><tr><td>Flux path</td><td>One loop round the core</td><td>Splits through two outer limbs</td></tr></tbody></table>` },
+    { title: 'Brushed DC vs BLDC', html: `<table class="tbl"><thead><tr><th></th><th>Brushed DC</th><th>BLDC</th></tr></thead><tbody><tr><td>Magnets</td><td>Field on the stator</td><td>Permanent magnets on the rotor</td></tr><tr><td>Armature</td><td>Rotor</td><td>Stator coils</td></tr><tr><td>Commutation</td><td>Commutator and brushes</td><td>Hall sensors + transistors</td></tr><tr><td>Wear and sparking</td><td>Yes</td><td>Very little</td></tr></tbody></table>` }
+  ],
+  formulas: [
+    { name: 'Ohm’s law', html: `<div class="eq">V = IR, P = VI = I²R = V²/R</div>` },
+    { name: 'Current division', html: `<div class="eq">I<sub>2</sub> = I × R<sub>3</sub>/(R<sub>2</sub> + R<sub>3</sub>)</div>` },
+    { name: 'Thevenin load current', html: `<div class="eq">I<sub>L</sub> = V<sub>th</sub>/(R<sub>th</sub> + R<sub>L</sub>)</div>` },
+    { name: 'RMS and average (sine)', html: `<div class="eq">V<sub>rms</sub> = 0.707 V<sub>m</sub>, V<sub>av</sub> = 0.637 V<sub>m</sub></div>` },
+    { name: 'AC power', html: `<div class="eq">P = VI cos φ, Q = VI sin φ, S = VI = √(P² + Q²)</div>` },
+    { name: 'DC machine EMF', html: `<div class="eq">E = φZNP/(60A)</div>` },
+    { name: 'DC motor', html: `<div class="eq">V = E<sub>b</sub> + I<sub>a</sub>R<sub>a</sub>, T<sub>a</sub> = 0.159 φZI<sub>a</sub>(P/A)</div>` },
+    { name: 'Transformer EMF', html: `<div class="eq">E<sub>rms</sub> = 4.44 f N φ<sub>m</sub></div>` }
+  ],
+  numbers: [
+    { value: '0.707', what: 'RMS ÷ peak for a sine wave' }, { value: '0.637', what: 'Half-cycle average ÷ peak' },
+    { value: '1.11', what: 'Form factor (sine)' }, { value: '1.414', what: 'Peak (crest) factor (sine)' },
+    { value: '314 rad/s', what: 'ω at 50 Hz (T = 20 ms)' }, { value: '4.44', what: 'Transformer EMF constant' },
+    { value: '0.159', what: '1/2π in the DC motor torque formula' }, { value: '100 per second', what: 'Current zeros of 50 Hz AC (helps a fuse arc die)' },
+    { value: '60 × 60 cm, ≥ 150 cm deep', what: 'Earth plate size and depth' }, { value: '38 mm × 2.5 m', what: 'Earth pipe diameter and minimum length' },
+    { value: '15 cm', what: 'Charcoal (and salt) layers round the electrode' }
+  ],
+  traps: [
+    `<p>KCL at the course’s node a is <b>I<sub>1</sub> = I<sub>2</sub> + I<sub>3</sub> + I<sub>4</sub></b>; “I<sub>1</sub> + I<sub>2</sub> + I<sub>3</sub> = 0” is a sign slip.</p>`,
+    `<p>In current division the <b>series resistor</b> before the pair is not in the formula.</p>`,
+    `<p>Mesh off-diagonal terms are <b>negative</b> when all loops are clockwise.</p>`,
+    `<p>Finding R<sub>th</sub>: <b>short</b> voltage sources, <b>open</b> current sources. Not the other way round.</p>`,
+    `<p>Superposition adds currents, never <b>powers</b>.</p>`,
+    `<p>In v = V<sub>m</sub> sin ωt, ωt is in <b>radians</b>.</p>`,
+    `<p>DC motor speed: N = E<sub>b</sub> × 60A/(φZP) is in <b>rpm</b>; divide by 60 for rps before using P = 2πNT.</p>`,
+    `<p>A transformer does <b>not</b> work on DC and does not change frequency.</p>`,
+    `<p>An induction motor can’t run at synchronous speed: no relative motion, <b>no rotor current, no torque</b>.</p>`
+  ]
+});
