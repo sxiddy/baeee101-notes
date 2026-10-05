@@ -7,7 +7,8 @@
   "q-1a.js",
   "q-1b.js",
   "q-1c.js",
-  "summary-m1.js"
+  "summary-m1.js",
+  "chunk-2a.js"
  ],
  "proFiles": [
   "pro-1a.js",
@@ -16,16 +17,23 @@
   "qa-1a.js",
   "qa-1b.js",
   "qa-1c.js",
+  "pro-2a.js",
   "viz-m1.js"
  ],
  "freeModules": [
-  "m1"
+  "m1",
+  "m2"
  ],
  "paidModules": [
   {
    "id": "m1",
    "num": "01",
    "title": "Principles of Electrical Engineering"
+  },
+  {
+   "id": "m2",
+   "num": "02",
+   "title": "Foundations of Electronics and Communication Systems"
   }
  ],
  "fileModule": {
@@ -42,6 +50,8 @@
   "q-1c.js": "m1",
   "qa-1c.js": "m1",
   "summary-m1.js": "m1",
+  "chunk-2a.js": "m2",
+  "pro-2a.js": "m2",
   "viz-m1.js": "m1"
  }
 }
