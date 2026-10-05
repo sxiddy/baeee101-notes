@@ -123,6 +123,7 @@ function checkChunk(file, d, globalCtx) {
     if (/\.wmf$/i.test(f.src || '')) err(w, 'wmf equations cannot be shown; transcribe as text');
     if (f.crop !== null && f.crop !== undefined && (!Array.isArray(f.crop) || f.crop.length !== 4)) err(w, 'crop must be null or [x,y,w,h]');
     if (!f.caption) err(w, 'caption required');
+    if (!fs.existsSync(path.join(ROOT, 'figs-svg', f.id + '.svg'))) err(w, 'no redrawn figs-svg/' + f.id + '.svg yet');
     if (!f.alt) warn(w, 'alt text missing');
   }
   const used = new Map();

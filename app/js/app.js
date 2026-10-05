@@ -649,7 +649,7 @@ window.__startApp = function () {
       if (wide) fg.classList.add('wide');
       if (dim.svg) { // the site's own redrawn diagram: inlined so it takes the theme's colours (dark and light mode)
         fg.classList.add('svgfig');
-        fg.innerHTML = `<div class="fig-frame" tabindex="0" role="button" aria-label="Enlarge diagram"><div class="fig-svg" role="img" aria-label="${esc(f.alt || f.caption || '')}" style="aspect-ratio:${dim.w} / ${dim.h}"></div><span class="fig-zoom">${icon('zoom')}</span></div><figcaption>${f.caption || ''}${srcLabel(f.src) ? `<span class="fig-src">Redrawn from ${srcLabel(f.src)}</span>` : ''}</figcaption>`;
+        fg.innerHTML = `<div class="fig-frame" tabindex="0" role="button" aria-label="Enlarge diagram"><div class="fig-svg" role="img" aria-label="${esc(f.alt || f.caption || '')}" style="aspect-ratio:${dim.w} / ${dim.h}"></div><span class="fig-zoom">${icon('zoom')}</span></div><figcaption>${f.caption || ''}${srcLabel(f.src) ? `<span class="fig-src">${srcLabel(f.src)}</span>` : ''}</figcaption>`;
         loadSvg(id).then((svg) => { const box = $('.fig-svg', fg); if (box) box.innerHTML = svg; }, () => { const box = $('.fig-svg', fg); if (box) box.textContent = 'Diagram unavailable'; });
         return;
       }

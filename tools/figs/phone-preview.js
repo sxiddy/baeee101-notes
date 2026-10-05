@@ -5,10 +5,15 @@
 const fs = require('fs'), path = require('path');
 const [repo, out, ...ids] = process.argv.slice(2);
 const css = 'file:///' + path.join(repo, 'app', 'css', 'app.css').replace(/\\/g, '/');
-const img = (id) => 'file:///' + path.join(repo, 'protected', 'img', id + '.webp').replace(/\\/g, '/');
+// the source picture: the page render named as src in the figure's entry in content/chunk-*.js
+const SRC = {};
+for (const f of fs.readdirSync(path.join(repo, 'content')).filter((f) => /^chunk-.*\.js$/.test(f))) {
+  for (const m of fs.readFileSync(path.join(repo, 'content', f), 'utf8').matchAll(/id: '([a-z0-9-]+)', src: '([^']+)'/g)) SRC[m[1]] = m[2];
+}
+const img = (id) => 'file:///' + path.join(repo, 'src', SRC[id] || '').replace(/\\/g, '/');
 const svg = (id, p) => fs.readFileSync(path.join(repo, 'figs-svg', id + '.svg'), 'utf8').replace(/id="([^"]+)"/g, `id="${p}$1"`).replace(/url\(#([^)]+)\)/g, `url(#${p}$1)`);
 const rows = ids.map((id) => `<div class="row">
-  <div class="phone" data-mode="dark"><small>now: slide picture</small><figure class="fig"><div class="fig-frame"><img src="${img(id)}"></div></figure></div>
+  <div class="phone" data-mode="dark"><small>source page</small><figure class="fig"><div class="fig-frame"><img src="${img(id)}"></div></figure></div>
   <div class="phone"><small>redrawn · dark mode</small><figure class="fig svgfig"><div class="fig-frame"><div class="fig-svg">${svg(id, 'd')}</div></div></figure></div>
   <div class="phone light"><small>redrawn · light mode</small><figure class="fig svgfig"><div class="fig-frame"><div class="fig-svg">${svg(id, 'l')}</div></div></figure></div>
 </div>`).join('');
