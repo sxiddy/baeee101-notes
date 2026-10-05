@@ -307,7 +307,8 @@ CHUNK({
 <div class="vs"><div class="side"><h4>Inverting amplifier</h4><p>V<sub>in</sub> goes through R<sub>i</sub> to the minus input, R<sub>f</sub> feeds back from the output, and the plus input is grounded.</p><div class="eq">A<sub>v</sub> = − <span class="frac"><span>R<sub>f</sub></span><span>R<sub>i</sub></span></span></div></div><div class="side"><h4>Non-inverting amplifier</h4><p>V<sub>in</sub> goes to the plus input. R<sub>1</sub> feeds back from the output to the minus input and R<sub>2</sub> goes from the minus input to ground.</p><div class="eq">A<sub>v</sub> = 1 + <span class="frac"><span>R<sub>1</sub></span><span>R<sub>2</sub></span></span></div></div></div>
 <div class="worked"><div class="given"><p>An inverting amplifier has R<sub>i</sub> = 10 kΩ and R<sub>f</sub> = 100 kΩ. Find the gain and the output for V<sub>in</sub> = 0.5 V.</p></div><div class="solve"><div class="eq">A<sub>v</sub> = −R<sub>f</sub>/R<sub>i</sub> = −100/10 = −10</div><div class="eq">V<sub>out</sub> = A<sub>v</sub> V<sub>in</sub> = −10 × 0.5 V = −5 V</div></div><div class="result"><p>Gain −10, output −5 V (inverted)</p></div></div>
 <div class="worked"><div class="given"><p>A non-inverting amplifier has R<sub>1</sub> = 90 kΩ and R<sub>2</sub> = 10 kΩ. Find the gain.</p></div><div class="solve"><div class="eq">A<sub>v</sub> = 1 + R<sub>1</sub>/R<sub>2</sub> = 1 + 90/10 = 10</div></div><div class="result"><p>Gain +10 (same phase)</p></div></div>
-<div class="note why"><p>The minus sign in the inverting gain is the 180° phase reversal you saw in single-ended operation. The non-inverting gain can never be below 1.</p></div>`
+<div class="note why"><p>The minus sign in the inverting gain is the 180° phase reversal you saw in single-ended operation. The non-inverting gain can never be below 1.</p></div>
+<div data-viz="opamp-gain"></div>`
         }
       ],
       flashcards: [

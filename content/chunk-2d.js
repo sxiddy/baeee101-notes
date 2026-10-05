@@ -282,7 +282,8 @@ CHUNK({
         {
           title: 'Range, position and speed',
           html: `<div class="kv"><div><span>Range</span><b>The distance between the target and the radar</b></div><div><span>How it is found</span><b>Measure the time the signal takes to reach the object and come back</b></div><div><span>Location of a stationary object</span><b>The angle the antenna points at when the echo is strongest</b></div><div><span>Moving object</span><b>Doppler effect: the frequency of the re-radiated signal shifts, in proportion to the object’s radial velocity</b></div></div>
-<details class="more"><summary>Extra: the range formula</summary><p>The signal travels out and back, so the range is R = c t / 2, where c is the speed of light and t the round-trip time. An echo that returns after 100 µs means R = (3 × 10<sup>8</sup> × 100 × 10<sup>−6</sup>) / 2 = 15 km.</p></details>`
+<details class="more"><summary>Extra: the range formula</summary><p>The signal travels out and back, so the range is R = c t / 2, where c is the speed of light and t the round-trip time. An echo that returns after 100 µs means R = (3 × 10<sup>8</sup> × 100 × 10<sup>−6</sup>) / 2 = 15 km.</p></details>
+<div data-viz="radar-range"></div>`
         },
         {
           title: 'Inside a radar: transmitter',

@@ -31,3 +31,13 @@ course examples as presets, and show the working, not only the answer. Labels: p
   step-up / step-down label; animated alternating flux in the core.
 - `induction-motor` — Three stator phases with the rotating magnetic field animated; sliders f and poles P give
   N<sub>s</sub> = 120f/P; a slip slider gives rotor speed N = N<sub>s</sub>(1 − s) and rotor frequency s·f; the rotor visibly lags the field.
+
+## Module 2 — `viz-paid/viz-m2.js`
+
+- `opamp-gain` — Toggle **Inverting / Non-inverting**. Sliders for the two resistors and the input amplitude; draws the input and
+  output waves (output inverted for the inverting circuit), readouts gain, output amplitude and phase, with the working.
+  Presets are the course examples (10 kΩ / 100 kΩ gives −10; 10 kΩ / 90 kΩ gives +10). Placed in `m2-opamp-apps`.
+- `bjt-currents` — Sliders β and I<sub>B</sub>. Bars for I<sub>B</sub>, I<sub>C</sub>, I<sub>E</sub>; readouts α and the I<sub>B</sub> share; working
+  with I<sub>C</sub> = βI<sub>B</sub>, I<sub>E</sub> = (1 + β)I<sub>B</sub>. Preset β = 100, I<sub>B</sub> = 50 µA. Placed in `m2-bjt-gains`.
+- `radar-range` — Echo time slider (µs); draws the pulse out and back and the target; R = ct/2 with working. Preset 100 µs = 15 km.
+  Placed in `m2-radar`.

@@ -33,7 +33,8 @@
   "qa-2b.js",
   "qa-2c.js",
   "qa-2d.js",
-  "viz-m1.js"
+  "viz-m1.js",
+  "viz-m2.js"
  ],
  "freeModules": [
   "m1",
@@ -82,6 +83,7 @@
   "q-2d.js": "m2",
   "qa-2d.js": "m2",
   "summary-m2.js": "m2",
-  "viz-m1.js": "m1"
+  "viz-m1.js": "m1",
+  "viz-m2.js": "m2"
  }
 }

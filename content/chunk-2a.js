@@ -381,7 +381,8 @@ CHUNK({
 <div class="eq">β = <span class="frac"><span>I<sub>C</sub></span><span>I<sub>B</sub></span></span> = <span class="frac"><span>I<sub>C</sub></span><span>I<sub>E</sub> − I<sub>C</sub></span></span> = <span class="frac"><span>α</span><span>1 − α</span></span></div>
 <p>It is possible for β to be as high as <b>500</b>. The other direction:</p>
 <div class="eq">α = <span class="frac"><span>β</span><span>1 + β</span></span></div>
-<div class="note why"><p>Dividing top and bottom of α/(1 − α) by I<sub>E</sub> shows why: I<sub>E</sub> − I<sub>C</sub> is just I<sub>B</sub>, so α/(1 − α) = I<sub>C</sub>/I<sub>B</sub>.</p></div>`
+<div class="note why"><p>Dividing top and bottom of α/(1 − α) by I<sub>E</sub> shows why: I<sub>E</sub> − I<sub>C</sub> is just I<sub>B</sub>, so α/(1 − α) = I<sub>C</sub>/I<sub>B</sub>.</p></div>
+<div data-viz="bjt-currents"></div>`
         },
         {
           title: 'Current relations',
