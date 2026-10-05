@@ -22,7 +22,8 @@
     "chunks": [
       "2a",
       "2b",
-      "2c"
+      "2c",
+      "2d"
     ],
     "questions": [],
     "syllabus": "Semiconductor devices: PN junction diode, Zener diode, BJT, MOSFET and operational amplifier; the electromagnetic spectrum, elements of a communication system, modulation, cellular, satellite and radar systems."
