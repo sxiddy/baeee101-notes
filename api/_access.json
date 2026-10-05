@@ -15,7 +15,8 @@
   "q-2a.js",
   "q-2b.js",
   "q-2c.js",
-  "q-2d.js"
+  "q-2d.js",
+  "summary-m2.js"
  ],
  "proFiles": [
   "pro-1a.js",
@@ -80,6 +81,7 @@
   "qa-2c.js": "m2",
   "q-2d.js": "m2",
   "qa-2d.js": "m2",
+  "summary-m2.js": "m2",
   "viz-m1.js": "m1"
  }
 }
