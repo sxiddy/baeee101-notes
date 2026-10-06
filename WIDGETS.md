@@ -52,8 +52,7 @@ course examples as presets, and show the working, not only the answer. Labels: p
 - `scale-calc` — Actual length (mm) and a scale (2:1, 5:1, 1:1, 1:2, 1:5, 1:10, 1:100). Bars for actual and drawn length,
   readouts scale factor, drawn length and kind (enlarged / full / reduced), working line, reminder that the true size is written.
   Preset 250 mm at 1:5 = 50 mm (slide L1-20). Placed in `m3-sheets`.
-- `ortho-angle` — Toggle **First angle / Third angle**: the slide-18 block (base 50 × 50 × 10, two ribs) with front, top and
-  left side views moved to their places around XY, and the caption stating the rule. Placed in `m3-ortho-basics`.
+- `ortho-angle` — Animation. Toggle **First angle / Third angle** and a mode: **Views** (the slide-18 block with front, top and left side views around XY), **Turn the HP** (side view of VP and HP; the HP swings 90° about XY into the VP, carrying the top view down in first angle or up in third angle) and **Unfold the box** (the glass box opens out around the front view, rear view last). Progress slider and Replay; jumps to the end under reduced motion. Placed in `m3-ortho-basics`.
 - `solid-views` — Pick a solid standing on its base on the HP (hexagonal pyramid 30/60, square pyramid 40/60, triangular
   prism 40/50, square prism 35/50, pentagonal prism 30/60) and the angle of a base edge to the VP. Draws the top view and the
   projected front view with hidden edges dashed (computed from face directions, same method as tools/figs/m3d.js); readouts
