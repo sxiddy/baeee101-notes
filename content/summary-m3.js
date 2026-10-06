@@ -1,0 +1,59 @@
+SUMMARY({
+  module: 'm3',
+  tldr: `<p>Module 3 is the <b>language of engineering drawing</b>. A drawing follows <b>BIS standards</b>: A-series sheets (IS 10711), line types and weights (IS 10714), lettering and dimensioning. A 3-D object is shown by <b>orthographic projection</b>: parallel projectors from an observer at infinity onto the HP and VP. India uses <b>first angle</b> (top view below, left view on the right); the USA uses third angle. Solids are drawn in <b>simple positions</b>: start with the view where the axis is a point, because that view shows the true shape. CAD draws the same thing faster and keeps it digital.</p>`,
+  storyline: [
+    { title: 'Standards', html: `<p><b>Sketch</b> (idea) → <b>engineering drawing</b> (exact, legal). Sheets A0–A5, margins and title block; scales; line types A–K and weights; lettering; aligned or unidirectional dimensions.</p>` },
+    { title: 'Projection', html: `<p>Projectors parallel and perpendicular to the plane → <b>HP, VP, XY</b> → four quadrants (1st and 3rd used) → <b>first vs third angle</b> → six views from the glass box → views of a block.</p>` },
+    { title: 'Solids', html: `<p>Polyhedra and solids of revolution → axis ⊥ HP (top view first) → axis ⊥ VP (front view first) → axis ∥ both (side view first). Hidden edges dashed.</p>` },
+    { title: 'Tools', html: `<p>Instruments (T-square, set squares, compass, dividers, French curves) → <b>CAD</b> (AutoCAD, SolidWorks, CATIA, Fusion 360): easy changes, digital files, CNC-ready data.</p>` }
+  ],
+  bigIdeas: [
+    { title: 'Drawing vs sketch', topic: 'm3-intro', html: `<p>A sketch captures an idea; an <b>engineering drawing</b> fully defines a part with dimensions, tolerances and notes, and is a binding document.</p>` },
+    { title: 'Standards bodies', topic: 'm3-intro', html: `<p><b>BIS</b>: first angle, mm. <b>ASME</b>: third angle, inches. <b>ISO</b>: either, mm.</p>` },
+    { title: 'A-series sheets', topic: 'm3-sheets', html: `<p>A0 = 841 × 1189; halve the long side for each next size; sides 1 : √2.</p>` },
+    { title: 'Sheet layout', topic: 'm3-sheets', html: `<p>Filing margin <b>a = 30</b>, other margins <b>b = 20</b>, title block <b>170 × 65</b> bottom right.</p>` },
+    { title: 'Scale', topic: 'm3-sheets', html: `<p>Scale = <b>drawing size : actual size</b>. Write the true size whatever the scale.</p>` },
+    { title: 'CAD', topic: 'm3-cad', html: `<p>Same standards, but faster, easy to modify, digital, 2-D and 3-D, CNC-ready output.</p>` },
+    { title: 'Line meanings', topic: 'm3-lines', html: `<p>Visible = thick continuous; hidden = thin dashed; centre = thin chain; cutting plane = thin chain, thick ends; dimensions = thin continuous.</p>` },
+    { title: 'Precedence', topic: 'm3-lines', html: `<p>Visible > hidden > cutting plane > centre line > dimension lines.</p>` },
+    { title: 'Dimensioning systems', topic: 'm3-lettering-dim', html: `<p><b>Aligned</b>: figures above the line, read from bottom or right (recommended). <b>Unidirectional</b>: always horizontal, line broken.</p>` },
+    { title: 'Orthographic principle', topic: 'm3-ortho-basics', html: `<p>Parallel projectors, perpendicular to the plane, observer at infinity: true size for faces parallel to the plane.</p>` },
+    { title: 'First angle', topic: 'm3-ortho-basics', html: `<p>Object between observer and plane; top view <b>below</b>, left view on the <b>right</b>. Symbol: circles on the right.</p>` },
+    { title: 'View alignment', topic: 'm3-six-views', html: `<p>Front and top share width; front and side share height; top and side share depth (45° line).</p>` },
+    { title: 'True-shape view first', topic: 'm3-solids-hp', html: `<p>Axis ⊥ HP → top view first; axis ⊥ VP → front view first; axis ∥ both → side view first.</p>` },
+    { title: 'Hidden edges', topic: 'm3-solids-hp', html: `<p>Edges behind the solid in a view are dashed thin; visible edges are thick.</p>` },
+    { title: 'Frustum', topic: 'm3-solids-intro', html: `<p>Cut <b>parallel</b> to the base = frustum; cut inclined = truncated.</p>` }
+  ],
+  compare: [
+    { title: 'First vs third angle', html: `<table class="tbl"><thead><tr><th></th><th>First</th><th>Third</th></tr></thead><tbody><tr><td>Quadrant</td><td>1st</td><td>3rd</td></tr><tr><td>Plane</td><td>Behind object</td><td>Between observer and object</td></tr><tr><td>Top view</td><td>Below FV</td><td>Above FV</td></tr><tr><td>Left view</td><td>Right of FV</td><td>Left of FV</td></tr><tr><td>Used by</td><td>BIS, ISO</td><td>ASME</td></tr></tbody></table>` },
+    { title: 'Sketch vs drawing', html: `<table class="tbl"><thead><tr><th></th><th>Sketch</th><th>Drawing</th></tr></thead><tbody><tr><td>Made</td><td>Freehand, minutes</td><td>Instruments or CAD, hours</td></tr><tr><td>Accuracy</td><td>Approximate</td><td>Exact</td></tr><tr><td>Legal</td><td>No</td><td>Yes</td></tr></tbody></table>` },
+    { title: 'Manual vs CAD', html: `<table class="tbl"><thead><tr><th></th><th>Manual</th><th>CAD</th></tr></thead><tbody><tr><td>Speed</td><td>Slower</td><td>Faster</td></tr><tr><td>Changes</td><td>Difficult</td><td>Easy</td></tr><tr><td>Storage</td><td>Sheets</td><td>Digital files</td></tr></tbody></table>` },
+    { title: 'Aligned vs unidirectional', html: `<table class="tbl"><thead><tr><th></th><th>Aligned</th><th>Unidirectional</th></tr></thead><tbody><tr><td>Figure</td><td>Above, parallel to the line</td><td>Horizontal, in a break</td></tr><tr><td>Read from</td><td>Bottom or right</td><td>Bottom</td></tr></tbody></table>` },
+    { title: 'Simple positions', html: `<table class="tbl"><thead><tr><th>Axis</th><th>Draw first</th></tr></thead><tbody><tr><td>⊥ HP</td><td>Top view</td></tr><tr><td>⊥ VP</td><td>Front view</td></tr><tr><td>∥ HP and VP</td><td>Side view</td></tr></tbody></table>` }
+  ],
+  formulas: [
+    { name: 'Scale', html: `<div class="eq">scale = drawing size : actual size</div>` },
+    { name: 'Drawn length', html: `<div class="eq">drawn = actual × scale factor</div>` },
+    { name: 'Height of an equilateral triangle', html: `<div class="eq">h = a√3 / 2 (a = 40 → 34.6 mm)</div>` }
+  ],
+  numbers: [
+    { value: '841 × 1189', what: 'A0 sheet (trimmed), about 1 m²' },
+    { value: '297 × 420', what: 'A3 sheet' },
+    { value: '30 / 20 mm', what: 'Filing margin and other margins (slide 18)' },
+    { value: '170 × 65', what: 'Title block size' },
+    { value: '2 : 1', what: 'Thick to thin line width (e.g. 0.7 and 0.35 mm)' },
+    { value: 'HB, 2H', what: 'Pencils for thick and thin lines' },
+    { value: '6–8, 3–5, 10–12 mm', what: 'Lettering: titles, notes, drawing number' },
+    { value: '45°', what: 'Section hatching angle; mitre line for depth' },
+    { value: 'IS 10711, IS 10714', what: 'BIS sheets, BIS lines' }
+  ],
+  traps: [
+    `<p>First angle puts the top view <b>below</b> the front view, not above.</p>`,
+    `<p>In first angle the left side view goes on the <b>right</b>.</p>`,
+    `<p>Hidden lines beat centre lines; visible lines beat both.</p>`,
+    `<p>Write the <b>true</b> size on a scaled drawing, not the drawn size.</p>`,
+    `<p>The Lecture 1 slides letter some lines differently from IS 10714; learn the appearance and use.</p>`,
+    `<p>A frustum is cut <b>parallel</b> to the base; truncated is not.</p>`,
+    `<p>In first angle the front of the object faces <b>away</b> from the front view in the top and side views.</p>`
+  ]
+});
