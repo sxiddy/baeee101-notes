@@ -78,6 +78,7 @@ CHUNK({
         {
           title: 'Pyramid and prism',
           html: `<figure data-fig="m3-solids-axis-hp"></figure>
+<div data-viz="solid-views"></div>
 <div class="worked"><div class="given"><p>A hexagonal pyramid, base 30 mm side, axis 60 mm, has its base on the HP and one base edge inclined at 45° to the VP (Problem 13-5).</p></div><div class="solve"><div class="eq">1. Draw XY. Draw a 30 mm line at 45° to XY and construct the regular hexagon on it: the top view</div><div class="eq">2. Mark the centre o and join it to all corners</div><div class="eq">3. Project all corners up to XY; mark the apex o′ 60 mm above XY on the projector through o</div><div class="eq">4. Join o′ to the base corners: visible edges full, edges behind dashed</div></div></div>
 <p>The <b>triangular prism</b> (base 40, axis 50, base on the HP, one rectangular face perpendicular to the VP): the top view is the equilateral triangle with one side perpendicular to XY; the front view is a rectangle 34.6 mm wide (the height of the triangle, 40 × √3/2) and 50 mm high.</p>`
         },

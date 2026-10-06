@@ -71,6 +71,7 @@
   "qa-4d.js",
   "viz-m1.js",
   "viz-m2.js",
+  "viz-m3.js",
   "viz-m4.js"
  ],
  "freeModules": [
@@ -170,6 +171,7 @@
   "summary-m4.js": "m4",
   "viz-m1.js": "m1",
   "viz-m2.js": "m2",
+  "viz-m3.js": "m3",
   "viz-m4.js": "m4"
  }
 }

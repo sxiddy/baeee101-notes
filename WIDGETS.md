@@ -46,3 +46,15 @@ course examples as presets, and show the working, not only the answer. Labels: p
 
 - `rolling-draft` — Sliders t0, t1, L0 (width unchanged). Draws the strip before and after the rolls; readouts draft = t0 − t1, new length from t0·L0 = t1·L1, and reduction %. Preset 20 mm to 17 mm gives 3 mm. Placed in `m4-rolling`.
 - `mech-dof` — Sliders N, P1, P2. Big F readout from F = 3(N − 1) − 2P1 − P2 with the working and a mechanism / structure / over-constrained label. Preset slider crank N = 4, P1 = 4 gives F = 1. Placed in `m4-links-dof`.
+
+## Module 3 — `viz-paid/viz-m3.js`
+
+- `scale-calc` — Actual length (mm) and a scale (2:1, 5:1, 1:1, 1:2, 1:5, 1:10, 1:100). Bars for actual and drawn length,
+  readouts scale factor, drawn length and kind (enlarged / full / reduced), working line, reminder that the true size is written.
+  Preset 250 mm at 1:5 = 50 mm (slide L1-20). Placed in `m3-sheets`.
+- `ortho-angle` — Toggle **First angle / Third angle**: the slide-18 block (base 50 × 50 × 10, two ribs) with front, top and
+  left side views moved to their places around XY, and the caption stating the rule. Placed in `m3-ortho-basics`.
+- `solid-views` — Pick a solid standing on its base on the HP (hexagonal pyramid 30/60, square pyramid 40/60, triangular
+  prism 40/50, square prism 35/50, pentagonal prism 30/60) and the angle of a base edge to the VP. Draws the top view and the
+  projected front view with hidden edges dashed (computed from face directions, same method as tools/figs/m3d.js); readouts
+  hidden edge count and front view width. Placed in `m3-solids-hp`.

@@ -105,6 +105,7 @@ CHUNK({
           title: 'Scales',
           html: `<div class="eq" data-label="Scale">Scale = drawing size : actual size</div>
 <figure data-fig="m3-scale-demo"></figure>
+<div data-viz="scale-calc"></div>
 <table class="tbl"><thead><tr><th>Kind</th><th>Examples</th><th>Use</th></tr></thead><tbody>
 <tr><td>Full size</td><td>1 : 1</td><td>Object fits comfortably on the sheet (a 50 × 30 plate)</td></tr>
 <tr><td>Enlarged</td><td>2 : 1, 5 : 1</td><td>Small parts: an M3 screw at 2 : 1, a Ø8 gear at 5 : 1 (drawn Ø40)</td></tr>

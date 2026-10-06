@@ -33,6 +33,7 @@ CHUNK({
 <tr><td>Views placed</td><td>Opposite to the viewing direction</td><td>Same side as seen</td></tr>
 <tr><td>Used by</td><td>India (BIS), ISO, many countries</td><td>USA (ANSI/ASME), Canada, Japan</td></tr>
 </tbody></table>
+<div data-viz="ortho-angle"></div>
 <div class="note mnemonic"><p><b>First angle = opposite side; third angle = same side.</b> In first angle, what you see from the left is drawn on the right.</p></div>`
         },
         {
