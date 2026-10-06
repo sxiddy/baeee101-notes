@@ -13,7 +13,8 @@
       "q-1b.js",
       "q-1c.js"
     ],
-    "syllabus": "Electric circuit components, mesh current analysis, node voltage analysis, Thevenin's and superposition theorems, single-phase AC circuits (RL, RC, RLC), power and energy calculations, power factor, basics of electrical safety and earthing. Electromechanical energy conversion and the principle of operation of DC motors, induction motors, BLDC motors and the single-phase transformer; concepts of power electronics and industrial applications of electrical drives."
+    "syllabus": "Electric circuit components, mesh current analysis, node voltage analysis, Thevenin's and superposition theorems, single-phase AC circuits (RL, RC, RLC), power and energy calculations, power factor, basics of electrical safety and earthing. Electromechanical energy conversion and the principle of operation of DC motors, induction motors, BLDC motors and the single-phase transformer; concepts of power electronics and industrial applications of electrical drives.",
+    "free": true
   },
   {
     "id": "m2",
@@ -31,7 +32,8 @@
       "q-2c.js",
       "q-2d.js"
     ],
-    "syllabus": "Semiconductor devices: PN junction diode, Zener diode, BJT, MOSFET and operational amplifier; the electromagnetic spectrum, elements of a communication system, modulation, cellular, satellite and radar systems."
+    "syllabus": "Semiconductor devices: PN junction diode, Zener diode, BJT, MOSFET and operational amplifier; the electromagnetic spectrum, elements of a communication system, modulation, cellular, satellite and radar systems.",
+    "free": true
   },
   {
     "id": "m4",
@@ -52,6 +54,7 @@
       "q-4c.js",
       "q-4d.js"
     ],
-    "syllabus": "Metal casting, forming, welding, machining, CNC and additive manufacturing; IC engines and power plants; kinematics of mechanisms."
+    "syllabus": "Metal casting, forming, welding, machining, CNC and additive manufacturing; IC engines and power plants; kinematics of mechanisms.",
+    "free": true
   }
 ]
