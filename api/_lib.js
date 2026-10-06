@@ -1,7 +1,7 @@
 // Shared helpers for the sign-in, payment and content functions (files starting with _ are not deployed as endpoints).
 const crypto = require('crypto');
 
-const PRICE = parseInt(process.env.PRICE_PAISE || '1500', 10); // ₹15 default; the owner can change it on /admin
+const PRICE = parseInt(process.env.PRICE_PAISE || '1000', 10); // ₹10 default; the owner can change it on /admin
 const DOMAIN = (process.env.STUDENT_DOMAIN || 'vitstudent.ac.in').toLowerCase(); // only these Google accounts get in
 const USER_COOKIE = 'bn_user';   // signed-in student: { e: email, d: device id }
 const OWNER_COOKIE = 'bn_access'; // owner unlock from /admin: { p: 'owner' }
