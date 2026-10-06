@@ -21,4 +21,13 @@ assert.strictEqual(A.scale.drawnLeg, 50); assert.strictEqual(A.scale.drawnT, 5);
 [[100, 1, 2, 50], [10, 1, 2, 5], [250, 1, 5, 50], [60, 1, 5, 12], [40, 1, 5, 8], [20, 1, 5, 4], [1000, 1, 10, 100], [40, 1, 10, 4],
  [10000, 1, 100, 100], [20000, 1, 100, 200], [6, 2, 1, 12], [10, 2, 1, 20], [8, 5, 1, 40]].forEach(([a, n, d, e]) => assert.strictEqual(drawn(a, n, d), e, `${a} at ${n}:${d}`));
 
+// Chunk 3b: lines, lettering, dimensioning
+const { GEO: B } = require('./figs/m3b.js');
+assert.deepStrictEqual(B.lineLetters, ['A','B','C','D','E','F','G','H','J','K'], 'IS 10714 letters, no I');
+assert.strictEqual(B.demo.baseMM, 90, 'demo base drawn 90 mm'); assert.strictEqual(B.demo.holeDia, 12, 'demo hole 12');
+assert.strictEqual(B.dimsys.w, 50); assert.strictEqual(B.dimsys.h, 30);
+[[0.7, 0.35], [0.5, 0.25]].forEach(([t, n]) => assert.strictEqual(t / n, 2, 'thick : thin = 2 : 1'));
+[[1.0, 0.5], [0.7, 0.35], [0.5, 0.25]].forEach(([t, n]) => assert.strictEqual(t / n, 2, 'slide 8 widths A0/A1/A3 thick vs thin'));
+const lower = h => [0.7 * h, 0.3 * h]; assert.deepStrictEqual(lower(10).map(v => +v.toFixed(2)), [7, 3], 'lowercase body 0.7h, ascender 0.3h');
+
 console.log('m3 numbers ok: A0..A5', table.map(t => t.join('x')).join(', '), '| A2 working area', g.workW + 'x' + g.workH);

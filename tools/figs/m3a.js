@@ -89,4 +89,4 @@ if (require.main === module) {
   for (const [id, body] of Object.entries(figs)) fs.writeFileSync(path.join(out, id + '.svg'), body);
   console.log('wrote', Object.keys(figs).length, 'figures');
 }
-module.exports = { GEO, figs };
+module.exports = { GEO, figs, H, rect, dim };
