@@ -58,4 +58,32 @@ assert.deepStrictEqual(C.six.first, { top: 'below', bottom: 'above', left: 'righ
 assert.deepStrictEqual(C.six.third, { top: 'above', bottom: 'below', left: 'left', right: 'right' });
 assert.ok(C.symbols.firstCirclesRight && !C.symbols.thirdCirclesRight);
 
+// Chunk 3d: projections of solids (models in tools/figs/m3d.js)
+const { GEO: D } = require('./figs/m3d.js');
+const dist = (p, q) => Math.hypot(...p.map((v, i) => v - q[i]));
+const near = (a, b, msg) => assert.ok(Math.abs(a - b) < 1e-6, msg + ': ' + a + ' vs ' + b);
+const sides = (P) => P.map((p, i) => dist(p, P[(i + 1) % P.length]));
+// hexagonal pyramid: base side 30 on the HP, axis 60, one base edge at 45 deg to the VP (x axis in the top view)
+const hp = D.hexPyr; sides(hp.hex).forEach(d => near(d, 30, 'hex side'));
+hp.hex.forEach(p => near(p[2], 0, 'base on HP'));
+const apex = hp.S.V[6]; near(apex[2], 60, 'axis 60'); near(dist([apex[0], apex[1]], [0, apex[1]]), 0, 'apex over centre x');
+const ang = hp.hex.map((p, i) => { const q = hp.hex[(i + 1) % 6]; return ((Math.atan2(q[1] - p[1], q[0] - p[0]) * 180 / Math.PI) + 360) % 180; });
+assert.ok(ang.some(a => Math.abs(a - 45) < 1e-6), 'one edge at 45 deg');
+assert.strictEqual(hp.S.E.length, 12, 'hex pyramid has 12 edges'); assert.strictEqual(hp.tv.filter(g => !g.vis).length, 0, 'top view: nothing hidden');
+assert.ok(hp.fv.some(g => !g.vis), 'front view has hidden slant edges');
+// triangular prism: equilateral 40, axis 50, one rectangular face perpendicular to the VP (its top-view edge along y)
+const tp = D.triPrism.S; sides(tp.V.slice(0, 3)).forEach(d => near(d, 40, 'triangle side')); near(tp.V[3][2], 50, 'axis 50');
+near(tp.V[0][0], tp.V[1][0], 'face edge perpendicular to XY');
+// pentagonal prism: end edge 20, length 50, ends parallel to the VP, face ab at 45 deg to the HP rising to the left, corner b on the HP
+const pp = D.pentPrism; sides(pp.pent).forEach(d => near(d, 20, 'pentagon side'));
+near(pp.pent[1][1], 0, 'b on HP'); assert.ok(Math.min(...pp.pent.map(p => p[1])) > -1e-9, 'nothing below HP');
+near(Math.atan2(pp.pent[0][1] - pp.pent[1][1], pp.pent[0][0] - pp.pent[1][0]) * 180 / Math.PI, 135, 'ab at 45 deg, to the left');
+near(pp.S.V[5][1] - pp.S.V[0][1], 50, 'length 50'); assert.strictEqual(D.pentPrism.tv.filter(g => !g.vis).length, 1, 'one hidden long edge (b) in TV');
+// square pyramid: base 40 in the VP, axis 65, edge dc at 30 deg to the HP, corner d on the HP
+const sp = D.sqPyr; sides(sp.sq).forEach(d => near(d, 40, 'square side')); sp.S.V.slice(0, 4).forEach(p => near(p[1], 0, 'base in VP'));
+near(sp.sq[0][1], 0, 'corner on HP'); near(Math.atan2(sp.sq[1][1], sp.sq[1][0]) * 180 / Math.PI, 30, 'edge at 30 deg');
+near(sp.S.V[4][1], 65, 'axis 65'); assert.ok(Math.min(...sp.sq.map(p => p[1])) > -1e-9);
+// cylinder and cone (Problem 13-3)
+assert.deepStrictEqual([D.cylCone.fvW, D.cylCone.fvH], [40, 50]);
+
 console.log('m3 numbers ok: A0..A5', table.map(t => t.join('x')).join(', '), '| A2 working area', g.workW + 'x' + g.workH);
