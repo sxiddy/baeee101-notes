@@ -30,6 +30,7 @@ module.exports = handle(async (req, res) => {
     user: u ? u.e : null, deviceError, owner: isOwner(req), paid: !!t, modules: t ? t.modules : null, free: !!(t && t.free), signin: mode.signin, freeSite: mode.free, freeOffer: mode.freeOffer,
     price: cfg.price, normalPrice: cfg.normalPrice, sale: cfg.sale, banner: cfg.banner, paused: cfg.paused, business: cfg.business || '', reviewer, keyId: process.env.RAZORPAY_KEY_ID || null,
     googleClientId: process.env.GOOGLE_CLIENT_ID || null, domain: DOMAIN,
+    storeUrl: process.env.STORE_URL ? process.env.STORE_URL.replace(/\/$/, '') : null, storeCode: 'BAEEE101', storeName: 'Basic Engineering',
     devLogin: process.env.DEV_LOGIN === '1' && !process.env.VERCEL, dev: process.env.DEV_BYPASS === '1',
   }, headers);
 });
