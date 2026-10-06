@@ -86,4 +86,10 @@ near(sp.S.V[4][1], 65, 'axis 65'); assert.ok(Math.min(...sp.sq.map(p => p[1])) >
 // cylinder and cone (Problem 13-3)
 assert.deepStrictEqual([D.cylCone.fvW, D.cylCone.fvH], [40, 50]);
 
+// Questions q-3a / q-3b
+assert.strictEqual(drawn(1000, 1, 10), 100); assert.strictEqual(drawn(40, 1, 10), 4); assert.strictEqual(drawn(8, 5, 1), 40);
+assert.deepStrictEqual([594 / 2, 420], [297, 420]); assert.deepStrictEqual([Math.floor(420 / 2), 297], [210, 297]);
+near(40 * Math.sqrt(3) / 2, 34.64101615137755, 'tri prism FV width'); assert.strictEqual(+(40 * Math.sqrt(3) / 2).toFixed(1), 34.6);
+assert.strictEqual(10 + 30, 40, 'slide 18 block height');
+
 console.log('m3 numbers ok: A0..A5', table.map(t => t.join('x')).join(', '), '| A2 working area', g.workW + 'x' + g.workH);

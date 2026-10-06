@@ -45,7 +45,10 @@
       "3c",
       "3d"
     ],
-    "questions": [],
+    "questions": [
+      "q-3a.js",
+      "q-3b.js"
+    ],
     "syllabus": "Introduction to engineering drawing; BIS standards for lines, lettering and dimensioning; orthographic projection (first and third angle); introduction to projection of solids; isometric and perspective projection; freehand sketching; a residential floor plan as per IS SP7; introduction to CAD.",
     "free": true
   },
