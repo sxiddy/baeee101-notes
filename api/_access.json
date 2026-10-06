@@ -17,6 +17,7 @@
   "q-2c.js",
   "q-2d.js",
   "summary-m2.js",
+  "chunk-3a.js",
   "chunk-4a.js",
   "chunk-4b.js",
   "chunk-4c.js",
@@ -45,6 +46,7 @@
   "qa-2b.js",
   "qa-2c.js",
   "qa-2d.js",
+  "pro-3a.js",
   "pro-4a.js",
   "pro-4b.js",
   "pro-4c.js",
@@ -63,6 +65,7 @@
  "freeModules": [
   "m1",
   "m2",
+  "m3",
   "m4"
  ],
  "paidModules": [
@@ -75,6 +78,11 @@
    "id": "m2",
    "num": "02",
    "title": "Foundations of Electronics and Communication Systems"
+  },
+  {
+   "id": "m3",
+   "num": "03",
+   "title": "Engineering Graphics and CAD"
   },
   {
    "id": "m4",
@@ -113,6 +121,8 @@
   "q-2d.js": "m2",
   "qa-2d.js": "m2",
   "summary-m2.js": "m2",
+  "chunk-3a.js": "m3",
+  "pro-3a.js": "m3",
   "chunk-4a.js": "m4",
   "pro-4a.js": "m4",
   "chunk-4b.js": "m4",
