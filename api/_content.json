@@ -1,0 +1,37 @@
+{
+ "modules": [
+  {
+   "id": "m1",
+   "num": "01",
+   "title": "Principles of Electrical Engineering",
+   "free": true,
+   "topics": 19,
+   "questions": 94
+  },
+  {
+   "id": "m2",
+   "num": "02",
+   "title": "Foundations of Electronics and Communication Systems",
+   "free": true,
+   "topics": 27,
+   "questions": 150
+  },
+  {
+   "id": "m3",
+   "num": "03",
+   "title": "Engineering Graphics and CAD",
+   "free": true,
+   "topics": 10,
+   "questions": 27
+  },
+  {
+   "id": "m4",
+   "num": "04",
+   "title": "Manufacturing, Energy and Mechanical Automation",
+   "free": true,
+   "topics": 32,
+   "questions": 45
+  }
+ ],
+ "papers": []
+}

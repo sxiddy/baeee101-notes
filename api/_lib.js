@@ -309,5 +309,5 @@ function handle(fn) {
 module.exports = {
   PRICE, DOMAIN, MAX_DEVICES, env, send, body, hmac, safeEqual,
   getUser, isOwner, hasAccess, siteMode, canOpen, REVIEW_EMAIL, reviewOn, reviewerCookie, isReviewer, normEmail, isStudentEmail, userCookie, ownerCookie, clearUserCookie, verifyGoogle,
-  razorpay, checkPayment, isOurs, recordPaid, settings, deviceIdFrom, deviceKeys, claimDevice, deviceActive, parseLimits, limitUntil, handle,
+  razorpay, checkPayment, isOurs, recordPaid, settings, deviceIdFrom, deviceKeys, claimDevice, deviceActive, parseLimits, limitUntil, handle, STORE_CODE,
 };

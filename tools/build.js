@@ -147,3 +147,6 @@ ${scripts.map((s) => `<script src="${s}"></script>`).join('\n')}
 `;
 fs.writeFileSync(path.join(APP, 'index.html'), html);
 console.log(`free files: ${freeFiles.length} · pro files: ${proFiles.length} · figures: ${Object.keys(dims).length} · public viz files: ${vizFiles.length}`);
+
+// the admin page's Content section (modules and question papers): api/_content.json
+require('./admin-index').writeIndex();
