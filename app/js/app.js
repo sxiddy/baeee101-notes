@@ -915,7 +915,8 @@ window.__startApp = function () {
       let left = MINUTES * 60;
       el.innerHTML = `
         <div class="mock-bar"><b>${esc(pp.title)}</b><span class="mock-time" data-t>${fmt(left)}</span><button class="btn small" data-act="finish">Finish</button></div>
-        <div class="prose">${pp.questions.map((q, i) => `<div class="mock-q"><div class="mock-n">Q${i + 1}${q.marks ? ` · ${q.marks} marks` : ''}</div>${q.q}</div>`).join('')}</div>`;
+        ${pp.instructions ? `<div class="note heads-up"><p>${pp.instructions}</p></div>` : ''}
+        <div class="prose">${pp.questions.map((q) => `<div class="mock-q"><div class="mock-n">Q${esc(q.n)}${q.marks ? ` · ${esc(q.marks)} marks` : ''}</div>${q.prompt}${q.passage ? `<div class="paper-passage">${q.passage}</div>` : ''}${q.parts ? `<ol class="paper-parts">${q.parts.map((x) => `<li>${x.text}${x.marks ? ` <span class="ew-score">(${esc(x.marks)} marks)</span>` : ''}</li>`).join('')}</ol>` : ''}</div>`).join('')}</div>`;
       hydrate(el);
       const finish = () => { clearInterval(timer); timer = null; navigate('#papers.' + pp.id); };
       $('[data-act="finish"]', el).addEventListener('click', finish);
@@ -2286,22 +2287,26 @@ window.__startApp = function () {
   }
 
   // ================================================================ CAT question papers
-  // papers-free.js: the actual CAT papers, the free model papers, the index of all papers and which topics were asked.
-  // papers-paid.js: the other model papers (loaded only with full access). Locked ones are listed from the index.
+  // papers-free.js: the actual papers (questions only), the index of all papers and which topics were asked.
+  // papers-pro.js: the answer keys and the "asked in" detail, loaded with full access. Locked papers are listed from the index.
   // No papers file yet: the sidebar link and home tile stay hidden and #papers says they are coming.
   const PAPERS = (D.papers || []).slice(), PAPER = {};
   PAPERS.forEach((p) => { PAPER[p.id] = p; });
   const PINDEX = D.paperIndex || PAPERS.map((p) => ({ id: p.id, kind: p.kind, title: p.title, sub: p.sub }));
   const ASKED = D.asked || {};
-  const CAT2_UNTIL = Date.parse('2026-10-04T23:59:59+05:30'); // the "asked in CAT-2" note shows until CAT-2 ends
+  // exam types, in the order the papers are listed
+  const EXAMS = [['cat1', 'CAT-1'], ['cat2', 'CAT-2'], ['fat', 'FAT']];
+  const examOf = (x) => { const e = (PAPER[x.paper] || PINDEX.find((y) => y.id === x.paper) || {}).exam; return (EXAMS.find((v) => v[0] === e) || [])[1] || ''; };
   function askedBadge(id) {
-    // one entry, or a list when the topic came up in more than one slot's paper
+    // one entry, or a list when the topic came up in more than one paper
     const list = [].concat(ASKED[id] || []);
-    if (!list.length || Date.now() > CAT2_UNTIL) return '';
-    if (!PRO) return `<div class="note exam cat2-asked"><p><b>This topic was asked in CAT-2.</b> <a href="#pro" data-from="asked">Which slot and what was asked: Pro ${icon('right')}</a></p></div>`;
+    if (!list.length) return '';
+    const kinds = EXAMS.map((v) => v[1]).filter((k) => list.some((x) => examOf(x) === k));
+    const where = kinds.length ? kinds.join(', ').replace(/, ([^,]*)$/, ' and $1') + ' papers' : 'a past paper';
+    if (!PRO || !list[0].what) return `<div class="note exam cat2-asked"><p><b>This topic was asked in ${esc(where)}.</b> <a href="#pro" data-from="asked">Which paper and what was asked: Pro ${icon('right')}</a></p></div>`;
     const slot = (x) => { const p = PAPER[x.paper] || PINDEX.find((y) => y.id === x.paper); return p ? (p.short || p.title).replace(/ paper$/, '') : ''; };
-    const lines = list.map((x) => `${list.length > 1 ? `<b>${esc(slot(x))}</b> ` : ''}(${esc(x.where)}): ${esc(x.what)}. <a href="#papers.${esc(x.paper)}">See the question paper ${icon('right')}</a>`);
-    return `<div class="note exam cat2-asked"><p><b>This topic was asked in CAT-2</b>${list.length > 1 ? ` in ${list.length} slots` : ''}${list.length > 1 ? ':</p><p>' + lines.join('</p><p>') : ' ' + lines[0]}</p></div>`;
+    const lines = list.map((x) => `<b>${esc([examOf(x), slot(x)].filter(Boolean).join(' '))}</b> (${esc(x.where)}): ${esc(x.what)}. <a href="#papers.${esc(x.paper)}">See the question paper ${icon('right')}</a>`);
+    return `<div class="note exam cat2-asked"><p><b>This topic was asked in ${esc(where)}${list.length > 1 ? `, ${list.length} times` : ''}</b>${list.length > 1 ? ':</p><p>' + lines.join('</p><p>') : ' ' + lines[0]}</p></div>`;
   }
   function viewPapers(r) {
     const p = r.arg && PAPER[r.arg];
@@ -2312,10 +2317,12 @@ window.__startApp = function () {
         return open ? `<a class="next-topic" href="#papers.${esc(x.id)}"><div><small>${esc(x.sub || '')}</small><strong>${esc(x.title)}</strong></div><span class="arrow">${icon('right')}</span></a>`
           : `<a class="lock-card" href="#unlock"><span class="lock-ico">${icon('lock')}</span><div><strong>${esc(x.title)}</strong><p>${esc(x.sub || '')} · unlock with full access for ₹${PRICE_RS}</p></div><span class="arrow">${icon('right')}</span></a>`; };
       const actual = PINDEX.filter((x) => x.kind === 'actual'), model = PINDEX.filter((x) => x.kind === 'model');
-      el.innerHTML = `<div class="eyebrow"><span class="code">Exams</span><span>CAT</span><span class="dot">·</span><span>${actual.length} actual · ${model.length} model</span></div>
+      // actual papers are grouped by exam type (CAT-1, CAT-2, FAT); a paper without one stays under "Actual papers"
+      const groups = EXAMS.map(([k, label]) => [label + ' papers', actual.filter((x) => x.exam === k)]).concat([['Actual papers', actual.filter((x) => !EXAMS.some((v) => v[0] === x.exam))]]).filter((g) => g[1].length);
+      el.innerHTML = `<div class="eyebrow"><span class="code">Exams</span><span>CAT · FAT</span><span class="dot">·</span><span>${actual.length} actual${model.length ? ` · ${model.length} model` : ""}</span></div>
         <h1 class="h-display">Question papers</h1>
-        ${PINDEX.length ? `<p class="blurb">Real CAT papers, typed out cleanly, and model papers in the same pattern. Try each question on paper first, then open the model answer.</p>
-        ${actual.length ? `<section class="sum-sec"><h2 class="h-sec">Actual papers <small>${actual.length}</small></h2><div class="paper-list">${actual.map(row).join('')}</div></section>` : ''}
+        ${PINDEX.length ? `<p class="blurb">Real CAT and FAT papers, typed out cleanly, grouped by exam. Try each question on paper first, then open the answer where there is one.</p>
+        ${groups.map(([t, l]) => `<section class="sum-sec"><h2 class="h-sec">${esc(t)} <small>${l.length}</small></h2><div class="paper-list">${l.map(row).join('')}</div></section>`).join('')}
         ${model.length ? `<section class="sum-sec"><h2 class="h-sec">Model papers <small>${model.length}</small></h2><div class="paper-list">${model.map(row).join('')}</div></section>` : ''}`
           : '<p class="blurb">Question papers are coming soon: the actual CAT papers with model answers, and model papers in the same pattern.</p>'}`;
       stagger(el);

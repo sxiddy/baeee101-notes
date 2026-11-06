@@ -44,7 +44,7 @@ const report = { routes: 0, tabs: 0, figs: 0, figMissing: [], vizMounted: 0, viz
 
 (async () => {
   const mods = ACCESS.freeModules;
-  const base = ['#home', ...mods.map((m) => '#' + m), ...mods.map((m) => `#${m}-summary`), '#questions', ...mods.map((m) => '#questions.' + m), '#questions.mixed', '#pro', '#revise', '#mock', '#quiz', '#cards', '#formulas', '#lab', '#mine', '#guide', '#papers', '#syllabus.cat1', '#syllabus.cat2', '#battle'];
+  const base = ['#home', ...mods.map((m) => '#' + m), ...mods.map((m) => `#${m}-summary`), '#questions', ...mods.map((m) => '#questions.' + m), '#questions.mixed', '#pro', '#revise', '#mock', '#quiz', '#cards', '#formulas', '#lab', '#mine', '#guide', '#papers', '#syllabus.cat1', '#syllabus.cat2', '#battle', '#mock.fat', ...(w.DATA.papers || []).map((p) => '#papers.' + p.id)];
   for (const r of base) { const n = await go(r); report.routes++; if (n) console.log(`errors on ${r}`); }
   const doc = w.document;
   for (const t of N.TOPICS) {

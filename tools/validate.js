@@ -233,12 +233,19 @@ for (const f of files) {
     checkSummary(f, d.summary, allTopicIds, seenQ);
     console.log(`\n${base}: summary ok-ish (${(d.summary.bigIdeas || []).length} big ideas, ${(d.summary.questions || []).length} questions)`);
   } else if (d.papers) {
-    // CAT-2 question papers (papers-free.js / papers-paid.js): HTML and style checks, topic links, asked map
+    // question papers (papers-free.js / papers-pro.js): HTML and style checks, topic links, asked map
     const ctx = { figRefs: [], vizRefs: [] };
     const ps = d.papers.papers || [];
     let nq = 0;
     for (const p of ps) {
-      if (!p.id || !p.title) err(base, 'paper without id/title');
+      // a paper in a Pro file may be just id + the questions' n and answer (merged into the free copy by app/js/boot.js)
+      if (!p.id || (!p.title && !/pro/.test(base))) err(base, 'paper without id/title');
+      if (/free/.test(base)) {
+        if (!['cat1', 'cat2', 'fat'].includes(p.exam)) err(base, `${p.id}: exam must be cat1, cat2 or fat`);
+        if (!(d.papers.index || []).some((x) => x.id === p.id && x.exam === p.exam)) err(base, `${p.id}: not in the index (or the exam differs)`);
+        const ns = (p.questions || []).map((q) => q.n);
+        if (new Set(ns).size !== ns.length) err(base, `${p.id}: duplicate question numbers`);
+      }
       if (p.instructions) checkHtml(`${base} › ${p.id} instructions`, p.instructions, ctx);
       for (const q of p.questions || []) {
         nq++;
@@ -249,6 +256,15 @@ for (const f of files) {
       }
     }
     for (const id of Object.keys(d.papers.asked || {})) if (!allTopicIds.has(id)) err(`${base} › asked`, `unknown topic "${id}"`);
+    // the Pro file's papers and asked entries refer to the free file's papers
+    let free = null;
+    if (/pro/.test(base)) {
+      const g0 = global.PAPERS; global.PAPERS = (x) => { free = x; };
+      try { const fp = path.join(ROOT, 'content', 'papers-free.js'); delete require.cache[fp]; require(fp); } finally { global.PAPERS = g0; }
+    }
+    const known = new Set(ps.map((p) => p.id).concat((d.papers.index || []).map((x) => x.id), ((free && free.papers) || []).map((p) => p.id)));
+    for (const [id, list] of Object.entries(d.papers.asked || {})) for (const x of [].concat(list)) if (!known.has(x.paper)) err(`${base} › asked ${id}`, `unknown paper "${x.paper}"`);
+    if (free) for (const p of ps) for (const q of p.questions || []) if (!((free.papers.find((x) => x.id === p.id) || {}).questions || []).some((y) => y.n === q.n)) err(`${base} › ${p.id} Q${q.n}`, 'no such question in papers-free.js');
     // model answers may show the notes' own diagrams (by id); interactive viz stay in the notes
     for (const r of ctx.figRefs) if (!g.figIds.has(r.id)) err(r.where, `figure "${r.id}" is not a notes figure`);
     if (ctx.vizRefs.length) err(base, 'no viz inside papers');

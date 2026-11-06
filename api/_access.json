@@ -35,7 +35,8 @@
   "q-4b.js",
   "q-4c.js",
   "q-4d.js",
-  "summary-m4.js"
+  "summary-m4.js",
+  "papers-free.js"
  ],
  "proFiles": [
   "pro-1a.js",
@@ -69,6 +70,7 @@
   "qa-4b.js",
   "qa-4c.js",
   "qa-4d.js",
+  "papers-pro.js",
   "viz-m1.js",
   "viz-m2.js",
   "viz-m3.js",
