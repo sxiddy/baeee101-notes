@@ -302,15 +302,15 @@ CHUNK({
 <div class="given"><p>Ex 1. R = 3.5 Ω, L = 0.1 H, v = 220∠30° V, 50 Hz. Find (a) X<sub>L</sub> (b) pf angle (c) pf (d) Z (e) P (f) Q (g) S.</p></div>
 <div class="solve">
 <p>(a) X<sub>L</sub> = 2π × 50 × 0.1 = <b>31.42 Ω</b></p>
-<p>(b) φ = tan<sup>−1</sup>(31.42/3.5) = <b>83.65°</b></p>
-<p>(c) pf = cos 83.65° = <b>0.11 lag</b></p>
-<p>(d) |Z| = √(3.5<sup>2</sup> + 31.42<sup>2</sup>) = 31.6 Ω, Z = <b>31.6∠83.65° Ω</b></p>
-<p>I = 220∠30°/31.6∠83.65° = <b>6.96∠−53.65° A</b></p>
+<p>(b) φ = tan<sup>−1</sup>(31.42/3.5) = <b>83.64°</b> (the course prints 83.65°)</p>
+<p>(c) pf = cos 83.64° = <b>0.11 lag</b></p>
+<p>(d) |Z| = √(3.5<sup>2</sup> + 31.42<sup>2</sup>) = 31.6 Ω, Z = <b>31.6∠83.64° Ω</b></p>
+<p>I = 220∠30°/31.6∠83.64° = <b>6.96∠−53.64° A</b></p>
 <p>(e) P = 220 × 6.96 × 0.1107 = <b>169.5 W</b> (check: I<sup>2</sup>R = 6.96<sup>2</sup> × 3.5 = 169.5 W)</p>
-<p>(f) Q = 220 × 6.96 × sin 83.65° = <b>1521.7 VAR</b></p>
+<p>(f) Q = 220 × 6.96 × sin 83.64° = <b>1521.7 VAR</b></p>
 <p>(g) S = 220 × 6.96 = <b>1531.1 VA</b></p>
 </div>
-<div class="result"><p>X<sub>L</sub> 31.42 Ω, φ 83.65°, pf 0.11 lag, Z 31.6∠83.65° Ω, P 169.5 W, Q 1521.7 VAR, S 1531.1 VA</p></div>
+<div class="result"><p>X<sub>L</sub> 31.42 Ω, φ 83.64°, pf 0.11 lag, Z 31.6∠83.64° Ω, P 169.5 W, Q 1521.7 VAR, S 1531.1 VA</p></div>
 </div>
 <div class="note heads-up"><p>The course prints answers only up to I and pf; P, Q and S above are worked from those values.</p></div>
 <div class="worked">

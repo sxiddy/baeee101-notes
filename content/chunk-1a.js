@@ -608,7 +608,7 @@ CHUNK({
 </div>
 <div class="result"><p><b>I<sub>R</sub> = 1.814 + 0.238 = 2.05 A</b> (≈ 2.06 A as printed).</p></div>
 </div>
-<div class="note heads-up"><p>The question text says R<sub>2</sub> = 0.004 Ω, but the figure shows 0.04 Ω. The printed answer matches the figure: with 0.04 Ω the current is 2.052 A, which the course rounds to 2.06 A (2.05 A to two places). With 0.004 Ω it would be 2.10 A. The answer is also labelled I<sub>1</sub>; it is the current through R.</p></div>
+<div class="note heads-up"><p>The question text says R<sub>2</sub> = 0.004 Ω, but the figure shows 0.04 Ω. The printed answer matches the figure: with 0.04 Ω the current works out to 2.052 A, i.e. 2.05 A; the printed 2.06 A is a small slip. With 0.004 Ω it would be 2.10 A. The answer is also labelled I<sub>1</sub>; it is the current through R.</p></div>
 <div class="note why"><p>Each cell’s own big current mostly flows round through the other cell (tiny resistances), and only a small share goes through the 1 Ω. That is why the shares are 1.8 A and 0.24 A out of about 47 A. In the full circuit the 2.15 V cell supplies 2.45 A and the 2.05 V cell takes in 0.40 A, i.e. it is being charged.</p></div>`
         }
       ],

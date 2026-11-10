@@ -277,7 +277,7 @@ CHUNK({
 <div class="eq">T<sub>sh</sub> = <span class="frac"><span>8200</span><span>2π × 4.83</span></span> = <span class="frac"><span>8200</span><span>30.3</span></span></div>
 </div>
 <div class="result"><p>T<sub>a</sub> = <b>286.2 N·m</b>, N = <b>289.5 rpm</b>, T<sub>sh</sub> = <b>270.5 N·m</b></p></div></div>
-<div class="note heads-up"><p>The course writes "289.5 rpm or 30 rps" and gets T<sub>sh</sub> = 8200/(2 × 3.14 × 30) = 43.52 N·m. But 289.5 rpm is <b>4.83 rps</b>. The 30 looks like the angular speed (2π × 4.83 = 30.3 rad/s) multiplied by 2π a second time. With 4.83 rps, T<sub>sh</sub> = 270.5 N·m, which sensibly sits just under T<sub>a</sub> = 286.2 N·m. A shaft torque of 43.52 N·m from a 286 N·m armature would be impossible.</p></div>
+<div class="note heads-up"><p>The course writes "289.5 rpm or 30 rps" and gets T<sub>sh</sub> = 8200/(2 × 3.14 × 30) = 43.52 N·m. But 289.5 rpm is <b>4.83 rps</b>. So the 30 rps on the slide is wrong. With 4.83 rps, T<sub>sh</sub> = 270.5 N·m, which sensibly sits just under T<sub>a</sub> = 286.2 N·m. A shaft torque of 43.52 N·m from a 286 N·m armature would be impossible.</p></div>
 <div class="note exam"><p>The question gives R<sub>a</sub> = 0.6 Ω only. In a series motor take it as the total armature-plus-field resistance, as the solution does.</p></div>`
         },
         {
