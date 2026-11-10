@@ -22,7 +22,7 @@ CHUNK({
         },
         {
           title: 'Intrinsic silicon',
-          html: `<p class="lead">Silicon has <b>14 protons and 14 electrons</b>. Its atoms link together into a <b>crystal lattice</b> through <b>covalent bonds</b>.</p>
+          html: `<p class="lead">Silicon has <b>14 protons and 14 electrons</b>, with <b>4 valence electrons</b> in the outer shell. Its atoms link together into a <b>crystal lattice</b> through <b>covalent bonds</b>.</p>
 <p>In pure silicon every valence electron is tied up in a bond, so no electrons are free for current. Pure semiconductor material is called <b>intrinsic</b>, and silicon in this form is a <b>great insulator</b>.</p>
 <div class="note why"><p>Each atom shares its outer electrons with its neighbours, so the electrons are difficult to dislodge. No free carriers means no current.</p></div>`
         },
@@ -75,7 +75,11 @@ CHUNK({
           html: `<p class="lead">Dope one half of a semiconductor <b>P-type</b> and the other half <b>N-type</b> and you get a <b>PN junction</b>. The plane dividing the two halves is the junction.</p>
 <ol class="steps"><li><b>Diffusion</b> N-type has many free electrons and P-type has many holes, so at the junction electrons diffuse to the P-side and holes diffuse to the N-side.</li><li><b>Charge builds</b> The net opposite charge left in each layer stops further diffusion into that layer.</li><li><b>Barrier</b> A barrier forms near the junction and blocks further movement of carriers. This is the <b>potential barrier</b>.</li></ol>
 <div class="kv"><div><span>Barrier, germanium</span><b>0.3 V</b></div><div><span>Barrier, silicon</span><b>0.7 V</b></div></div>
-<p>A diode can work in three conditions: <b>no bias</b>, <b>forward bias</b> and <b>reverse bias</b>.</p>`
+<p>A diode can work in three conditions: <b>no bias</b>, <b>forward bias</b> and <b>reverse bias</b>.</p>
+<h3>Labels on the junction</h3>
+<ul><li>Away from the junction both sides stay <b>neutral</b> (the neutral p and n regions).</li><li>The band around the junction is the <b>space charge region</b>, also called the depletion region. Its <b>E-field</b> points from the n side towards the p side.</li><li>On holes, the <b>diffusion force</b> pushes them towards the n side and the <b>E-field force</b> pushes them back. On electrons, diffusion pushes them towards the p side and the E-field force pushes them back. The two forces balance at the barrier.</li></ul>
+<h3>Symbol</h3>
+<p>The diode symbol has an <b>anode</b> (P side) and a <b>cathode</b> (N side). On a real component the <b>stripe marks the cathode</b>.</p>`
         },
         {
           title: 'Forward bias',
@@ -217,7 +221,8 @@ CHUNK({
           title: 'What a BJT is',
           html: `<p class="lead">A <b>Bipolar Junction Transistor (BJT)</b> is a <b>three-terminal</b> semiconductor device whose operation depends on both <b>majority and minority carriers</b>, hence “bipolar”. It uses both electrons and holes. Unipolar transistors, such as FETs, use only one kind of carrier.</p>
 <ul><li>It is used as a <b>linear amplifier</b> to boost a signal and as an <b>electronic switch</b>.</li><li>It is a PN junction diode with a <b>second P or N region</b> added.</li><li><b>NPN</b>: two N regions and one P region. <b>PNP</b>: two P regions and one N region. Either way there are two junctions.</li></ul>
-<div class="kv"><div><span>Terminals</span><b>Collector (C), Emitter (E), Base (B)</b></div><div><span>Junctions</span><b>Collector–base (CBJ), base–emitter (BEJ)</b></div></div>`
+<div class="kv"><div><span>Terminals</span><b>Collector (C), Emitter (E), Base (B)</b></div><div><span>Junctions</span><b>Collector–base (CBJ), base–emitter (BEJ)</b></div></div>
+<p>The course shows several packages. On the small plastic one the three leads are labelled <b>E, B, C</b> in that order.</p>`
         },
         {
           title: 'Emitter, base, collector',
@@ -238,7 +243,14 @@ CHUNK({
         {
           title: 'Biasing and currents',
           html: `<p class="lead">For proper working you apply voltages of the correct polarity across both junctions, the collector–base and emitter–base junctions. This is <b>biasing</b>.</p>
+<table class="tbl"><thead><tr><th>Emitter–base (EBJ)</th><th>Collector–base (CBJ)</th><th>Region</th><th>Use</th></tr></thead><tbody>
+<tr><td>Forward biased</td><td>Reverse biased</td><td><b>Active</b></td><td>Amplifiers</td></tr>
+<tr><td>Forward biased</td><td>Forward biased</td><td>Saturation</td><td>Switching circuits</td></tr>
+<tr><td>Reverse biased</td><td>Reverse biased</td><td>Cut-off</td><td>Switching circuits</td></tr>
+<tr><td>Reverse biased</td><td>Forward biased</td><td>Inverse</td><td>Hardly used</td></tr>
+</tbody></table>
 <div class="note exam"><p><b>Active region:</b> the emitter–base junction is <b>forward biased</b> and the collector–base junction is <b>reverse biased</b>.</p></div>
+<p>In the course figure the active-region supplies are <b>V<sub>BE</sub></b> (forward) and <b>V<sub>CB</sub></b> (reverse) for an NPN, and <b>V<sub>EB</sub></b> (forward) and <b>V<sub>BC</sub></b> (reverse) for a PNP.</p>
 <figure data-fig="m2-bjt-currents"></figure>
 <p>Three primary currents flow in a properly biased transistor: I<sub>E</sub>, I<sub>B</sub> and I<sub>C</sub>.</p>
 <div class="eq" data-label="Both NPN and PNP">I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub></div>
@@ -251,6 +263,7 @@ CHUNK({
         { front: 'Describe the base of a BJT.', back: 'The middle section, very thin and very lightly doped.' },
         { front: 'Why is the collector bigger than the emitter?', back: 'It has to dissipate much greater power. So the transistor cannot be used inverted.' },
         { front: 'Where is the arrowhead on a BJT symbol and what does it show?', back: 'Always on the emitter, showing the conventional current direction.' },
+        { front: 'What is the inverse region of a BJT?', back: 'Emitter–base reverse biased and collector–base forward biased. It is hardly used.' },
         { front: 'Bias conditions for the active region?', back: 'Emitter–base junction forward biased, collector–base junction reverse biased.' },
         { front: 'How is the emitter current split?', back: 'I_E = I_B + I_C. About 1–2 % goes to the base and 98–99 % to the collector.' },
         { front: 'NPN versus PNP in one line each?', back: 'NPN: two N regions around one P, arrow base to emitter. PNP: two P regions around one N, arrow emitter to base.' }
@@ -277,12 +290,16 @@ CHUNK({
         {
           title: 'NPN transistor',
           html: `<p class="lead">In an NPN transistor the emitter pushes <b>electrons</b> into the base, and the collector sweeps them up.</p>
-<ol class="steps"><li><b>Injection</b> The forward bias on the emitter–base junction makes a lot of electrons cross from the emitter into the base.</li><li><b>Few recombine</b> The base is lightly doped P-type, so it has very few holes. Only a few electrons combine with holes there, and that makes the small <b>base current I<sub>B</sub></b>.</li><li><b>Collection</b> The reverse-biased collector junction has a strong electric field that sweeps most of the injected electrons (almost <b>95 %</b>) into the collector, forming the <b>collector current I<sub>C</sub></b>.</li><li><b>Sum</b> The base and collector currents add to give the emitter current: I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>.</li></ol>`
+<ol class="steps"><li><b>Injection</b> The forward bias on the emitter–base junction makes a lot of electrons cross from the emitter into the base.</li><li><b>Few recombine</b> The base is lightly doped P-type, so it has very few holes. Only a few electrons combine with holes there, and that makes the small <b>base current I<sub>B</sub></b>.</li><li><b>Collection</b> The reverse-biased collector junction has a strong electric field that sweeps most of the injected electrons (almost <b>95 %</b>) into the collector, forming the <b>collector current I<sub>C</sub></b>.</li><li><b>Sum</b> The base and collector currents add to give the emitter current: I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>.</li></ol>
+<p>The course figure labels the <b>electron injection</b> across the base–emitter junction, the supplies <b>V<sub>BB</sub></b> and <b>V<sub>CC</sub></b>, and the resistors <b>R<sub>E</sub></b> and <b>R<sub>C</sub></b> in the emitter and collector leads. A second figure splits the base current into two parts, <b>i<sub>B1</sub></b> and <b>i<sub>B2</sub></b>, both small.</p>
+<div class="note heads-up"><p>The course says almost <b>95 %</b> of the carriers reach the collector, but its own current page says <b>98–99 %</b> of I<sub>E</sub> becomes I<sub>C</sub>. Treat 95 % as the course's loose figure. The same line says the “reverse biased C-E junction” makes the field; it means the <b>collector–base</b> junction.</p></div>`
         },
         {
           title: 'PNP transistor',
           html: `<p class="lead">A PNP transistor works the same way with <b>holes</b> as the main carriers.</p>
 <ol class="steps"><li><b>Injection</b> The forward bias on the emitter–base junction makes many holes cross from the emitter into the base.</li><li><b>Few recombine</b> The base is lightly doped N-type, so it has very few electrons. Only a few holes combine with electrons there, giving the small <b>base current I<sub>B</sub></b>.</li><li><b>Collection</b> The remaining holes (more than <b>95 %</b>) cross into the collector, forming the <b>collector current I<sub>C</sub></b>.</li><li><b>Sum</b> I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>.</li></ol>
+<p>The PNP figure labels the <b>injected holes</b>, <b>diffusing holes</b> and <b>collected holes</b> (which make I<sub>C</sub>), the <b>recombined holes</b> (i<sub>B2</sub>) and the <b>injected electrons</b> going back to the emitter. The forward-biased junction is on the emitter side and the reverse-biased one on the collector side, with supplies V<sub>EB</sub> and V<sub>BC</sub>, and V<sub>BB</sub>, V<sub>CC</sub>, R<sub>E</sub>, R<sub>C</sub> in the circuit.</p>
+<div class="note heads-up"><p>The course text for the PNP says the holes form “collector current I<sub>E</sub>”. That is a typo for I<sub>C</sub>. The 95 % figure is the same loose one as for the NPN.</p></div>
 <div class="note why"><p>The thin, lightly doped base is the whole trick. Carriers have almost nowhere to recombine, so nearly all of them reach the collector.</p></div>`
         }
       ],
@@ -333,11 +350,12 @@ CHUNK({
         },
         {
           title: 'Three regions',
-          html: `<p class="lead">The output curves divide into <b>active</b>, <b>cut-off</b> and <b>saturation</b> regions.</p>
+          html: `<p class="lead">The output curves divide into <b>active</b>, <b>cut-off</b> and <b>saturation</b> regions. The course's bias table lists a <b>fourth</b>, the inverse region, which is hardly used.</p>
 <table class="tbl"><thead><tr><th>Region</th><th>Junctions</th><th>Conditions</th><th>Use</th></tr></thead><tbody>
-<tr><td>Active</td><td>CBJ reverse biased, BEJ forward biased</td><td>I<sub>C</sub> follows I<sub>B</sub></td><td>Voltage, current or power <b>amplification</b></td></tr>
-<tr><td>Cut-off</td><td>Both off</td><td>I<sub>B</sub> = 0, I<sub>C</sub> = 0, V<sub>CE</sub> maximum; large depletion layer, no current</td><td>Switch <b>fully OFF</b></td></tr>
-<tr><td>Saturation</td><td>Both on</td><td>Maximum base current, maximum I<sub>C</sub>, minimum V<sub>CE</sub>; depletion layer as small as possible</td><td>Switch <b>fully ON</b></td></tr>
+<tr><td>Active</td><td>EBJ forward biased, CBJ reverse biased</td><td>I<sub>C</sub> follows I<sub>B</sub></td><td>Voltage, current or power <b>amplification</b></td></tr>
+<tr><td>Cut-off</td><td>EBJ and CBJ both reverse biased</td><td>I<sub>B</sub> = 0, I<sub>C</sub> = 0, V<sub>CE</sub> maximum; large depletion layer, no current</td><td>Switch <b>fully OFF</b></td></tr>
+<tr><td>Saturation</td><td>EBJ and CBJ both forward biased</td><td>Maximum base current, maximum I<sub>C</sub>, minimum V<sub>CE</sub>; depletion layer as small as possible</td><td>Switch <b>fully ON</b></td></tr>
+<tr><td>Inverse</td><td>EBJ reverse biased, CBJ forward biased</td><td>Not marked on the CE output curves</td><td>Hardly used</td></tr>
 </tbody></table>
 <div class="note why"><p>A transistor used as a switch jumps between cut-off and saturation. Used as an amplifier it stays in the active region.</p></div>`
         }

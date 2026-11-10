@@ -15,13 +15,15 @@ CHUNK({
           html: `<p class="lead">A <b>cellular radio system</b> provides standard telephone service by <b>two-way radio</b> at remote locations. It lets users link to the standard telephone system, so calls reach any part of the world.</p>
 <ul><li>Cellular phones were first installed in cars and trucks; today most are handheld.</li><li>The Bell Telephone division of AT&amp;T developed the system in the <b>1970s</b> and fully implemented it in the early <b>1980s</b>.</li><li>The original U.S. system was the <b>Advanced Mobile Phone System (AMPS)</b>, based on <b>analog FM</b>. It has been phased out and replaced by <b>2G, 3G and 4G</b> digital systems.</li></ul>
 <h3>History</h3>
-<div class="kv"><div><span>1893</span><b>Radio communication invented by Marconi</b></div><div><span>1940</span><b>First walkie-talkie, used by the US military</b></div><div><span>1947</span><b>Transistor invented by John Bardeen and Walter Brattain of AT&amp;T Bell Labs</b></div><div><span>1979</span><b>First commercial cellular service, Nordic Mobile Telephone (Finland, Sweden, Norway, Denmark)</b></div></div>`
+<div class="kv"><div><span>1893</span><b>Radio communication invented by Marconi</b></div><div><span>1940</span><b>First walkie-talkie, used by the US military</b></div><div><span>1947</span><b>Transistor invented by John Bardeen and Walter Brattain of AT&amp;T Bell Labs</b></div><div><span>1979</span><b>First commercial cellular service, Nordic Mobile Telephone (Finland, Sweden, Norway, Denmark)</b></div></div>
+<div class="note heads-up"><p>The course prints <b>1893</b> for Marconi and calls it the invention of radio communication. His radio work is usually dated from about <b>1895</b>. Quote 1893 if a question uses the course's history list.</p></div>`
         },
         {
           title: 'Cells and the MTSO',
           html: `<p class="lead">Rather than serving an area with one big transmitter and receiver, the system divides it into many smaller areas called <b>cells</b>.</p>
 <figure data-fig="m2-cell-layout"></figure>
-<ul><li>A typical cell covers only several square miles and has its <b>own receiver and low-power transmitter</b>.</li><li>Coverage depends on the <b>density of users</b>: many small cells in a heavily populated city, fewer in rural areas.</li><li><b>Short</b> antenna towers limit the coverage area; <b>higher</b> towers give broader coverage. A cell site reliably serves only the people and vehicles in its own small area.</li><li>Each cell is linked by telephone lines or a microwave relay to a master control centre, the <b>mobile telephone switching office (MTSO)</b>.</li><li>The MTSO controls all the cells and is the interface between each cell and the main telephone office. Calls are routed through the MTSO to the standard telephone system.</li></ul>`
+<ul><li>A typical cell covers only several square miles and has its <b>own receiver and low-power transmitter</b>.</li><li>Coverage depends on the <b>density of users</b>: many small cells in a heavily populated city, fewer in rural areas.</li><li><b>Short</b> antenna towers limit the coverage area; <b>higher</b> towers give broader coverage. A cell site reliably serves only the people and vehicles in its own small area.</li><li>Each cell is linked by telephone lines or a microwave relay to a master control centre, the <b>mobile telephone switching office (MTSO)</b>.</li><li>The MTSO controls all the cells and is the interface between each cell and the main telephone office. Calls are routed through the MTSO to the standard telephone system.</li></ul>
+<div class="note heads-up"><p>The caption under the course figure spells MTSO as “Mobile Terminal Switching Office”, but the text calls it the mobile <b>telephone</b> switching office. Telephone is the one to write.</p></div>`
         },
         {
           title: 'Handoff',
@@ -125,7 +127,8 @@ CHUNK({
 <tr><td><b>BTS</b> Base Transceiver Station</td><td>Main component of a cell. Connects subscribers to the cellular network; sends and receives information through several antennas spread across the cell</td></tr>
 <tr><td><b>BSC</b> Base Station Controller</td><td>Interface between BTSs, linked by cable or microwave links. Routes calls between BTSs and to the MSC</td></tr>
 <tr><td><b>MSC</b> Mobile Switching Center</td><td>The coordinator of the cellular network. Connected to several BSCs; routes calls between BSCs; links the network with other networks such as the PSTN through fibre optics, microwave or copper cable</td></tr>
-</tbody></table>`
+</tbody></table>
+<div class="note heads-up"><p>One course page writes BSC as “Basic Station Controller”. It means <b>Base Station Controller</b>, the name used everywhere else.</p></div>`
         },
         {
           title: 'Registers and services',
@@ -169,14 +172,21 @@ CHUNK({
           title: 'What a satellite does',
           html: `<p class="lead"><b>Satellite communication</b> is transporting information from one place to another using a communication satellite in orbit around the Earth. The satellite sends the signal through a <b>transponder</b>, creating a channel between the transmitter and receiver at different Earth locations.</p>
 <ul><li>Used for telephone, radio, television, internet and military applications.</li><li>Communication satellites are <b>not originators</b> of information. They are <b>relay stations</b> for earth sources, an <b>R.F. repeater</b>.</li><li>A satellite is a powerful long-distance, <b>point-to-multipoint</b> system.</li><li>It overcomes the limit of <b>line-of-sight</b> communication (about 45 to 55 km) by putting the transmitting antenna on a satellite high above the Earth.</li><li>The satellite is a payload carried into orbit by a launch vehicle. It has microwave electronics, and <b>solar cells</b> power them.</li></ul>
-<div class="note why"><p>A <b>geostationary</b> satellite sits about <b>35,900 km</b> above the ground. Its rotation is synchronised with the Earth’s, so it appears fixed in the sky from the earth station, and the dish never has to move.</p></div>`
+<div class="note why"><p>A <b>geostationary</b> satellite sits about <b>35,900 km</b> above the ground. Its rotation is synchronised with the Earth’s, so it appears fixed in the sky from the earth station, and the dish never has to move.</p></div>
+<div class="note heads-up"><p>35,900 km is the course's rounded figure. The exact geostationary height is about <b>35,786 km</b>. Separately, the course page prints the line-of-sight distance as “4555 km” with no dash or unit break, and these notes read it as 45 to 55 km. The page does not say what antenna heights it assumes, so the reading is unclear. Treat it as an approximate figure.</p></div>`
         },
         {
           title: 'Uplink and downlink',
           html: `<p class="lead">Think of a communication satellite as a space mirror that bounces radio, internet data and TV signals from one side of the Earth to the other.</p>
 <figure data-fig="m2-sat-link"></figure>
 <ol class="steps"><li><b>Uplink</b> The ground station beams the signal up to the satellite. (Example: a TV broadcast.)</li><li><b>Transponder</b> Radio receivers, amplifiers and transmitters boost the incoming signal and change its frequency so that the outgoing signal is not altered.</li><li><b>Downlink</b> The signal is sent to the receiving earth station. Usually there is <b>one uplink and multiple downlinks</b>.</li></ol>
-<p>Two major components: the <b>ground segment</b> (earth stations and terrestrial systems) and the <b>space segment</b> (the satellite). Services are either <b>one-way</b> or <b>two-way</b>.</p>`
+<p>The chain from sender to receiver, as in the figure:</p>
+<p>User → terrestrial system → earth station → antenna → <b>uplink</b> → satellite → <b>downlink</b> → antenna → earth station → terrestrial system → user.</p>
+<p>Two major components: the <b>ground segment</b> (earth stations and terrestrial systems) and the <b>space segment</b> (the satellite).</p>
+<div class="vs"><div class="side"><h4>Ground segment</h4><ul><li>Earth stations</li><li>Rearward communication links</li><li>User terminals and interfaces</li><li>Network control centre</li><li>Transmit equipment</li><li>Receive equipment</li><li>Antenna system</li></ul></div><div class="side"><h4>Space segment</h4><ul><li>Satellite</li><li>Means of launching the satellite</li><li>Electrical power system</li><li>Mechanical structure</li><li>Communication transponders</li><li>Communication antennas</li><li>Attitude and orbit control system</li></ul></div></div>
+<h3>One-way and two-way</h3>
+<p>Services are either <b>one-way</b> or <b>two-way</b>. In a one-way service the first earth station sends an uplink and the second earth station gets a downlink. In a two-way service both earth stations send and receive, so the figure shows <b>uplink and downlink on each side</b> between the two stations.</p>
+<div class="note heads-up"><p>The course's two-way figure labels the four links as Up link 1, Down link 2, Down link 2 and Up link 2. There is no Down link 1, so the second “Down link 2” is a labelling slip. Just remember that each station has its own uplink and its own downlink.</p></div>`
         },
         {
           title: 'Pros, cons and uses',
@@ -200,6 +210,7 @@ CHUNK({
         { front: 'How high is a geostationary satellite and why does it look fixed?', back: 'About 35,900 km up; its rotation is synchronised with the Earth.' },
         { front: 'What are the three stages of satellite communication?', back: 'Uplink, transponder, downlink.' },
         { front: 'What is the ground and space segment?', back: 'Ground segment: earth stations and terrestrial systems. Space segment: the satellite.' },
+        { front: 'What makes up the space segment?', back: 'Satellite, launch means, electrical power system, mechanical structure, communication transponders, communication antennas, attitude and orbit control system.' },
         { front: 'Name two advantages and two disadvantages.', back: 'Advantages: every corner of the Earth covered, the user controls the network. Disadvantages: high initial cost, blockage of frequencies, interference.' },
         { front: 'What powers the satellite electronics?', back: 'Solar cells.' },
         { front: 'Name a few uses of satellite communication.', back: 'Telephone, television, digital cinema, radio, amateur radio, internet, military, disaster management.' }
@@ -224,6 +235,9 @@ CHUNK({
           title: 'Repeaters and transponders',
           html: `<p class="lead">The satellite receives the earth station’s signal, <b>amplifies</b> it and <b>translates</b> it to another frequency, then retransmits it. The transmitter–receiver combination in the satellite is the <b>transponder</b>.</p>
 <figure data-fig="m2-sat-block"></figure>
+<p>The block diagram follows the signal in this order:</p>
+<ol class="steps"><li><b>Input filter</b> takes the 5.9–6.4 GHz uplink signal.</li><li><b>6 GHz amplifier</b> boosts it.</li><li><b>Mixer</b> combines it with the <b>2.2 GHz local oscillator</b> to shift the frequency down.</li><li><b>4 GHz amplifier</b> boosts the new frequency.</li><li><b>Transponder block:</b> input multiplexer, then <b>TWT amplifier</b>, then output multiplexer.</li><li><b>Downlink</b> leaves at 3.7–4.2 GHz.</li></ol>
+<div class="note heads-up"><p>Another course page draws a simpler transponder with the local oscillator labelled <b>2 GHz</b>. The block diagram above says <b>2.2 GHz</b>, and that is the right one: 5.925–6.425 GHz minus 2.2 GHz gives 3.725–4.225 GHz, which matches the 3.7–4.2 GHz downlink.</p></div>
 <ul><li>The signal sent up is the <b>uplink</b>; the retransmitted signal is the <b>downlink</b>. Usually <b>downlink frequency is lower</b> than uplink: typically <b>6 GHz up and 4 GHz down</b>.</li><li>Basic functions: <b>amplification</b> and <b>frequency translation</b>.</li></ul>
 <div class="note why"><p>A transponder cannot transmit and receive on the same frequency. The transmitter’s strong signal would overload (“desensitize”) the receiver and block the very small uplink signal. Widely spaced transmit and receive frequencies prevent this.</p></div>
 <ul><li>Transponders are <b>wide-bandwidth</b> units, but a typical one handles only one uplink or downlink signal to minimise interference and improve reliability.</li><li>To be economical a satellite handles several channels, so it has <b>multiple transponders</b> on different frequencies. Example: <b>24 channels</b>, 12 vertically and 12 horizontally polarised. Each transponder is one channel, and multiple-access schemes let a channel carry several transmissions.</li></ul>`
@@ -234,17 +248,31 @@ CHUNK({
 <table class="tbl"><thead><tr><th>Band</th><th>Uplink</th><th>Downlink</th><th>Notes</th></tr></thead><tbody>
 <tr><td>C band (6/4 GHz)</td><td>5.925 to 6.425 GHz</td><td>3.7 to 4.2 GHz</td><td>Most widely used, overcrowded, interference</td></tr>
 <tr><td>Ku band (14/12 GHz)</td><td>14 to 14.5 GHz</td><td>11.7 to 12.2 GHz</td><td>Receiving the most attention; most new satellites</td></tr>
-<tr><td>Ka band</td><td></td><td></td><td>Use is increasing</td></tr>
-<tr><td>X band</td><td></td><td></td><td>Military satellites and radar</td></tr>
-<tr><td>L band</td><td></td><td></td><td>Navigation, marine and aeronautical communication, radar</td></tr>
 </tbody></table>
+<p>The course also lists every band with its full frequency range:</p>
+<table class="tbl"><thead><tr><th>Band</th><th>Frequency</th><th>Notes from the course</th></tr></thead><tbody>
+<tr><td>P</td><td>225–390 MHz</td><td></td></tr>
+<tr><td>J</td><td>350–530 MHz</td><td></td></tr>
+<tr><td>L</td><td>1530–2700 MHz</td><td>Navigation, marine and aeronautical communication, radar</td></tr>
+<tr><td>S</td><td>2500–2700 MHz</td><td></td></tr>
+<tr><td>C</td><td>3400–6425 MHz</td><td>Most widely used, overcrowded</td></tr>
+<tr><td>X</td><td>7250–8400 MHz</td><td>Military satellites and radar</td></tr>
+<tr><td>Ku</td><td>10.95–14.5 GHz</td><td>Most new satellites</td></tr>
+<tr><td>Ka</td><td>17.7–31 GHz</td><td>Use is increasing</td></tr>
+<tr><td>Q</td><td>36–46 GHz</td><td></td></tr>
+<tr><td>V</td><td>46–56 GHz</td><td></td></tr>
+<tr><td>W</td><td>56–100 GHz</td><td></td></tr>
+</tbody></table>
+<div class="note heads-up"><p>As printed, some ranges overlap: P and J, and L and S. The C band row (3400–6425 MHz) is wider than the 3.7–4.2 and 5.925–6.425 GHz slices used for downlink and uplink. Quote the numbers as given.</p></div>
 <ul><li>The move upward is because the <b>C band is overcrowded</b>. The only way to reduce interference is to shift to higher frequencies, even though equipment for them is more complex and expensive.</li><li>For a given antenna size, <b>gain is higher in Ku than in C band</b>, which improves reliability while decreasing antenna size and cost.</li></ul>`
         },
         {
           title: 'Satellite subsystems',
           html: `<p class="lead">The heart of a communication satellite is the <b>communication subsystem</b>: a set of transponders that receive uplink signals and retransmit them to Earth. A transponder is a repeater that implements a <b>wideband channel</b> carrying many simultaneous transmissions.</p>
 <p>It is supported by “housekeeping” subsystems that keep the satellite self-sustaining:</p>
-<div class="chips"><span class="chip">Power subsystem</span><span class="chip">Telemetry, tracking and command</span><span class="chip">Antennas</span><span class="chip">Propulsion</span><span class="chip">Attitude stabilization</span></div>`
+<div class="chips"><span class="chip">Power subsystem</span><span class="chip">Telemetry, tracking and command</span><span class="chip">Antennas</span><span class="chip">Propulsion</span><span class="chip">Attitude stabilization</span></div>
+<p>The course block diagram labels the parts of each subsystem:</p>
+<ul><li><b>Power subsystem:</b> solar panels, charger and batteries, regulators (protection and conditioning) that give DC to all subsystems, and a DC/DC converter and DC/AC inverter for special subsystems.</li><li><b>Communication subsystem:</b> receiver, frequency translator and transmitter (together one transponder), plus other transponders.</li><li><b>Antenna subsystem:</b> feeds the communication antennas.</li><li><b>Telemetry, tracking and control subsystem:</b> takes inputs from onboard sensors, sends control signals to all subsystems and has its own telemetry antenna.</li><li><b>Attitude control subsystem</b></li><li><b>Propulsion subsystem:</b> the AKM and the jet thrusters.</li></ul>`
         }
       ],
       flashcards: [
@@ -254,6 +282,7 @@ CHUNK({
         { front: 'Ku band uplink and downlink?', back: '14–14.5 GHz up and 11.7–12.2 GHz down (14/12 GHz).' },
         { front: 'Why are newer satellites moving to Ku band?', back: 'The C band is overcrowded and has interference; Ku gives higher antenna gain for the same size.' },
         { front: 'What are X and L bands used for?', back: 'X: military satellites and radar. L: navigation, marine and aeronautical communication, radar.' },
+        { front: 'List the satellite bands in order of frequency.', back: 'P, J, L, S, C, X, Ku, Ka, Q, V, W (P is 225–390 MHz, W is 56–100 GHz).' },
         { front: 'What is the satellite’s communication subsystem?', back: 'A set of transponders supported by housekeeping subsystems: power, telemetry/tracking/command, antennas, propulsion, attitude stabilization.' },
         { front: 'Example of channel count on a satellite?', back: '24 channels: 12 vertically and 12 horizontally polarised.' }
       ],
@@ -332,7 +361,7 @@ CHUNK({
     { id: 'm2-cell-bands', src: 'm2/pages/p106.png', crop: null, caption: 'Original cellular bands: 25 MHz uplink (824–849) and 25 MHz downlink (869–894), plus the 60 MHz PCS pair.', alt: 'Frequency bars for uplink and downlink channels.' },
     { id: 'm2-cell-network', src: 'm2/pages/p134.png', crop: null, caption: 'Cellular network: mobile device, BTS, BSC, MSC, with the HLR, VLR, EIR and AuC databases attached to the MSC.', alt: 'Chain of mobile device, BTS, BSC and MSC with four database icons.' },
     { id: 'm2-sat-link', src: 'm2/pages/p115.png', crop: null, caption: 'Satellite link: uplink from the transmitting station, transponder in the satellite, downlink to the receiving station.', alt: 'Satellite between a transmitting and a receiving earth station with uplink and downlink.' },
-    { id: 'm2-sat-block', src: 'm2/pages/p114.png', crop: null, caption: 'Transponder block diagram: 5.9–6.4 GHz uplink is filtered, amplified, mixed with a 2.2 GHz oscillator, amplified at 4 GHz and sent down at 3.7–4.2 GHz.', alt: 'Block diagram of a satellite transponder with mixer and oscillator.' },
+    { id: 'm2-sat-block', src: 'm2/pages/p114.png', crop: null, caption: 'Transponder block diagram: 5.9–6.4 GHz uplink is filtered, amplified, mixed with a 2.2 GHz oscillator, amplified at 4 GHz and sent down at 3.7–4.2 GHz. (A simpler course drawing labels the oscillator 2 GHz; 2.2 GHz is the correct value.)', alt: 'Block diagram of a satellite transponder with mixer and oscillator.' },
     { id: 'm2-radar-principle', src: 'm2/pages/p123.png', crop: null, caption: 'Radar principle: the transmitter sends a signal, the target echoes it back to the receiver, and the delay gives the range.', alt: 'Transmitter and receiver sharing an antenna with a helicopter target and echo.' },
     { id: 'm2-radar-block', src: 'm2/pages/p125.png', crop: null, caption: 'Radar block diagram: transmitter chain and receiver chain joined by the duplexer and antenna.', alt: 'Block diagram of a radar transmitter section and receiver section.' }
   ]

@@ -23,6 +23,7 @@ CHUNK({
 <p>It includes <b>radio waves, microwaves, infrared, visible light, ultraviolet, X-rays and gamma rays</b>, from low frequency (long wavelength) to high frequency (short wavelength).</p>
 <figure data-fig="m2-em-spectrum"></figure>
 <p>The radio part is split into bands named ELF, VF, VLF, LF, MF, HF, VHF, UHF, SHF and EHF. EHF signals above 30 GHz are called <b>millimetre waves</b>. Above them is the <b>optical spectrum</b> (infrared, visible light, ultraviolet), then X-rays, gamma rays and cosmic rays.</p>
+<p>On the figure, between EHF and the infrared there are three unnamed steps, starting at <b>300 GHz</b> (10<sup>−3</sup> m), <b>3 THz</b> (10<sup>−4</sup> m) and <b>30 THz</b> (10<sup>−5</sup> m). The infrared then begins near 10<sup>−6</sup> m (1 micron).</p>
 <div class="note exam"><p>The figure pairs each band with its starting frequency and wavelength. Every step to the next band is a factor of 10 in frequency, and wavelength falls by the same factor (λ = c / f).</p></div>`
         }
       ],
@@ -122,7 +123,7 @@ CHUNK({
           title: 'Beyond the visible',
           html: `<p class="lead">Ultraviolet is not used for communication. Its primary use is medical.</p>
 <p>Beyond the visible region are X-rays, gamma rays and cosmic rays. They are all electromagnetic radiation but do not figure in communication systems.</p>
-<div class="note heads-up"><p>The course material gives infrared up to 700 nm and visible light as 400–800 nm, so the two overlap between 700 and 800 nm. Quote the numbers as given.</p></div>`
+<div class="note heads-up"><p>The course material gives infrared up to 700 nm and visible light as 400–800 nm, so the two overlap between 700 and 800 nm. Quote the numbers as given. The spectrum figure also puts red at 0.7 µm (0.7 × 10<sup>−6</sup> m) while the text says 0.8 µm (8000 Å), so the red end of the visible range is quoted two ways. Use 0.8 µm unless a question uses the figure.</p></div>`
         }
       ],
       flashcards: [
@@ -152,7 +153,7 @@ CHUNK({
           title: 'The block diagram',
           html: `<p class="lead">All electronic communication systems have a <b>transmitter</b>, a <b>communication channel (medium)</b> and a <b>receiver</b>.</p>
 <figure data-fig="m2-comm-block"></figure>
-<ul><li>It begins when a human (or a computer or electronic current) generates a message, data or other intelligence that must reach others.</li><li>In electronic systems the message is called <b>information</b> or an <b>intelligence signal</b>.</li><li>The message, as an electronic signal, goes to the transmitter, over the channel, and the receiver picks it up and relays it to another human.</li><li>Along the way <b>noise</b> is added in the channel and in the receiver. Noise is any phenomenon that degrades or interferes with the transmitted information.</li></ul>`
+<ul><li>It begins when a human (or a computer or electronic current) generates a message, data or other intelligence that must reach others.</li><li>In electronic systems the message is called <b>information</b> or an <b>intelligence signal</b>.</li><li>The message, as an electronic signal, goes to the transmitter, over the channel, and the receiver picks it up and relays it to another human.</li><li>The figure labels the source as <b>sound, picture, speech, data</b> and so on. After the input transducer the information is in <b>electrical form</b>, and at the output it comes back out in its <b>original form</b>.</li><li>Along the way <b>noise</b> is added in the channel and in the receiver. Noise is any phenomenon that degrades or interferes with the transmitted information.</li></ul>`
         },
         {
           title: 'Source and transducer',
@@ -259,6 +260,7 @@ CHUNK({
 <tr><td>Frequency Modulation (FM)</td><td>Frequency of the carrier</td><td>Short-distance communication</td></tr>
 <tr><td>Phase Modulation (PM)</td><td>Phase angle of the carrier</td><td>Short-distance communication</td></tr>
 </tbody></table>
+<p>The AM drawing marks the <b>maximum amplitude</b> and <b>minimum amplitude</b> of the wave and the <b>envelope</b> of the modulated signal. It is drawn for the <b>under-modulation</b> case, <b>u &lt; 1</b>.</p>
 <div class="note exam"><p>In the figure, the AM wave rises and falls in height with the message (the outline is the envelope) while the carrier frequency stays fixed. In the FM wave the height is constant but the waves bunch up and spread out with the message.</p></div>`
         }
       ],
