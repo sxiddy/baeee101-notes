@@ -40,7 +40,7 @@ const THICK = 4, THIN = 1.8;
 
 // ---- 2. Lines on a part (after Lecture 2, slide 4). 4 px = 1 mm
 {
-  const k = 4, bx = 60, by = 180, bw = 90 * k, bh = 15 * k, cx = 180, cy = 130, r = 6 * k;
+  const k = 4, bx = 60, by = 180, bw = 90 * k, bh = 15 * k, cx = 180, cy = 130, r = 5 * k;
   GEO.demo = { k, baseMM: bw / k, holeDia: 2 * r / k };
   let s = '';
   // visible outline (A)
@@ -56,10 +56,17 @@ const THICK = 4, THIN = 1.8;
   s += T(bx + bw / 2, 272, '90', { anchor: 'middle', size: 22 });
   // leader + note
   const lx = cx + r * Math.SQRT1_2, ly = cy - r * Math.SQRT1_2;
-  s += L(292, 66, 262, 66, { w: THIN, c: 'dsb' }) + L(262, 66, lx, ly, { w: THIN, c: 'dsb', arrow: 'b' }) + T(296, 74, 'Ø12', { size: 22 });
+  s += L(292, 66, 262, 66, { w: THIN, c: 'dsb' }) + L(262, 66, lx, ly, { w: THIN, c: 'dsb', arrow: 'b' }) + T(296, 74, 'Ø10', { size: 22 });
+  // cutting-plane line (H) with P arrows, and section lines (hatching) as in the course figure
+  s += L(80, 160, 280, 160, { w: THIN, dash: '26 5 3 5', c: 'dso' }) + L(80, 160, 106, 160, { w: THICK, c: 'dso' }) + L(254, 160, 280, 160, { w: THICK, c: 'dso' });
+  s += L(80, 128, 80, 156, { w: 2.5, arrow: 'w' }) + L(280, 128, 280, 156, { w: 2.5, arrow: 'w' }) + T(80, 118, 'P', { size: 22, anchor: 'middle' }) + T(280, 118, 'P', { size: 22, anchor: 'middle' });
+  s += T(20, 70, 'Cutting plane (H)', { size: 22, c: 'dto' }) + L(40, 78, 82, 154, { w: 1.2, c: 'ds' });
+  s += '<clipPath id="hc"><rect x="470" y="84" width="90" height="40"/></clipPath><g clip-path="url(#hc)">';
+  for (let t = -40; t <= 90; t += 12) s += L(470 + t, 124, 470 + t + 40, 84, { w: THIN, c: 'dsb' });
+  s += '</g>' + P('M470 84H560V124H470Z', { w: THICK }) + T(430, 150, 'Section lines', { size: 22, c: 'dtb' });
   // labels
   const lab = (x, y, t, c, tx, ty) => T(x, y, t, { size: 22, c }) + L(tx[0], tx[1], ty[0], ty[1], { w: 1.2, c: 'ds' });
-  s += lab(440, 168, 'Outline (A)', 'dt', [436, 162], [400, 180]);
+  s += lab(440, 198, 'Outline (A)', 'dt', [436, 192], [400, 180]);
   s += lab(440, 236, 'Hidden (F)', 'dto', [436, 230], [361, 210]);
   s += lab(262, 140, 'Centre line (G)', 'dtg', [258, 134], [cx + r + 12, cy]);
   s += T(20, 330, 'Extension and dimension lines (B)', { size: 22, c: 'dtb' }) + T(372, 74, '← leader and note', { size: 22, c: 'dtb' });

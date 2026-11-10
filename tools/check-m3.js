@@ -24,7 +24,7 @@ assert.strictEqual(A.scale.drawnLeg, 50); assert.strictEqual(A.scale.drawnT, 5);
 // Chunk 3b: lines, lettering, dimensioning
 const { GEO: B } = require('./figs/m3b.js');
 assert.deepStrictEqual(B.lineLetters, ['A','B','C','D','E','F','G','H','J','K'], 'IS 10714 letters, no I');
-assert.strictEqual(B.demo.baseMM, 90, 'demo base drawn 90 mm'); assert.strictEqual(B.demo.holeDia, 12, 'demo hole 12');
+assert.strictEqual(B.demo.baseMM, 90, 'demo base drawn 90 mm'); assert.strictEqual(B.demo.holeDia, 10, 'demo hole 10');
 assert.strictEqual(B.dimsys.w, 50); assert.strictEqual(B.dimsys.h, 30);
 [[0.7, 0.35], [0.5, 0.25]].forEach(([t, n]) => assert.strictEqual(t / n, 2, 'thick : thin = 2 : 1'));
 [[1.0, 0.5], [0.7, 0.35], [0.5, 0.25]].forEach(([t, n]) => assert.strictEqual(t / n, 2, 'slide 8 widths A0/A1/A3 thick vs thin'));
@@ -91,5 +91,15 @@ assert.strictEqual(drawn(1000, 1, 10), 100); assert.strictEqual(drawn(40, 1, 10)
 assert.deepStrictEqual([594 / 2, 420], [297, 420]); assert.deepStrictEqual([Math.floor(420 / 2), 297], [210, 297]);
 near(40 * Math.sqrt(3) / 2, 34.64101615137755, 'tri prism FV width'); assert.strictEqual(+(40 * Math.sqrt(3) / 2).toFixed(1), 34.6);
 assert.strictEqual(10 + 30, 40, 'slide 18 block height');
+
+// Audit additions: A6-A8, dimensioned plate, title block, solids worked problems
+assert.deepStrictEqual([[148, 105], [105, 74], [74, 52]].map(([a, b]) => [b, a]), [[105, 148], [74, 105], [52, 74]], 'A6, A7, A8 by halving the long side of A5, A6, A7');
+assert.strictEqual(16 + 28 + 16, 60, 'plate: 16 + 28 + 16 = 60'); assert.strictEqual(20 + 75 + 40 + 35, 170, 'base plate stations sum to 170');
+assert.strictEqual(30 + 30, 60); assert.strictEqual(100 * 0.5, 50); assert.strictEqual(250 * 0.2, 50); assert.strictEqual(2 * 6, 12);
+assert.strictEqual(+(35 * Math.sqrt(3) / 2).toFixed(1), 30.3, 'tri prism 35 top-view depth');
+assert.strictEqual(+(25 * Math.sqrt(3)).toFixed(1), 43.3, 'hexagon side 25 across flats'); assert.strictEqual(2 * 25, 50, 'hexagon corner to corner');
+assert.strictEqual(+(30 / (2 * Math.sin(Math.PI / 5)) + 30 / (2 * Math.tan(Math.PI / 5))).toFixed(1), 46.2, 'pentagon side 30, corner down');
+assert.strictEqual(+(30 / (2 * Math.sin(Math.PI / 5))).toFixed(1), 25.5); assert.strictEqual(+(30 / (2 * Math.tan(Math.PI / 5))).toFixed(1), 20.6);
+assert.strictEqual(25 * 2 === 50 && 2.5 * 10 === 25 && 5 * 10 === 50 && 3.5 * 10 === 35 && 2 * 10 === 20, true, 'Problem 13-7 cm to mm');
 
 console.log('m3 numbers ok: A0..A5', table.map(t => t.join('x')).join(', '), '| A2 working area', g.workW + 'x' + g.workH);
