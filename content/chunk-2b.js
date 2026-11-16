@@ -72,6 +72,16 @@ CHUNK({
 <div class="note why"><p>An enhancement MOSFET behaves very similarly to a BJT in action: a small control input, here a gate voltage, switches and scales a larger current.</p></div>`
         },
         {
+          title: 'Transfer characteristic',
+          html: `<p class="lead">The <b>transfer characteristic</b> of an n-channel enhancement MOSFET is the graph of drain current I<sub>D</sub> against gate–source voltage V<sub>GS</sub> at a constant V<sub>DS</sub>.</p>
+<figure data-fig="m2-emosfet-transfer"></figure>
+<ul><li>For V<sub>GS</sub> below the <b>threshold voltage V<sub>T</sub></b> (typically 1–4 V) no channel exists, so I<sub>D</sub> = 0. The device is normally OFF.</li>
+<li>Once V<sub>GS</sub> exceeds V<sub>T</sub>, the gate field attracts enough electrons to form an n-type <b>inversion channel</b> between source and drain, and I<sub>D</sub> rises.</li>
+<li>In saturation the rise follows a square law: I<sub>D</sub> = k(V<sub>GS</sub> − V<sub>T</sub>)<sup>2</sup>.</li></ul>
+<div class="worked"><div class="given">k = 0.5 mA/V², V<sub>T</sub> = 2 V, V<sub>GS</sub> = 5 V.</div><div class="solve">I<sub>D</sub> = 0.5 × (5 − 2)<sup>2</sup> = 0.5 × 9</div><div class="result">I<sub>D</sub> = 4.5 mA</div></div>
+<div class="note trap"><p>A depletion MOSFET has a channel already and conducts at V<sub>GS</sub> = 0; its transfer curve crosses the I<sub>D</sub> axis at I<sub>DSS</sub> and goes to zero at a negative V<sub>GS</sub>. The enhancement curve starts only at +V<sub>T</sub>.</p></div>`
+        },
+        {
           title: 'Operating regions',
           html: `<p class="lead">Operation divides into three regions, set by V<sub>GS</sub> and V<sub>DS</sub>.</p>
 <figure data-fig="m2-mosfet-curves"></figure>
@@ -256,7 +266,7 @@ CHUNK({
           title: 'The ideal list',
           html: `<p class="lead">An ideal op-amp has these characteristics.</p>
 <div class="chips"><span class="chip">Infinite open-loop gain</span><span class="chip">Infinite bandwidth</span><span class="chip">Zero common-mode gain</span><span class="chip">Infinite input impedance</span><span class="chip">Zero output impedance</span></div>
-<p>With infinite input impedance, no current flows into either input (i<sub>1</sub> = i<sub>2</sub> = 0 in the diagram).</p>`
+<p>With infinite input impedance, no current flows into either input (i<sub>1</sub> = i<sub>2</sub> = 0 at both inputs).</p>`
         },
         {
           title: 'What each one means',
@@ -331,6 +341,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm2-emosfet-transfer', src: 'own/README.txt', crop: null, caption: 'E-MOSFET transfer characteristic: zero drain current until V<sub>GS</sub> reaches V<sub>T</sub>, then a square-law rise.', alt: 'Graph of I_D against V_GS: flat at zero up to V_T, then a rising parabola.' },
     { id: 'm2-mosfet-types', src: 'm2/pages/p49.png', crop: null, caption: 'MOSFET family: enhancement and depletion modes, each with P-channel and N-channel versions.', alt: 'Tree diagram of MOSFET types.' },
     { id: 'm2-emosfet-structure', src: 'm2/pages/p51.png', crop: null, caption: 'Enhancement MOSFET: N+ source and drain in a P-type substrate, SiO2 oxide and metal gate. No channel exists until the gate is biased.', alt: 'Cross-section of an enhancement MOSFET with symbols.' },
     { id: 'm2-emosfet-working', src: 'm2/pages/p53.png', crop: null, caption: 'A positive gate voltage repels holes and attracts electrons, forming an induced N-channel between source and drain.', alt: 'Enhancement MOSFET with induced channel and bias supplies.' },

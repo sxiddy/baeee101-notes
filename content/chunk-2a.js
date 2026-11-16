@@ -139,6 +139,23 @@ CHUNK({
 <figure data-fig="m2-rectifiers"></figure>
 <div class="vs"><div class="side"><h4>Half-wave</h4><p>Either the positive or the negative half of the AC wave is passed and the other half is blocked. Only half of the input reaches the output, so it is <b>very inefficient</b> for power transfer.</p></div><div class="side"><h4>Full-wave</h4><p>The whole input waveform is converted to <b>one constant polarity</b> at the output. Both polarities become DC, so it is <b>more efficient</b>. The figure uses four diodes D<sub>1</sub> to D<sub>4</sub> (a bridge).</p></div></div>
 <div class="note exam"><p>Draw the circuit, then the input and output waveforms one above the other. The half-wave output has gaps where the blocked half-cycle was; the full-wave output has none.</p></div>`
+        },
+        {
+          title: 'Rectifier working',
+          html: `<p class="lead">Each rectifier is explained by asking <b>which diode conducts</b> in each half cycle of the input.</p>
+<ol class="steps"><li><b>Half-wave, positive half cycle:</b> the anode of the single diode is positive, so it is forward biased and conducts; the input appears across the load R<sub>L</sub>.</li>
+<li><b>Half-wave, negative half cycle:</b> the diode is reverse biased and blocks; the output is zero. The output is a string of positive half-sine pulses with gaps.</li>
+<li><b>Bridge full-wave, positive half cycle:</b> D<sub>1</sub> and D<sub>2</sub> (the opposite pair) are forward biased and current flows through R<sub>L</sub> in one direction; D<sub>3</sub>, D<sub>4</sub> are off.</li>
+<li><b>Bridge full-wave, negative half cycle:</b> D<sub>3</sub> and D<sub>4</sub> conduct and D<sub>1</sub>, D<sub>2</sub> are off, but current still flows through R<sub>L</sub> in the <b>same direction</b>. Both halves give positive output pulses with no gaps.</li></ol>
+<table class="tbl"><thead><tr><th>Quantity</th><th>Half-wave</th><th>Full-wave (bridge)</th></tr></thead><tbody>
+<tr><td>Average (DC) output</td><td>V<sub>m</sub>/π = 0.318 V<sub>m</sub></td><td>2V<sub>m</sub>/π = 0.637 V<sub>m</sub></td></tr>
+<tr><td>Output ripple frequency</td><td>Same as input (50 Hz)</td><td>Twice the input (100 Hz)</td></tr>
+<tr><td>Maximum efficiency</td><td>40.6 %</td><td>81.2 %</td></tr>
+<tr><td>Ripple factor</td><td>1.21</td><td>0.48</td></tr>
+<tr><td>Diodes</td><td>One</td><td>Four (or two with a centre-tapped transformer)</td></tr>
+</tbody></table>
+<div class="worked"><div class="given">Peak input V<sub>m</sub> = 20 V (ideal diodes).</div><div class="solve">Half-wave V<sub>dc</sub> = 20/π; full-wave V<sub>dc</sub> = 2 × 20/π.</div><div class="result">6.37 V (half-wave) and 12.73 V (full-wave)</div></div>
+<div class="note exam"><p><b>Explain half-wave and full-wave rectifiers with waveforms:</b> draw each circuit with the transformer, diode(s) and R<sub>L</sub>; draw input and output waves one above the other; state which diodes conduct in each half cycle and give V<sub>dc</sub> and efficiency.</p></div>`
         }
       ],
       flashcards: [
@@ -184,6 +201,20 @@ CHUNK({
           html: `<p class="lead">In reverse breakdown the diode voltage stays almost constant even as its current rises, so it serves as a <b>reference voltage</b> and can be used as a <b>voltage regulator</b>.</p>
 <figure data-fig="m2-zener-reg"></figure>
 <ul><li>Use it when you need a <b>constant voltage across a load R<sub>L</sub></b> while the input voltage varies over a range.</li><li>The Zener is <b>reverse biased</b>, in parallel with the load, with a series resistor R from the input V<sub>i</sub>.</li><li>As long as V<sub>i</sub> does <b>not fall below V<sub>Z</sub></b>, the voltage across the diode is constant, so the load voltage V<sub>o</sub> is constant too.</li></ul>`
+        },
+        {
+          title: 'Zener vs avalanche; regulator',
+          html: `<p class="lead">Two different mechanisms cause reverse breakdown, and the regulator works by letting the Zener current change while its voltage stays fixed.</p>
+<table class="tbl"><thead><tr><th>Point</th><th>Zener breakdown</th><th>Avalanche breakdown</th></tr></thead><tbody>
+<tr><td>Doping</td><td>Heavy; very thin depletion layer</td><td>Light; wide depletion layer</td></tr>
+<tr><td>Breakdown voltage</td><td>Low, below about 5–6 V</td><td>High, above about 6 V</td></tr>
+<tr><td>Mechanism</td><td>The strong field pulls electrons directly out of their covalent bonds</td><td>Minority carriers gain enough speed to knock out more electrons by collision, multiplying like an avalanche</td></tr>
+<tr><td>Curve</td><td>Very sharp knee</td><td>Less sharp</td></tr>
+<tr><td>Temperature effect</td><td>Breakdown voltage falls as temperature rises</td><td>Breakdown voltage rises as temperature rises</td></tr>
+</tbody></table>
+<div class="vs"><div class="side"><h4>Ordinary diode in reverse</h4><p>Only a tiny leakage current flows; if breakdown is reached, the large current and heat <b>destroy</b> it, so it must never be used there.</p></div><div class="side"><h4>Zener diode in reverse</h4><p>Designed to work <b>in breakdown</b>: the voltage stays at V<sub>Z</sub> and the diode is not damaged as long as the current stays below I<sub>Z(max)</sub>.</p></div></div>
+<p><b>Regulator under changing load:</b> the series resistor carries I = (V<sub>i</sub> − V<sub>Z</sub>)/R, which divides as I = I<sub>Z</sub> + I<sub>L</sub>. If the load draws more current, I<sub>Z</sub> falls by the same amount, so the total and the voltage drop across R stay the same and V<sub>o</sub> = V<sub>Z</sub>. Regulation is lost if I<sub>Z</sub> falls below the knee current <b>I<sub>ZK</sub></b> (the diode leaves breakdown) or rises above I<sub>Z(max)</sub> (it overheats).</p>
+<div class="worked"><div class="given">V<sub>i</sub> = 20 V, R = 200 Ω, V<sub>Z</sub> = 12 V, I<sub>ZK</sub> = 5 mA.</div><div class="solve">I = (20 − 12)/200 = 40 mA. With R<sub>L</sub> = 1 kΩ: I<sub>L</sub> = 12/1000 = 12 mA, so I<sub>Z</sub> = 40 − 12 = 28 mA. With no load, I<sub>Z</sub> = 40 mA. Largest load current keeping I<sub>Z</sub> ≥ 5 mA is 35 mA, so R<sub>L(min)</sub> = 12/0.035.</div><div class="result">I<sub>Z</sub> = 28 mA at 1 kΩ; R<sub>L(min)</sub> = 343 Ω</div></div>`
         },
         {
           title: 'Applications',
@@ -349,6 +380,23 @@ CHUNK({
 <ol class="steps"><li><b>Fix I<sub>B</sub></b> Set I<sub>B</sub> to a convenient constant value.</li><li><b>Sweep V<sub>CE</sub></b> Increase V<sub>CE</sub> from zero in steps and note I<sub>C</sub> each time.</li><li><b>Repeat</b> Reduce V<sub>CE</sub> to zero, set I<sub>B</sub> to another value and repeat. The result is a family of curves (I<sub>B</sub> = 0 to 60 µA in the figure).</li></ol>`
         },
         {
+          title: 'CB characteristics',
+          html: `<p class="lead">In the <b>common-base</b> configuration the input is applied between emitter and base and the output taken between collector and base. Its curves are measured with the base common.</p>
+<figure data-fig="m2-cb-characteristics"></figure>
+<ul><li><b>Input characteristic:</b> I<sub>E</sub> against V<sub>EB</sub> with V<sub>CB</sub> constant. It looks like a forward-biased diode: almost no current until about 0.7 V (silicon), then a steep rise. A higher V<sub>CB</sub> shifts the curve slightly left (early effect), because the wider collector depletion layer narrows the base.</li>
+<li><b>Output characteristic:</b> I<sub>C</sub> against V<sub>CB</sub> with I<sub>E</sub> constant. In the <b>active region</b> (V<sub>CB</sub> positive) the lines are flat and I<sub>C</sub> ≈ I<sub>E</sub> (α ≈ 0.98), almost independent of V<sub>CB</sub>. When V<sub>CB</sub> is made slightly negative the collector junction becomes forward biased (<b>saturation</b>) and I<sub>C</sub> drops quickly to zero. With I<sub>E</sub> = 0 (cut-off) only a tiny leakage I<sub>CBO</sub> flows.</li></ul>
+<div class="note why"><p>CB has current gain just under 1, very low input resistance and very high output resistance. It gives voltage gain and is used in high-frequency amplifiers.</p></div>`
+        },
+        {
+          title: 'Transistor as a switch',
+          html: `<p class="lead">A transistor works as an electronic <b>switch</b> by being driven fully between <b>cut-off (OFF)</b> and <b>saturation (ON)</b>, never staying in the active region.</p>
+<figure data-fig="m2-bjt-switch"></figure>
+<ol class="steps"><li><b>Input low (0 V):</b> the base–emitter junction is not forward biased, so I<sub>B</sub> = 0 and I<sub>C</sub> = 0. The transistor is in cut-off, acting as an <b>open switch</b>; V<sub>CE</sub> = V<sub>CC</sub> and the load is off.</li>
+<li><b>Input high:</b> enough base current flows through R<sub>B</sub> to drive the transistor into saturation. Both junctions are forward biased, V<sub>CE</sub> ≈ 0.2 V, and it acts as a <b>closed switch</b>; the load current is I<sub>C</sub> ≈ V<sub>CC</sub>/R<sub>C</sub>.</li>
+<li>For saturation, I<sub>B</sub> must be at least I<sub>C(sat)</sub>/β.</li></ol>
+<div class="note example"><p>A microcontroller pin (5 V, a few mA) switching a 12 V relay or an LED string; logic gates; motor drivers.</p></div>`
+        },
+        {
           title: 'Three regions',
           html: `<p class="lead">The output curves divide into <b>active</b>, <b>cut-off</b> and <b>saturation</b> regions. The course's bias table lists a <b>fourth</b>, the inverse region, which is hardly used.</p>
 <table class="tbl"><thead><tr><th>Region</th><th>Junctions</th><th>Conditions</th><th>Use</th></tr></thead><tbody>
@@ -438,6 +486,8 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm2-bjt-switch', src: 'own/README.txt', crop: null, caption: 'NPN transistor as a switch: cut-off when the input is low, saturation when it is high.', alt: 'NPN transistor with base resistor from V_in, collector resistor load to +V_CC and emitter to ground.' },
+    { id: 'm2-cb-characteristics', src: 'own/README.txt', crop: null, caption: 'Common-base input (I<sub>E</sub> against V<sub>EB</sub>) and output (I<sub>C</sub> against V<sub>CB</sub>) characteristics.', alt: 'Two graphs: diode-like input curves for two V_CB values, and flat output lines for three emitter currents with a saturation strip at negative V_CB.' },
     { id: 'm2-pn-bias', src: 'm2/pages/p14.png', crop: null, caption: 'Forward bias: positive battery terminal to P, negative to N, so the carriers are pushed towards the junction and cross it. Reverse bias is the opposite connection and widens the depletion region.', alt: 'Two PN junctions, one forward biased and one reverse biased, showing the depletion region and battery polarity.' },
     { id: 'm2-diode-vi', src: 'm2/pages/p17.png', crop: null, caption: 'Diode V–I curve: the knee at 0.3 V (germanium) or 0.7 V (silicon), tiny reverse leakage, then breakdown.', alt: 'Graph of diode current against voltage with forward and reverse regions and the breakdown point.' },
     { id: 'm2-rectifiers', src: 'm2/pages/p19.png', crop: null, caption: 'Half-wave rectifier with one diode, and full-wave bridge rectifier with four diodes, with input and output waveforms.', alt: 'Half-wave and full-wave rectifier circuits with their waveforms.' },

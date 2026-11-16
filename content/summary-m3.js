@@ -39,7 +39,7 @@ SUMMARY({
   numbers: [
     { value: '841 × 1189', what: 'A0 sheet (trimmed), about 1 m²' },
     { value: '297 × 420', what: 'A3 sheet' },
-    { value: '30 / 20 mm', what: 'Filing margin and other margins (slide 18)' },
+    { value: '30 / 20 mm', what: 'Filing margin and other margins (page 18)' },
     { value: '170 × 65', what: 'Title block size' },
     { value: '2 : 1', what: 'Thick to thin line width (e.g. 0.7 and 0.35 mm)' },
     { value: 'HB, 2H', what: 'Pencils for thick and thin lines' },
@@ -52,7 +52,7 @@ SUMMARY({
     `<p>In first angle the left side view goes on the <b>right</b>.</p>`,
     `<p>Hidden lines beat centre lines; visible lines beat both.</p>`,
     `<p>Write the <b>true</b> size on a scaled drawing, not the drawn size.</p>`,
-    `<p>The Lecture 1 slides letter some lines differently from IS 10714; learn the appearance and use.</p>`,
+    `<p>The Lecture 1 pages letter some lines differently from IS 10714; learn the appearance and use.</p>`,
     `<p>A frustum is cut <b>parallel</b> to the base; truncated is not.</p>`,
     `<p>In first angle the front of the object faces <b>away</b> from the front view in the top and side views.</p>`
   ]

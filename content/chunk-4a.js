@@ -67,6 +67,26 @@ CHUNK({
           html: `<p class="lead">Casting can produce <b>large parts</b> and <b>complex shapes</b>, including internal cavities and hollow sections.</p>
 <p>Materials that are <b>difficult or expensive</b> to make by other manufacturing processes can still be cast.</p>
 <div class="chips"><span class="chip">Exhaust manifold</span><span class="chip">Gearbox housing</span></div>`
+        },
+        {
+          title: 'Steps, defects, engine block',
+          html: `<p class="lead">Sand casting questions usually ask for the steps <b>and</b> the defect that can arise at each step, with how to avoid it.</p>
+<table class="tbl"><thead><tr><th>Step</th><th>What is done</th><th>Defect if done badly, and the cure</th></tr></thead><tbody>
+<tr><td>1. Pattern making</td><td>A replica of the part, made oversize with allowances (shrinkage, machining, draft)</td><td>Wrong size or a torn mould: give correct shrinkage and draft allowances</td></tr>
+<tr><td>2. Core making</td><td>Sand cores are made for holes and hollow parts and baked</td><td>Core shift or gas holes: support cores with core prints or chaplets, vent and dry them</td></tr>
+<tr><td>3. Moulding</td><td>Sand is rammed round the pattern in the cope and drag; the pattern is removed and the gating system cut</td><td>Mould shift (mismatch): align cope and drag with pins. Blowholes: ram moderately and vent the mould. Metal penetration: use finer sand and proper ramming</td></tr>
+<tr><td>4. Melting and pouring</td><td>Metal is melted in a furnace and poured steadily through the pouring basin and sprue</td><td>Cold shut and misrun: pour hotter and faster. Penetration: do not overheat the metal</td></tr>
+<tr><td>5. Solidification</td><td>The metal cools and shrinks in the mould; the riser feeds liquid metal to the shrinking casting</td><td>Shrinkage cavity: place risers at the heaviest sections. Hot tears: correct composition and avoid sharp corners</td></tr>
+<tr><td>6. Shake-out and fettling</td><td>The sand mould is broken, and gates, risers and fins are cut off; the surface is cleaned</td><td>Fins and rough surface: tight mould joint, finer facing sand</td></tr>
+<tr><td>7. Inspection</td><td>Visual, dimensional and non-destructive tests</td><td>Hidden blowholes and cracks are found here</td></tr>
+</tbody></table>
+<h3>Casting an engine cylinder block</h3>
+<ol class="steps"><li><b>Material:</b> grey cast iron (good castability, vibration damping) or an aluminium alloy (light).</li>
+<li><b>Pattern and cores:</b> a split pattern gives the outer shape; sand cores form the cylinder bores, the water jackets and the oil passages, held by core prints.</li>
+<li><b>Moulding:</b> the cope and drag are rammed in green or dry sand, the cores are set, and the mould is closed.</li>
+<li><b>Pouring:</b> molten metal is poured through a gating system that fills thin walls quickly; risers feed the thick bearing sections.</li>
+<li><b>Cooling and shake-out:</b> after solidification the sand and cores are knocked out (core sand comes out through openings).</li>
+<li><b>Fettling and machining:</b> gates and risers are cut off, then the bores, deck face and bearing seats are machined, and the block is pressure-tested for leaks.</li></ol>`
         }
       ],
       flashcards: [
@@ -116,6 +136,26 @@ CHUNK({
           title: 'Types of pattern',
           html: `<p class="lead">Six patterns appear in the course.</p>
 <div class="kv"><div><span>Single piece (solid)</span><b>One complete unit, no joints or loose pieces</b></div><div><span>Split</span><b>Two or more parts, usually separated at the parting line</b></div><div><span>Match plate</span><b>Cope and drag halves mounted on opposite sides of a plate</b></div><div><span>Sweep</span><b>Makes mould cavities, particularly for symmetrical castings</b></div><div><span>Gated</span><b>Makes several identical castings in a single mould</b></div><div><span>Skeleton</span><b>Makes moulds for simple, large castings</b></div></div>`
+        },
+        {
+          title: 'Pattern, core, riser; allowances',
+          html: `<p class="lead">Three parts of a mould do three different jobs, and each allowance on the pattern prevents a particular fault.</p>
+<div class="kv"><div><span>Pattern</span><b>A replica of the part, used to make the mould cavity in sand; it is made oversize to allow for shrinkage and machining</b></div><div><span>Core</span><b>A sand shape placed in the mould to form holes, recesses and internal cavities that the pattern cannot</b></div><div><span>Riser</span><b>A reservoir of liquid metal that feeds the casting as it shrinks during solidification, so shrinkage cavities form in the riser, not the casting; it also lets gas escape</b></div></div>
+<table class="tbl"><thead><tr><th>Allowance</th><th>Why it is given</th><th>If it is neglected</th></tr></thead><tbody>
+<tr><td>Shrinkage</td><td>Metal contracts as it cools from the pouring temperature, so the pattern is made larger (about 1 % for cast iron, 2 % for steel)</td><td>The casting comes out <b>undersize</b> and may have to be scrapped</td></tr>
+<tr><td>Draft (taper)</td><td>A slight taper of about 1–3° on vertical faces lets the pattern be drawn out of the sand</td><td>The <b>mould walls break</b> as the pattern is lifted, giving a damaged cavity and a rough casting</td></tr>
+<tr><td>Machining</td><td>Extra metal on faces that will be machined</td><td>Not enough metal to clean up the surface, so the size cannot be reached</td></tr>
+<tr><td>Distortion</td><td>Pattern shaped opposite to the expected warping of long, thin sections</td><td>The casting warps out of shape</td></tr>
+<tr><td>Shake (rapping)</td><td>Pattern made slightly smaller because rapping it loose enlarges the cavity</td><td>The casting comes out slightly oversize</td></tr>
+</tbody></table>
+<table class="tbl"><thead><tr><th>Pattern type</th><th>Application</th></tr></thead><tbody>
+<tr><td>Single piece (solid)</td><td>Simple shapes in small numbers, such as stuffing-box glands and simple brackets</td></tr>
+<tr><td>Split</td><td>Shapes that cannot be withdrawn in one piece, such as pipes, valve bodies, cylinders</td></tr>
+<tr><td>Match plate</td><td>Mass production of small castings on moulding machines, such as piston rings and small fittings</td></tr>
+<tr><td>Sweep</td><td>Large symmetrical shapes such as bells, kettles and large pans</td></tr>
+<tr><td>Gated</td><td>Many small identical castings in one mould</td></tr>
+<tr><td>Skeleton</td><td>Very large simple castings such as turbine casings and large pipes</td></tr>
+</tbody></table>`
         }
       ],
       flashcards: [
@@ -162,6 +202,17 @@ CHUNK({
           html: `<p class="lead">Where two sections meet, the metal there stays hot longest and forms a <b>hot spot</b>.</p>
 <ul><li>Solidification of intersecting sections gives <b>hot spots</b> and shrinkage cavities.</li><li>Hot spots <b>retard solidification</b> and usually cause porosity and shrinkage cavities.</li><li>Liquid-to-solid shrinkage can leave a <b>void at the last point to solidify</b>.</li></ul>
 <div class="note exam"><p>The fix is design: feed the last-to-freeze region with a riser and keep section thickness changing gradually (see Riser placement).</p></div>`
+        },
+        {
+          title: 'Remedies',
+          html: `<table class="tbl"><thead><tr><th>Defect</th><th>What it looks like</th><th>How to avoid it</th></tr></thead><tbody>
+<tr><td>Mould shift (mismatch)</td><td>The two halves of the casting are offset at the parting line</td><td>Align cope and drag with dowel pins and check the box clamps</td></tr>
+<tr><td>Blowholes</td><td>Smooth round holes from trapped gas, inside or at the surface</td><td>Vent the mould, use sand of correct moisture and permeability, do not ram too hard</td></tr>
+<tr><td>Metal penetration</td><td>Metal enters the gaps between sand grains, giving a rough surface</td><td>Use finer sand, proper ramming and a lower pouring temperature</td></tr>
+<tr><td>Shrinkage cavity</td><td>A rough-walled hole at the last part to solidify</td><td>Use risers and chills so solidification moves towards the riser</td></tr>
+<tr><td>Cold shut</td><td>Two streams of metal meet but do not fuse, leaving a line</td><td>Raise the pouring temperature and speed; improve gating</td></tr>
+<tr><td>Hot tear</td><td>Irregular cracks formed while the metal is weak and hot</td><td>Correct composition, avoid sharp corners, use collapsible cores</td></tr>
+</tbody></table>`
         }
       ],
       flashcards: [
@@ -219,6 +270,18 @@ CHUNK({
           html: `<p class="lead">Good section design keeps the die from straining.</p>
 <ul><li>Keep section walls <b>balanced</b> as far as function allows: unbalanced sections cause die strain and <b>extrusion distortion</b>.</li><li>When dimensions are critical, <b>cold drawing</b> the extruded section smooths the surface and improves dimensional accuracy.</li></ul>
 <div class="vs"><div class="side"><h4>Flow pattern S</h4><p>No friction at the container and die interfaces. Homogeneous material with uniform composition.</p></div><div class="side"><h4>Flow pattern C</h4><p>Inhomogeneous material properties and non-uniform temperature. A larger <b>dead metal zone (DMZ)</b> forms, with more severe shear at the container wall.</p></div></div>`
+        },
+        {
+          title: 'Direct vs indirect',
+          html: `<figure data-fig="m4-direct-indirect"></figure>
+<table class="tbl"><thead><tr><th>Point</th><th>Direct (forward) extrusion</th><th>Indirect (backward) extrusion</th></tr></thead><tbody>
+<tr><td>Movement</td><td>Ram pushes the billet towards a die at the far end; product comes out in the <b>same direction</b> as the ram</td><td>The die sits on a hollow ram that moves into the billet; product comes out through the ram, <b>opposite</b> to the ram motion</td></tr>
+<tr><td>Friction</td><td>Billet slides along the whole container wall, so friction is high</td><td>Billet does not move relative to the container, so friction is almost eliminated</td></tr>
+<tr><td>Force needed</td><td>Higher, and highest at the start</td><td>Lower (25–30 % less) and nearly constant</td></tr>
+<tr><td>Equipment</td><td>Simple, solid ram</td><td>Hollow ram limits the size and strength of the product</td></tr>
+<tr><td>Uses</td><td>Most commercial sections: aluminium window frames, rods, bars</td><td>Tubes, cans and parts where low force and uniform flow matter</td></tr>
+</tbody></table>
+<p><b>Applications of extrusion:</b> aluminium door and window sections, tubes and pipes, rods and bars, heat sinks, railings, wires and cables (sheathing), and plastic pipes.</p>`
         }
       ],
       flashcards: [
@@ -392,6 +455,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm4-direct-indirect', src: 'own/README.txt', crop: null, caption: 'Direct extrusion: product leaves in the ram direction. Indirect: die on a hollow ram, product leaves through the ram.', alt: 'Two extrusion setups with ram, billet, container and die; arrows show product direction.' },
     { id: 'm4-sand-mold', src: 'm4/pages/p08.png', crop: null, caption: 'Section of a sand mould: cope and drag, parting line, pouring basin, sprue, runner, riser and core.', alt: 'Section view of a two-part sand mould with the gating system and a core.' },
     { id: 'm4-extrusion', src: 'm4/pages/p18.png', crop: null, caption: 'A billet in a container pushed by a ram through a die: the section leaves in the shape of the die opening.', alt: 'Billet, container, ram and die with an extruded bar leaving the die.' },
     { id: 'm4-forging-die', src: 'm4/pages/p28.png', crop: null, caption: 'Closed die forging: the billet is squeezed between two dies and fills the impression.', alt: 'Two dies closing on a billet.' },

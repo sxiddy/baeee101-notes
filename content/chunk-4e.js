@@ -155,6 +155,13 @@ CHUNK({
 <tr><td>Compression ratio</td><td>Low, 7 to 8</td><td>High, 16 to 17</td></tr>
 <tr><td>Vibration and noise</td><td>Very little</td><td>More, due to the high operating pressure</td></tr>
 </tbody></table>`
+        },
+        {
+          title: 'Two-stroke working',
+          html: `<figure data-fig="m4-two-stroke-engine"></figure>
+<ol class="steps"><li><b>Upward stroke (compression and induction):</b> the piston moves up and covers the transfer and exhaust ports, compressing the charge above it. At the same time the space below it in the <b>closed crankcase</b> expands, the inlet port opens and fresh air–fuel mixture is drawn into the crankcase. Near the top, the <b>spark plug</b> ignites the compressed charge.</li>
+<li><b>Downward stroke (power, exhaust and transfer):</b> the burning gases push the piston down, giving the power stroke, and compress the mixture in the crankcase. The piston first uncovers the <b>exhaust port</b>, so the burnt gases rush out; then it uncovers the <b>transfer port</b>, and the pre-compressed fresh charge flows from the crankcase into the cylinder, helping to sweep out the remaining exhaust (<b>scavenging</b>). The deflector on the piston crown directs the fresh charge upward so it does not go straight out of the exhaust.</li></ol>
+<div class="note why"><p>One power stroke every revolution makes a two-stroke engine light and powerful for its size, which is why it is used in scooters, mopeds, chainsaws and outboard motors; but some fresh charge escapes with the exhaust, so it uses more fuel and pollutes more.</p></div>`
         }
       ],
       flashcards: [
@@ -174,6 +181,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm4-two-stroke-engine', src: 'own/README.txt', crop: null, caption: 'Two-stroke petrol engine: inlet, transfer and exhaust ports opened by the piston; closed crankcase.', alt: 'Cylinder with spark plug, piston with deflector, exhaust port right, transfer and inlet ports left and a crankcase with crank below.' },
     { id: 'm4-four-stroke', src: 'm4/pages/b11.png', crop: null, caption: 'The four strokes of the piston: suction, compression, power and exhaust.', alt: 'Four cylinders showing suction, compression, power and exhaust strokes.' },
     { id: 'm4-otto-pv', src: 'm4/pages/b12.png', crop: null, caption: 'Otto cycle on a pressure-volume diagram: adiabatic compression 1–2, heat added at constant volume 2–3, adiabatic expansion 3–4, heat rejected at constant volume 4–1.', alt: 'P-V diagram of the Otto cycle.' }
   ]

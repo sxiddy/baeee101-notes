@@ -8,7 +8,7 @@ CHUNK({
       title: 'Engineering drawing: importance, scope and standards',
       short: 'Intro and standards',
       blurb: 'Why engineers draw, sketch vs engineering drawing, where drawings are used, and the ASME, ISO and BIS standards.',
-      source: 'Lecture 1, slides 2–6',
+      source: 'Lecture 1, pages 2–6',
       tabs: [
         {
           title: 'Communicating a design',
@@ -70,7 +70,7 @@ CHUNK({
 <tr><td>Tolerancing</td><td>ASME Y14.5-2009</td><td>ISO 286-1 (limits and fits)</td><td>IS 9192 (reference ISO 286)</td></tr>
 </tbody></table>
 <p>Why standards help: fewer reading, manufacturing and inspection mistakes; international communication; uniform conventions; legal and contract clarity; better efficiency and quality; lower errors and cost.</p>
-<div class="note heads-up"><p>The source slide gives the ISO sheet standard as ISO 5455. ISO 5455 is about <b>scales</b>; sheet sizes and layout are ISO 5457 (with ISO 216 for the A sizes). BIS is the national standards body of India and its use is mandatory in government projects.</p></div>
+<div class="note heads-up"><p>The course material gives the ISO sheet standard as ISO 5455. ISO 5455 is about <b>scales</b>; sheet sizes and layout are ISO 5457 (with ISO 216 for the A sizes). BIS is the national standards body of India and its use is mandatory in government projects.</p></div>
 <div class="note heads-up"><p>The course prints the year of the BIS line standard two ways: "IS 10714:2002" as the heading of the line table and "IS 10714:1986" in the standards comparison. If a year is asked, use <b>1986</b> from the comparison table; otherwise just write IS 10714.</p></div>`
         },
         {
@@ -111,7 +111,7 @@ CHUNK({
       title: 'Drawing sheets, title block and scales',
       short: 'Sheets and scales',
       blurb: 'A-series sheet sizes, the layout of a sheet with margins and title block, and full, reduced and enlarged scales.',
-      source: 'Lecture 1, slides 15–20',
+      source: 'Lecture 1, pages 15–20',
       tabs: [
         {
           title: 'Sheet sizes',
@@ -130,7 +130,7 @@ CHUNK({
           title: 'Sheet layout',
           html: `<figure data-fig="m3-sheet-layout"></figure>
 <div class="kv"><div><span>Border</span><b>Outer boundary of the sheet</b></div><div><span>Inner frame</span><b>Defines the working area; inner frame offset 10 mm</b></div><div><span>Drawing area</span><b>Where the drawing is placed</b></div><div><span>Margins</span><b>Space for handling and filing: a = 30 mm on the binding edge, b = 20 mm on the others</b></div><div><span>Title block</span><b>170 × 65 mm, bottom right; holds the drawing details</b></div><div><span>Centre marks</span><b>For positioning and scanning</b></div><div><span>Trim marks</span><b>Show the final cut size</b></div><div><span>Zone references</span><b>Coordinates for locating details</b></div></div>
-<div class="note heads-up"><p>The A3 layout figure on slide 16 uses smaller margins (20 mm on the filing side, 5 mm on the others). Use a = 30, b = 20 and the 170 × 65 title block (slide 18) unless your teacher says otherwise.</p></div>`
+<div class="note heads-up"><p>The A3 layout figure on page 16 uses smaller margins (20 mm on the filing side, 5 mm on the others). Use a = 30, b = 20 and the 170 × 65 title block (page 18) unless your teacher says otherwise.</p></div>`
         },
         {
           title: 'Title block',
@@ -175,14 +175,14 @@ CHUNK({
 <tr><td>5 : 1</td><td>5</td><td>Tiny parts where fine detail must be seen</td><td>Ø8 gear drawn Ø40</td></tr>
 </tbody></table>
 <div class="worked"><div class="given"><p>A plummer block base is 250 mm long. Draw it at 1 : 5.</p></div><div class="solve"><div class="eq">scale factor = 1/5 = 0.2</div><div class="eq">drawn length = 250 × 0.2 = 50 mm</div></div></div>
-<div class="note heads-up"><p>The scale slides write the <b>drawn</b> length on the reduced drawing (e.g. 50 mm) to show the shrink. On a real drawing you always write the <b>true</b> size, whatever the scale, and state the scale in the title block.</p></div>`
+<div class="note heads-up"><p>The scale pages in the course material write the <b>drawn</b> length on the reduced drawing (e.g. 50 mm) to show the shrink. On a real drawing you always write the <b>true</b> size, whatever the scale, and state the scale in the title block.</p></div>`
         }
       ],
       flashcards: [
         { front: 'Trimmed size of A0? Of A3?', back: 'A0: 841 × 1189 mm. A3: 297 × 420 mm.' },
         { front: 'How do you get A1 from A0?', back: 'Cut A0 in half across its long side: 594 × 841.' },
         { front: 'Ratio of the sides of any A sheet?', back: '1 : √2.' },
-        { front: 'Margins of a sheet (slide 18)?', back: 'a = 30 mm on the filing edge, b = 20 mm on the other edges.' },
+        { front: 'Margins of a sheet (page 18)?', back: 'a = 30 mm on the filing edge, b = 20 mm on the other edges.' },
         { front: 'Size and place of the title block?', back: '170 × 65 mm, bottom-right corner.' },
         { front: 'Define scale.', back: 'Drawing size : actual size.' },
         { front: '1000 mm shaft at 1 : 10: drawn length?', back: '100 mm.' },
@@ -204,7 +204,7 @@ CHUNK({
       title: 'Drawing instruments and introduction to CAD',
       short: 'Instruments and CAD',
       blurb: 'The manual drafting instruments and what each is for, then manual drafting compared with CAD.',
-      source: 'Lecture 1, slides 21–24',
+      source: 'Lecture 1, pages 21–24',
       tabs: [
         {
           title: 'Instruments',
@@ -219,7 +219,7 @@ CHUNK({
 <tr><td>French curves</td><td>Smooth irregular curves (airfoil, ergonomic profile)</td></tr>
 <tr><td>Templates</td><td>Repeated standard shapes: circles, symbols</td></tr>
 </tbody></table>
-<p>Pencils: <b>HB for thick lines</b>, <b>2H for thin lines</b> (Lecture 2, slide 3).</p>`
+<p>Pencils: <b>HB for thick lines</b>, <b>2H for thin lines</b> (Lecture 2, page 3).</p>`
         },
         {
           title: 'Manual vs CAD',
@@ -247,7 +247,7 @@ CHUNK({
         { front: 'Angles available with the two set squares?', back: '45° set square: 45°; 30°/60° set square: 30° and 60° (plus vertical and horizontal lines).' },
         { front: 'What is a French curve for?', back: 'Drawing smooth irregular curves.' },
         { front: 'Pencil grades for thick and thin lines?', back: 'HB thick, 2H thin.' },
-        { front: 'Name four CAD packages from the slides.', back: 'AutoCAD, SolidWorks, CATIA, Fusion 360.' },
+        { front: 'Name four CAD packages from the course material.', back: 'AutoCAD, SolidWorks, CATIA, Fusion 360.' },
         { front: 'What is the mini drafter used for?', back: 'Drawing parallel, perpendicular and angular lines efficiently, e.g. a neat orthographic view sheet.' },
         { front: 'Key takeaway: manual drafting vs CAD?', back: 'Manual drafting builds core skills; CAD improves speed, accuracy, revision control and productivity.' },
         { front: 'Two advantages of CAD over manual drafting.', back: 'Easy modification and quick reuse; also digital storage, sharing, CNC-ready output.' }

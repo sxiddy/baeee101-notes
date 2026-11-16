@@ -113,6 +113,16 @@ CHUNK({
         {
           title: 'Filler diameter',
           html: `<div class="vs"><div class="side"><h4>Larger electrode</h4><p>Current has to be increased. Gives a <b>high deposition rate</b>.</p></div><div class="side"><h4>Smaller electrode</h4><p>Less deposition rate. A smaller diameter means <b>higher current density</b>.</p></div></div>`
+        },
+        {
+          title: 'SMAW process',
+          html: `<p class="lead"><b>Shielded metal arc welding (SMAW)</b>, also called manual metal arc or stick welding, uses a <b>consumable electrode coated with flux</b>; an electric arc between the electrode and the work melts both.</p>
+<figure data-fig="m4-smaw"></figure>
+<ol class="steps"><li>The power source (AC transformer or DC rectifier) is connected to the electrode holder and to the workpiece.</li>
+<li>The welder strikes the arc by touching the electrode on the work and lifting it slightly. The arc (about 5000 °C) melts the tip of the core wire and the base metal, forming a <b>weld pool</b>.</li>
+<li>The <b>flux coating</b> burns to give a <b>shielding gas</b> that keeps oxygen and nitrogen of the air away from the molten metal, and melts into <b>slag</b> that floats on the pool and protects the bead as it cools.</li>
+<li>The electrode is moved along the joint and fed down as it is consumed; after cooling the slag is chipped off.</li></ol>
+<div class="vs"><div class="side"><h4>Advantages</h4><p>Simple, cheap, portable equipment; works outdoors and in all positions; welds most steels and cast iron.</p></div><div class="side"><h4>Limitations</h4><p>Slow (electrode must be changed, slag removed); needs a skilled welder; not suited to thin sheet or reactive metals.</p></div></div>`
         }
       ],
       flashcards: [
@@ -232,6 +242,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm4-smaw', src: 'own/README.txt', crop: null, caption: 'SMAW: arc between the flux-coated electrode and the work, with shielding gas, weld pool, slag and bead.', alt: 'Inclined coated electrode in a holder over a workpiece, arc, gas shield, molten pool, slag over the bead and power source leads.' },
     { id: 'm4-weld-zones', src: 'm4/pages/p40.png', crop: null, caption: 'Cross section of a welded butt joint: base metal on each side, the fusion zone in the middle and the heat affected zone between them.', alt: 'Butt weld cross section showing base metal, fusion zone and heat affected zone.' },
     { id: 'm4-weld-joints', src: 'm4/pages/p50.png', crop: null, caption: 'The five basic weld joints: butt, lap, T, edge and corner.', alt: 'Five small sketches of weld joint types.' },
     { id: 'm4-power-density', src: 'm4/pages/p63.png', crop: null, caption: 'Heat source power density against heat input: gas, arc and high energy beam welding.', alt: 'Curve of power density with gas, arc and beam welding regions.' }

@@ -8,7 +8,7 @@ CHUNK({
       title: 'BIS line types and line weights',
       short: 'Lines (IS 10714)',
       blurb: 'The IS 10714 line types A to K and where each is used, thick and thin line widths, and which line wins when two coincide.',
-      source: 'Lecture 1, slides 7–14; Lecture 2, slides 2–5 (section views: Lecture 1, slide 9)',
+      source: 'Lecture 1, pages 7–14; Lecture 2, pages 2–5 (section views: Lecture 1, page 9)',
       tabs: [
         {
           title: 'Line types',
@@ -26,7 +26,7 @@ CHUNK({
 <tr><td>J</td><td>Chain thick</td><td>Lines or surfaces to which a special requirement applies</td></tr>
 <tr><td>K</td><td>Chain thin double-dashed</td><td>Outlines of adjacent parts, alternative and extreme positions of movable parts, centroidal lines, initial outlines before forming, parts in front of the cutting plane</td></tr>
 </tbody></table>
-<div class="note heads-up"><p>The Lecture 1 slides letter these lines differently (slide 7 calls hidden lines type C/D and the cutting plane type J; slide 12 adds an "I"). This table follows Lecture 2 and IS 10714 (letters A–K, no I). In the exam, learn the <b>appearance and use</b>; quote the letter as your teacher taught it.</p></div>
+<div class="note heads-up"><p>The Lecture 1 pages letter these lines differently (page 7 calls hidden lines type C/D and the cutting plane type J; page 12 adds an "I"). This table follows Lecture 2 and IS 10714 (letters A–K, no I). In the exam, learn the <b>appearance and use</b>; quote the letter as your teacher taught it.</p></div>
 <div class="note heads-up"><p>Two of the Lecture 1 line tables letter the chain lines differently from Lecture 2 and IS 10714. They give <b>I</b> = chain thick and <b>J</b> = chain thick double-dashed. The standard (and Lecture 2) is <b>J</b> = chain thick and <b>K</b> = chain <b>thin</b> double-dashed. Use J and K as in the table above; the double-dashed line is thin.</p></div>`
         },
         {
@@ -46,7 +46,7 @@ CHUNK({
           title: 'On a part',
           html: `<figure data-fig="m3-lines-demo"></figure>
 <ul><li><b>Outline (A)</b>: every edge you can see.</li><li><b>Hidden (F)</b>: the blind hole in the base is behind the front face, so its edges are dashed.</li><li><b>Centre lines (G)</b> cross at the centre of every hole and run a little past the outline.</li><li><b>Extension and dimension lines (B)</b> carry the size; the <b>leader</b> points to the hole and carries the note Ø10.</li><li><b>Cutting-plane line (H)</b>: chain thin, thick at the ends, with the letter P and an arrow at each end showing the direction of viewing.</li><li><b>Section lines</b>: the thin hatching (B) drawn on the material the cutting plane has passed through.</li></ul>
-<p>Other lines from the slides: a <b>short-break</b> line (thin freehand) ends a partial view; a <b>long-break</b> line (zigzag) shortens a long uniform part; a <b>locus line</b> (chain thin double-dashed) shows the extreme positions of a moving part.</p>`
+<p>Other lines from the course material: a <b>short-break</b> line (thin freehand) ends a partial view; a <b>long-break</b> line (zigzag) shortens a long uniform part; a <b>locus line</b> (chain thin double-dashed) shows the extreme positions of a moving part.</p>`
         },
         {
           title: 'Section views',
@@ -64,7 +64,7 @@ CHUNK({
 <tr><td>Thin</td><td>0.5</td><td>0.5</td><td>0.35</td><td>0.25</td></tr>
 <tr><td>Ultra-thin</td><td>0.25</td><td>0.25</td><td>0.18</td><td>0.13</td></tr>
 </tbody></table>
-<p>Widths in mm (Lecture 1, slide 8). With pencils: <b>HB for thick lines, 2H for thin lines</b>.</p>
+<p>Widths in mm (Lecture 1, page 8). With pencils: <b>HB for thick lines, 2H for thin lines</b>.</p>
 <h4>The four weight groups and their uses</h4>
 <table class="tbl"><thead><tr><th>Group</th><th>Width</th><th>Used for</th></tr></thead><tbody>
 <tr><td>1 Thick</td><td><b>0.7 mm</b></td><td>Visible object lines, outlines, border</td></tr>
@@ -75,7 +75,7 @@ CHUNK({
 <p>A second card keeps only three groups: thick 0.7 mm for visible edges and principal outlines; medium 0.5 mm for hidden edges or emphasis where the drawing practice asks for it; thin 0.35 mm for centre lines, section lines, dimension lines, leader lines and construction lines.</p>
 <h4>Good practice</h4>
 <ul><li>Maintain a clear thickness ratio.</li><li>Use only the line weights the drawing needs.</li><li>Keep line usage consistent throughout the drawing.</li></ul>
-<div class="note heads-up"><p>The slides quote several sets of widths (0.7/0.35, 0.5/0.25, and 0.7/0.5/0.35/0.18). They agree on the rule: visible outlines thick, everything else thin, thick about twice thin. Minimum space between parallel lines: 0.7 mm.</p></div>
+<div class="note heads-up"><p>The course material quote several sets of widths (0.7/0.35, 0.5/0.25, and 0.7/0.5/0.35/0.18). They agree on the rule: visible outlines thick, everything else thin, thick about twice thin. Minimum space between parallel lines: 0.7 mm.</p></div>
 <div class="note heads-up"><p>One revision sheet gives the thick-line width by sheet size as A0 1.0, A1 0.7, A2 0.5, A3 0.35 mm. The weight table above gives A3 thick as <b>0.5</b> and thin as 0.25, so the two disagree for A3. Another sheet says thick 0.5 and thin 0.25 for lines A, E, I, J and B, C, D, F, G, H. Use the weight table (A0 1.0, A1 0.7, A3 0.5 thick; thick : thin = 2 : 1) unless your teacher gives a different set. The weight chart also puts hidden lines in the thin group (0.35 mm), while a second card puts them at 0.5 mm; either way a hidden line is drawn lighter than a visible one.</p></div>`
         },
         {
@@ -117,7 +117,7 @@ CHUNK({
       title: 'Lettering and dimensioning',
       short: 'Lettering, dimensions',
       blurb: 'Letter sizes for titles, notes and drawing numbers, the elements of a dimension, and the aligned and unidirectional systems.',
-      source: 'Lecture 2, slides 6–10',
+      source: 'Lecture 2, pages 6–10',
       tabs: [
         {
           title: 'Lettering',
@@ -157,6 +157,24 @@ CHUNK({
 <tr><td>Diameter 80</td><td>Along the dimension line</td><td>Horizontal</td></tr>
 </tbody></table>
 <div class="note exam"><p>The 16 + 28 + 16 on the right edge add up to the overall 60. When you dimension a chain of sizes, check that they sum to the overall size.</p></div>`
+        },
+        {
+          title: 'Dimensioning mistakes',
+          html: `<p class="lead">Almost every drawing paper opens with a sketch full of <b>dimensioning errors</b> to be found and corrected. These are the common ones, with the BIS rule each one breaks.</p>
+<table class="tbl"><thead><tr><th>Mistake</th><th>Correct practice</th></tr></thead><tbody>
+<tr><td>A dimension is repeated in two views, or the same size is given twice</td><td>Give each size <b>only once</b>, in the view that shows the feature most clearly</td></tr>
+<tr><td>Chain of sizes plus the overall size all given (over-dimensioning)</td><td>Leave one size of the chain out, or mark it as a reference, so the part is not over-specified</td></tr>
+<tr><td>A needed size is missing, so the part cannot be made</td><td>Every feature needs its size and its location from a datum edge</td></tr>
+<tr><td>Dimension placed inside the view, or to a hidden line</td><td>Place dimensions <b>outside the view</b>, to visible outlines, unless unavoidable</td></tr>
+<tr><td>A centre line, outline or extension line used as a dimension line</td><td>Draw a separate thin dimension line; outlines and centre lines are never dimension lines</td></tr>
+<tr><td>Dimension lines crossing each other or crossing extension lines</td><td>Put the smaller dimensions nearer the view and larger ones outside, so lines do not cross</td></tr>
+<tr><td>Extension line touching the outline or not running past the dimension line</td><td>Leave a small gap (about 1 mm) at the outline and extend about 3 mm past the dimension line</td></tr>
+<tr><td>Figures written in the wrong position for the system (below the line, or on the right of a vertical line in the aligned system)</td><td>Aligned: above horizontal lines and on the left of vertical lines, read from the bottom or right</td></tr>
+<tr><td>Diameter of a circle given as a radius, or radius of an arc given as a diameter; missing Ø or R</td><td>Circles are dimensioned by <b>diameter (Ø)</b>, arcs by <b>radius (R)</b>, with the symbol before the figure</td></tr>
+<tr><td>Units written after every figure (e.g. 40 mm)</td><td>Leave out the unit; write a general note "All dimensions in mm"</td></tr>
+<tr><td>Arrowheads unequal, open, or not touching the extension lines</td><td>Closed, filled arrowheads of equal size (length about 3 times their width), touching the extension lines</td></tr>
+</tbody></table>
+<div class="note exam"><p><b>Identify five dimensioning mistakes and correct them:</b> for each, name the mistake in one line, state the rule it breaks, and redraw that dimension correctly. Look first for duplicated sizes, dimensions inside the view or to hidden lines, centre lines used as dimension lines, wrong figure position and missing Ø/R.</p></div>`
         }
       ],
       flashcards: [

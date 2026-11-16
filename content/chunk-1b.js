@@ -511,6 +511,15 @@ CHUNK({
 <div class="note why"><p>With X<sub>C</sub> = 2X<sub>L</sub> the net reactance is −X<sub>L</sub>: same size, opposite sign. The current keeps its size, so the power I<sup>2</sup>R is unchanged, but the pf flips from 0.647 lagging to 0.647 leading. (The course gives no printed answers for Ex 2 and Ex 3.)</p></div>`
         },
         {
+          title: 'Exam problem types',
+          html: `<p class="lead">These four types appear in almost every paper. Each is solved from the same three facts: Z = V/I, tan φ = X/R, and P = VI cos φ.</p>
+<div class="worked"><div class="given"><b>Type 1: series RLC from voltmeter readings.</b> 220 V, 50 Hz; V<sub>R</sub> = 110 V, V<sub>L</sub> = 230 V, I = 12 A, current <b>leading</b>. Find R, L, C, pf, V<sub>C</sub>, P.</div><div class="solve">R = 110/12 = 9.17 Ω; X<sub>L</sub> = 230/12 = 19.17 Ω, L = 19.17/(2π × 50) = 0.061 H. V<sup>2</sup> = V<sub>R</sub><sup>2</sup> + (V<sub>C</sub> − V<sub>L</sub>)<sup>2</sup> gives V<sub>C</sub> − V<sub>L</sub> = √(220<sup>2</sup> − 110<sup>2</sup>) = 190.53 V. Leading means V<sub>C</sub> &gt; V<sub>L</sub>, so V<sub>C</sub> = 230 + 190.53 = 420.53 V; X<sub>C</sub> = 420.53/12 = 35.04 Ω, C = 1/(2π × 50 × 35.04) = 90.8 µF.</div><div class="result">pf = V<sub>R</sub>/V = 0.5 leading; P = V<sub>R</sub>I = 1320 W; Q = 2286 VAR; S = 2640 VA</div></div>
+<div class="worked"><div class="given"><b>Type 2: two elements from v(t) and i(t).</b> v = 200√2 sin(314t + 20°) V, i = 10√2 cos(314t − 25°) A.</div><div class="solve">Write i as a sine: cos(x) = sin(x + 90°), so i = 10√2 sin(314t + 65°). The current leads the voltage by 65° − 20° = 45°, so the circuit is <b>R and C</b>. Z = 200/10 = 20 Ω; R = 20 cos 45° = 14.14 Ω; X<sub>C</sub> = 20 sin 45° = 14.14 Ω; C = 1/(314 × 14.14) = 225 µF.</div><div class="result">pf = 0.707 leading; P = 200 × 10 × 0.707 = 1414 W; Q = 1414 VAR</div></div>
+<div class="worked"><div class="given"><b>Type 3: lamp and choke.</b> A 100 V, 80 W lamp is to run on 230 V, 50 Hz with a pure inductor (choke) in series. Find L.</div><div class="solve">Lamp current I = 80/100 = 0.8 A. The lamp voltage (resistive) and choke voltage are 90° apart: V<sub>L</sub> = √(230<sup>2</sup> − 100<sup>2</sup>) = 207.1 V. X<sub>L</sub> = 207.1/0.8 = 258.9 Ω.</div><div class="result">L = 258.9/(2π × 50) = 0.824 H</div></div>
+<div class="worked"><div class="given"><b>Type 4: complex power of source, line and load.</b> A 220 V source feeds a load of (7 + j6) Ω through a line of (4 + j2) Ω. Find the complex power of each.</div><div class="solve">Total Z = 11 + j8 = 13.60∠36.0° Ω; I = 220/13.60 = 16.18 A. For each part S = I<sup>2</sup>Z: line S = 16.18<sup>2</sup>(4 + j2) = 1046.5 + j523.2 VA; load S = 16.18<sup>2</sup>(7 + j6) = 1831.4 + j1569.7 VA.</div><div class="result">Source S = VI* = 2877.8 + j2093 VA = line + load; |S| = 3558 VA, pf = 0.809 lagging</div></div>
+<div class="note exam"><p>For v = V<sub>m</sub> sin ωt and i = I<sub>m</sub> sin(ωt − φ), always convert to RMS first: V = V<sub>m</sub>/√2. Example: v = 180 sin ωt, i = 14 sin(ωt − 35°) gives V = 127.3 V, I = 9.90 A, S = 1260 VA, P = 1032 W, Q = 722.7 VAR, pf = 0.819 lagging.</p></div>`
+        },
+        {
           title: 'Resonance (Extra)',
           html: `<p class="lead"><b>Extra:</b> resonance is not in the course pages, but it follows directly from Z = √(R<sup>2</sup> + (X<sub>L</sub> ~ X<sub>C</sub>)<sup>2</sup>) and is often asked alongside it.</p>
 <p>X<sub>L</sub> rises with frequency and X<sub>C</sub> falls. At one frequency they are equal and cancel.</p>
@@ -580,6 +589,7 @@ CHUNK({
 <li><b>Arc quenched</b> A short arc forms across the gap and dies out; the circuit is open.</li>
 </ol>
 <div class="note why"><p>It must be in series: only then does every bit of the protected current pass through it, and breaking it breaks the whole path. A fuse in parallel would simply be bypassed.</p></div>
+<div class="note exam"><p><b>Why not use a thick copper wire as a fuse?</b> Copper has a high melting point (about 1085 °C) and a thick wire has very low resistance, so it heats very little. On an overload or short circuit it would <b>not melt in time</b>: the house wiring, switches or the appliance would overheat and catch fire first. A fuse wire is made of a <b>low-melting-point alloy</b> (tin–lead, about 200 °C, or thin tinned copper) of a size chosen for its current rating, so it is the weakest link and melts first.</p></div>
 <details class="more"><summary>Extra: fuse ratings</summary>
 <ul>
 <li><b>Current rating</b>: the current the fuse carries continuously without blowing.</li>
@@ -752,15 +762,18 @@ CHUNK({
 </table>`
         },
         {
-          title: 'Other methods (Extra)',
-          html: `<p class="lead"><b>Extra:</b> the course covers plate and pipe earthing. These points round out a longer exam answer.</p>
-<ul>
-<li><b>Rod earthing</b>: a copper or GI rod driven straight into the ground; used where the soil is soft and space is small.</li>
-<li><b>Strip earthing</b>: a copper or GI strip laid in a shallow trench; used in rocky ground where deep digging is hard.</li>
-<li><b>Earth resistance</b> is measured with an earth tester and should be as low as possible; watering the pit in dry seasons brings it back down.</li>
-<li>The earth wire is connected to the <b>metal bodies</b> of appliances through the third (earth) pin of the plug.</li>
-</ul>
-<div class="note exam"><p>For "explain earthing with a neat sketch", draw either plate or pipe earthing with its key sizes (plate 60 × 60 cm at 150 cm depth, or 38 mm pipe 2.5 m long), and write two lines each on why charcoal/salt and the funnel are there.</p></div>`
+          title: 'Rod earthing and Indian practice',
+          html: `<p class="lead"><b>Rod earthing</b> uses a copper or galvanised iron rod driven straight into the ground. No pit has to be dug, so it is cheap and quick; it suits soft or sandy soil and small spaces.</p>
+<figure data-fig="m1-rod-earthing"></figure>
+<ul><li>A rod of about <b>12–25 mm diameter</b> and <b>2.5–3 m</b> length is hammered vertically into moist soil; several rods joined together lower the resistance further.</li>
+<li>The earth wire from the installation is clamped to the top of the rod inside a small inspection pit with a cover, so the joint can be checked and the soil watered.</li>
+<li><b>Strip earthing</b> lays a copper or GI strip in a shallow trench instead; it is used in rocky ground where deep digging is hard.</li>
+<li><b>Earth resistance</b> is measured with an earth tester and should be as low as possible (a few ohms or less); watering the pit in dry seasons brings it back down.</li></ul>
+<h3>Typical earthing system in India</h3>
+<ul><li>The neutral of the distribution transformer is <b>solidly earthed at the substation</b> (IS 3043 is the code of practice for earthing).</li>
+<li>Each building has its <b>own earth electrode</b> (plate, pipe or rod pit). The earth wire (green or green–yellow) runs from it to the third pin of every socket and to the metal bodies of appliances. Since the consumer's earth is separate from the supply neutral, most homes work as a <b>TT system</b>; newer installations use TN-C-S, where the supplier provides the earth through a combined neutral.</li>
+<li>Supply is 230 V single phase (phase, neutral, earth) or 415 V three phase, four wire; an RCCB/ELCB trips when current leaks to earth.</li></ul>
+<div class="note exam"><p>For "explain pipe and rod earthing with a neat sketch", draw each with its key sizes (38 mm GI pipe 2.5 m long in alternate salt and charcoal; rod 12–25 mm, 2.5–3 m), and write two lines on why the pit is watered and why low earth resistance matters.</p></div>`
         }
       ],
       flashcards: [
@@ -787,6 +800,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm1-rod-earthing', src: 'own/README.txt', crop: null, caption: 'Rod earthing: a copper or GI rod driven 2.5–3 m into moist soil, the earth wire clamped at its top in an inspection pit.', alt: 'Ground section with a vertical rod, clamp, inspection pit cover and earth wire, and a 2.5–3 m depth arrow.' },
     { id: 'm1-ac-sine-wave', src: 'm1/pages/p27.png', crop: null, caption: 'One cycle of a sine wave: peak, RMS and average levels, instantaneous value e at angle θ, peak-to-peak value and the periodic time T.', alt: 'Sine wave from 0 to 2π with dashed lines at max 1, rms 0.707 and average 0.636, arrows for +Amax, −Amax, peak-to-peak and periodic time.' },
     { id: 'm1-ac-phase', src: 'm1/pages/p28.png', crop: null, caption: 'A phasor of length Im rotating at ω; its vertical projection at angle θ traces the sine wave, one full turn being one cycle.', alt: 'Rotating phasor Im at angle θ on the left, its projection i carried across to a sine wave with peaks Im at 90° and 270°.' },
     { id: 'm1-ac-phase-diff', src: 'm1/pages/p29.png', crop: null, caption: 'Two phasors φ apart give two waves φ apart: i1 reaches its peak and its zero φ before i2, so i1 leads.', alt: 'Phasor Im1 at angle φ above phasor Im2, and the two current waves i1 and i2 shifted by φ at their peaks and zero crossings.' },

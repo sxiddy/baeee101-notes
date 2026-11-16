@@ -5,7 +5,7 @@
    "num": "01",
    "title": "Principles of Electrical Engineering",
    "free": true,
-   "topics": 19,
+   "topics": 20,
    "questions": 94
   },
   {
@@ -21,7 +21,7 @@
    "num": "03",
    "title": "Engineering Graphics and CAD",
    "free": true,
-   "topics": 10,
+   "topics": 15,
    "questions": 27
   },
   {
@@ -29,7 +29,7 @@
    "num": "04",
    "title": "Manufacturing, Energy and Mechanical Automation",
    "free": true,
-   "topics": 32,
+   "topics": 40,
    "questions": 45
   }
  ],

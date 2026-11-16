@@ -262,6 +262,19 @@ CHUNK({
 </tbody></table>
 <p>The AM drawing marks the <b>maximum amplitude</b> and <b>minimum amplitude</b> of the wave and the <b>envelope</b> of the modulated signal. It is drawn for the <b>under-modulation</b> case, <b>u &lt; 1</b>.</p>
 <div class="note exam"><p>In the figure, the AM wave rises and falls in height with the message (the outline is the envelope) while the carrier frequency stays fixed. In the FM wave the height is constant but the waves bunch up and spread out with the message.</p></div>`
+        },
+        {
+          title: 'AM vs FM',
+          html: `<table class="tbl"><thead><tr><th>Point</th><th>Amplitude modulation (AM)</th><th>Frequency modulation (FM)</th></tr></thead><tbody>
+<tr><td>What changes</td><td>Amplitude of the carrier follows the message; frequency fixed</td><td>Frequency of the carrier follows the message; amplitude fixed</td></tr>
+<tr><td>Bandwidth</td><td>Small: 2 × highest message frequency (10 kHz for broadcast)</td><td>Large: about 200 kHz per broadcast station</td></tr>
+<tr><td>Noise</td><td>Noise adds to the amplitude, so it is heard in the output</td><td>Amplitude noise is clipped off, so reception is much cleaner</td></tr>
+<tr><td>Sound quality</td><td>Lower fidelity</td><td>High fidelity, suitable for music</td></tr>
+<tr><td>Range</td><td>Long; MF/HF waves follow the ground or bounce off the ionosphere</td><td>Short; VHF travels by line of sight</td></tr>
+<tr><td>Circuits and power</td><td>Simple, cheap transmitter and receiver; most power wasted in the carrier</td><td>More complex, but transmitter efficiency is higher</td></tr>
+<tr><td>Bands and uses</td><td>MF 535–1605 kHz: medium-wave and short-wave radio, aircraft voice</td><td>VHF 88–108 MHz: FM radio, TV sound, two-way radio</td></tr>
+</tbody></table>
+<div class="note exam"><p>For "compare AM and FM" write at least five points from this table and sketch both modulated waves under the same message: the AM envelope follows the message; the FM wave crowds together where the message is high.</p></div>`
         }
       ],
       flashcards: [

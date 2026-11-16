@@ -164,6 +164,16 @@ CHUNK({
 <div class="note exam"><p>Redraw after each step. Most mistakes come from calling two resistors "in series" when a branch leaves the node between them.</p></div>`
         },
         {
+          title: 'Bridge networks',
+          html: `<p class="lead">A <b>bridge network</b> has a fifth resistor across the middle, so it is neither series nor parallel. Its equivalent resistance is found in one of two ways.</p>
+<figure data-fig="m1-bridge-network"></figure>
+<ul><li><b>Balanced bridge:</b> if the ratios of the arms are equal (R<sub>AC</sub>/R<sub>CB</sub> = R<sub>AD</sub>/R<sub>DB</sub>), points C and D are at the same potential, no current flows in the middle resistor, and it can be removed.</li>
+<li><b>Unbalanced bridge:</b> convert one delta (three resistors forming a triangle) into an equivalent star, then the network becomes series–parallel.</li></ul>
+<div class="eq">Delta → star: R<sub>A</sub> = R<sub>AC</sub>R<sub>AD</sub> / (R<sub>AC</sub> + R<sub>AD</sub> + R<sub>CD</sub>), and the same pattern for R<sub>C</sub>, R<sub>D</sub></div>
+<div class="worked"><div class="given">Balanced case: arms 10 Ω and 20 Ω on top, 5 Ω and 10 Ω below, any resistor in the middle.</div><div class="solve">10/20 = 5/10, so the bridge is balanced and the middle resistor carries no current. R<sub>eq</sub> = (10 + 20) ∥ (5 + 10) = 30 ∥ 15.</div><div class="result">R<sub>eq</sub> = 30 × 15/45 = 10 Ω</div></div>
+<div class="worked"><div class="given">Unbalanced case (figure): R<sub>AC</sub> = 10, R<sub>CB</sub> = 20, R<sub>AD</sub> = 20, R<sub>DB</sub> = 10, R<sub>CD</sub> = 10 Ω.</div><div class="solve">Convert delta A–C–D (sum = 10 + 20 + 10 = 40 Ω) to a star with centre N: R<sub>A</sub> = 10 × 20/40 = 5 Ω, R<sub>C</sub> = 10 × 10/40 = 2.5 Ω, R<sub>D</sub> = 20 × 10/40 = 5 Ω. Now N to B has two paths: 2.5 + 20 = 22.5 Ω and 5 + 10 = 15 Ω, in parallel = 22.5 × 15/37.5 = 9 Ω.</div><div class="result">R<sub>eq</sub> = 5 + 9 = 14 Ω (checked by nodal analysis)</div></div>`
+        },
+        {
           title: 'Source conversion & current division',
           html: `<p class="lead">A voltage source E<sub>s</sub> with series resistance R<sub>s</sub> can be swapped for a <b>current source I<sub>s</sub> = E<sub>s</sub>/R<sub>s</sub></b> with the <b>same R<sub>s</sub> in parallel</b>. The load R<sub>L</sub> cannot tell the difference.</p>
 <figure data-fig="m1-source-conversion"></figure>
@@ -635,6 +645,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm1-bridge-network', src: 'own/README.txt', crop: null, caption: 'An unbalanced bridge between A and B: 10 Ω and 20 Ω arms with 10 Ω across C–D.', alt: 'Diamond of four resistors from A through C and D to B, with a fifth resistor from C to D.' },
     { id: 'm1-kcl-node', src: 'm1/pages/p02.png', crop: null, caption: 'Node a: I₁ enters, while I₂, I₃ and I₄ all leave. KCL says the in-flow equals the total out-flow.', alt: 'Battery V feeding R1 into node a; from a, I2 goes up to R5, I3 down through R2 and I4 right through R4, with R6, R3 and R7 further right.' },
     { id: 'm1-kvl-loop', src: 'm1/pages/p03.png', crop: null, caption: 'Loop abcda (red) runs through R₂, the bottom wire, the battery and R₁. KVL: the battery voltage equals the two drops.', alt: 'The same network with nodes d, a, b, c marked and a clockwise loop current I1 drawn inside the loop formed by the battery, R1 and R2.' },
     { id: 'm1-series-tie', src: 'm1/pages/p04.png', crop: null, caption: 'Series: the − end of R₁ is tied to the + end of R₂ (alternate polarities). Panels (a) and (b) are both series.', alt: 'Two drawings of R1 and R2 with plus and minus ends; a red wire joins opposite polarities in each.' },

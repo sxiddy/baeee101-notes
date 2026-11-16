@@ -32,6 +32,14 @@ CHUNK({
           title: 'Moving motion around',
           html: `<p class="lead">Mechanisms transfer and transform motion.</p>
 <div class="kv"><div><span>Cam and follower</span><b>Rotary to reciprocating motion</b></div><div><span>Rack and pinion</span><b>Rotary and reciprocating</b></div><div><span>Helical gear pair, worm and worm wheel</span><b>Rotary to rotary, at different speeds</b></div><div><span>Wiper mechanism</span><b>Rotary to oscillatory motion</b></div></div>`
+        },
+        {
+          title: 'Sketches',
+          html: `<p class="lead">Questions on constrained motion ask for a sketch of each type. These are the standard examples.</p>
+<figure data-fig="m4-constrained-motion"></figure>
+<ul><li><b>Completely constrained:</b> a square bar in a square hole can only slide along its axis, whatever the direction of the force.</li>
+<li><b>Incompletely constrained:</b> a round shaft in a round hole can both slide and turn; which motion occurs depends on the force.</li>
+<li><b>Successfully constrained:</b> a shaft in a foot-step bearing could rise as well as turn, but the load W on top prevents it from lifting, so it only turns. A piston in an IC engine cylinder and a valve held on its seat by a spring are other examples.</li></ul>`
         }
       ],
       flashcards: [
@@ -87,6 +95,18 @@ CHUNK({
           html: `<div class="worked"><div class="given"><p>Slider crank: frame, crank, connecting rod, slider, so N = 4. Pairs: 3 revolute and 1 prismatic, all 1 DoF, so P<sub>1</sub> = 4.</p></div><div class="solve"><div class="eq">F = 3(N − 1) − 2P<sub>1</sub></div><div class="eq">F = 3(4 − 1) − 2(4) = 9 − 8 = 1</div></div><div class="result"><p>F = 1</p></div></div>
 <p>One input (turning the crank) fixes the position of every other part.</p>
 <div data-viz="mech-dof"></div>`
+        },
+        {
+          title: 'Types of links',
+          html: `<table class="tbl"><thead><tr><th>Classification</th><th>Type</th><th>Meaning and example</th></tr></thead><tbody>
+<tr><td>By nature</td><td>Rigid link</td><td>Does not deform noticeably under load: crank, connecting rod, frame</td></tr>
+<tr><td></td><td>Flexible link</td><td>Deforms but can transmit force in one sense only: belts, ropes, chains (tension), springs</td></tr>
+<tr><td></td><td>Fluid link</td><td>Transmits motion through a fluid under pressure: hydraulic press, hydraulic brakes, jack</td></tr>
+<tr><td>By number of joints</td><td>Binary</td><td>Two joints (pairs): a simple bar such as a connecting rod</td></tr>
+<tr><td></td><td>Ternary</td><td>Three joints: a triangular plate joined at three corners</td></tr>
+<tr><td></td><td>Quaternary</td><td>Four joints: a plate joined at four corners</td></tr>
+</tbody></table>
+<div class="note exam"><p>The degrees of freedom of four-bar (F = 1) and five-bar (F = 2) linkages are worked out under the <b>Four-bar linkage</b> topic (tab: DoF of linkages).</p></div>`
         }
       ],
       flashcards: [
@@ -150,6 +170,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm4-constrained-motion', src: 'own/README.txt', crop: null, caption: 'Completely, incompletely and successfully constrained motion.', alt: 'Square bar in square hole, round shaft in round hole, and a shaft standing in a foot-step bearing under a load.' },
     { id: 'm4-slider-crank', src: 'm4/pages/p75.png', crop: null, caption: 'Slider crank mechanism: frame, crank, connecting rod and slider turn between rotary and reciprocating motion.', alt: 'Crank, connecting rod and slider on a frame.' }
   ]
 });

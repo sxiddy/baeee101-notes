@@ -267,6 +267,23 @@ CHUNK({
 <p><b>Shaft torque</b> T<sub>sh</sub> is what's left at the shaft after the motor's own losses: T<sub>sh</sub> = output power / (2πN), N in rps. It's always a little less than T<sub>a</sub>.</p>`
         },
         {
+          title: 'Parts and uses',
+          html: `<p class="lead">Each main part of a DC motor has one job, and the way the field is connected decides which loads the motor suits.</p>
+<table class="tbl"><thead><tr><th>Part</th><th>Function</th></tr></thead><tbody>
+<tr><td>Armature</td><td>The rotating laminated core carrying the conductors; the force on its current-carrying conductors produces the torque (in a generator, the emf is induced in it)</td></tr>
+<tr><td>Commutator</td><td>Copper segments insulated from each other on the shaft; it reverses the current in each armature coil as the coil passes from one pole to the next, so the torque stays in one direction (in a generator it turns the alternating coil emf into DC at the brushes)</td></tr>
+<tr><td>Brushes</td><td>Carbon blocks pressed on the commutator by springs; they carry current between the stationary external circuit and the rotating commutator</td></tr>
+<tr><td>Field poles and winding</td><td>Produce the main magnetic flux that the armature conductors work in</td></tr>
+<tr><td>Yoke</td><td>Outer frame that supports the poles, carries the flux and protects the machine</td></tr>
+</tbody></table>
+<table class="tbl"><thead><tr><th>Motor</th><th>Behaviour</th><th>Applications</th></tr></thead><tbody>
+<tr><td>Series</td><td>Very high starting torque; speed falls a lot as load rises; must never run without load (it would overspeed)</td><td>Electric traction (trains, trams), cranes, hoists, lifts, vacuum cleaners and mixers</td></tr>
+<tr><td>Shunt</td><td>Almost constant speed from no load to full load; medium starting torque</td><td>Lathes, drilling and milling machines, fans, centrifugal pumps, conveyors</td></tr>
+<tr><td>Compound</td><td>High starting torque with fairly steady speed</td><td>Presses, shears, rolling mills, elevators, heavy planers</td></tr>
+</tbody></table>
+<div class="note exam"><p><b>DC motor construction, working and applications:</b> draw the cross-section (yoke, poles, field coils, armature, commutator, brushes), explain the force F = BIL on the conductors and the commutator keeping torque one way, then give at least two applications for each type.</p></div>`
+        },
+        {
           title: 'Example 1: series motor',
           html: `<p class="lead">A <b>8.2 kW, 220 V, 4-pole, 800-conductor wave-connected DC series motor</b> draws 45 A. R<sub>a</sub> = 0.6 Ω, φ = 25 mWb. Find the developed and shaft torques.</p>
 <div class="worked"><div class="given"><p>P = 4, wave so A = 2, Z = 800, I<sub>a</sub> = I<sub>L</sub> = 45 A (series), V = 220 V, output 8200 W.</p></div>
@@ -277,7 +294,7 @@ CHUNK({
 <div class="eq">T<sub>sh</sub> = <span class="frac"><span>8200</span><span>2π × 4.83</span></span> = <span class="frac"><span>8200</span><span>30.3</span></span></div>
 </div>
 <div class="result"><p>T<sub>a</sub> = <b>286.2 N·m</b>, N = <b>289.5 rpm</b>, T<sub>sh</sub> = <b>270.5 N·m</b></p></div></div>
-<div class="note heads-up"><p>The course writes "289.5 rpm or 30 rps" and gets T<sub>sh</sub> = 8200/(2 × 3.14 × 30) = 43.52 N·m. But 289.5 rpm is <b>4.83 rps</b>. So the 30 rps on the slide is wrong. With 4.83 rps, T<sub>sh</sub> = 270.5 N·m, which sensibly sits just under T<sub>a</sub> = 286.2 N·m. A shaft torque of 43.52 N·m from a 286 N·m armature would be impossible.</p></div>
+<div class="note heads-up"><p>The course writes "289.5 rpm or 30 rps" and gets T<sub>sh</sub> = 8200/(2 × 3.14 × 30) = 43.52 N·m. But 289.5 rpm is <b>4.83 rps</b>. So the 30 rps on the course material is wrong. With 4.83 rps, T<sub>sh</sub> = 270.5 N·m, which sensibly sits just under T<sub>a</sub> = 286.2 N·m. A shaft torque of 43.52 N·m from a 286 N·m armature would be impossible.</p></div>
 <div class="note exam"><p>The question gives R<sub>a</sub> = 0.6 Ω only. In a series motor take it as the total armature-plus-field resistance, as the solution does.</p></div>`
         },
         {
@@ -358,6 +375,24 @@ CHUNK({
 <div class="note why"><p>This transistor switching does the job the commutator and brushes do in a normal DC motor, without sparking or wear.</p></div>`
         },
         {
+          title: 'Advantages and control',
+          html: `<p class="lead">A BLDC motor is controlled electronically: the controller reads where the rotor is and switches the right stator windings on, so the stator field always stays ahead of the magnets.</p>
+<ol class="steps"><li><b>Sense:</b> three Hall effect sensors (or the back emf in sensorless drives) tell the controller the rotor position every 60 electrical degrees.</li>
+<li><b>Decide:</b> the controller picks which two of the three windings to energise next (six-step or trapezoidal commutation).</li>
+<li><b>Switch:</b> a three-phase inverter of six transistors (MOSFETs or IGBTs) connects those windings to the DC supply.</li>
+<li><b>Speed control:</b> the controller switches the transistors on and off rapidly (PWM); a larger duty cycle gives a higher average voltage and a higher speed.</li></ol>
+<table class="tbl"><thead><tr><th>Point</th><th>BLDC motor</th><th>Brushed DC motor</th></tr></thead><tbody>
+<tr><td>Commutation</td><td>Electronic, by transistors</td><td>Mechanical, by commutator and brushes</td></tr>
+<tr><td>Maintenance and life</td><td>No brushes to wear, so little maintenance and long life</td><td>Brushes wear and need replacing</td></tr>
+<tr><td>Efficiency</td><td>Higher (85–90 %), no brush friction or brush drop</td><td>Lower (75–80 %)</td></tr>
+<tr><td>Noise and sparking</td><td>Quiet, no sparking, safe in explosive surroundings</td><td>Brush sparking and electrical noise</td></tr>
+<tr><td>Heat</td><td>Windings on the stator, so heat escapes easily through the frame</td><td>Heat builds up in the rotating armature</td></tr>
+<tr><td>Size and speed</td><td>High power for its size; high speeds possible</td><td>Larger for the same power</td></tr>
+<tr><td>Cost</td><td>Needs an electronic controller, so costlier</td><td>Cheap and simple to run from DC</td></tr>
+</tbody></table>
+<div class="note exam"><p><b>BLDC advantages over DC motor, construction, working and applications</b> is a common long question: draw the cross-section (magnet rotor, wound stator, Hall sensor), explain the sensor–controller–inverter loop, list four advantages and four applications.</p></div>`
+        },
+        {
           title: 'Characteristics and uses',
           html: `<p class="lead">The torque–speed graph shows how much torque the motor can give at each speed, both <b>continuously</b> and for short <b>intermittent</b> bursts.</p>
 <figure data-fig="m1-bldc-characteristics"></figure>
@@ -416,6 +451,20 @@ CHUNK({
 <li><b>Induced emf</b> The changing flux induces an emf in the secondary; close switch S and current flows in the load.</li>
 </ol>
 <div class="note why"><p>Only a <b>changing</b> flux induces emf, so a transformer does nothing on steady DC. "Static" means nothing moves: no rotating part, which is why transformers are so efficient.</p></div>`
+        },
+        {
+          title: 'Need and applications',
+          html: `<p class="lead">Power is generated at about 11–33 kV, sent over long lines at 132–765 kV, and used at 230 V or 415 V. Only a transformer can change AC voltage this way, efficiently and with no moving parts.</p>
+<ul><li><b>Need for transmission:</b> for the same power P = VI, raising the voltage lowers the current. Line loss is I²R, so stepping the voltage up 10 times cuts the line loss to one-hundredth and allows thinner, cheaper conductors.</li>
+<li><b>Need for safe use:</b> the high voltage must be stepped down again before it reaches homes and machines.</li>
+<li><b>Isolation:</b> the primary and secondary are joined only magnetically, so a transformer can isolate a circuit from the supply.</li></ul>
+<table class="tbl"><thead><tr><th>Application</th><th>What the transformer does</th></tr></thead><tbody>
+<tr><td>Power station (step-up)</td><td>Raises the generator voltage for long-distance transmission</td></tr>
+<tr><td>Substation and distribution (step-down)</td><td>Lowers it in stages to 11 kV and then 415/230 V for consumers</td></tr>
+<tr><td>Chargers, adapters and electronics</td><td>Steps 230 V down to a few volts before rectification</td></tr>
+<tr><td>Instrument transformers (CT and PT)</td><td>Reduce large currents and voltages to safe values for meters and relays</td></tr>
+<tr><td>Welding transformer, isolation transformer</td><td>Give a low-voltage high current for welding; isolate equipment for safety</td></tr>
+</tbody></table>`
         },
         {
           title: 'Core and shell types',
@@ -491,6 +540,13 @@ CHUNK({
 <div class="note why"><p>Fins give the frame more surface to shed heat. The core is laminated because it carries alternating flux, which would otherwise drive eddy currents through it.</p></div>`
         },
         {
+          title: 'Rotor, starting and uses',
+          html: `<p class="lead">The rotor sits inside the stator bore with a small air gap. There are two kinds, and either one starts by itself on a three-phase supply.</p>
+<div class="vs"><div class="side"><h4>Squirrel cage rotor</h4><p>Laminated cylindrical core with <b>copper or aluminium bars</b> in slots, short-circuited at both ends by <b>end rings</b>, like a cage. Simple, rugged and cheap; used in about 90 % of induction motors.</p></div><div class="side"><h4>Wound (slip ring) rotor</h4><p>A three-phase winding in the rotor slots, star connected, with its ends brought out to <b>three slip rings</b> and brushes. External resistance can be added at starting for <b>higher starting torque</b> and lower starting current.</p></div></div>
+<div class="note why"><p><b>Why a three-phase induction motor is self-starting:</b> the three-phase stator winding produces a <b>rotating</b> magnetic field even when the rotor is still. This field cuts the rotor bars, induces currents and produces torque at standstill, so the motor starts on its own. A single-phase winding gives only a pulsating field, which is why a single-phase motor needs a starting arrangement.</p></div>
+<p><b>Applications:</b> pumps, fans and blowers, compressors, conveyors, lifts and cranes, lathes and other machine tools, and almost every industrial drive, because the motor is rugged, cheap, efficient and needs little maintenance.</p>`
+        },
+        {
           title: 'Classification',
           html: `<p class="lead">Induction machines are first sorted <b>by speed</b>, then by supply and rotor type.</p>
 <figure data-fig="m1-im-classification"></figure>
@@ -551,6 +607,78 @@ CHUNK({
     },
     // ------------------------------------------------------------------
     {
+      id: 'm1-induction-1ph',
+      title: 'Single-phase induction motor',
+      short: 'Single-phase IM',
+      blurb: 'Construction of a single-phase induction motor, why it is not self-starting, how an auxiliary winding and capacitor start it, its types, and how it compares with the three-phase motor.',
+      source: 'Single-phase induction motor lecture, pages 1–12',
+      tabs: [
+        {
+          title: 'Construction',
+          html: `<p class="lead">A single-phase induction motor is very similar to a three-phase squirrel cage induction motor. It has <b>a squirrel cage rotor</b>, identical to a three-phase motor's, and <b>a single-phase winding on the stator</b>.</p>
+<ul><li><b>Stator:</b> a laminated core with slots carrying a distributed single-phase winding (the main winding), plus an auxiliary winding for starting.</li>
+<li><b>Rotor:</b> a laminated core with aluminium or copper bars short-circuited by end rings.</li>
+<li>It runs from an ordinary single-phase supply (230 V, 50 Hz), which is why it is used in homes.</li></ul>
+<div class="note example"><p>Ceiling fans, table fans, washing machines, refrigerator compressors, mixers and small water pumps all use single-phase induction motors.</p></div>`
+        },
+        {
+          title: 'Not self-starting',
+          html: `<p class="lead">Unlike a three-phase induction motor, a single-phase induction motor is <b>not self-starting</b>: it needs some starting means.</p>
+<figure data-fig="m1-1ph-im"></figure>
+<ol class="steps"><li>The single-phase stator winding produces a magnetic field that <b>pulsates</b> in strength in a sinusoidal manner. Its polarity reverses every half cycle, but <b>the field does not rotate</b>.</li>
+<li>Such an alternating flux cannot produce rotation in a stationary squirrel cage rotor. The pulsating field can be thought of as two equal fields of φ<sub>m</sub>/2 rotating in opposite directions. At standstill they produce <b>equal and opposite torques</b>, so the net starting torque is zero.</li>
+<li>If the rotor is turned in either direction by some mechanical means, the torque of the field rotating that way becomes larger. The rotor then <b>quickly accelerates to a speed slightly below synchronous speed</b> and keeps running in that direction on the single-phase supply.</li></ol>
+<div class="note why"><p>Spinning the shaft by hand or pulling a belt is not convenient for large motors, and impossible for a motor in an inaccessible place, so a built-in starting method is needed.</p></div>`
+        },
+        {
+          title: 'Making it self-starting',
+          html: `<p class="lead">To make a single-phase induction motor self-starting, a <b>revolving stator field</b> must be produced. This is done by converting the single-phase supply into a <b>two-phase supply</b> with an additional (auxiliary) winding.</p>
+<ul><li>The <b>auxiliary (starting) winding</b> is placed 90° in space from the main winding. Its current is made to differ in phase from the main winding current, by giving it a different resistance-to-reactance ratio or by adding a capacitor in series.</li>
+<li>Two currents out of phase in two windings 90° apart produce a <b>rotating field</b>, just as three phases do, so the motor starts.</li>
+<li>When the motor reaches about 70–80 % of its speed, a <b>centrifugal switch</b> may disconnect the auxiliary winding, depending on the type of motor.</li></ul>
+<table class="tbl"><thead><tr><th>Type</th><th>How it starts</th><th>Typical use</th></tr></thead><tbody>
+<tr><td>Split-phase motor</td><td>Two-phase motor action using an auxiliary (starting) winding of higher resistance</td><td>Washing machines, blowers, small pumps</td></tr>
+<tr><td>Capacitor motor (capacitor start, capacitor run)</td><td>Two-phase motor action using an auxiliary winding with a capacitor; the capacitor makes the auxiliary current lead by nearly 90°, giving high starting torque</td><td>Compressors, refrigerators, ceiling fans (capacitor run)</td></tr>
+<tr><td>Shaded-pole motor</td><td>A copper shading ring around part of each pole delays the flux in that part, so the field moves across the pole face</td><td>Small table fans, hair dryers, record players</td></tr>
+</tbody></table>
+<div class="note exam"><p><b>Explain the working of a single-phase induction motor, why it is not self-starting, and its applications:</b> describe the pulsating field and the two opposite rotating halves (zero net torque at rest), then the auxiliary winding with capacitor and centrifugal switch, then three applications.</p></div>`
+        },
+        {
+          title: 'vs three-phase',
+          html: `<table class="tbl"><thead><tr><th>Feature</th><th>Single-phase induction motor</th><th>Three-phase induction motor</th></tr></thead><tbody>
+<tr><td>Power supply</td><td>Single-phase AC (230 V, 50 Hz)</td><td>Three-phase AC (415 V, 50 Hz)</td></tr>
+<tr><td>Starting torque</td><td>Low; needs an auxiliary starting method</td><td>High; self-starting</td></tr>
+<tr><td>Construction</td><td>Simpler, lighter, smaller</td><td>Rugged, heavier, larger</td></tr>
+<tr><td>Efficiency</td><td>Low</td><td>High</td></tr>
+<tr><td>Power factor</td><td>Poor (0.6–0.8)</td><td>Good (0.85 or more)</td></tr>
+<tr><td>Power rating</td><td>Up to about 5 HP (3.7 kW)</td><td>Fractional kW to several MW</td></tr>
+<tr><td>Applications</td><td>Domestic appliances: fans, pumps, refrigerators</td><td>Industrial machinery: compressors, conveyors, elevators</td></tr>
+<tr><td>Cost</td><td>Low initial cost</td><td>Higher initial cost but more economical for high power</td></tr>
+<tr><td>Maintenance</td><td>Moderate</td><td>Lower relative maintenance for high power</td></tr>
+</tbody></table>`
+        }
+      ],
+      flashcards: [
+        { front: 'Why is a single-phase induction motor not self-starting?', back: 'Its single winding gives a pulsating, non-rotating field; the two opposite rotating halves give equal and opposite torques, so the starting torque is zero.' },
+        { front: 'What happens if the rotor of a single-phase IM is given a push?', back: 'It accelerates to just below synchronous speed and keeps running in that direction.' },
+        { front: 'How is a single-phase IM made self-starting?', back: 'By an auxiliary winding 90° in space with a phase-shifted current (often through a capacitor), giving a rotating field.' },
+        { front: 'What disconnects the starting winding?', back: 'A centrifugal switch, at about 70–80 % of full speed.' },
+        { front: 'Three types of single-phase induction motor by starting method?', back: 'Split-phase, capacitor and shaded-pole motors.' },
+        { front: 'Typical power factor of single- vs three-phase IM?', back: 'Single-phase 0.6–0.8; three-phase 0.85 or more.' },
+        { front: 'Give three applications of single-phase induction motors.', back: 'Fans, refrigerators, washing machines, small pumps, mixers.' },
+        { front: 'Is a three-phase induction motor self-starting? Why?', back: 'Yes: the three-phase winding produces a rotating field even at standstill.' }
+      ],
+      oneLiners: [
+        'Single-phase field pulsates, does not rotate → no starting torque.',
+        'Pulsating field = two φm/2 fields rotating opposite ways.',
+        'Auxiliary winding + capacitor → two-phase action → rotating field.',
+        'Types: split-phase, capacitor, shaded-pole.',
+        'Single-phase: homes, ≤ 5 HP; three-phase: industry, self-starting.'
+      ],
+      formulas: []
+    },
+    // ------------------------------------------------------------------
+    {
       id: 'm1-drives',
       title: 'Power-electronics-based electric drives',
       short: 'Electric drives',
@@ -604,6 +732,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm1-1ph-im', src: 'vtop/im1/p05.png', crop: null, caption: 'Single-phase induction motor: the pulsating field as two opposite half fields, and the capacitor-start connection.', alt: 'Two flux arrows of half size turning opposite ways with their vertical resultant; circuit of main winding in parallel with capacitor, centrifugal switch and auxiliary winding.' },
     { id: 'm1-energy-conversion', src: 'm1/pages/p52.png', crop: null, caption: 'Mechanical port on the left, electrical port on the right, and the region of energy conversion in between. Energy is stored in the field and the rotating mass; power is lost on both sides.', alt: 'Shaft with input power, speed and torques entering a dashed region holding a rotor and coil; coil emf e0, resistance r and terminal voltage et on the right; arrows show power losses and energy storage.' },
     { id: 'm1-dc-cross-section', src: 'm1/pages/p53.png', crop: null, caption: 'A 4-pole DC machine: N, S, N, S poles on the yoke, each with a field coil and pole shoe, around the slotted armature.', alt: 'Cross-section of a DC machine with yoke, four poles with field coils and pole shoes, armature with conductors, shaft and base, all labelled.' },
     { id: 'm1-dc-armature', src: 'm1/pages/p55.png', crop: null, caption: 'The rotating part: laminated stack with teeth and slots, winding coils, commutator bars touched by carbon brushes, all on one shaft.', alt: 'Side view of a DC armature on a shaft with bearing, laminated stack, slots, teeth, coil overhangs, commutator bars and two carbon brushes.' },

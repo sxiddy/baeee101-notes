@@ -92,7 +92,7 @@ QUESTIONS({
       q: `<p>A student's drawing looks flat and hard to read: the outlines, dimension lines and hatching all look the same. The student used one HB pencil for everything. What should change?</p>`,
       options: null, correct: null,
       answer: `<p><b>Use two line weights: thick (HB) for visible outlines and thin (2H) for dimension, extension, hatching, centre and hidden lines, about 2 : 1.</b></p>`,
-      explain: `<p>Line weight carries meaning. Thick lines emphasise visible outlines; thin lines are used for dimensions, extensions, leaders and hatching. The slides give thick : thin = 2 : 1, for example 0.7 and 0.35 mm, drawn with HB and 2H pencils.</p>`,
+      explain: `<p>Line weight carries meaning. Thick lines emphasise visible outlines; thin lines are used for dimensions, extensions, leaders and hatching. The course material give thick : thin = 2 : 1, for example 0.7 and 0.35 mm, drawn with HB and 2H pencils.</p>`,
       points: ['Thick for visible outlines', 'Thin for dimensions, hatching, centre lines', 'Ratio 2 : 1', 'HB thick, 2H thin']
     },
     {
@@ -100,12 +100,12 @@ QUESTIONS({
       q: `<p>On a drawing using the aligned system, a vertical dimension of 30 is written so that it reads from the left side of the sheet. Is that right? Where should the figure be?</p>`,
       options: null, correct: null,
       answer: `<p><b>No.</b> In the aligned system figures read from the bottom or the right side, so a vertical figure sits beside its dimension line and reads upwards from the right.</p>`,
-      explain: `<p>Aligned system: figures are placed above (and parallel to) the dimension line and are read from the bottom or the right of the sheet. A figure read from the left is marked wrong on the slide. In the unidirectional system, every figure is horizontal in a break of the dimension line instead.</p>`,
+      explain: `<p>Aligned system: figures are placed above (and parallel to) the dimension line and are read from the bottom or the right of the sheet. A figure read from the left is marked wrong on the course material. In the unidirectional system, every figure is horizontal in a break of the dimension line instead.</p>`,
       points: ['Aligned: above and parallel to the line', 'Read from the bottom or right', 'Unidirectional: horizontal, line broken']
     },
     {
       id: 'm3-3a-13', module: 'm3', topic: 'm3-lettering-dim', type: 'decide', level: 1,
-      q: `<p>You are lettering a sheet. Which set of heights follows the slide's rules?</p>`,
+      q: `<p>You are lettering a sheet. Which set of heights follows the course material's rules?</p>`,
       options: ['Title 8 mm, notes 4 mm, drawing number 12 mm', 'Title 3 mm, notes 8 mm, drawing number 5 mm', 'Title 12 mm, notes 2 mm, drawing number 3 mm', 'All lettering 5 mm'],
       correct: 0,
       answer: `<p><b>Title 8 mm, notes 4 mm, drawing number 12 mm.</b></p>`,

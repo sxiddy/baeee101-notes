@@ -29,6 +29,17 @@ CHUNK({
           title: 'Chip types',
           html: `<p class="lead">Almost all materials suit conventional machining. The nature of the material decides how the chip forms. Ductile materials are machined at <b>high speeds</b>.</p>
 <div class="chips"><span class="chip">Continuous chips</span><span class="chip">Continuous chips with built-up edge</span><span class="chip">Discontinuous chips</span><span class="chip">Serrated or segmented chips</span></div>`
+        },
+        {
+          title: 'Machining; tool types',
+          html: `<p class="lead"><b>Machining</b> is a material-removal process in which a cutting tool harder than the work removes unwanted material as <b>chips</b>, to give the required shape, size and finish. Conventional machining processes include <b>turning</b> (lathe), <b>drilling</b>, <b>milling</b>, <b>shaping</b> and <b>grinding</b>.</p>
+<table class="tbl"><thead><tr><th>Point</th><th>Single-point tool</th><th>Multi-point tool</th></tr></thead><tbody>
+<tr><td>Cutting edges</td><td>One main cutting edge</td><td>Two or more edges cutting at the same time</td></tr>
+<tr><td>Examples</td><td>Lathe turning tool, boring tool, shaping and planing tools</td><td>Drill, milling cutter, reamer, broach, grinding wheel</td></tr>
+<tr><td>Material removal</td><td>Lower rate</td><td>Higher rate, since several edges cut</td></tr>
+<tr><td>Heat and wear</td><td>All heat on one edge, so it wears faster</td><td>Load and heat shared, longer life</td></tr>
+<tr><td>Making and resharpening</td><td>Simple and cheap</td><td>Complex and costly</td></tr>
+</tbody></table>`
         }
       ],
       flashcards: [
@@ -76,6 +87,18 @@ CHUNK({
           title: 'Tapping',
           html: `<p class="lead"><b>Tapping</b> cuts internal threads. A tap is a chip-producing threading tool with multiple cutting teeth.</p>
 <p>The tap rotates in the hole and cuts away material to form the thread profile. It is needed for secure fastenings in manufacturing and construction.</p>`
+        },
+        {
+          title: 'Drilling vs reaming',
+          html: `<table class="tbl"><thead><tr><th>Point</th><th>Drilling</th><th>Reaming</th></tr></thead><tbody>
+<tr><td>Purpose</td><td><b>Makes a new hole</b> in solid material</td><td><b>Finishes an existing hole</b> to an accurate size and smooth surface</td></tr>
+<tr><td>Tool</td><td>Twist drill with two cutting lips and a pointed tip</td><td>Reamer with many straight or helical cutting edges</td></tr>
+<tr><td>Material removed</td><td>Large</td><td>Very small (about 0.1–0.5 mm on diameter)</td></tr>
+<tr><td>Accuracy and finish</td><td>Moderate; hole is often slightly oversize and rough</td><td>High dimensional accuracy and good finish</td></tr>
+<tr><td>Speed and feed</td><td>Higher speed</td><td>Lower speed, higher feed</td></tr>
+<tr><td>Sequence</td><td>Done first</td><td>Done after drilling (and before honing)</td></tr>
+</tbody></table>
+<div class="note exam"><p>Boring enlarges an existing hole with a single-point tool and corrects its position; reaming only sizes and smooths it, following the drilled hole.</p></div>`
         }
       ],
       flashcards: [

@@ -100,6 +100,15 @@ CHUNK({
         {
           title: 'Pros and cons',
           html: `<div class="vs"><div class="side"><h4>Advantages</h4><ul><li>Less space and less fuel consumption.</li><li>Not affected by weather.</li></ul></div><div class="side"><h4>Disadvantages</h4><ul><li>Higher building cost than thermal or hydro.</li><li>Radioactive waste must be disposed of carefully.</li><li>High maintenance cost.</li><li>Well-trained operators needed.</li></ul></div></div>`
+        },
+        {
+          title: 'Reactor layout',
+          html: `<figure data-fig="m4-nuclear-reactor"></figure>
+<ol class="steps"><li><b>Fuel rods</b> of enriched uranium (U-235) sit in the <b>core</b>, where fission releases heat and fast neutrons.</li>
+<li>The <b>moderator</b> (water, heavy water or graphite) slows the neutrons so they can cause further fission.</li>
+<li><b>Control rods</b> of boron or cadmium are lowered to absorb neutrons and slow the reaction, or raised to speed it up; fully inserted, they shut the reactor down.</li>
+<li>The <b>coolant</b> carries the heat to the <b>steam generator</b> (heat exchanger), where it boils water in a separate circuit; the steam drives the turbine and generator, as in a steam power plant.</li>
+<li>The <b>pressure vessel</b> and a thick <b>concrete shield</b> contain the radiation.</li></ol>`
         }
       ],
       flashcards: [
@@ -214,6 +223,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm4-nuclear-reactor', src: 'own/README.txt', crop: null, caption: 'Pressurised water reactor: fuel rods, control rods, water moderator and coolant, steam generator and shielding.', alt: 'Pressure vessel with fuel rods and control rods inside a shield, hot and cold coolant pipes to a steam generator sending steam to the turbine.' },
     { id: 'm4-steam-chain', src: 'm4/pages/b28.png', crop: null, caption: 'Energy chain of a steam power plant: fuel, steam, turbine, generator.', alt: 'Four boxes in a row: fuel, superheated steam, turbine shaft, generator.' }
   ]
 });

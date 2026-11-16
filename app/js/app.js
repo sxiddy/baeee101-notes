@@ -123,6 +123,13 @@ window.__startApp = function () {
     });
     (ch.figures || []).forEach((f) => { FIGS[f.id] = f; });
   });
+  // VTOP syllabus rows (owner, 16-11-2026): each module lists VTOP's "Course Syllabus Modules" rows in VTOP's order,
+  // with the topics that teach each row under it. ROW maps a topic id to its row; topics follow row order.
+  const ROW = {};
+  MODULES.forEach((m) => (m.syllabusRows || []).forEach((r) => r.topics.forEach((id) => { ROW[id] = r; })));
+  MODULES.forEach((m) => { if (!(m.syllabusRows || []).length) return; const pos = {}; m.syllabusRows.forEach((r, i) => r.topics.forEach((id, j) => { pos[id] = i * 100 + j; })); m.topics.sort((a, b) => (pos[a.id] ?? 1e6) - (pos[b.id] ?? 1e6)); });
+  TOPICS.length = 0; MODULES.forEach((m) => m.topics.forEach((t) => { t.idx = TOPICS.length; TOPICS.push(t); }));
+  const rowHead = (m, t, i, cls) => { const r = ROW[t.id]; return r && (i === 0 || ROW[m.topics[i - 1].id] !== r) ? `<div class="${cls}"><span class="row-n">${esc(r.n)}</span>${esc(r.text)}</div>` : ''; };
   // Free/Pro (owner, 30-09-2026): the notes are free; Pro users also get the Pro companions (every flashcard, the
   // formulas and one-liners of each topic, the answers to every question, the interactive widgets).
   const PRO = !!window.PRO;
@@ -365,7 +372,7 @@ window.__startApp = function () {
               <span class="sb-gcount" data-count="${m.id}"></span>${icon('chev', 'sb-chev')}
             </button>
             <div class="sb-items"><div>
-              ${m.topics.map((t) => `<a class="sb-topic" href="#${t.id}" data-key="${t.id}"><span class="tick" data-tick="${t.id}"></span><span class="lbl">${rt(t.short || t.title)}</span><button class="tag-dot" data-act="tag" data-t="${t.id}" title="Colour tag" aria-label="Colour tag for ${rt(t.short || t.title)}"></button></a>`).join('')}
+              ${m.topics.map((t, i) => rowHead(m, t, i, 'sb-row') + `<a class="sb-topic" href="#${t.id}" data-key="${t.id}"><span class="tick" data-tick="${t.id}"></span><span class="lbl">${rt(t.short || t.title)}</span><button class="tag-dot" data-act="tag" data-t="${t.id}" title="Colour tag" aria-label="Colour tag for ${rt(t.short || t.title)}"></button></a>`).join('')}
               <a class="sb-topic summary" href="#${m.id}-summary" data-key="${m.id}-summary">${icon('book')}<span class="lbl">Module summary</span></a>
             </div></div>
           </div>`).join('')}
@@ -996,7 +1003,7 @@ window.__startApp = function () {
         <section class="mod-sec">
           <div class="mod-head"><span class="mod-num">Module ${m.num}</span><h2 class="h-sec"><a href="#${m.id}" style="text-decoration:none">${esc(m.title)}</a></h2><span class="count">${doneIn(m.topics)}/${m.topics.length} done</span><button class="btn small ghost mod-reset" type="button" data-reset-mod="${m.id}" title="Start this module again from zero">${icon('trash')}Reset progress</button></div>
           <p class="mod-syl">${esc(m.syllabus)}</p>
-          <div>${m.topics.map(topicRow).join('')}${summaryRow(m)}</div>
+          <div>${m.topics.map((t, i) => rowHead(m, t, i, 'row-head') + topicRow(t)).join('')}${summaryRow(m)}</div>
         </section>`).join('')}
       ${MODULES.filter((m) => m.locked).map((m) => `
         <section class="mod-sec">
@@ -1061,7 +1068,7 @@ window.__startApp = function () {
           <button class="btn ghost" type="button" data-reset-mod="${m.id}" title="Start this module again from zero">${icon('trash')}Reset progress</button>
         </div>
       </div>
-      <div>${m.topics.map(topicRow).join('')}${summaryRow(m)}</div>`;
+      <div>${m.topics.map((t, i) => rowHead(m, t, i, 'row-head') + topicRow(t)).join('')}${summaryRow(m)}</div>`;
     return { el };
   }
 
@@ -2330,6 +2337,8 @@ window.__startApp = function () {
     }
     setCrumbs([{ t: 'Home', href: '#home' }, { t: 'Question papers', href: '#papers', hideSm: true }, { t: p.short || p.title }]); setActive('papers');
     document.title = `${p.title} · BAEEE101 Notes`;
+    // every question links to the exact notes tab that answers it (owner, 16-11-2026): 'topic-id.tabIndex' entries in q.notes
+    const noteLinks = (refs) => (refs || []).map((r) => { const [id, ti] = String(r).split('.'); const t = TOPIC[id]; if (!t) return ''; const m = MODULES.find((x) => x.topics.includes(t)); const tab = ti != null && t.tabs ? t.tabs[+ti] : null; return `<a href="#${id}${tab ? '.' + ti : ''}">Notes: Module ${m ? +m.num : ''} › ${rt(t.title)}${tab ? ' › ' + rt(tab.title) : ''}</a>`; }).filter(Boolean).join('<br>');
     const topicLinks = (ids) => (ids || []).filter((id) => TOPIC[id]).map((id) => `<a href="#${id}">${rt(TOPIC[id].short || TOPIC[id].title)}</a>`).join(' · ');
     el.innerHTML = `<div class="eyebrow"><span class="code">${p.kind === 'actual' ? 'Actual paper' : 'Model paper'}</span><span>${esc(p.sub || '')}</span></div>
       <h1 class="h-display">${esc(p.title)}</h1>
@@ -2341,7 +2350,7 @@ window.__startApp = function () {
         ${q.passage ? `<div class="paper-passage">${q.passage}</div>` : ''}
         ${q.parts ? `<ol class="paper-parts">${q.parts.map((x) => `<li>${x.text}${x.marks ? ` <span class="ew-score">(${esc(x.marks)} marks)</span>` : ''}</li>`).join('')}</ol>` : ''}
         ${q.answer ? `<details class="more paper-ans"><summary>Model answer</summary>${q.answer}</details>` : ''}
-        ${q.topics && q.topics.length ? `<p class="paper-rev">Revise: ${topicLinks(q.topics)}</p>` : ''}
+        ${q.notes && q.notes.length ? `<p class="paper-rev">${noteLinks(q.notes)}</p>` : q.topics && q.topics.length ? `<p class="paper-rev">Revise: ${topicLinks(q.topics)}</p>` : ''}
       </section>`).join('')}
       <p style="margin-top:32px"><a class="btn" href="#papers">${icon('left')}All question papers</a></p>`;
     // the answers reuse the notes' own diagrams; one from a module this student can't open yet shows a lock card instead

@@ -45,7 +45,7 @@ QUESTIONS({
     },
     {
       id: 'm3-3b-06', module: 'm3', topic: 'm3-six-views', type: 'predict', level: 2,
-      q: `<p>The block on slide 18 has a 50 × 50 × 10 base with two 10 mm ribs on opposite edges, each 30 mm high above the base. What are the overall sizes of the front, top and left side views?</p>`,
+      q: `<p>The block on page 18 has a 50 × 50 × 10 base with two 10 mm ribs on opposite edges, each 30 mm high above the base. What are the overall sizes of the front, top and left side views?</p>`,
       options: ['FV 50 × 40, TV 50 × 50, LSV 50 × 40', 'FV 50 × 30, TV 50 × 50, LSV 50 × 30', 'FV 50 × 40, TV 50 × 40, LSV 40 × 50', 'FV 40 × 50, TV 50 × 50, LSV 50 × 50'],
       correct: 0,
       answer: `<p><b>FV 50 wide × 40 high, TV 50 × 50, LSV 50 deep × 40 high.</b></p>`,

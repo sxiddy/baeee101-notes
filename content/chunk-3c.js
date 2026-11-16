@@ -8,7 +8,7 @@ CHUNK({
       title: 'Orthographic projection: principle, quadrants, first and third angle',
       short: 'Ortho: 1st vs 3rd angle',
       blurb: 'What an orthographic projection is, the HP and VP and their four quadrants, and how first and third angle projection differ.',
-      source: 'Lecture 3, slides 1–11',
+      source: 'Lecture 3, pages 1–11',
       tabs: [
         {
           title: 'Principle',
@@ -50,7 +50,7 @@ CHUNK({
           html: `<p class="lead">The symbol in the title block says which method the drawing uses. It is a <b>frustum of a cone</b> (truncated cone) drawn in front view, beside its circular end view.</p>
 <figure data-fig="m3-proj-symbols"></figure>
 <ul><li><b>First angle</b>: end view (two circles) on the <b>right</b> of the front view.</li><li><b>Third angle</b>: end view on the <b>left</b>.</li></ul>
-<div class="note heads-up"><p>The title-block slide in Lecture 1 (slide 17) draws its "first angle" symbol with the circles on the left, which is the third-angle arrangement. Follow Lecture 3 (slide 11): first angle has the circles on the right.</p></div>`
+<div class="note heads-up"><p>The title-block page in Lecture 1 (page 17) draws its "first angle" symbol with the circles on the left, which is the third-angle arrangement. Follow Lecture 3 (page 11): first angle has the circles on the right.</p></div>`
         }
       ],
       flashcards: [
@@ -83,7 +83,7 @@ CHUNK({
       title: 'Six principal views and drawing the views of a block',
       short: 'Six views, problems',
       blurb: 'The glass-box idea, where each of the six views goes, how views line up, and the views of a block worked step by step.',
-      source: 'Lecture 3, slides 12–23',
+      source: 'Lecture 3, pages 12–23',
       tabs: [
         {
           title: 'The glass box',
@@ -109,7 +109,7 @@ CHUNK({
         },
         {
           title: 'Worked: a block',
-          html: `<div class="worked"><div class="given"><p>A block has a base 50 × 50 × 10 with two ribs 10 thick on opposite edges. Each rib has a 10 mm wide top, starting 20 mm from the left, and slopes down to the right corner of the base. Draw the front view (from A), side view (from B) and top view (from C) in first angle projection, full size (Lecture 3, slide 18).</p></div><div class="solve"><div class="eq">Front view: base 50 × 10; rib outline from (20, 10) up to (20, 40), across to (30, 40), down the slope to (50, 10)</div><div class="eq">Top view: 50 × 50 square below the front view; the ribs show as strips 10 wide at the front and back, with lines at 20 and 30 from the left</div><div class="eq">Left side view: on the right of the front view; base 50 × 10 with the two ribs as uprights 10 wide and 30 high</div></div></div>
+          html: `<div class="worked"><div class="given"><p>A block has a base 50 × 50 × 10 with two ribs 10 thick on opposite edges. Each rib has a 10 mm wide top, starting 20 mm from the left, and slopes down to the right corner of the base. Draw the front view (from A), side view (from B) and top view (from C) in first angle projection, full size (Lecture 3, page 18).</p></div><div class="solve"><div class="eq">Front view: base 50 × 10; rib outline from (20, 10) up to (20, 40), across to (30, 40), down the slope to (50, 10)</div><div class="eq">Top view: 50 × 50 square below the front view; the ribs show as strips 10 wide at the front and back, with lines at 20 and 30 from the left</div><div class="eq">Left side view: on the right of the front view; base 50 × 10 with the two ribs as uprights 10 wide and 30 high</div></div></div>
 <figure data-fig="m3-ortho-block"></figure>
 <h4>The same block in third angle</h4>
 <table class="tbl"><thead><tr><th>View</th><th>First angle (worked above)</th><th>Third angle</th></tr></thead><tbody>
@@ -118,12 +118,12 @@ CHUNK({
 <tr><td>Side view</td><td>Left side view on the <b>right</b> of the front view</td><td>Left side view on the <b>left</b> of the front view</td></tr>
 </tbody></table>
 <p>Draw the three views exactly as in first angle, then move them: the top view goes above the front view and the side view to the side it was seen from. Projectors stay vertical between the front and top views and horizontal between the front and side views. Add the projection symbol for the method used.</p>
-<div class="note heads-up"><p>The slide gives no height for the ribs. The drawing uses 30 mm above the base, which is what the slide's own views show.</p></div>`
+<div class="note heads-up"><p>The course material gives no height for the ribs. The drawing uses 30 mm above the base, which is what the course material's own views show.</p></div>`
         },
         {
           title: 'Method',
           html: `<ol><li>Draw the <b>XY line</b>.</li><li>Draw the <b>front view</b> above XY (first angle), using widths and heights.</li><li>Drop <b>vertical projectors</b> and draw the <b>top view</b> below XY, using widths and depths.</li><li>Carry heights across with <b>horizontal projectors</b>; carry depths from the top view with a <b>45° line</b>; draw the side view.</li><li>Show <b>hidden edges dashed</b> and <b>axes as centre lines</b>; label each view.</li></ol>
-<p>The L-shaped solid (slide 17) is worked this way: length L, width W and height H appear twice each across the three views. Practise the blocks on slides 19–23 the same way.</p>
+<p>The L-shaped solid (page 17) is worked this way: length L, width W and height H appear twice each across the three views. Practise the blocks on pages 19–23 the same way.</p>
 <div class="note heads-up"><p>In first angle, the front of the object faces <b>away from the front view</b> in both the top view and the side view. Mixing this up flips the side view.</p></div>`
         },
         {
@@ -131,6 +131,7 @@ CHUNK({
           html: `<p class="lead">Each problem asks for three views from the arrows A, B and C on the pictorial: <b>front view from A, side view from B, top view from C</b>. Draw full size, in <b>first angle</b> and in <b>third angle</b>. Text only here; the sizes are those printed on the course pictorials.</p>
 <h4>How to lay out every problem</h4>
 <ol class="steps"><li><b>First angle</b> Front view above XY, top view below it, left-side view on the right of the front view.</li><li><b>Third angle</b> Front view below the line, top view above it, left-side view on the left of the front view.</li><li><b>Project</b> Vertical projectors between front and top views; horizontal projectors between front and side views; carry depth with a 45° line.</li><li><b>Finish</b> Hidden edges dashed, label each view, add the projection symbol.</li></ol>
+<figure data-fig="m3-l-solid-views"></figure>
 <table class="tbl"><thead><tr><th>Problem</th><th>Given</th><th>Views to draw</th></tr></thead><tbody>
 <tr><td><b>L-shaped solid</b> in the first quadrant</td><td>Length L, width W, height H, and thickness h, kept as letters</td><td>Front view: rectangle W × H with a line at h from the bottom. Top view: rectangle W × L with a line at h from the back edge. Left side view: an L, base L long and h thick, upright h thick and H high.</td></tr>
 <tr><td><b>Block with two wedge ribs</b></td><td>Printed sizes: 80, 30, 30, 20, 20, 25, 25, 25, 5, 50 (mm); read each from the pictorial</td><td>Start with the base outline in the top view, add the two ribs 20 thick, then take every height from the pictorial. The sloping top of each rib shows as a slanting line in the front view and a straight edge in the top view.</td></tr>
@@ -164,10 +165,11 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm3-l-solid-views', src: 'own/README.txt', crop: null, caption: 'The L-shaped solid in first angle: front view from A, top view from C below it, left side view from B on the right.', alt: 'Rectangle W by H with a line at h, a rectangle W by L below the XY line, and an L-shaped side view on the right.' },
     { id: 'm3-ortho-principle', src: 'm3/pages/l3-03.png', crop: null, caption: 'Parallel projectors, perpendicular to the plane, from an observer at infinity: a′b′ is the true length of AB.', alt: 'A line AB projected by parallel horizontal rays onto a vertical plane as a′b′.' },
     { id: 'm3-quadrants', src: 'm3/pages/l3-05.png', crop: null, caption: 'The HP and VP divide space into four quadrants; the first and third are used.', alt: 'Side view of a vertical VP and horizontal HP crossing, with the four quadrants labelled.' },
     { id: 'm3-proj-symbols', src: 'm3/pages/l3-11.png', crop: null, caption: 'First angle: end view on the right of the cone. Third angle: on the left.', alt: 'Two symbols each made of a trapezium and two concentric circles, circles on the right for first angle and on the left for third angle.' },
     { id: 'm3-six-views-layout', src: 'm3/pages/l3-16.png', crop: null, caption: 'Placement of the six principal views around the front view in first and third angle.', alt: 'Two cross-shaped arrangements of labelled boxes for the six views.' },
-    { id: 'm3-ortho-block', src: 'm3/pages/l3-18.png', crop: null, caption: 'Front, top and left side views of the slide-18 block in first angle, with projectors.', alt: 'Front view with a sloping rib, top view square with two strips, side view with two uprights, around an XY line.' }
+    { id: 'm3-ortho-block', src: 'm3/pages/l3-18.png', crop: null, caption: 'Front, top and left side views of the page-18 block in first angle, with projectors.', alt: 'Front view with a sloping rib, top view square with two strips, side view with two uprights, around an XY line.' }
   ]
 });
