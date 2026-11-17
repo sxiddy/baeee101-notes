@@ -4,8 +4,8 @@ QUESTIONS({
     {
       id: 'm4-4d-01', module: 'm4', topic: 'm4-links-dof', type: 'numerical', level: 2,
       q: `<p>A four-bar linkage has a fixed frame, a crank, a coupler and a rocker, joined by four revolute pairs. Find its degrees of freedom.</p>`,
-      options: ['0', '1', '2', '3'],
-      correct: 1,
+      options: ['0', '2', '1', '3'],
+      correct: 2,
       answer: `<p><b>F = 1.</b></p>`,
       explain: `<div class="worked"><div class="given"><p>N = 4 links, P<sub>1</sub> = 4 revolute pairs, P<sub>2</sub> = 0</p></div><div class="solve"><div class="eq">F = 3(N − 1) − 2P<sub>1</sub></div><div class="eq">F = 3(4 − 1) − 2(4) = 9 − 8 = 1</div></div><div class="result"><p>F = 1: one input fixes the whole motion.</p></div></div>`,
       points: ['One link is fixed', 'Each one-DoF pair imposes 2 restraints', 'F = 1']
@@ -29,8 +29,8 @@ QUESTIONS({
     {
       id: 'm4-4d-04', module: 'm4', topic: 'm4-mechanisms', type: 'decide', level: 1,
       q: `<p>An IC engine valve is held on its seat by a spring and cannot move away until the cam pushes it. What type of constrained motion is this?</p>`,
-      options: ['Completely constrained', 'Incompletely constrained', 'Successfully constrained', 'Unconstrained'],
-      correct: 2,
+      options: ['Completely constrained', 'Incompletely constrained', 'Unconstrained', 'Successfully constrained'],
+      correct: 3,
       answer: `<p><b>Successfully constrained motion.</b></p>`,
       explain: `<p>Motion between the two elements is possible in more than one direction but is restricted to one by an external means, here the spring. The footstep bearing shaft held by axial load and the piston in a cylinder are other examples. A shaft that can both rotate and slide freely is incompletely constrained.</p>`,
       points: ['More than one direction possible', 'External means limits to one', 'Spring on the valve']

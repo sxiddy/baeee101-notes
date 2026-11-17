@@ -4,8 +4,8 @@ QUESTIONS({
     {
       id: 'm4-4a-01', module: 'm4', topic: 'm4-sand-casting', type: 'decide', level: 1,
       q: `<p>A foundry must make a single huge gearbox housing with internal cavities from a high melting point alloy. Why is sand casting a sensible choice?</p>`,
-      options: ['The mould is reusable, so the cost per part is tiny', 'There is no limit on size, shape or weight and it suits high melting point metals', 'It gives the finest surface finish and tightest tolerance', 'It needs no pattern'],
-      correct: 1,
+      options: ['The mould is reusable, so the cost per part is tiny', 'It gives the finest surface finish and tightest tolerance', 'There is no limit on size, shape or weight and it suits high melting point metals', 'It needs no pattern'],
+      correct: 2,
       answer: `<p><b>No limit on size, shape or weight, and it suits high melting point materials.</b></p>`,
       explain: `<p>Sand casting uses a temporary, <b>expendable mould</b> that is broken to remove the cast, so it is not reusable. Its price is a <b>coarser surface finish and wider tolerance</b>. The pattern makes the cavity and a core makes the internal hollows.</p>`,
       points: ['Expendable mould, broken after each cast', 'No limit on size, shape or weight', 'Suits high melting point metals', 'Coarser finish, wide tolerance is the trade-off']
@@ -21,8 +21,8 @@ QUESTIONS({
     {
       id: 'm4-4a-03', module: 'm4', topic: 'm4-casting-defects', type: 'troubleshoot', level: 1,
       q: `<p>Castings from one furnace show cold shuts. The pouring crew has started pouring at a lower temperature to save fuel. What should they change?</p>`,
-      options: ['Pour hotter: a low pouring temperature and poor fluidity cause cold shut', 'Add more venting', 'Improve cope and drag alignment', 'Change the composition to stop hot tears'],
-      correct: 0,
+      options: ['Change the composition to stop hot tears', 'Add more venting', 'Improve cope and drag alignment', 'Pour hotter: a low pouring temperature and poor fluidity cause cold shut'],
+      correct: 3,
       answer: `<p><b>Raise the pouring temperature.</b></p>`,
       explain: `<p>Cold shut comes from a <b>low pouring temperature and lack of fluidity</b>. Venting cures blowholes, alignment cures shift or mismatch, and composition control cures hot tears.</p>`,
       points: ['Cold shut = low pouring temperature, poor fluidity', 'Blowholes = venting', 'Mismatch = alignment', 'Hot tears = composition']
@@ -55,8 +55,8 @@ QUESTIONS({
     {
       id: 'm4-4a-07', module: 'm4', topic: 'm4-forging', type: 'decide', level: 2,
       q: `<p>An engineer must choose between a cast and a forged connecting rod for a highly stressed engine. Which should they pick, and what is the key reason?</p>`,
-      options: ['Cast: random grain is stronger', 'Forged: grain flow follows the part contour and lines up with the principal stresses, and voids are eliminated', 'Cast: it has no parting line', 'Either: strength is the same'],
-      correct: 1,
+      options: ['Forged: grain flow follows the part contour and lines up with the principal stresses, and voids are eliminated', 'Cast: random grain is stronger', 'Cast: it has no parting line', 'Either: strength is the same'],
+      correct: 0,
       answer: `<p><b>Forged.</b></p>`,
       explain: `<p>Forging gives unbroken grain flow along the contour, aligned with the principal stresses, so properties along the grain are better than in randomly oriented cast or weld metal. It also eliminates cavities, voids and pores.</p>`,
       points: ['Unbroken grain flow', 'Aligned with principal stress', 'No voids or pores']
@@ -72,8 +72,8 @@ QUESTIONS({
     {
       id: 'm4-4a-09', module: 'm4', topic: 'm4-hot-cold', type: 'decide', level: 1,
       q: `<p>A shop needs bars with a smooth surface, close tolerance and no scale, and can afford a large press. Which working method fits?</p>`,
-      options: ['Hot working: less force and no residual stress', 'Cold working: better finish and accuracy, at the cost of more force and some residual stress', 'Hot working: better surface finish', 'Cold working: no tool wear'],
-      correct: 1,
+      options: ['Hot working: less force and no residual stress', 'Hot working: better surface finish', 'Cold working: better finish and accuracy, at the cost of more force and some residual stress', 'Cold working: no tool wear'],
+      correct: 2,
       answer: `<p><b>Cold working.</b></p>`,
       explain: `<p>Hot working leaves a rough surface from oxidation and scale. Cold working gives better finish and dimensional accuracy but needs more tonnage, induces residual stress and wears tools faster.</p>`,
       points: ['Cold: better finish and accuracy', 'More force, residual stress, less tool life']

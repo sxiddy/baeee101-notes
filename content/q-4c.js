@@ -20,8 +20,8 @@ QUESTIONS({
     {
       id: 'm4-4c-03', module: 'm4', topic: 'm4-four-stroke', type: 'predict', level: 1,
       q: `<p>During which stroke do the pressure and temperature of the air-fuel mixture rise before ignition, and which stroke pushes burnt gas out?</p>`,
-      options: ['Suction raises them; power pushes out', 'Compression raises them; exhaust pushes out', 'Power raises them; suction pushes out', 'Exhaust raises them; compression pushes out'],
-      correct: 1,
+      options: ['Suction raises them; power pushes out', 'Power raises them; suction pushes out', 'Compression raises them; exhaust pushes out', 'Exhaust raises them; compression pushes out'],
+      correct: 2,
       answer: `<p><b>Compression; exhaust.</b></p>`,
       explain: `<p>In the compression stroke the piston squeezes the mixture and its pressure and temperature rise. In the exhaust stroke the piston moves up and pushes the burnt gases out. Suction takes in the mixture and the power stroke is where combustion forces the piston down.</p>`,
       points: ['Compression raises pressure and temperature', 'Exhaust expels burnt gas']
@@ -37,8 +37,8 @@ QUESTIONS({
     {
       id: 'm4-4c-05', module: 'm4', topic: 'm4-two-stroke', type: 'decide', level: 1,
       q: `<p>A truck engine needs ignition by compression of hot air, a compression ratio around 16 to 17 and better fuel lubrication. Which engine is this?</p>`,
-      options: ['SI engine with Otto cycle', 'CI engine with Diesel cycle', 'SI engine with Diesel cycle', 'CI engine with Otto cycle'],
-      correct: 1,
+      options: ['SI engine with Otto cycle', 'CI engine with Otto cycle', 'SI engine with Diesel cycle', 'CI engine with Diesel cycle'],
+      correct: 3,
       answer: `<p><b>A CI (diesel) engine on the Diesel cycle.</b></p>`,
       explain: `<p>CI engines take in air alone, inject fuel, ignite it by compressed hot air, use compression ratios of 16 to 17 and diesel lubricates better than petrol. SI engines use a spark plug, ratios of 7 to 8, and the Otto cycle. CI also needs more space for the same power and gives more vibration and noise.</p>`,
       points: ['CI: air alone, injector, compressed hot air', 'CR 16–17', 'Diesel cycle (constant pressure)']
@@ -87,8 +87,8 @@ QUESTIONS({
     {
       id: 'm4-4c-11', module: 'm4', topic: 'm4-solar-biomass', type: 'decide', level: 1,
       q: `<p>A house has rooftop solar panels feeding an AC appliance. Why is an inverter needed?</p>`,
-      options: ['Panels give DC; the inverter turns it into AC', 'Panels give AC; the inverter makes it DC', 'The inverter stores energy', 'The inverter concentrates sunlight'],
-      correct: 0,
+      options: ['Panels give AC; the inverter makes it DC', 'Panels give DC; the inverter turns it into AC', 'The inverter stores energy', 'The inverter concentrates sunlight'],
+      correct: 1,
       answer: `<p><b>PV cells produce DC; the inverter makes AC.</b></p>`,
       explain: `<p>Photons free electrons in silicon cells, the cell's electric field pushes them to the N-type layer, and current flows as DC. The inverter converts it to AC for the home or load.</p>`,
       points: ['PV output is DC', 'Inverter gives AC']

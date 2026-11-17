@@ -55,8 +55,8 @@ QUESTIONS({
     {
       id: 'm3-3a-07', module: 'm3', topic: 'm3-cad', type: 'decide', level: 1,
       q: `<p>A student must mark six holes at exactly equal spacing along a line on a manual drawing. Which instrument does the job best?</p>`,
-      options: ['Compass', 'Dividers', 'French curve', 'Protractor'],
-      correct: 1,
+      options: ['Compass', 'Protractor', 'French curve', 'Dividers'],
+      correct: 3,
       answer: `<p><b>Dividers.</b> They transfer a measurement and step off equal distances.</p>`,
       explain: `<p>Dividers are made for transferring measurements and stepping off equal distances. A compass draws circles and arcs, a French curve draws smooth irregular curves, and a protractor sets angles.</p>`,
       points: ['Dividers: equal spacing, transfer lengths', 'Compass: circles and arcs', 'Protractor: angles']
@@ -81,8 +81,8 @@ QUESTIONS({
     {
       id: 'm3-3a-10', module: 'm3', topic: 'm3-lines', type: 'decide', level: 2,
       q: `<p>In the front view of a part, a hidden edge falls exactly on the centre line of a hole. Which line do you draw?</p>`,
-      options: ['The centre line', 'The hidden line', 'Both, one over the other', 'Neither'],
-      correct: 1,
+      options: ['The hidden line', 'The centre line', 'Both, one over the other', 'Neither'],
+      correct: 0,
       answer: `<p><b>The hidden line.</b> Hidden lines take precedence over centre lines.</p>`,
       explain: `<p>When lines coincide, only the more important one is drawn. The order is visible outline, then hidden line, then cutting plane, then centre line, then dimension and extension lines.</p>`,
       points: ['Precedence: visible > hidden > cutting plane > centre', 'Draw only the higher one']
@@ -106,8 +106,8 @@ QUESTIONS({
     {
       id: 'm3-3a-13', module: 'm3', topic: 'm3-lettering-dim', type: 'decide', level: 1,
       q: `<p>You are lettering a sheet. Which set of heights follows the course material's rules?</p>`,
-      options: ['Title 8 mm, notes 4 mm, drawing number 12 mm', 'Title 3 mm, notes 8 mm, drawing number 5 mm', 'Title 12 mm, notes 2 mm, drawing number 3 mm', 'All lettering 5 mm'],
-      correct: 0,
+      options: ['Title 12 mm, notes 2 mm, drawing number 3 mm', 'Title 3 mm, notes 8 mm, drawing number 5 mm', 'Title 8 mm, notes 4 mm, drawing number 12 mm', 'All lettering 5 mm'],
+      correct: 2,
       answer: `<p><b>Title 8 mm, notes 4 mm, drawing number 12 mm.</b></p>`,
       explain: `<p>Main titles are 6–8 mm, sub-titles 3–6 mm, notes and dimension figures 3–5 mm, and the drawing number in the title block 10–12 mm. Lettering is generally in capitals.</p>`,
       points: ['Titles 6–8 mm', 'Notes 3–5 mm', 'Drawing number 10–12 mm']

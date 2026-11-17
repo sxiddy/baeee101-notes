@@ -12,8 +12,8 @@ QUESTIONS({
     {
       id: 'm2-2b-02', module: 'm2', topic: 'm2-mosfet-intro', type: 'decide', level: 2,
       q: `<p>A technician building an n-channel MOSFET must choose the doping of the regions. Which choice is correct for an nMOS?</p>`,
-      options: [ 'Source and drain heavily doped p, body n-type', 'Source and drain heavily doped n, body p-type', 'Source, drain and body all heavily doped n', 'Source, drain and body all heavily doped p' ],
-      correct: 1,
+      options: [ 'Source and drain heavily doped p, body n-type', 'Source, drain and body all heavily doped p', 'Source, drain and body all heavily doped n', 'Source and drain heavily doped n, body p-type' ],
+      correct: 3,
       answer: `<p><b>Heavily doped n source and drain on a p-type body.</b></p>`,
       explain: `<p>In an <b>nMOS</b> the carriers are electrons, so the source and drain are heavily doped n regions sitting in a p-type body. In a <b>pMOS</b> everything is reversed: heavily doped p source and drain in an n body.</p>`,
       points: [ 'nMOS: n source and drain, p body', 'pMOS is the reverse', 'The carriers in an nMOS are electrons' ]
@@ -72,8 +72,8 @@ QUESTIONS({
     {
       id: 'm2-2b-09', module: 'm2', topic: 'm2-mosfet-apps', type: 'troubleshoot', level: 2,
       q: `<p>A technician touches the gate pin of a loose MOSFET without an anti-static strap, and the part never works again. Which feature most likely failed?</p>`,
-      options: [ 'The heavily doped drain region melted', 'The thin metal oxide under the gate was damaged', 'The substrate turned into a unipolar region', 'The built-in channel was forced into saturation' ],
-      correct: 1,
+      options: [ 'The thin metal oxide under the gate was damaged', 'The heavily doped drain region melted', 'The substrate turned into a unipolar region', 'The built-in channel was forced into saturation' ],
+      correct: 0,
       answer: `<p><b>The thin oxide layer.</b> Static charge can permanently damage it.</p>`,
       explain: `<p>The extremely thin oxide that insulates the gate is what gives the MOSFET its high input impedance, and it is also its weak point. Electrostatic charge or overload voltage can puncture it for good. That is why MOSFETs are handled with anti-static precautions.</p>`,
       points: [ 'Gate oxide is very thin', 'Static charge damages it permanently', 'Use anti-static handling' ]
@@ -107,8 +107,8 @@ QUESTIONS({
     {
       id: 'm2-2b-13', module: 'm2', topic: 'm2-dmosfet', type: 'decide', level: 3,
       q: `<p>An oscillator design needs a MOSFET whose drain current can be lowered by a negative gate voltage and raised by a positive one. Which device fits?</p>`,
-      options: [ 'An n-channel enhancement MOSFET', 'A p-channel enhancement MOSFET', 'A BJT driven by base current', 'A depletion MOSFET' ],
-      correct: 3,
+      options: [ 'A depletion MOSFET', 'A p-channel enhancement MOSFET', 'A BJT driven by base current', 'An n-channel enhancement MOSFET' ],
+      correct: 0,
       answer: `<p><b>A depletion MOSFET</b> (the dual-mode MOSFET).</p>`,
       explain: `<p>Because its channel is built in, a depletion MOSFET conducts at V<sub>GS</sub> = 0. A negative V<sub>GS</sub> reduces I<sub>D</sub> and a positive V<sub>GS</sub> raises it, so it accepts a bipolar gate signal. An enhancement MOSFET does nothing until V<sub>GS</sub> is above its threshold.</p>`,
       points: [ 'Depletion MOSFET has a built-in channel', 'Negative V_GS lowers I_D, positive raises it', 'Also called a dual-mode MOSFET' ]
@@ -132,8 +132,8 @@ QUESTIONS({
     {
       id: 'm2-2b-16', module: 'm2', topic: 'm2-opamp-ideal', type: 'predict', level: 1,
       q: `<p>The same signal is applied to both inputs of an ideal op-amp. What is the output?</p>`,
-      options: [ 'It is amplified by the infinite open-loop gain', 'It stays at 0 V', 'It saturates at maximum positive voltage', 'It equals the input, because the offset is zero' ],
-      correct: 1,
+      options: [ 'It is amplified by the infinite open-loop gain', 'It saturates at maximum positive voltage', 'It stays at 0 V', 'It equals the input, because the offset is zero' ],
+      correct: 2,
       answer: `<p><b>0 V.</b> An ideal op-amp has zero common-mode gain.</p>`,
       explain: `<p>An op-amp amplifies the <b>difference</b> between its inputs. The same signal on both inputs is a common-mode signal: the two paths give opposite polarity and cancel, so the ideal output is 0 V. A real op-amp leaves a small output.</p>`,
       points: [ 'Op-amp amplifies the difference', 'Common-mode signal cancels', 'Ideal output is 0 V' ]
@@ -191,8 +191,8 @@ QUESTIONS({
     {
       id: 'm2-2b-23', module: 'm2', topic: 'm2-opamp-apps', type: 'numerical', level: 2,
       q: `<p>An inverting amplifier has R<sub>f</sub> = 50 kΩ and R<sub>i</sub> = 25 kΩ, and the input is −3 V. What is the output?</p>`,
-      options: [ '−6 V', '6 V', '−1.5 V', '1.5 V' ],
-      correct: 1,
+      options: [ '6 V', '−6 V', '−1.5 V', '1.5 V' ],
+      correct: 0,
       answer: `<p>Gain <b>−2</b>, so the output is <b>+6 V</b>.</p>`,
       explain: `<div class="worked"><div class="given"><p>R<sub>f</sub> = 50 kΩ, R<sub>i</sub> = 25 kΩ, V<sub>in</sub> = −3 V.</p></div><div class="solve"><div class="eq">A<sub>v</sub> = −50 / 25 = −2</div><div class="eq">V<sub>out</sub> = −2 × (−3) = +6 V</div></div><div class="result"><p>V<sub>out</sub> = <b>+6 V</b> (negative input, inverted)</p></div></div>`,
       points: [ 'A_v = −2', '(−2) × (−3) = +6 V' ]

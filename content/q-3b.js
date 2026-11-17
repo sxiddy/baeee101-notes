@@ -4,8 +4,8 @@ QUESTIONS({
     {
       id: 'm3-3b-01', module: 'm3', topic: 'm3-ortho-basics', type: 'interpret', level: 1,
       q: `<p>You pick up a drawing. The top view is drawn <b>below</b> the front view and the left side view is on the <b>right</b> of the front view. Which projection method was used, and which symbol should be in the title block?</p>`,
-      options: ['Third angle; circles on the left of the cone', 'First angle; circles on the right of the cone', 'First angle; circles on the left of the cone', 'Third angle; circles on the right of the cone'],
-      correct: 1,
+      options: ['Third angle; circles on the left of the cone', 'Third angle; circles on the right of the cone', 'First angle; circles on the left of the cone', 'First angle; circles on the right of the cone'],
+      correct: 3,
       answer: `<p><b>First angle; the symbol has the circles (end view) on the right of the truncated cone.</b></p>`,
       explain: `<p>In first angle the object is in the first quadrant, between the observer and the plane, and each view is drawn on the side opposite to where it is seen from: top view below, left view on the right. The symbol follows the same rule, with the end view of the frustum on the right.</p>`,
       points: ['First angle: top view below, left view on the right', 'Opposite side rule', 'Symbol: circles on the right']
@@ -55,8 +55,8 @@ QUESTIONS({
     {
       id: 'm3-3b-07', module: 'm3', topic: 'm3-solids-intro', type: 'decide', level: 1,
       q: `<p>A cone is cut by a plane parallel to its base, and another cone by a plane tilted to the base. Name the two pieces that keep the base.</p>`,
-      options: ['Both are frustums', 'The first is a frustum, the second a truncated cone', 'The first is truncated, the second a frustum', 'Both are truncated cones'],
-      correct: 1,
+      options: ['Both are frustums', 'The first is truncated, the second a frustum', 'The first is a frustum, the second a truncated cone', 'Both are truncated cones'],
+      correct: 2,
       answer: `<p><b>Frustum (cut parallel to the base) and truncated cone (cut not parallel).</b></p>`,
       explain: `<p>A frustum is left when a pyramid or cone is cut by a plane parallel to its base, so the top and bottom are similar. A truncated solid is cut by a plane that is not parallel to the base, so the cut face is not similar to the base.</p>`,
       points: ['Frustum: cut parallel to the base', 'Truncated: cut inclined', 'The projection symbol is a frustum of a cone']
@@ -64,8 +64,8 @@ QUESTIONS({
     {
       id: 'm3-3b-08', module: 'm3', topic: 'm3-solids-hp', type: 'decide', level: 1,
       q: `<p>A hexagonal pyramid stands on its base on the HP. Which view do you draw first, and why?</p>`,
-      options: ['Front view, because it is always first', 'Top view, because the base is parallel to the HP and shows its true shape there', 'Side view, because the axis is vertical', 'Any view; the order does not matter'],
-      correct: 1,
+      options: ['Front view, because it is always first', 'Any view; the order does not matter', 'Side view, because the axis is vertical', 'Top view, because the base is parallel to the HP and shows its true shape there'],
+      correct: 3,
       answer: `<p><b>The top view.</b> The base lies on the HP, so the top view shows the true hexagon.</p>`,
       explain: `<p>When the axis is perpendicular to the HP, the base is parallel to the HP and appears in its true shape in the top view. That view is drawn first; the front view is projected up from its corners, with the apex at the axis height.</p>`,
       points: ['Axis ⊥ HP → top view first', 'True shape of the base in the top view', 'Project the front view up']
@@ -114,8 +114,8 @@ QUESTIONS({
     {
       id: 'm3-3b-14', module: 'm3', topic: 'm3-solids-vp', type: 'interpret', level: 1,
       q: `<p>A cylinder rests on the HP with its axis perpendicular to the VP. In what way does it touch the HP, and what is its front view?</p>`,
-      options: ['At one point; front view a rectangle', 'Along one generator; front view a circle touching XY', 'Along its whole base; front view a circle above XY', 'Along two generators; front view a rectangle'],
-      correct: 1,
+      options: ['Along one generator; front view a circle touching XY', 'At one point; front view a rectangle', 'Along its whole base; front view a circle above XY', 'Along two generators; front view a rectangle'],
+      correct: 0,
       answer: `<p><b>Along one generator; the front view is a circle touching XY.</b></p>`,
       explain: `<p>The axis is perpendicular to the VP, so the circular ends are parallel to the VP and appear as a true circle in the front view, resting on XY. Lying on its curved surface, the cylinder touches the HP along one straight generator.</p>`,
       points: ['Ends parallel to VP → circle in FV', 'Touches HP along a generator', 'Top view is a rectangle']

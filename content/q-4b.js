@@ -4,8 +4,8 @@ QUESTIONS({
     {
       id: 'm4-4b-01', module: 'm4', topic: 'm4-welding-basics', type: 'troubleshoot', level: 2,
       q: `<p>A welded plate fails in tension, not in the weld metal but in a narrow band just beside it. Which zone is this, and why is it weak?</p>`,
-      options: ['Base metal: it was never heated', 'Heat affected zone: its microstructure was altered and softened', 'Fusion zone: filler metal is always weaker', 'The blue oxidation band: it marks the HAZ width'],
-      correct: 1,
+      options: ['Base metal: it was never heated', 'The blue oxidation band: it marks the HAZ width', 'Fusion zone: filler metal is always weaker', 'Heat affected zone: its microstructure was altered and softened'],
+      correct: 3,
       answer: `<p><b>The heat affected zone (HAZ).</b></p>`,
       explain: `<p>The HAZ is weaker than both the base metal and the fusion zone because heating alters its microstructure and softens it. The blue oxidation colour on a pipe weld does not show the HAZ width.</p>`,
       points: ['HAZ microstructure altered', 'Weaker than BM and FZ due to softening', 'Fusion zone properties depend on the filler']
@@ -64,8 +64,8 @@ QUESTIONS({
     {
       id: 'm4-4b-08', module: 'm4', topic: 'm4-weld-joints', type: 'decide', level: 1,
       q: `<p>A fabricator builds a sheet metal tank with material thinner than 3 mm. Which weld joint is typically used for the seams, and which joint forms an L-shaped box corner?</p>`,
-      options: ['Edge joint for the seams; corner joint for the L-shape', 'T-joint for the seams; edge joint for the L-shape', 'Lap joint for both', 'Butt joint for both'],
-      correct: 0,
+      options: ['Butt joint for both', 'T-joint for the seams; edge joint for the L-shape', 'Lap joint for both', 'Edge joint for the seams; corner joint for the L-shape'],
+      correct: 3,
       answer: `<p><b>Edge joint; corner joint.</b></p>`,
       explain: `<p>Edge joints suit sheet metal under 3 mm (tanks, boxes, enclosures). Corner joints connect two pieces at a right angle, forming an L-shape, in box construction and frames.</p>`,
       points: ['Edge joint: sheet under 3 mm', 'Corner joint: L-shape at a right angle']

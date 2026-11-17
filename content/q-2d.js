@@ -21,8 +21,8 @@ QUESTIONS({
     {
       id: 'm2-2d-03', module: 'm2', topic: 'm2-cell-freq', type: 'numerical', level: 2,
       q: `<p>In the 824 to 849 MHz uplink and 869 to 894 MHz downlink pair, a phone transmits at 836 MHz. The base station replies at the same position within its block. At what frequency?</p>`,
-      options: [ '836 MHz', '869 MHz', '881 MHz', '894 MHz' ],
-      correct: 2,
+      options: [ '836 MHz', '881 MHz', '869 MHz', '894 MHz' ],
+      correct: 1,
       answer: `<p><b>881 MHz.</b> The downlink block sits 45 MHz above the uplink block.</p>`,
       explain: `<div class="worked"><div class="given"><p>Uplink block 824 to 849 MHz, downlink block 869 to 894 MHz.</p></div><div class="solve"><div class="eq">spacing = 869 − 824 = 45 MHz (and 894 − 849 = 45 MHz)</div><div class="eq">downlink = 836 + 45 = 881 MHz</div></div><div class="result"><p>Downlink = <b>881 MHz</b></p></div></div>`,
       points: [ 'Uplink 824 to 849, downlink 869 to 894', 'Spacing is 45 MHz', '836 + 45 = 881 MHz' ]
@@ -38,8 +38,8 @@ QUESTIONS({
     {
       id: 'm2-2d-05', module: 'm2', topic: 'm2-cell-network', type: 'predict', level: 1,
       q: `<p>A subscriber travels to another region and makes a call. Where does the local mobile switching center temporarily hold their data?</p>`,
-      options: [ 'In the home location register (HLR)', 'In the visitor location register (VLR)', 'In the equipment identity register (EIR)', 'In the authentication center (AuC)' ],
-      correct: 1,
+      options: [ 'In the home location register (HLR)', 'In the authentication center (AuC)', 'In the equipment identity register (EIR)', 'In the visitor location register (VLR)' ],
+      correct: 3,
       answer: `<p><b>The visitor location register (VLR).</b></p>`,
       explain: `<p>The <b>VLR</b> holds temporary data about a subscriber and sits in the MSC of the area the subscriber is visiting. The new MSC asks the <b>HLR</b>, which keeps the permanent data, for the information.</p>`,
       points: [ 'VLR holds temporary data in the visited MSC', 'HLR holds permanent data', 'New MSC asks the HLR' ]
@@ -106,8 +106,8 @@ QUESTIONS({
     {
       id: 'm2-2d-13', module: 'm2', topic: 'm2-sat-transponder', type: 'decide', level: 2,
       q: `<p>A startup launching new communication satellites wants to avoid the most overcrowded satellite band. Which band follows the modern trend?</p>`,
-      options: [ 'C band (6/4 GHz)', 'Ku band (14/12 GHz)', 'X band', 'L band' ],
-      correct: 1,
+      options: [ 'Ku band (14/12 GHz)', 'C band (6/4 GHz)', 'X band', 'L band' ],
+      correct: 0,
       answer: `<p><b>The Ku band (14/12 GHz).</b></p>`,
       explain: `<p>The C band is the most widely used and is overcrowded, so interference is a problem. Most new satellites use the <b>Ku band</b>, and use of the Ka band is increasing. X band is for military satellites and radar, and L band is for navigation and marine and aeronautical communication.</p>`,
       points: [ 'C band is overcrowded', 'Most new satellites use Ku band', 'The move is to higher frequencies' ]
@@ -157,8 +157,8 @@ QUESTIONS({
     {
       id: 'm2-2d-19', module: 'm2', topic: 'm2-sat-basics', type: 'interpret', level: 1,
       q: `<p>A remote island nation considers satellite communication. Which of these is a real advantage of satellites?</p>`,
-      options: [ 'Satellites remove all propagation delay', 'Circuits are easy to install, flexible, and cover every corner of the Earth', 'Satellite frequencies can never be blocked', 'Satellites have a very low initial cost' ],
-      correct: 1,
+      options: [ 'Circuits are easy to install, flexible, and cover every corner of the Earth', 'Satellites remove all propagation delay', 'Satellite frequencies can never be blocked', 'Satellites have a very low initial cost' ],
+      correct: 0,
       answer: `<p><b>Easy, flexible circuits with coverage of every corner of the Earth.</b></p>`,
       explain: `<p>The advantages are easy installation, excellent flexibility, coverage of every corner of the Earth, and full user control of the network. The disadvantages are high initial cost, frequencies that can be blocked, and propagation delay and interference, so the other three options are the opposite of the truth.</p>`,
       points: [ 'Easy to install, flexible', 'Covers every corner of the Earth', 'Cost, blocking and delay are disadvantages' ]
@@ -174,8 +174,8 @@ QUESTIONS({
     {
       id: 'm2-2d-21', module: 'm2', topic: 'm2-radar', type: 'numerical', level: 1,
       q: `<p>A coastal radar receives the echo from a cargo ship 200 µs after the pulse is sent. How far away is the ship? (c = 3 × 10<sup>8</sup> m/s)</p>`,
-      options: [ '15 km', '30 km', '60 km', '120 km' ],
-      correct: 1,
+      options: [ '15 km', '120 km', '60 km', '30 km' ],
+      correct: 3,
       answer: `<p><b>30 km.</b></p>`,
       explain: `<div class="worked"><div class="given"><p>t = 200 µs = 200 × 10<sup>−6</sup> s, c = 3 × 10<sup>8</sup> m/s. The pulse goes out and back, so the distance is halved.</p></div><div class="solve"><div class="eq">R = ct / 2 = (3 × 10<sup>8</sup> × 200 × 10<sup>−6</sup>) / 2</div><div class="eq">R = 60 000 / 2 = 30 000 m</div></div><div class="result"><p>R = <b>30 km</b></p></div></div>`,
       points: [ 'R = ct / 2', 't = 200 × 10⁻⁶ s', 'R = 30 km' ]
@@ -208,8 +208,8 @@ QUESTIONS({
     {
       id: 'm2-2d-25', module: 'm2', topic: 'm2-radar', type: 'numerical', level: 2,
       q: `<p>A handheld radar measures an echo time of 2 µs from a car. How far away is the car? (c = 3 × 10<sup>8</sup> m/s)</p>`,
-      options: [ '150 m', '300 m', '600 m', '1500 m' ],
-      correct: 1,
+      options: [ '300 m', '150 m', '600 m', '1500 m' ],
+      correct: 0,
       answer: `<p><b>300 m.</b></p>`,
       explain: `<div class="worked"><div class="given"><p>t = 2 × 10<sup>−6</sup> s.</p></div><div class="solve"><div class="eq">R = ct / 2 = (3 × 10<sup>8</sup> × 2 × 10<sup>−6</sup>) / 2 = 600 / 2 = 300 m</div></div><div class="result"><p>R = <b>300 m</b> (600 m would be the whole out-and-back path)</p></div></div>`,
       points: [ 'R = ct / 2', '3 × 10⁸ × 2 × 10⁻⁶ = 600 m', 'Halve it: 300 m' ]
@@ -225,8 +225,8 @@ QUESTIONS({
     {
       id: 'm2-2d-27', module: 'm2', topic: 'm2-radar', type: 'predict', level: 2,
       q: `<p>A radar detects a stationary lighthouse and a jet flying directly away, both at a range of 20 km. How do the returning signals differ?</p>`,
-      options: [ 'The jet’s echo takes much longer to return', 'The jet’s echo has a shifted frequency, the lighthouse’s does not', 'The jet’s echo is refracted by the ionosphere', 'The lighthouse reflects microwaves and the jet reflects L band' ],
-      correct: 1,
+      options: [ 'The jet’s echo takes much longer to return', 'The jet’s echo is refracted by the ionosphere', 'The jet’s echo has a shifted frequency, the lighthouse’s does not', 'The lighthouse reflects microwaves and the jet reflects L band' ],
+      correct: 2,
       answer: `<p><b>The jet’s echo shows a Doppler frequency shift;</b> the lighthouse’s does not.</p>`,
       explain: `<p>Both are at the same range, so the round-trip times are equal. The moving jet re-radiates the signal at a shifted frequency that is proportional to its radial velocity (the Doppler effect). A stationary object gives no shift.</p>`,
       points: [ 'Same range gives the same echo time', 'Moving target gives a Doppler shift', 'Stationary target gives none' ]
@@ -242,8 +242,8 @@ QUESTIONS({
     {
       id: 'm2-2d-29', module: 'm2', topic: 'm2-radar', type: 'decide', level: 2,
       q: `<p>A contractor builds equipment for navigation, marine and aeronautical communication and radar. Which satellite-style band is listed for this?</p>`,
-      options: [ 'The L band', 'The C band', 'The Ku band', 'The Ka band' ],
-      correct: 0,
+      options: [ 'The Ka band', 'The C band', 'The Ku band', 'The L band' ],
+      correct: 3,
       answer: `<p><b>The L band.</b></p>`,
       explain: `<p>The L band is used for navigation, marine and aeronautical communication and radar. C band (6/4 GHz) and Ku band (14/12 GHz) are the main bands for communication satellites, and use of the Ka band is increasing. The X band is for military satellites and radar.</p>`,
       points: [ 'L band: navigation, marine, aeronautical, radar', 'C and Ku are communication bands' ]

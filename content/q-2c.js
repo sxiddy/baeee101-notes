@@ -13,8 +13,8 @@ QUESTIONS({
     {
       id: 'm2-2c-02', module: 'm2', topic: 'm2-freq-bands', type: 'numerical', level: 2,
       q: `<p>A receiver is tuned to exactly 100 MHz. Which service and band is this?</p>`,
-      options: [ 'AM radio in the MF band', 'TV channel 14 in the UHF band', 'FM radio in the VHF band', 'Short-wave radio in the HF band' ],
-      correct: 2,
+      options: [ 'FM radio in the VHF band', 'TV channel 14 in the UHF band', 'AM radio in the MF band', 'Short-wave radio in the HF band' ],
+      correct: 0,
       answer: `<p><b>FM radio, in the VHF band.</b></p>`,
       explain: `<p>FM broadcasting uses 88 to 108 MHz, and 100 MHz lies inside it. This sits in the VHF band, which covers 30 to 300 MHz. AM (MF) is in kHz, HF is 3 to 30 MHz and UHF starts at 300 MHz.</p>`,
       points: [ 'FM radio: 88 to 108 MHz', 'VHF band: 30 to 300 MHz' ]
@@ -40,8 +40,8 @@ QUESTIONS({
     {
       id: 'm2-2c-05', module: 'm2', topic: 'm2-comm-channels', type: 'decide', level: 1,
       q: `<p>A submarine crew wants to detect nearby underwater objects without sending any signal that might reveal their position. Which technique should they use?</p>`,
-      options: [ 'Active sonar using echo reflection', 'Passive sonar listening with hydrophones', 'Free-space radio in the VHF band', 'Fibre-optic cable put into the water' ],
-      correct: 1,
+      options: [ 'Passive sonar listening with hydrophones', 'Active sonar using echo reflection', 'Free-space radio in the VHF band', 'Fibre-optic cable put into the water' ],
+      correct: 0,
       answer: `<p><b>Passive sonar.</b> It only listens.</p>`,
       explain: `<p>Water is a communication channel for sonar. <b>Passive</b> sonar listens for underwater sounds with sensitive hydrophones and transmits nothing. <b>Active</b> sonar sends a signal and uses the echo, like radar, so it reveals the sender.</p>`,
       points: [ 'Water channel: sonar', 'Passive sonar listens with hydrophones, no transmission' ]
@@ -49,8 +49,8 @@ QUESTIONS({
     {
       id: 'm2-2c-06', module: 'm2', topic: 'm2-modulation', type: 'predict', level: 2,
       q: `<p>On an oscilloscope, a modulated wave keeps a constant height, but its cycles bunch up and spread out in time with the message. Which modulation is this?</p>`,
-      options: [ 'Amplitude modulation', 'Phase modulation', 'Frequency modulation', 'Envelope modulation' ],
-      correct: 2,
+      options: [ 'Amplitude modulation', 'Phase modulation', 'Envelope modulation', 'Frequency modulation' ],
+      correct: 3,
       answer: `<p><b>Frequency modulation (FM).</b></p>`,
       explain: `<p>In FM the message changes the <b>frequency</b> of the carrier, so the waves bunch up and spread out, while the height stays constant. In AM it is the height (the envelope) that follows the message.</p>`,
       points: [ 'FM: constant height', 'Waves bunch up and spread out with the message' ]
@@ -67,8 +67,8 @@ QUESTIONS({
     {
       id: 'm2-2c-08', module: 'm2', topic: 'm2-freq-bands', type: 'interpret', level: 2,
       q: `<p>An industrial heater works at 2.45 GHz, the same frequency as a microwave oven. A colleague says it is not a “microwave” device because microwaves begin at 3 GHz. Who is right?</p>`,
-      options: [ 'The colleague: microwaves start at 3 GHz, so 2.45 GHz is not a microwave', 'The heater is a microwave device: microwaves start from 1 GHz', 'It is an infrared device, because ovens produce heat', 'It is in the EHF band, because ovens need millimetre waves' ],
-      correct: 1,
+      options: [ 'The heater is a microwave device: microwaves start from 1 GHz', 'The colleague: microwaves start at 3 GHz, so 2.45 GHz is not a microwave', 'It is an infrared device, because ovens produce heat', 'It is in the EHF band, because ovens need millimetre waves' ],
+      correct: 0,
       answer: `<p><b>The heater is a microwave device.</b> The microwave region begins at 1 GHz, so 2.45 GHz qualifies.</p>`,
       explain: `<p>Microwaves cover frequencies from 1 GHz upwards. The SHF band proper runs from 3 to 30 GHz, but that is only part of the microwave region. Microwave ovens usually work at 2.45 GHz, and EHF (millimetre waves) starts at 30 GHz, far above it.</p>`,
       points: [ 'Microwaves start from 1 GHz', 'SHF is 3 to 30 GHz, a part of the microwave region', 'Ovens use 2.45 GHz' ]
@@ -76,8 +76,8 @@ QUESTIONS({
     {
       id: 'm2-2c-09', module: 'm2', topic: 'm2-optical', type: 'numerical', level: 1,
       q: `<p>A light source in a lab emits at 600 nm. In which part of the optical spectrum does it lie?</p>`,
-      options: [ 'Ultraviolet', 'Visible', 'Infrared', 'Millimetre waves' ],
-      correct: 1,
+      options: [ 'Ultraviolet', 'Infrared', 'Visible', 'Millimetre waves' ],
+      correct: 2,
       answer: `<p><b>Visible light.</b></p>`,
       explain: `<div class="worked"><div class="given"><p>Visible light: 0.4 to 0.8 µm = 400 to 800 nm.</p></div><div class="solve"><div class="eq">400 nm &lt; 600 nm &lt; 800 nm</div></div><div class="result"><p>600 nm is <b>visible light</b></p></div></div>`,
       points: [ 'Visible: 400 to 800 nm', '600 nm lies inside that range' ]
@@ -85,8 +85,8 @@ QUESTIONS({
     {
       id: 'm2-2c-10', module: 'm2', topic: 'm2-comm-system', type: 'design', level: 2,
       q: `<p>A mountain rescue team needs one light, portable unit that both sends and receives. Which equipment suits them?</p>`,
-      options: [ 'Two modulators in one transmitter', 'A transceiver sharing common circuits in one housing', 'A receiver only, with a larger antenna', 'A transmitter and a separate receiver in two boxes' ],
-      correct: 1,
+      options: [ 'Two modulators in one transmitter', 'A transmitter and a separate receiver in two boxes', 'A receiver only, with a larger antenna', 'A transceiver sharing common circuits in one housing' ],
+      correct: 3,
       answer: `<p><b>A transceiver.</b> It combines transmitter and receiver in one housing.</p>`,
       explain: `<p>Most electronic communication is two-way, so both parties need a transmitter and a receiver. A <b>transceiver</b> puts both in one housing and shares common circuits such as the power supply, which saves size and weight.</p>`,
       points: [ 'Transceiver = transmitter + receiver', 'Shares common circuits in one housing' ]
@@ -103,8 +103,8 @@ QUESTIONS({
     {
       id: 'm2-2c-12', module: 'm2', topic: 'm2-modulation', type: 'interpret', level: 3,
       q: `<p>A station aims to reach distant rural listeners. It uses a scheme in which the carrier frequency stays fixed and the outline of the wave forms an envelope. What is this scheme, and is it suitable?</p>`,
-      options: [ 'Phase modulation, which is poor over long distances', 'Frequency modulation, preferred over long distances', 'Amplitude modulation, preferred over long distances', 'Amplitude modulation, suited only to short distances' ],
-      correct: 2,
+      options: [ 'Amplitude modulation, preferred over long distances', 'Frequency modulation, preferred over long distances', 'Phase modulation, which is poor over long distances', 'Amplitude modulation, suited only to short distances' ],
+      correct: 0,
       answer: `<p><b>Amplitude modulation (AM).</b> It is preferred for long-distance communication.</p>`,
       explain: `<p>In AM the carrier amplitude follows the message, giving an outline called the <b>envelope</b>, while the carrier frequency stays fixed. AM is preferred for long distance; FM and PM are preferred for short distance.</p>`,
       points: [ 'Fixed frequency with an envelope means AM', 'AM is preferred for long distance' ]
@@ -121,8 +121,8 @@ QUESTIONS({
     {
       id: 'm2-2c-14', module: 'm2', topic: 'm2-comm-system', type: 'troubleshoot', level: 2,
       q: `<p>A TV broadcast arrives heavily distorted. The information source and the whole transmitter are working perfectly. Where was the degrading interference most likely added?</p>`,
-      options: [ 'In the input transducer and the frequency synthesizer', 'In the channel and in the receiver', 'In the output transducer and the modulator', 'In the oscillators and the tuned circuits of the transmitter' ],
-      correct: 1,
+      options: [ 'In the input transducer and the frequency synthesizer', 'In the oscillators and the tuned circuits of the transmitter', 'In the output transducer and the modulator', 'In the channel and in the receiver' ],
+      correct: 3,
       answer: `<p><b>In the channel and the receiver.</b></p>`,
       explain: `<p><b>Noise</b> is any phenomenon that degrades or interferes with the transmitted information. In the block diagram it enters along the way, in the channel and in the receiver, not in the transmitter.</p>`,
       points: [ 'Noise degrades the information', 'It is added in the channel and in the receiver' ]
