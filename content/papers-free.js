@@ -3,40 +3,37 @@ PAPERS({
     { id: 'cat1-a1', kind: 'actual', exam: 'cat1', title: 'CAT-1 · Slot A1+TA1 · 09-08-2026', sub: 'Actual paper · Fall 2026–27' },
     { id: 'cat1-b2', kind: 'actual', exam: 'cat1', title: 'CAT-1 · Slot B2+TB2 · 18-08-2025', sub: 'Actual paper · Fall 2025–26 · with answer key' },
     { id: 'cat2-b1', kind: 'actual', exam: 'cat2', title: 'CAT-2 · Slot B1+TB1 · 28-09-2026', sub: 'Actual paper · Fall 2026–27' },
-    { id: 'cat2-d1', kind: 'actual', exam: 'cat2', title: 'CAT-2 · Slot D1+TD1/D2+TD2 · September 2026', sub: 'Actual paper · Fall 2026–27 · Chennai' },
-    { id: 'fat-a1', kind: 'actual', exam: 'fat', title: 'FAT · Slot A1 · November 2025', sub: 'Actual paper · Fall 2025–26 · two parts, all modules' },
-    { id: 'fat-e1', kind: 'actual', exam: 'fat', title: 'FAT · Slot E1+TE1 · Nov/Dec 2025', sub: 'Actual paper · Fall 2025–26 · Chennai · two parts, all modules' }
-  ],
+    { id: 'fat-a1', kind: 'actual', exam: 'fat', title: 'FAT · Slot A1 · November 2025', sub: 'Actual paper · Fall 2025–26 · two parts, all modules' }  ],
 
   asked: {
-    'm1-dc-machine': [{ paper: 'cat1-a1' }, { paper: 'cat1-b2' }, { paper: 'cat2-d1' }, { paper: 'fat-a1' }],
+    'm1-dc-machine': [{ paper: 'cat1-a1' }, { paper: 'cat1-b2' },  { paper: 'fat-a1' }],
     'm1-dc-motor': [{ paper: 'cat1-a1' }, { paper: 'cat1-b2' }, { paper: 'fat-a1' }],
     'm1-induction-motor': [{ paper: 'cat1-b2' }],
-    'm1-mesh': [{ paper: 'cat1-a1' }, { paper: 'fat-a1' }, { paper: 'fat-e1' }],
-    'm1-nodal': [{ paper: 'cat1-b2' }, { paper: 'cat2-d1' }],
-    'm1-rc-rlc': [{ paper: 'cat1-a1' }, { paper: 'cat1-b2' }, { paper: 'cat2-d1' }, { paper: 'fat-e1' }],
-    'm1-rl-series': [{ paper: 'fat-a1' }, { paper: 'fat-e1' }],
-    'm1-superposition': [{ paper: 'cat1-a1' }, { paper: 'cat1-b2' }, { paper: 'fat-e1' }],
-    'm1-thevenin': [{ paper: 'cat1-a1' }, { paper: 'cat1-b2' }, { paper: 'cat2-d1' }, { paper: 'fat-a1' }],
-    'm1-transformer': [{ paper: 'cat1-b2' }, { paper: 'fat-e1' }],
-    'm2-bjt-config': [{ paper: 'fat-e1' }],
-    'm2-diode-vi': [{ paper: 'cat2-d1' }, { paper: 'fat-a1' }],
+    'm1-mesh': [{ paper: 'cat1-a1' }, { paper: 'fat-a1' }],
+    'm1-nodal': [{ paper: 'cat1-b2' }],
+    'm1-rc-rlc': [{ paper: 'cat1-a1' }, { paper: 'cat1-b2' }],
+    'm1-rl-series': [{ paper: 'fat-a1' }],
+    'm1-superposition': [{ paper: 'cat1-a1' }, { paper: 'cat1-b2' }],
+    'm1-thevenin': [{ paper: 'cat1-a1' }, { paper: 'cat1-b2' },  { paper: 'fat-a1' }],
+    'm1-transformer': [{ paper: 'cat1-b2' }],
+    'm2-bjt-config': [],
+    'm2-diode-vi': [ { paper: 'fat-a1' }],
     'm2-sat-basics': [{ paper: 'fat-a1' }],
-    'm2-zener': [{ paper: 'cat2-d1' }],
+    'm2-zener': [],
     'm3-lettering-dim': [{ paper: 'cat2-b1' }],
-    'm3-lines': [{ paper: 'fat-e1' }],
-    'm3-ortho-basics': [{ paper: 'cat2-b1' }, { paper: 'fat-a1' }, { paper: 'fat-e1' }],
+    'm3-lines': [],
+    'm3-ortho-basics': [{ paper: 'cat2-b1' }, { paper: 'fat-a1' }],
     'm3-six-views': [{ paper: 'cat2-b1' }, { paper: 'fat-a1' }],
     'm3-solids-hp': [{ paper: 'cat2-b1' }, { paper: 'fat-a1' }],
-    'm3-solids-vp': [{ paper: 'cat2-b1' }, { paper: 'fat-e1' }],
+    'm3-solids-vp': [{ paper: 'cat2-b1' }],
     'm4-four-stroke': [{ paper: 'fat-a1' }],
     'm4-kinematic-pairs': [{ paper: 'fat-a1' }],
     'm4-links-dof': [{ paper: 'fat-a1' }],
     'm4-machining-basics': [{ paper: 'fat-a1' }],
     'm4-mechanisms': [{ paper: 'fat-a1' }],
     'm4-turning-milling': [{ paper: 'fat-a1' }],
-    'm4-welding-basics': [{ paper: 'fat-e1' }],
-    'm4-welding-classes': [{ paper: 'fat-e1' }]
+    'm4-welding-basics': [],
+    'm4-welding-classes': []
   },
 
   papers: [
@@ -176,45 +173,6 @@ PAPERS({
       ]
     },
 
-    {
-      id: 'cat2-d1', kind: 'actual', exam: 'cat2', title: 'CAT-2 · Slot D1+TD1/D2+TD2 · September 2026', short: 'D1+TD1 paper', sub: 'Actual paper · Fall 2026–27 · Chennai',
-      meta: [['Slot', 'D1+TD1 / D2+TD2'], ['Date', 'September 2026'], ['Duration', '90 minutes'], ['Max marks', '50'], ['Campus', 'Chennai'], ['Programme', 'B.Tech.']],
-      instructions: `<b>Course Outcomes:</b> CO1: Analyse the electrical circuits, electrical motors and the role of power electronics in industrial applications. CO2: Acquire foundational knowledge of electronic devices and communication systems.<br>Blooms Taxonomy levels: K1 Remembering, K2 Understanding, K3 Applying, K4 Analysing, K5 Evaluating, K6 Creating.`,
-      questions: [
-        {
-          n: '1', marks: 10, co: '1', bl: '3',
-          notes: ['m1-nodal.1'],
-          prompt: `<p>Use nodal analysis to determine the voltage across BC and the current in the 12 V source for the circuit given in Figure 1. All resistances are in ohms.</p>`,
-          passage: `<p><b>Figure 1</b> (described, not the scan): three nodes A, B and C, with the ground at the bottom. A 12 V source (+ at the top) in series with a 4 Ω resistor connects ground to node A. A 2 Ω resistor joins A to B, and a 4 Ω resistor joins B to C. A 4 Ω resistor joins B to ground and a 2 Ω resistor joins C to ground. A second 4 Ω resistor joins A directly to C, and a 9 A current source also joins A to C (arrow pointing toward C).</p>`,
-          topics: ['m1-nodal']
-        },
-        {
-          n: '2', marks: 10, co: '1', bl: '3',
-          notes: ['m1-thevenin.1'],
-          prompt: `<p>Using Thevenin's theorem, calculate the current flowing through the load resistance, R<sub>L</sub> connected across the terminals A and B for the network shown in Figure 2.</p>`,
-          passage: `<p><b>Figure 2</b> (described, not the scan): on the left, a 24 V battery (+ at the top) in series with a 4 Ω resistor reaches the top node. From that node a 5 Ω and a 3 Ω resistor in series go down to the bottom node. Along the top, a 5 Ω resistor and a 12 V battery (+ on the left side) lead to terminal A. On the right, R<sub>L</sub> = 10 Ω is connected between A and the bottom end, with a 3 Ω resistor in the bottom rail before terminal B.</p>`,
-          topics: ['m1-thevenin']
-        },
-        {
-          n: '3', marks: 10, co: '1', bl: '3',
-          notes: ['m1-rc-rlc.1', 'm1-rc-rlc.4'],
-          prompt: `<p>A 230 V, 50 Hz, ac supply is applied to a coil of 0.06 H inductance and 2.5 Ω resistance connected in series with a 6.8 µF capacitor. Calculate (i) impedance, (ii) current, (iii) phase angle between voltage and current, (iv) power factor and (v) power consumed.</p>`,
-          topics: ['m1-rc-rlc']
-        },
-        {
-          n: '4', marks: 10, co: '1', bl: '2',
-          notes: ['m1-dc-machine.1'],
-          prompt: `<p>With the help of a neat, labelled diagram, explain the constructional details of a practical DC machine. Identify the major components and discuss their functions and significance in the operation of the machine.</p>`,
-          topics: ['m1-dc-machine']
-        },
-        {
-          n: '5', marks: 10, co: '2', bl: '2',
-          notes: ['m2-zener.3'],
-          prompt: `<p>Two diodes, A and B, are tested under reverse bias. Diode A is damaged when its reverse voltage exceeds a certain value, whereas diode B is deliberately operated in this region and maintains an approximately constant voltage across its terminals. Identify the likely type of each diode and explain the difference in their intended operation with the help of VI characteristics.</p><p>Discuss reverse breakdown, current limitation and the characteristics that make one device suitable for voltage regulation.</p>`,
-          topics: ['m2-zener', 'm2-diode-vi']
-        }
-      ]
-    },
 
     {
       id: 'fat-a1', kind: 'actual', exam: 'fat', title: 'FAT · Slot A1 · November 2025', short: 'A1 paper', sub: 'Actual paper · Fall 2025–26 · two parts, all modules',
@@ -304,90 +262,5 @@ PAPERS({
           topics: ['m4-four-stroke']
         }
       ]
-    },
-
-    {
-      id: 'fat-e1', kind: 'actual', exam: 'fat', title: 'FAT · Slot E1+TE1 · Nov/Dec 2025', short: 'E1+TE1 paper', sub: 'Actual paper · Fall 2025–26 · Chennai · two parts, all modules',
-      meta: [['Slot', 'E1+TE1'], ['Exam', 'Final Assessment Test, Nov/Dec 2025'], ['Duration', '1 hour 30 minutes per part'], ['Max marks', '100 (2 × 50)'], ['Campus', 'Chennai'], ['Part 1', 'Electrical and electronics (CO1, CO2)'], ['Part 2', 'Graphics and mechanical (CO3, CO4)'], ['Programme', 'B.Tech.']],
-      instructions: `<b>Both parts:</b> answer all questions (5 × 10 marks). Write only your registration number in the designated box on the question paper.<br><b>Course Outcomes:</b> CO1: Analyse the electrical circuits, electrical motors and the role of power electronics in industrial applications. CO2: Acquire foundational knowledge of electronic devices and communication systems. CO3: Apply BIS standards to create basic 2D and 3D representations of engineering components. CO4: Explain the fundamental principles and applications of manufacturing processes, energy conversion systems, and mechanical automation technologies. CO5: Analyse real-world examples where bio-inspired solutions have led to breakthroughs in engineering.<br>BL – Bloom's Taxonomy Levels: K1 Remembering, K2 Understanding, K3 Applying, K4 Analysing, K5 Evaluating, K6 Creating.`,
-      questions: [
-        {
-          n: '1', marks: 10, co: '1', bl: '3',
-          notes: ['m1-mesh.2'],
-          prompt: `<p><b>Part 1 · Q1.</b> Determine the current supplied by each battery using loop analysis for the network shown in Fig. 1.</p>`,
-          passage: `<p><b>Fig. 1</b> (described, not the scan): three clockwise loop currents I<sub>1</sub>, I<sub>2</sub>, I<sub>3</sub> side by side. Left branch: battery B<sub>1</sub> = 20 V. Top of loop 1: 5 Ω. Next vertical branch: 3 Ω in series with battery B<sub>2</sub> = 5 V (shared by loops 1 and 2). Top of loop 2: 4 Ω in series with battery B<sub>4</sub> = 5 V. Next vertical branch: 2 Ω in series with battery B<sub>3</sub> = 5 V (shared by loops 2 and 3). Top of loop 3: 8 Ω. Right branch: battery B<sub>5</sub> = 30 V. Polarity marks are small in the scan and are not reproduced here.</p>`,
-          topics: ['m1-mesh']
-        },
-        {
-          n: '2', marks: 10, co: '1', bl: '3',
-          notes: ['m1-superposition.1'],
-          prompt: `<p><b>Part 1 · Q2.</b> Use superposition theorem to find current I in the circuit shown in Fig. 2. All resistances are given in ohms.</p>`,
-          passage: `<p><b>Fig. 2</b> (described, not the scan): a 120 A current source (arrow down) on the left, a 50 Ω resistor, a 150 Ω resistor and a 40 A current source (arrow down) on the right, all between a top rail and a bottom rail. A 10 V voltage source (– on the left, + on the right) sits in the top rail between the 50 Ω and 150 Ω branches. The current I is marked along the bottom rail between those two branches, pointing left.</p>`,
-          topics: ['m1-superposition']
-        },
-        {
-          n: '3', marks: 10, co: '1', bl: '3',
-          notes: ['m1-rc-rlc.4'],
-          prompt: `<p><b>Part 1 · Q3.</b></p>`,
-          parts: [
-            { text: 'a. An alternating voltage of (176+j132) V is applied to a circuit and the current in the circuit is given by (6.6+j8.8) A. Determine: i. values of elements present in the circuit; ii. power factor of the circuit; iii. power consumed.', marks: 5 },
-            { text: 'b. A 100 V, 80 W lamp is to be operated on 230 Volts, 50 Hz AC supply. Calculate the inductance of the choke required to be connected in series with the lamp for its operation. The lamp can be taken as equivalent to non inductive resistance.', marks: 5 }
-          ],
-          topics: ['m1-rl-series', 'm1-rc-rlc']
-        },
-        {
-          n: '4', marks: 10, co: '1', bl: '1',
-          notes: ['m1-transformer.0', 'm1-transformer.1'],
-          prompt: `<p><b>Part 1 · Q4.</b> Describe the construction and operating principle of a single phase transformer with neat sketch and mention its applications.</p>`,
-          topics: ['m1-transformer']
-        },
-        {
-          n: '5', marks: 10, co: '2', bl: '1',
-          notes: ['m2-bjt-config.3'],
-          prompt: `<p><b>Part 1 · Q5.</b> Explain about BJT with common base configuration with neat sketch and its V-I characteristics.</p>`,
-          topics: ['m2-bjt-config']
-        },
-        {
-          n: '6', marks: 10, co: '3', bl: '1',
-          notes: ['m3-lines.0', 'm3-ortho-basics.2', 'm3-isometric.2', 'm3-perspective.1'],
-          prompt: `<p><b>Part 2 · Q1.</b></p>`,
-          parts: [
-            { text: 'a) List any four major types of lines used in engineering drawings and state their uses.', marks: 4 },
-            { text: 'b) Compare the First Angle and Third Angle methods of orthographic projection.', marks: 4 },
-            { text: 'c) State whether the following statements are True or False: i. In an isometric projection, circles appear as ellipses. ii. In a perspective projection, the size of the object remains the same regardless of distance.', marks: 2 }
-          ],
-          topics: ['m3-lines', 'm3-ortho-basics']
-        },
-        {
-          n: '7', marks: 10, co: '3', bl: '3',
-          notes: ['m3-solids-vp.2'],
-          prompt: `<p><b>Part 2 · Q2.</b> A hexagonal prism has one of its rectangular faces parallel to the H.P. Its axis is perpendicular to the V.P. and 3.5 cm above the ground. Draw its projections when the nearer end is 2 cm in front of the V.P. Side of base 2.5 cm long; axis 5 cm long.</p>`,
-          topics: ['m3-solids-vp']
-        },
-        {
-          n: '8', marks: 10, co: '4', bl: '2',
-          notes: ['m4-arc-welding.4'],
-          prompt: `<p><b>Part 2 · Q3.</b> Describe the working principle of any one metal joining process with the aid of a neat diagram.</p>`,
-          topics: ['m4-welding-basics', 'm4-welding-classes']
-        },
-        {
-          n: '9', marks: 10, co: '4', bl: '2',
-          notes: ['m4-refrigeration.4'],
-          prompt: `<p><b>Part 2 · Q4.</b> Discuss the construction and working of a basic vapor-compression refrigeration unit.</p>`,
-          topics: []
-        },
-        {
-          n: '10', marks: 10, co: '4', bl: '2',
-          notes: ['m4-robotics.0', 'm4-robotics.1', 'm4-robotics.2'],
-          prompt: `<p><b>Part 2 · Q5.</b></p>`,
-          parts: [
-            { text: 'a) What is a robot?', marks: 2 },
-            { text: 'b) How do robots differ from automation?', marks: 3 },
-            { text: 'c) Explain any one configuration of a robotic manipulator with a neat sketch.', marks: 5 }
-          ],
-          topics: []
-        }
-      ]
-    }
-  ]
+    }  ]
 });

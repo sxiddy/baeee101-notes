@@ -3,34 +3,34 @@
 // app/js/boot.js merges them into the free copy by id.
 PAPERS({
   asked: {
-    'm1-dc-machine': [{ where: 'Q5', what: 'working principle of a DC motor and its applications', paper: 'cat1-a1' }, { where: 'Q5', what: 'functions of the commutator, brushes and armature in a DC machine (6 marks)', paper: 'cat1-b2' }, { where: 'Q4', what: 'construction of a practical DC machine with a labelled diagram, and the function of each part', paper: 'cat2-d1' }, { where: 'Part 1, Q3', what: 'working principle of a DC motor with a rough sketch, main parts and functions', paper: 'fat-a1' }],
+    'm1-dc-machine': [{ where: 'Q5', what: 'working principle of a DC motor and its applications', paper: 'cat1-a1' }, { where: 'Q5', what: 'functions of the commutator, brushes and armature in a DC machine (6 marks)', paper: 'cat1-b2' },  { where: 'Part 1, Q3', what: 'working principle of a DC motor with a rough sketch, main parts and functions', paper: 'fat-a1' }],
     'm1-dc-motor': [{ where: 'Q5', what: 'working principle of a DC motor and its applications', paper: 'cat1-a1' }, { where: 'Q5', what: 'two applications of a DC series motor (2 marks, with the induction motor)', paper: 'cat1-b2' }, { where: 'Part 1, Q3', what: 'working principle of a DC motor with a rough sketch, main parts and functions', paper: 'fat-a1' }],
     'm1-induction-motor': [{ where: 'Q5', what: 'two applications of an induction motor (2 marks, with the DC series motor)', paper: 'cat1-b2' }],
-    'm1-mesh': [{ where: 'Q1', what: 'mesh analysis of a bridge with a source resistor (10 marks), then the power in each element', paper: 'cat1-a1' }, { where: 'Part 1, Q1', what: 'mesh analysis with two sources: all loop and branch currents (one of two choices)', paper: 'fat-a1' }, { where: 'Part 1, Q1', what: 'loop analysis of a five-battery network: current from each battery', paper: 'fat-e1' }],
-    'm1-nodal': [{ where: 'Q1', what: 'nodal analysis with a voltage source and a 0.5 A current source: find I', paper: 'cat1-b2' }, { where: 'Q1', what: 'nodal analysis with a 9 A current source and a 12 V source: voltage across BC and the 12 V source current', paper: 'cat2-d1' }],
-    'm1-rc-rlc': [{ where: 'Q4', what: 'series RLC at 50 Hz (6 Ω, 7 Ω, 15 Ω): element voltages, P, Q, S, power factor, leading or lagging', paper: 'cat1-a1' }, { where: 'Q4', what: 'v(t) = 300 sin 314t across R, L, C in series: rms current, phase, i(t), element voltages, power factor, P and Q', paper: 'cat1-b2' }, { where: 'Q3', what: 'series coil and capacitor on 230 V, 50 Hz (0.06 H, 2.5 Ω, 6.8 µF): Z, I, phase angle, power factor, power', paper: 'cat2-d1' }, { where: 'Part 1, Q3', what: 'complex voltage (176+j132) V and current (6.6+j8.8) A: circuit elements, power factor, power (5 marks)', paper: 'fat-e1' }],
-    'm1-rl-series': [{ where: 'Part 1, Q2', what: 'series RL on 230 V, 50 Hz (20 Ω, 20 mH): impedance, element voltages, phase angle and phasor diagram', paper: 'fat-a1' }, { where: 'Part 1, Q3', what: 'choke in series with a 100 V, 80 W lamp on 230 V, 50 Hz: find its inductance (5 marks)', paper: 'fat-e1' }],
-    'm1-superposition': [{ where: 'Q2', what: 'superposition with a 5 mA current source and an 8 V battery: current through R1', paper: 'cat1-a1' }, { where: 'Q2', what: 'superposition with a 2 A source and a 20 V source: find i', paper: 'cat1-b2' }, { where: 'Part 1, Q2', what: 'superposition with two current sources and a 10 V source: find I', paper: 'fat-e1' }],
-    'm1-thevenin': [{ where: 'Q3', what: 'Thevenin equivalent of a ladder across the load, then the load current (R = 10 Ω)', paper: 'cat1-a1' }, { where: 'Q3', what: 'Thevenin equivalent between A and B, then the current in a 6 Ω resistor', paper: 'cat1-b2' }, { where: 'Q2', what: 'Thevenin equivalent across A and B for a two-battery network, current in RL = 10 Ω', paper: 'cat2-d1' }, { where: 'Part 1, Q1', what: 'Thevenin equivalent to the left of a-b, then the current in a 6 Ω load (one of two choices)', paper: 'fat-a1' }],
-    'm1-transformer': [{ where: 'Q5', what: 'working principle of a transformer (2 marks)', paper: 'cat1-b2' }, { where: 'Part 1, Q4', what: 'construction and principle of a single phase transformer, with applications', paper: 'fat-e1' }],
-    'm2-bjt-config': [{ where: 'Part 1, Q5', what: 'BJT in common base configuration with sketch and V-I characteristics', paper: 'fat-e1' }],
-    'm2-diode-vi': [{ where: 'Q5', what: 'a damaged diode against one used for regulation: type of each, VI characteristics, reverse breakdown, current limitation', paper: 'cat2-d1' }, { where: 'Part 1, Q4', what: 'half-wave and full-wave rectifiers with resistive load, diagrams and waveforms', paper: 'fat-a1' }],
+    'm1-mesh': [{ where: 'Q1', what: 'mesh analysis of a bridge with a source resistor (10 marks), then the power in each element', paper: 'cat1-a1' }, { where: 'Part 1, Q1', what: 'mesh analysis with two sources: all loop and branch currents (one of two choices)', paper: 'fat-a1' }],
+    'm1-nodal': [{ where: 'Q1', what: 'nodal analysis with a voltage source and a 0.5 A current source: find I', paper: 'cat1-b2' }],
+    'm1-rc-rlc': [{ where: 'Q4', what: 'series RLC at 50 Hz (6 Ω, 7 Ω, 15 Ω): element voltages, P, Q, S, power factor, leading or lagging', paper: 'cat1-a1' }, { where: 'Q4', what: 'v(t) = 300 sin 314t across R, L, C in series: rms current, phase, i(t), element voltages, power factor, P and Q', paper: 'cat1-b2' }],
+    'm1-rl-series': [{ where: 'Part 1, Q2', what: 'series RL on 230 V, 50 Hz (20 Ω, 20 mH): impedance, element voltages, phase angle and phasor diagram', paper: 'fat-a1' }],
+    'm1-superposition': [{ where: 'Q2', what: 'superposition with a 5 mA current source and an 8 V battery: current through R1', paper: 'cat1-a1' }, { where: 'Q2', what: 'superposition with a 2 A source and a 20 V source: find i', paper: 'cat1-b2' }],
+    'm1-thevenin': [{ where: 'Q3', what: 'Thevenin equivalent of a ladder across the load, then the load current (R = 10 Ω)', paper: 'cat1-a1' }, { where: 'Q3', what: 'Thevenin equivalent between A and B, then the current in a 6 Ω resistor', paper: 'cat1-b2' },  { where: 'Part 1, Q1', what: 'Thevenin equivalent to the left of a-b, then the current in a 6 Ω load (one of two choices)', paper: 'fat-a1' }],
+    'm1-transformer': [{ where: 'Q5', what: 'working principle of a transformer (2 marks)', paper: 'cat1-b2' }],
+    'm2-bjt-config': [],
+    'm2-diode-vi': [ { where: 'Part 1, Q4', what: 'half-wave and full-wave rectifiers with resistive load, diagrams and waveforms', paper: 'fat-a1' }],
     'm2-sat-basics': [{ where: 'Part 1, Q5', what: 'block diagram of a satellite communication system, with advantages, disadvantages and applications', paper: 'fat-a1' }],
-    'm2-zener': [{ where: 'Q5', what: 'a damaged diode against one used for regulation: type of each, VI characteristics, reverse breakdown, current limitation', paper: 'cat2-d1' }],
+    'm2-zener': [],
     'm3-lettering-dim': [{ where: 'Q1', what: 'redraw and fully dimension a stepped outline as per BIS', paper: 'cat2-b1' }],
-    'm3-lines': [{ where: 'Part 2, Q1', what: 'four types of lines and their uses, first against third angle projection, true or false on isometric and perspective', paper: 'fat-e1' }],
-    'm3-ortho-basics': [{ where: 'Q2', what: 'front, top and left side views of a stepped block, first angle', paper: 'cat2-b1' }, { where: 'Q3', what: 'front, top and right side views of an angle bracket with a rounded top, first angle', paper: 'cat2-b1' }, { where: 'Part 2, Q1', what: 'front, top and right side views from a pictorial view (cylinder with a bored lug), first angle', paper: 'fat-a1' }, { where: 'Part 2, Q1', what: 'four types of lines and their uses, first against third angle projection, true or false on isometric and perspective', paper: 'fat-e1' }],
+    'm3-lines': [],
+    'm3-ortho-basics': [{ where: 'Q2', what: 'front, top and left side views of a stepped block, first angle', paper: 'cat2-b1' }, { where: 'Q3', what: 'front, top and right side views of an angle bracket with a rounded top, first angle', paper: 'cat2-b1' }, { where: 'Part 2, Q1', what: 'front, top and right side views from a pictorial view (cylinder with a bored lug), first angle', paper: 'fat-a1' }],
     'm3-six-views': [{ where: 'Q2', what: 'front, top and left side views of a stepped block, first angle', paper: 'cat2-b1' }, { where: 'Q3', what: 'front, top and right side views of an angle bracket with a rounded top, first angle', paper: 'cat2-b1' }, { where: 'Part 2, Q1', what: 'front, top and right side views from a pictorial view (cylinder with a bored lug), first angle', paper: 'fat-a1' }],
     'm3-solids-hp': [{ where: 'Q4', what: 'projections of a pentagonal prism resting on its base on HP (side 30, height 70)', paper: 'cat2-b1' }, { where: 'Part 2, Q2', what: 'isometric view of a pentagonal pyramid (side 30, axis 50) on its base', paper: 'fat-a1' }],
-    'm3-solids-vp': [{ where: 'Q5', what: 'projections of a cylinder (diameter 35, height 70) resting on a generator, axis perpendicular to VP', paper: 'cat2-b1' }, { where: 'Part 2, Q2', what: 'projections of a hexagonal prism with a rectangular face parallel to HP, axis perpendicular to VP', paper: 'fat-e1' }],
+    'm3-solids-vp': [{ where: 'Q5', what: 'projections of a cylinder (diameter 35, height 70) resting on a generator, axis perpendicular to VP', paper: 'cat2-b1' }],
     'm4-four-stroke': [{ where: 'Part 2, Q5', what: 'four-stroke SI engine with P-V diagram (or, in the other choice, vapour compression refrigeration)', paper: 'fat-a1' }],
     'm4-kinematic-pairs': [{ where: 'Part 2, Q4', what: 'types of kinematic links with examples, and degrees of freedom of a four-bar and a five-link chain', paper: 'fat-a1' }],
     'm4-links-dof': [{ where: 'Part 2, Q4', what: 'types of kinematic links with examples, and degrees of freedom of a four-bar and a five-link chain', paper: 'fat-a1' }],
     'm4-machining-basics': [{ where: 'Part 2, Q3', what: 'define machining and explain two conventional machining processes', paper: 'fat-a1' }],
     'm4-mechanisms': [{ where: 'Part 2, Q4', what: 'types of kinematic links with examples, and degrees of freedom of a four-bar and a five-link chain', paper: 'fat-a1' }],
     'm4-turning-milling': [{ where: 'Part 2, Q3', what: 'define machining and explain two conventional machining processes', paper: 'fat-a1' }],
-    'm4-welding-basics': [{ where: 'Part 2, Q3', what: 'working principle of any one metal joining process with a diagram', paper: 'fat-e1' }],
-    'm4-welding-classes': [{ where: 'Part 2, Q3', what: 'working principle of any one metal joining process with a diagram', paper: 'fat-e1' }]
+    'm4-welding-basics': [],
+    'm4-welding-classes': []
   },
 
   papers: [
@@ -277,92 +277,6 @@ PAPERS({
       ]
     },
 
-    {
-      id: 'cat2-d1',
-      questions: [
-        {
-          n: '1',
-          answer: `
-            <p>Model answer (no official key). Ground is the bottom rail. The 12 V source and its 4 Ω resistor feed node A, so A is written as (12 − V<sub>A</sub>)/4 coming in. The 9 A source takes current out of A and puts it into C.</p>
-            <div class="worked">
-              <div class="solve">
-                <div class="eq">Node A: (12 − V<sub>A</sub>)/4 = (V<sub>A</sub> − V<sub>B</sub>)/2 + (V<sub>A</sub> − V<sub>C</sub>)/4 + 9, so 1.0V<sub>A</sub> − 0.5V<sub>B</sub> − 0.25V<sub>C</sub> = −6</div>
-                <div class="eq">Node B: (V<sub>A</sub> − V<sub>B</sub>)/2 = V<sub>B</sub>/4 + (V<sub>B</sub> − V<sub>C</sub>)/4, so −0.5V<sub>A</sub> + 1.0V<sub>B</sub> − 0.25V<sub>C</sub> = 0</div>
-                <div class="eq">Node C: (V<sub>A</sub> − V<sub>C</sub>)/4 + (V<sub>B</sub> − V<sub>C</sub>)/4 + 9 = V<sub>C</sub>/2, so −0.25V<sub>A</sub> − 0.25V<sub>B</sub> + 1.0V<sub>C</sub> = 9</div>
-                <div class="eq">V<sub>A</sub> = −4 V, V<sub>B</sub> = 0 V, V<sub>C</sub> = 8 V</div>
-                <div class="eq">V<sub>BC</sub> = V<sub>B</sub> − V<sub>C</sub> = −8 V</div>
-                <div class="eq">Current in the 12 V source = (12 − V<sub>A</sub>)/4 = 16/4</div>
-              </div>
-              <div class="result"><p>V<sub>BC</sub> = <b>−8 V</b> (C is 8 V above B). Current in the 12 V source = <b>4 A</b>.</p></div>
-            </div>
-            <div class="note trap"><p>Check at A: the current leaving through the 2 Ω is (−4 − 0)/2 = −2 A, through the 4 Ω to C it is (−4 − 8)/4 = −3 A, and the 9 A source takes 9 A, so the total out is −2 − 3 + 9 = 4 A, equal to the 4 A coming in from the 12 V source.</p></div>`,
-        },
-        {
-          n: '2',
-          answer: `
-            <p>Model answer. Reading Figure 2: the 24 V source and 4 Ω feed the top node N. Below N, 5 Ω and 3 Ω in series go to the bottom rail. From N along the top, a 5 Ω resistor and the 12 V battery (+ on the N side) lead to A. R<sub>L</sub> is across A and B, with a 3 Ω resistor in the bottom rail before B. Remove R<sub>L</sub>.</p>
-            <div class="worked">
-              <div class="solve">
-                <div class="eq">V<sub>N</sub> = 24 × 8/(4 + 8) = 16 V (the 4 Ω in series with 5 + 3 = 8 Ω; no current flows in the A branch)</div>
-                <div class="eq">V<sub>th</sub> = V<sub>AB</sub> = 16 − 12 = 4 V (the 12 V battery opposes V<sub>N</sub>)</div>
-                <div class="eq">R<sub>th</sub> (24 V shorted) = 5 + (4 ‖ 8) + 3 = 5 + 2.667 + 3 = 10.667 Ω</div>
-                <div class="eq">I<sub>L</sub> = V<sub>th</sub>/(R<sub>th</sub> + R<sub>L</sub>) = 4/(10.667 + 10)</div>
-              </div>
-              <div class="result"><p>I<sub>L</sub> = <b>0.194 A</b> (0.1935 A)</p></div>
-            </div>
-            <div class="note trap"><p>If your sheet has the 12 V battery turned the other way, V<sub>th</sub> = 16 + 12 = 28 V and I<sub>L</sub> = 28/20.667 = 1.355 A. The method is the same: check the + plate before you subtract.</p></div>`,
-        },
-        {
-          n: '3',
-          answer: `
-            <p>Model answer. The coil (R = 2.5 Ω, L = 0.06 H) is in series with C = 6.8 µF on 230 V, 50 Hz, using the values as printed.</p>
-            <div class="worked">
-              <div class="solve">
-                <div class="eq">X<sub>L</sub> = 2πfL = 2π × 50 × 0.06 = 18.85 Ω</div>
-                <div class="eq">X<sub>C</sub> = 1/(2πfC) = 1/(2π × 50 × 6.8 × 10<sup>−6</sup>) = 468.1 Ω</div>
-                <div class="eq">(i) Z = 2.5 + j(18.85 − 468.1) = 2.5 − j449.25 Ω, |Z| = 449.26 Ω</div>
-                <div class="eq">(ii) I = 230/449.26 = 0.512 A</div>
-                <div class="eq">(iii) φ = tan<sup>−1</sup>(−449.25/2.5) = 89.68°, current leading</div>
-                <div class="eq">(iv) power factor = R/|Z| = 2.5/449.26 = 0.0056 leading</div>
-                <div class="eq">(v) P = I²R = 0.512² × 2.5 = 0.66 W</div>
-              </div>
-              <div class="result"><p>|Z| = <b>449.3 Ω</b>, I = <b>0.512 A</b>, φ = <b>89.68°</b> (leading), pf = <b>0.0056</b>, P = <b>0.66 W</b></p></div>
-            </div>
-            <div class="note trap"><p>The power is almost zero because the circuit is nearly a pure capacitor. P can also be written VI cos φ = 230 × 0.512 × 0.0056 = 0.66 W.</p></div>`,
-        },
-        {
-          n: '4',
-          answer: `
-            <p>Model answer (10 marks: neat labelled diagram about 4, parts and functions about 6).</p>
-            <p><b>Diagram.</b> Draw the cross-section: circular yoke on the outside, field poles with pole shoes projecting inwards, the field coils on the poles, the armature core with slots inside, the shaft through the centre, and the commutator with the brushes at one end. Label each part.</p>
-            <ul>
-              <li><b>Yoke (frame).</b> A cast iron or steel ring that holds the poles. It gives mechanical strength, protects the machine and carries the return path of the flux.</li>
-              <li><b>Field poles and pole shoes.</b> Laminated or solid steel poles carrying the field winding. They set up the main flux. The shoe spreads the flux over the armature surface and holds the coil.</li>
-              <li><b>Field winding.</b> Copper coils on the poles. A DC current in them makes the field. Connected in shunt (many turns, fine wire) or series (few turns, thick wire).</li>
-              <li><b>Armature core.</b> A cylinder of laminated silicon-steel discs with slots. Laminations cut eddy-current loss, and the core gives a low-reluctance path for the flux.</li>
-              <li><b>Armature winding.</b> Copper coils in the slots. The emf is generated (generator) or torque is produced (motor) in this winding. Lap or wave connected.</li>
-              <li><b>Commutator.</b> Copper segments insulated by mica, on the shaft. It changes the alternating emf of the armature coils into a unidirectional output (generator) or reverses the current in each coil at the right instant (motor).</li>
-              <li><b>Brushes and brush gear.</b> Carbon blocks held by springs. They make the sliding contact between the rotating commutator and the outer circuit.</li>
-              <li><b>Shaft, bearings and cooling fan.</b> Carry the rotor, reduce friction and remove heat.</li>
-            </ul>
-            <p><b>Significance.</b> Together these set the emf equation E = (PφZN)/(60A) for a generator and the torque T ∝ φI<sub>a</sub> for a motor. The same construction works as either a generator or a motor.</p>`,
-        },
-        {
-          n: '5',
-          answer: `
-            <p>Model answer. Diode A is a normal PN junction (rectifier or signal) diode and diode B is a Zener diode. The two differ in doping and in what the breakdown is used for.</p>
-            <table class="tbl"><thead><tr><th></th><th>Diode A (PN junction)</th><th>Diode B (Zener)</th></tr></thead><tbody>
-              <tr><td>Doping</td><td>Light to moderate</td><td>Heavy, so the depletion layer is very thin</td></tr>
-              <tr><td>Reverse breakdown</td><td>High voltage, avalanche, destructive</td><td>Sharp and low (Zener or avalanche), designed for it</td></tr>
-              <tr><td>In reverse region</td><td>Reverse current rises sharply, the diode overheats and is damaged</td><td>Voltage stays almost constant at V<sub>Z</sub> over a wide current range</td></tr>
-              <tr><td>Use</td><td>Rectification, switching</td><td>Voltage regulation, reference</td></tr>
-            </tbody></table>
-            <p><b>VI characteristics.</b> Forward region: both conduct above about 0.7 V (silicon). Reverse region: only a tiny leakage current up to the breakdown voltage. At V<sub>BR</sub> the characteristic turns almost vertical. For the Zener this vertical part (at V<sub>Z</sub>) is the working region. For diode A it is the damage region.</p>
-            <p><b>Current limitation.</b> In breakdown the current is limited only by the external circuit, so a series resistor R<sub>s</sub> is needed: I<sub>Z</sub> = (V<sub>in</sub> − V<sub>Z</sub>)/R<sub>s</sub>. It must keep I<sub>Z</sub> between I<sub>Z(min)</sub> (to stay in breakdown) and I<sub>Z(max)</sub> = P<sub>Z(max)</sub>/V<sub>Z</sub> (to stay within its power rating). Without it a normal diode fails by thermal runaway, and a Zener burns out too.</p>
-            <p><b>Why a Zener regulates.</b> The characteristic is very steep in breakdown, so the dynamic resistance r<sub>z</sub> = ΔV/ΔI is very small. A large change in current (from the supply or the load) then changes the voltage across it only slightly, and the load across the Zener sees nearly V<sub>Z</sub>.</p>`,
-        }
-      ]
-    },
 
     {
       id: 'fat-a1',
@@ -530,178 +444,5 @@ PAPERS({
             <div class="note trap"><p>Refrigeration is not yet covered in the course notes on this site; this part of the answer is standard textbook material.</p></div>`,
         }
       ]
-    },
-
-    {
-      id: 'fat-e1',
-      questions: [
-        {
-          n: '1',
-          answer: `
-            <p>Model answer (no official key). The battery marks are small in the scan, so this reading is stated: B<sub>1</sub> and B<sub>5</sub> have + on top, B<sub>2</sub> and B<sub>3</sub> have + at the bottom, B<sub>4</sub> has + on its right plate, and all three loop currents run clockwise. If a plate is the other way round, change the sign of that battery in its loop equation and solve again.</p>
-            <div class="worked">
-              <div class="solve">
-                <div class="eq">Loop 1 (B<sub>1</sub> + B<sub>2</sub>): 20 + 5 = 5I<sub>1</sub> + 3(I<sub>1</sub> − I<sub>2</sub>), so 8I<sub>1</sub> − 3I<sub>2</sub> = 25</div>
-                <div class="eq">Loop 2 (−B<sub>2</sub> + B<sub>4</sub> + B<sub>3</sub>): −5 + 5 + 5 = 4I<sub>2</sub> + 2(I<sub>2</sub> − I<sub>3</sub>) + 3(I<sub>2</sub> − I<sub>1</sub>), so −3I<sub>1</sub> + 9I<sub>2</sub> − 2I<sub>3</sub> = 5</div>
-                <div class="eq">Loop 3 (−B<sub>3</sub> − B<sub>5</sub>): −5 − 30 = 8I<sub>3</sub> + 2(I<sub>3</sub> − I<sub>2</sub>), so −2I<sub>2</sub> + 10I<sub>3</sub> = −35</div>
-                <div class="eq">I<sub>1</sub> = 3.495 A, I<sub>2</sub> = 0.987 A, I<sub>3</sub> = −3.303 A</div>
-                <div class="eq">Current supplied: B<sub>1</sub> = I<sub>1</sub> = 3.495 A; B<sub>2</sub> = I<sub>1</sub> − I<sub>2</sub> = 2.508 A; B<sub>4</sub> = I<sub>2</sub> = 0.987 A; B<sub>3</sub> = I<sub>2</sub> − I<sub>3</sub> = 4.289 A; B<sub>5</sub> = −I<sub>3</sub> = 3.303 A</div>
-              </div>
-              <div class="result"><p>B<sub>1</sub> <b>3.495 A</b>, B<sub>2</sub> <b>2.508 A</b>, B<sub>3</sub> <b>4.289 A</b>, B<sub>4</sub> <b>0.987 A</b>, B<sub>5</sub> <b>3.303 A</b>. All five battery currents come out positive, so all five supply power.</p></div>
-            </div>
-            <div class="note trap"><p>Power check: the batteries deliver 20(3.495) + 5(2.508) + 5(0.987) + 5(4.289) + 30(3.303) = 207.9 W, and the resistors dissipate 207.9 W.</p></div>`,
-        },
-        {
-          n: '2',
-          answer: `
-            <p>Model answer. I is the current in the bottom rail between the 50 Ω and 150 Ω branches, taken to the left (the way it is marked). Take each source alone.</p>
-            <div class="worked">
-              <div class="solve">
-                <div class="eq">120 A alone (40 A opened, 10 V shorted): the 120 A returns through the 50 Ω and 150 Ω in parallel. The 150 Ω share is 120 × 50/200 = 30 A, and it passes along the bottom rail to the right, so I′ = −30 A</div>
-                <div class="eq">40 A alone: the 50 Ω branch takes 40 × 150/200 = 30 A, which flows left along the bottom rail, so I″ = +30 A</div>
-                <div class="eq">10 V alone (current sources opened): one loop through 50 Ω and 150 Ω, I‴ = 10/(50 + 150) = 0.05 A, and the + on the right drives it down the 150 Ω and left along the bottom rail, so I‴ = +0.05 A</div>
-                <div class="eq">I = −30 + 30 + 0.05</div>
-              </div>
-              <div class="result"><p>I = <b>0.05 A</b> to the left (50 mA)</p></div>
-            </div>
-            <div class="note trap"><p>The two big currents cancel, so the answer is the 10 V source's effect alone. A node check agrees: the top rail on the left sits at −6002.5 V, so the 50 Ω branch carries −120.05 A, and the bottom rail carries 120 − 120.05 = −0.05 A to the right, which is 0.05 A to the left.</p></div>`,
-        },
-        {
-          n: '3',
-          answer: `
-            <p>Model answer.</p>
-            <p><b>(a)</b> V = 176 + j132 = 220 ∠36.87° V; I = 6.6 + j8.8 = 11 ∠53.13° A.</p>
-            <div class="worked">
-              <div class="solve">
-                <div class="eq">Z = V/I = (220/11) ∠(36.87° − 53.13°) = 20 ∠−16.26° = 19.2 − j5.6 Ω</div>
-                <div class="eq">(i) R = 19.2 Ω in series with a capacitive reactance X<sub>C</sub> = 5.6 Ω (the current leads the voltage); at 50 Hz, C = 1/(2π × 50 × 5.6) = 568 µF</div>
-                <div class="eq">(ii) power factor = cos 16.26° = 0.96 leading</div>
-                <div class="eq">(iii) P = VI cos φ = 220 × 11 × 0.96 = 2323.2 W (also I²R = 121 × 19.2)</div>
-              </div>
-              <div class="result"><p>R = <b>19.2 Ω</b>, X<sub>C</sub> = <b>5.6 Ω</b>, pf = <b>0.96 leading</b>, P = <b>2.32 kW</b></p></div>
-            </div>
-            <p><b>(b)</b> The lamp is a pure resistance. 100 V and 80 W give its current and resistance.</p>
-            <div class="worked">
-              <div class="solve">
-                <div class="eq">I = P/V = 80/100 = 0.8 A; R = V/I = 125 Ω</div>
-                <div class="eq">Total |Z| = 230/0.8 = 287.5 Ω</div>
-                <div class="eq">X<sub>L</sub> = √(287.5² − 125²) = 258.9 Ω</div>
-                <div class="eq">L = X<sub>L</sub>/(2πf) = 258.9/(2π × 50)</div>
-              </div>
-              <div class="result"><p>L = <b>0.824 H</b></p></div>
-            </div>
-            <div class="note trap"><p>Check: the choke drops 0.8 × 258.9 = 207.1 V, and √(100² + 207.1²) = 230 V. A resistor in series would waste power, but a choke (ideally) uses none.</p></div>`,
-        },
-        {
-          n: '4',
-          answer: `
-            <p>Model answer (about 3 marks sketch, 3 marks construction, 3 marks principle, 1 mark applications).</p>
-            <p><b>Sketch.</b> Two windings on a laminated iron core, with the primary (N<sub>1</sub> turns, supply V<sub>1</sub>) on one limb and the secondary (N<sub>2</sub> turns, load, V<sub>2</sub>) on the other, sharing the common flux φ.</p>
-            <p><b>Construction.</b> A core of thin silicon-steel laminations, insulated from each other, stacked in a closed magnetic circuit (core type or shell type). It carries the flux and the laminations reduce eddy-current loss. Two copper windings are insulated from the core and from each other. Large units have a tank of oil for cooling and insulation.</p>
-            <p><b>Principle.</b> Mutual induction. An AC voltage V<sub>1</sub> on the primary makes an alternating flux in the core. This links the secondary and induces an emf in it. For an ideal transformer, V<sub>2</sub>/V<sub>1</sub> = N<sub>2</sub>/N<sub>1</sub> = I<sub>1</sub>/I<sub>2</sub>. It changes voltage and current levels but not the frequency, and it works only on AC. A step-up transformer has N<sub>2</sub> &gt; N<sub>1</sub>, a step-down has N<sub>2</sub> &lt; N<sub>1</sub>.</p>
-            <p><b>Applications.</b> Raising voltage for power transmission and lowering it for distribution, isolation, power supplies for electronic devices, impedance matching, and measurement (current and potential transformers).</p>`,
-        },
-        {
-          n: '5',
-          answer: `
-            <p>Model answer (about 3 marks sketch, 3 marks working, 4 marks characteristics).</p>
-            <p><b>Common base (CB).</b> The base is common to the input and output. The input is applied between emitter and base, the output is taken between collector and base. A BJT has an emitter, base and collector, with two junctions (emitter-base and collector-base). For normal (active) use, the emitter-base junction is forward biased and the collector-base junction reverse biased. Draw the NPN transistor with the supplies V<sub>EE</sub> (emitter) and V<sub>CC</sub> (collector) and the currents I<sub>E</sub>, I<sub>C</sub>, I<sub>B</sub>.</p>
-            <p><b>Current gain.</b> α = I<sub>C</sub>/I<sub>E</sub>, slightly less than 1 (0.95 to 0.99), so the CB circuit does not amplify current. It gives voltage and power gain because of the high output and low input resistance. The input resistance is low and the output resistance high. Used in high-frequency amplifiers.</p>
-            <p><b>Input characteristics</b> (I<sub>E</sub> against V<sub>EB</sub> at constant V<sub>CB</sub>): they look like a forward diode curve, with I<sub>E</sub> rising sharply beyond about 0.7 V (silicon). They shift slightly with V<sub>CB</sub>.</p>
-            <p><b>Output characteristics</b> (I<sub>C</sub> against V<sub>CB</sub> at constant I<sub>E</sub>): three regions.</p>
-            <ul>
-              <li><b>Active:</b> I<sub>C</sub> ≈ αI<sub>E</sub> and almost flat. The curves are nearly horizontal.</li>
-              <li><b>Saturation:</b> both junctions forward biased, at small or negative V<sub>CB</sub>, where I<sub>C</sub> falls steeply.</li>
-              <li><b>Cut-off:</b> I<sub>E</sub> = 0, only the small leakage current I<sub>CBO</sub> flows in the collector.</li>
-            </ul>`,
-        },
-        {
-          n: '6',
-          answer: `
-            <p>Model answer (a 4 + 4 + 2 mark split).</p>
-            <p><b>(a) Four types of lines (BIS)</b></p>
-            <table class="tbl"><thead><tr><th>Line</th><th>Use</th></tr></thead><tbody>
-              <tr><td>Continuous thick</td><td>Visible outlines and edges</td></tr>
-              <tr><td>Continuous thin</td><td>Dimension lines, extension lines, leader lines, hatching</td></tr>
-              <tr><td>Dashed (medium)</td><td>Hidden edges and outlines</td></tr>
-              <tr><td>Chain thin (long dash and dot)</td><td>Centre lines, axes of symmetry, pitch circles</td></tr>
-            </tbody></table>
-            <p>Others: chain thick at the ends (cutting planes), continuous thin freehand (break lines).</p>
-            <p><b>(b) First angle against third angle</b></p>
-            <table class="tbl"><thead><tr><th></th><th>First angle</th><th>Third angle</th></tr></thead><tbody>
-              <tr><td>Object position</td><td>In the first quadrant, between the observer and the plane</td><td>In the third quadrant, with the plane between the observer and the object</td></tr>
-              <tr><td>Plane</td><td>Plane is behind the object (opaque)</td><td>Plane is in front of the object (transparent)</td></tr>
-              <tr><td>Top view</td><td>Below the front view</td><td>Above the front view</td></tr>
-              <tr><td>Side view</td><td>Left view on the right of the front view</td><td>Left view on the left of the front view</td></tr>
-              <tr><td>Used</td><td>India, Europe (BIS)</td><td>USA, Canada</td></tr>
-            </tbody></table>
-            <p><b>(c) True or false.</b> (i) <b>True.</b> A circle on any of the three principal planes is inclined to the viewing direction, so it appears as an ellipse in an isometric projection. (ii) <b>False.</b> In perspective projection an object appears smaller as it moves further away.</p>`,
-        },
-        {
-          n: '7',
-          answer: `
-            <p>Model answer. The axis is perpendicular to VP, so the front view is the true shape of the base (a hexagon), and one rectangular face is parallel to HP, so the hexagon has a horizontal side at top and bottom.</p>
-            <div class="worked">
-              <div class="solve">
-                <div class="eq">Hexagon of side 25 mm: across flats = 25√3 = 43.30 mm; across corners = 50 mm</div>
-                <div class="eq">Axis 35 mm above HP: the lowest face is 35 − 21.65 = 13.35 mm and the top face 35 + 21.65 = 56.65 mm above XY</div>
-                <div class="eq">Nearer end 20 mm in front of VP, axis 50 mm long: the top view covers 20 mm to 70 mm in front of XY</div>
-              </div>
-            </div>
-            <ol>
-              <li>Front view: draw a hexagon of side 25 mm with the top and bottom sides horizontal, centre 35 mm above XY. Mark the corners 1 to 6.</li>
-              <li>Top view: project down. Draw a rectangle 50 mm wide (across corners) and 50 mm long, from 20 mm to 70 mm below XY.</li>
-              <li>Draw the visible edges as lines running the full 50 mm length, at 12.5 mm either side of the centre line (the top face edges) and at 25 mm either side (the corner outlines). The bottom face edges lie directly under the same lines and need no dashed line.</li>
-              <li>Add the centre lines and dimensions 25, 50, 35 and 20.</li>
-            </ol>`,
-        },
-        {
-          n: '8',
-          answer: `
-            <p>Model answer. Choose arc welding (the easiest to explain with a diagram).</p>
-            <p><b>Principle.</b> Welding joins metals by melting the edges of the parts, with or without filler metal, so that they fuse and solidify into one piece. In <b>shielded metal arc welding (SMAW)</b> the heat comes from an electric arc between a coated electrode and the work.</p>
-            <p><b>Diagram.</b> Draw a welding power supply (AC transformer or DC rectifier) with one cable to the work piece through a ground clamp and the other to the electrode holder, with the electrode and the arc over the joint. Label the weld pool, the slag, the solidified weld metal, the base metal and the shielding gas.</p>
-            <ul>
-              <li>The arc (temperature about 3500 °C or more) melts the electrode tip and the edges of the base metal. The molten electrode metal drops into the weld pool and acts as filler.</li>
-              <li>The flux coating burns to make a shielding gas, which keeps air (oxygen and nitrogen) off the pool, and it leaves a slag layer that protects the cooling weld and is chipped off afterwards.</li>
-              <li>Current is typically 50 to 400 A at 20 to 40 V, and the electrode is moved along the joint to build the bead.</li>
-            </ul>
-            <p><b>Use.</b> Structural steel, pipes, repairs and fabrication in general.</p>`,
-        },
-        {
-          n: '9',
-          answer: `
-            <p>Model answer (standard textbook material; refrigeration is not yet covered in the course notes on this site).</p>
-            <p><b>Construction.</b> Four main parts joined in a closed circuit by pipes, containing a refrigerant such as R-134a: <b>compressor</b>, <b>condenser</b>, <b>expansion (throttle) valve or capillary tube</b> and <b>evaporator</b>. Draw them in order with arrows on the pipes and label the two heat flows (Q<sub>in</sub> at the evaporator, Q<sub>out</sub> at the condenser).</p>
-            <p><b>Working.</b></p>
-            <ol>
-              <li><b>Compression:</b> the compressor takes in low-pressure, low-temperature vapour from the evaporator and compresses it to a high-pressure, high-temperature vapour. This takes work.</li>
-              <li><b>Condensation:</b> in the condenser (air or water cooled) the hot vapour gives up heat to the surroundings and condenses to a high-pressure liquid.</li>
-              <li><b>Expansion:</b> the liquid passes through the expansion valve, where its pressure and temperature fall suddenly (a constant-enthalpy throttling). It leaves as a cold liquid-vapour mixture.</li>
-              <li><b>Evaporation:</b> in the evaporator the cold refrigerant absorbs heat from the space to be cooled and evaporates fully. The low-pressure vapour goes back to the compressor.</li>
-            </ol>
-            <p><b>Performance.</b> COP = refrigerating effect/compressor work = heat absorbed in the evaporator/work input. Used in refrigerators, freezers, cold storage and air conditioners.</p>`,
-        },
-        {
-          n: '10',
-          answer: `
-            <p>Model answer (standard textbook material; robotics is not yet covered in the course notes on this site).</p>
-            <p><b>(a) What a robot is (2 marks).</b> A robot is a reprogrammable, multi-functional machine (a mechanism driven by actuators and guided by sensors and a controller) that can carry out a variety of tasks, such as moving parts or tools through programmed motions, with little or no human help.</p>
-            <p><b>(b) Robots against automation (3 marks).</b></p>
-            <table class="tbl"><thead><tr><th></th><th>Fixed automation</th><th>Robot</th></tr></thead><tbody>
-              <tr><td>Task</td><td>One fixed job (for example a transfer line or a bottle-filling machine)</td><td>Many jobs, by reprogramming</td></tr>
-              <tr><td>Flexibility</td><td>Low; a new product needs new equipment</td><td>High; a new program or tool is enough</td></tr>
-              <tr><td>Use</td><td>High-volume, same product</td><td>Medium volume, varied products</td></tr>
-              <tr><td>Sensing and decision</td><td>Little or none</td><td>Sensors and a controller let it adapt</td></tr>
-            </tbody></table>
-            <p><b>(c) One configuration (5 marks): articulated (revolute) arm.</b> Draw a base on the floor, a vertical rotating waist, a shoulder joint, an elbow joint and a wrist with a gripper (end effector) at the end, with each joint a rotation. Label the joints and the axes.</p>
-            <ul>
-              <li>The arm has three or more rotary joints (waist, shoulder, elbow, plus wrist joints), so it reaches a roughly spherical work envelope.</li>
-              <li>Advantages: a large reach and great flexibility, which suits welding, painting and assembly. Disadvantages: more complex control and lower stiffness.</li>
-            </ul>
-            <p>Other configurations: Cartesian (three sliding joints, a box-shaped envelope), cylindrical, spherical (polar) and SCARA.</p>`,
-        }
-      ]
-    }
-  ]
+    }  ]
 });
