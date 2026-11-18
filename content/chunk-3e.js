@@ -299,6 +299,9 @@ CHUNK({
     }
   ],
   figures: [
+    {id: "m3-fat26-iso-cylinder", paper: "fat-a1-2026", src: "papers-cc/2026_Fall_FAT_A1_179448.pdf", crop: null, caption: "Model answer: isometric view of a cylinder Ø60 × 65 standing on its base.", alt: "Isometric cylinder with an elliptical top, two vertical outline lines and the front half of the base ellipse; height 65 and diameter 60 dimensioned."},
+    {id: "m3-fat26-iso-cone", paper: "fat-a2-2026", src: "papers-cc/2026_Fall_FAT_A2_179466.pdf", crop: null, caption: "Model answer: isometric view of a cone, base Ø50, height 70, base on HP.", alt: "Isometric cone: front half of the base ellipse and two outline lines from the tangent points to the apex, with the axis; height 70 and diameter 50 dimensioned."},
+    {id: "m3-fat26-iso-hexprism", paper: "fat-b1-2026", src: "papers-cc/2026_Fall_FAT_B1_179466.pdf", crop: null, caption: "Model answer: isometric view of a hexagonal prism, side 20, height 60, base on HP.", alt: "Isometric hexagonal prism: full hexagon on top, three visible side faces, height 60 and side 20 marked."},
     { id: 'm3-point-quadrants', src: 'vtop/m3-drawing/p82.png', crop: null, caption: 'Front view a′ and top view a of a point in each of the four quadrants.', alt: 'Four XY lines with the two views of a point above or below each.' },
     { id: 'm3-line-projection', src: 'vtop/m3-drawing/p86.png', crop: null, caption: 'A line parallel to one plane shows its true length in the view on that plane.', alt: 'Two sets of projections of a line on XY: one with the top view at 45°, one with the front view at 30°.' },
     { id: 'm3-isometric-scale', src: 'own/README.txt', crop: null, caption: 'Isometric axes 120° apart, and the isometric scale built from 45° and 30° lines.', alt: 'Three axes from a point, and two lines at 45° and 30° joined by vertical projectors.' },

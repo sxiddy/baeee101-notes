@@ -161,3 +161,69 @@ console.log('--- fat-e1 Q7 hexagonal prism side 25, axis 50, face parallel to HP
   const s = 25, flats = s * Math.sqrt(3), corners = 2 * s;
   console.log({ acrossFlats: f(flats, 2), acrossCorners: corners, bottomFlatAboveHP: f(35 - flats / 2, 2), topFlatAboveHP: f(35 + flats / 2, 2), topViewFrom: 20, to: 70, longLinesAt: [f(s / 2, 1), s] });
 }
+
+// ================= Fall 2026-27 FAT papers (fat-a1-2026, fat-a2-2026, fat-b1-2026)
+const par = (a, b) => a * b / (a + b);
+console.log('--- fat-a1-2026 Part 1 Q1 superposition, branch AB ---');
+{
+  // 12 V alone (9 A opened)
+  const Rright = 4 + par(2, 2), RA = par(6, Rright), I12 = 12 / (2 + RA), VA = I12 * RA, IAB1 = VA / Rright;
+  // 9 A alone (12 V shorted): 9 A into B splits between 2||2 = 1 ohm and 4 + (2||6)
+  const Rleft = 4 + par(2, 6), IBA2 = 9 * par(2, 2) / (par(2, 2) + Rleft);
+  // nodal cross-check: (VA-12)/2 + VA/6 + (VA-VB)/4 = 0 ; (VB-VA)/4 + VB/1 = 9
+  const [VAn, VBn] = solve([[1 / 2 + 1 / 6 + 1 / 4, -1 / 4], [-1 / 4, 1 / 4 + 1]], [6, 9]);
+  console.log({ Rright, RA: f(RA, 4), I12: f(I12, 4), VA: f(VA, 4), IAB_12V: f(IAB1, 4), Rleft, IBA_9A: f(IBA2, 4), net_AB: f(IAB1 - IBA2, 6), VA_nodal: f(VAn, 4), VB_nodal: f(VBn, 4) });
+  close(IAB1 - IBA2, (VAn - VBn) / 4); close(IAB1 - IBA2, 0);
+}
+console.log('--- fat-a1-2026 Part 1 Q2 mesh, two 12 V sources ---');
+{
+  // clockwise meshes: 1 = left source, 2 ohm, 4 ohm ; 2 = 4, 7, 6 ; 3 = 6, 3, right source (+ on top)
+  const [I1, I2, I3] = solve([[6, -4, 0], [-4, 17, -6], [0, -6, 9]], [12, 0, -12]);
+  const V = { R2: 2 * I1, R4: 4 * (I1 - I2), R7: 7 * I2, R6: 6 * (I2 - I3), R3: 3 * I3 };
+  console.log({ I1: f(I1, 4), I2: f(I2, 4), I3: f(I3, 4) }, Object.fromEntries(Object.entries(V).map(([k, v]) => [k, f(v, 3)])));
+  // nodal check: X = node after 2 ohm, Y = node after 7 ohm
+  const [VX, VY] = solve([[1 / 2 + 1 / 4 + 1 / 7, -1 / 7], [-1 / 7, 1 / 7 + 1 / 6 + 1 / 3]], [6, 4]);
+  close(VX, V.R4); close(VY, V.R6); close(12 - VX, V.R2);
+  console.log({ VX: f(VX, 3), VY: f(VY, 3) });
+}
+console.log('--- fat-a1-2026 Part 1 Q3 series RLC, 50 V, R 3, XL 7, XC 10 ---');
+{
+  const R = 3, XL = 7, XC = 10, E = 50, X = XL - XC, Z = Math.hypot(R, X), I = E / Z, phi = deg(Math.atan2(X, R));
+  const out = { Z: f(Z, 4), phiZ: f(phi, 2), I: f(I, 3), Iangle: f(-phi, 2), VR: f(I * R, 2), VL: f(I * XL, 2), VC: f(I * XC, 2), P: f(I * I * R, 2), Q: f(I * I * X, 2), S: f(E * I, 2), pf: f(R / Z, 4) };
+  console.log(out); close(Math.hypot(I * R, I * XL - I * XC), E);
+}
+console.log('--- fat-a1-2026 Part 2 Q2 isometric cylinder; fat-a2-2026 Q7 cone; fat-b1-2026 Part 2 Q2 hexagonal prism ---');
+{
+  const { GEO } = require('./figs/fat2026.js');
+  console.log({ cylinder: { major: f(GEO.cyl.major, 2), minor: f(GEO.cyl.minor, 2) }, cone: { major: f(GEO.cone.major, 2), minor: f(GEO.cone.minor, 2), slant: f(Math.hypot(25, 70), 2) }, hex: { acrossFlats: f(GEO.hex.acrossFlats, 2), acrossCorners: GEO.hex.acrossCorners } });
+  close(GEO.cyl.major, 60 * Math.sqrt(1.5)); close(GEO.hex.acrossFlats, 34.641016, 1e-5);
+}
+console.log('--- fat-a2-2026 Q1 node voltages, 6 A in, 10 A out ---');
+{
+  const [V1, V2] = solve([[1 / 8 + 1 / 4, -1 / 4], [-1 / 4, 1 / 4 + 1 / 2]], [6, -10]);
+  const P8 = V1 * V1 / 8, P4 = (V1 - V2) ** 2 / 4, P2 = V2 * V2 / 2;
+  console.log({ V1: f(V1, 4), V2: f(V2, 4), I8: f(V1 / 8, 4), I4: f((V1 - V2) / 4, 4), I2: f(V2 / 2, 4), P8: f(P8, 2), P4: f(P4, 2), P2: f(P2, 2), total: f(P8 + P4 + P2, 2), sources: f(6 * V1 - 10 * V2, 2) });
+  close(P8 + P4 + P2, 6 * V1 - 10 * V2);
+}
+console.log('--- fat-b1-2026 Part 1 Q1 nodal, current in the 5 ohm ---');
+{
+  // L: VL/4 + (VL-VC)/2 = -4 + 5 ; C: VC/2 + (VC-VL)/2 + (VC-VR)/3 = 4 - 3 ; R: VR/5 + (VR-VC)/3 = 3 - 5
+  const [VL, VC, VR] = solve([[1 / 4 + 1 / 2, -1 / 2, 0], [-1 / 2, 1 / 2 + 1 / 2 + 1 / 3, -1 / 3], [0, -1 / 3, 1 / 5 + 1 / 3]], [1, 1, -2]);
+  console.log({ VL: f(VL, 4), VC: f(VC, 4), VR: f(VR, 4), I5: f(VR / 5, 4), I4: f(VL / 4, 4), I2v: f(VC / 2, 4), I2h: f((VL - VC) / 2, 4), I3: f((VC - VR) / 3, 4) });
+  close(VL / 4 + VC / 2 + VR / 5, 0); // all current into D sums to zero (sources form a loop among L, C, R)
+}
+console.log('--- fat-b1-2026 Part 1 Q2 superposition, power in 5 ohm ---');
+{
+  const Rx = par(10, 5 + 15), I2V = 2 / (1 + Rx), VX = I2V * Rx, Ia = VX / 20; // X -> Y
+  const Rl = 5 + par(1, 10), Ib = 4 * 15 / (15 + Rl); // X -> Y, feeding the 4 A drawn out of Y
+  const I = Ia + Ib, P = 5 * I * I;
+  const [VXn, VYn] = solve([[1 + 1 / 10 + 1 / 5, -1 / 5], [-1 / 5, 1 / 5 + 1 / 15]], [2, -4]);
+  console.log({ Rx: f(Rx, 4), I2V: f(I2V, 4), VX: f(VX, 4), I5_from2V: f(Ia, 4), Rl: f(Rl, 4), I5_from4A: f(Ib, 4), I5: f(I, 4), P5: f(P, 3), wrongSumOfPowers: f(5 * Ia * Ia + 5 * Ib * Ib, 3), VX_nodal: f(VXn, 4), VY_nodal: f(VYn, 4) });
+  close(I, (VXn - VYn) / 5);
+}
+console.log('--- fat-b1-2026 Part 1 Q3 v = 200√2 sin(wt + 20°), i = 10√2 cos(314t − 25°) ---');
+{
+  const Vm = 200, Im = 10, thV = 20, thI = -25 + 90; // cos(x) = sin(x + 90°)
+  const phi = thV - thI, Z = Vm / Im, R = Z * Math.cos(rad(phi)), X = Z * Math.sin(rad(phi)), C = 1 / (314 * -X);
+  console.log({ thI, phi, Z, R: f(R, 3), Xc: f(-X, 3), C_uF: f(C * 1e6, 1), pf: f(Math.cos(rad(phi)), 4), P: f(Vm * Im * Math.cos(rad(phi)), 1), Q: f(Vm * Im * Math.sin(rad(phi)), 1), S: Vm * Im, f_Hz: f(314 / (2 * Math.PI), 2) });
+}

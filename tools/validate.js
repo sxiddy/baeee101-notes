@@ -113,7 +113,7 @@ function checkChunk(file, d, globalCtx) {
     if (!Array.isArray(t.formulas)) err(w, 'formulas[] required (may be empty)');
     (t.formulas || []).forEach((f, i) => { if (!f.name || !f.html) err(`${w} formula ${i + 1}`, 'name/html required'); else checkHtml(`${w} formula ${f.name}`, f.html, ctx); });
   }
-  const figIds = new Set();
+  const figIds = new Set(), paperFigs = new Set((d.figures || []).filter((f) => f.paper).map((f) => f.id));
   for (const f of d.figures || []) {
     const w = `${where0} › figure ${f.id}`;
     if (!/^m[0-9]+-[a-z0-9-]+$/.test(f.id || '')) err(w, 'bad id');
@@ -132,6 +132,7 @@ function checkChunk(file, d, globalCtx) {
     used.set(r.id, (used.get(r.id) || 0) + 1);
   }
   for (const id of figIds) {
+    if (!used.has(id) && paperFigs.has(id)) continue; // drawn for a question paper (figure.paper), placed in papers-free/pro.js
     if (!used.has(id)) warn(`${where0} › figure ${id}`, 'defined but never placed');
     else if (used.get(id) > 1) err(`${where0} › figure ${id}`, 'placed more than once');
   }

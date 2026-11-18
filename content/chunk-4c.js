@@ -39,7 +39,8 @@ CHUNK({
 <tr><td>Material removal</td><td>Lower rate</td><td>Higher rate, since several edges cut</td></tr>
 <tr><td>Heat and wear</td><td>All heat on one edge, so it wears faster</td><td>Load and heat shared, longer life</td></tr>
 <tr><td>Making and resharpening</td><td>Simple and cheap</td><td>Complex and costly</td></tr>
-</tbody></table>`
+</tbody></table>
+<figure data-fig="m4-cutting-tools"></figure>`
         }
       ],
       flashcards: [
@@ -222,6 +223,7 @@ CHUNK({
     }
   ],
   figures: [
+    { id: 'm4-cutting-tools', src: 'own/README.txt', crop: null, caption: 'Single point tool: shank, face, flank, tip, rake angle α and relief angle γ. Multi-point tool: a plain milling cutter whose teeth each cut like a single point edge.', alt: 'Side view of a single point lathe tool with the rake face, flank, rake and relief angles and a curling chip; below, a toothed milling cutter rotating above a workpiece fed by the table.' },
     { id: 'm4-turning', src: 'm4/pages/p76.png', crop: null, caption: 'Turning on a lathe: the tool feeds along the rotating workpiece and cuts to a depth of cut.', alt: 'Workpiece in a chuck with a single point tool showing feed and depth of cut.' },
     { id: 'm4-cnc-control', src: 'm4/pages/p83.png', crop: null, caption: 'Point-to-point control moves between positions; contouring control follows a path while cutting.', alt: 'A point-to-point route beside a contoured path.' }
   ]
