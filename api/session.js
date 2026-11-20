@@ -35,6 +35,6 @@ module.exports = handle(async (req, res) => {
     price: cfg.price, normalPrice: cfg.normalPrice, sale: cfg.sale, banner: cfg.banner, paused: cfg.paused, business: cfg.business || '', reviewer, keyId: process.env.RAZORPAY_KEY_ID || null,
     googleClientId: process.env.GOOGLE_CLIENT_ID || null, domain: DOMAIN,
     storeUrl: process.env.STORE_URL ? process.env.STORE_URL.replace(/\/$/, '') : null, storeCode: 'BAEEE101', storeName: 'Basic Engineering',
-    devLogin: process.env.DEV_LOGIN === '1' && !process.env.VERCEL, dev: process.env.DEV_BYPASS === '1',
+    devLogin: process.env.DEV_LOGIN === '1' && !process.env.VERCEL && !process.env.PRODUCTION, dev: process.env.DEV_BYPASS === '1',
   }, headers);
 });
