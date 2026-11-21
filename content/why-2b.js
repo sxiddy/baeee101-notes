@@ -1,0 +1,18 @@
+// Why each wrong option is wrong, per question id. Index order matches the options; the correct one is ''.
+WHY({
+  'm2-2b-02': ['p-type source and drain in an n body describes a pMOS, not an nMOS.', 'All regions p-type gives no PN junctions, so it is not a MOSFET structure.', 'All regions n-type gives no PN junctions; the body of an nMOS must be p-type.', ''],
+  'm2-2b-03': ['Normally on describes a depletion MOSFET, which has a solid channel line.', 'The broken line means no channel at all, not a constant current.', 'A built-in channel belongs to the depletion type, drawn with a solid line.', ''],
+  'm2-2b-05': ['V<sub>GS</sub> below V<sub>th</sub> means no channel, so the device is in cut-off.', 'V<sub>DS</sub> below V<sub>GS</sub> − V<sub>th</sub> is the linear (ohmic) region, which acts like a resistor.', '', 'V<sub>DS</sub> = 0 gives no drain current at all.'],
+  'm2-2b-06': ['2 V is just V<sub>th</sub>; the boundary is V<sub>GS</sub> − V<sub>th</sub>.', '', '5 V is V<sub>GS</sub> itself; you must subtract V<sub>th</sub>.', '7 V comes from adding V<sub>th</sub> instead of subtracting it.'],
+  'm2-2b-09': ['', 'Touching the gate does not melt the drain; static damages the thin gate oxide.', 'Unipolar describes how a MOSFET conducts, not a kind of damage.', 'A stray touch does not lock a channel into saturation; the oxide breaks down.'],
+  'm2-2b-11': ['MOSFETs are voltage controlled and need no steady base current; that describes a BJT.', 'MOSFETs have a higher input impedance than BJTs, not lower.', 'The thin gate oxide is easily damaged by overload voltage, so MOSFETs are not immune.', ''],
+  'm2-2b-12': ['Saturation needs V<sub>GS</sub> above V<sub>th</sub> with enough V<sub>DS</sub>.', '', 'Normally on with current at zero gate voltage describes a depletion MOSFET.', 'The ohmic region also needs a channel, which requires V<sub>GS</sub> above V<sub>th</sub>.'],
+  'm2-2b-13': ['', 'An enhancement MOSFET has no channel at zero or reverse gate voltage, so a negative V<sub>GS</sub> cannot lower its current.', 'A BJT is current controlled through its base, not by a gate voltage.', 'An n-channel enhancement MOSFET is off at negative V<sub>GS</sub>, so it cannot be tuned both ways.'],
+  'm2-2b-16': ['Only the difference is amplified, and the difference here is zero.', 'Equal inputs give zero difference, so there is nothing to drive the output to saturation.', '', 'The output is gain times the difference, not equal to the input.'],
+  'm2-2b-19': ['A non-inverting amplifier keeps the sign, and the gain is 4, not 3.', 'A non-inverting amplifier does not invert, so the output is positive.', '4.5 V uses a gain of R<sub>1</sub>/R<sub>2</sub> = 3; the gain is 1 + R<sub>1</sub>/R<sub>2</sub> = 4.', ''],
+  'm2-2b-21': ['5 kΩ gives a gain of 1 + 5/5 = 2, not 5.', '', '25 kΩ uses gain = R<sub>1</sub>/R<sub>2</sub>, forgetting the 1 in 1 + R<sub>1</sub>/R<sub>2</sub>.', '30 kΩ gives a gain of 7, not 5.'],
+  'm2-2b-23': ['', '−6 V forgets that the input is already negative, and the inverter flips it back to positive.', '−1.5 V uses R<sub>i</sub>/R<sub>f</sub> instead of R<sub>f</sub>/R<sub>i</sub> and drops a sign.', '1.5 V divides by the gain instead of multiplying.'],
+  'm2-2b-25': ['10 kΩ gives a gain of 7, not 4.', '15 kΩ gives a gain of 5, using R<sub>1</sub>/R<sub>2</sub> = 4 without the 1.', '', '30 kΩ gives a gain of 3, not 4.'],
+  'm2-2b-26': ['Megaohms describes input impedance, which is high; output impedance is low.', 'Below 100 Ω is a real 741, not the ideal op-amp.', 'Infinite is the ideal input impedance, not the output impedance.', ''],
+  'm2-2b-29': ['The inverting input is pin 2.', 'The negative supply −V<sub>CC</sub> is pin 4.', '', 'The output is pin 6.'],
+});
